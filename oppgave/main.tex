@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\input{import.tex}
+\input{newcommands.tex}
+% \input{glossary.tex}
+
+\title{Chiral Perturbation Theory}
+\author{Martin Johnsrud}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% TODO %%%%%%%
+% Forklare hva \alpha er (forstå hva \alpha er)
+% være mer konsekevent på parantes {[()]}
+% Forklare power counting og effective Lagrangian
+% Sjekke partial integraion pi1 d0 pi2
+% Nevne at vi ser bort fra WZW-termer
+% Referanser i stigende rekkefølge
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% SPØRSMÅL %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setter vi faktisk m = 0? Hvordan har vi parameteren \chi hvis m = 0
+% Hvordan er SU(2)(kompakt) isomorf til R^3???
+% Hvor kommer EOM inn i bildet? Det ser ut som det bare er et navn...
+% Kan jeg droppe l_4 termen?
+% Lingningsnummer --- når?
+% Overskrifter --- Stpr bokstav?
+% Hvorfor kan vi bruke EOM fra en annen parametrisering?
+
+%%% Ting og fikse %%%
+% Bytt til \omega_p/k og bruk det over alt
+
+
+\begin{document}
+\maketitle 
+
+% % Effective Lagrangian
+\section{Effective Pion Lagrangian}
+\input{effective_lagrangian/effective_lagrangian.tex}
+% Veldig uferdig. Trenger teori om Goldstones theorem
+\input{effective_lagrangian/leading_order_lagrangian.tex}
+% For det meste ferdig
+\input{effective_lagrangian/redundant_terms.tex}
+% Ikke ferdig. Se på mer senere
+\input{effective_lagrangian/nlo_lagrangian.tex}
+% For det meste ferdig, kanskje skrive eneldige Lagrangian
+
+% Effective potential
+\section{Effective Potential}
+\input{effective_potential/effective_potential.tex}
+% Skrive teori om effektivt potensialet
+% Regne ut free energy ved bruk av propagator
+
+% Thermal field theory
+\section{Thermal Field Theory}
+\input{thermal_field_theory/imaginary_time.tex}
+% Kutte starten
+\input{thermal_field_theory/free_scalar.tex}
+% Snakke om den divergente delen av thermal sum
+\input{thermal_field_theory/thermal_sum.tex}
+% Inkludere Figur, og den fermionske versjonen
+% \input{thermal_field_theory/integral_cont.tex}
+\input{thermal_field_theory/interacting_scalar.tex}
+\input{thermal_field_theory/fermions.tex}
+% Ha bedre overgang til fermionic path integral
+% Regne ut trace spinor-indekser bedre
+
+\bibliographystyle{unsrt}
+\bibliography{referanser}
+
+
+\clearpage
+\input{appendix.tex}
+
+% \clearpage
+% \printnoidxglossaries
+
+\end{document}

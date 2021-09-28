@@ -1,0 +1,277 @@
+\subsection*{Next to leading order Lagrangian}
+
+The next to leading order Lagrangian density is, assuming no external fields
+\begin{align}
+    \notag
+    \Ell_4 
+    & = 
+    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    +
+    \frac{l_3 + h_1 - h_3 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \\ \notag
+    &
+    + \frac{l_4}{4}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    + \frac{h_1 - h_3 - l_4-l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    + \frac{h_1 + h_2 - l_4}{4} \Tr{\chi \chi^\dagger} \\
+    & -
+    \frac{h_1 - h_3 - l_4}{8} 
+        \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+    \label{NLO Lagrangian}
+\end{align}
+ 
+To $\Ell_4$ to $\Oh[3]{(\pi/f)}$, we use the result from \autoref{Sigma derivative} and \autoref{sigma commutator},
+% \begin{align*}
+%     \Sigma & =
+%     \left(
+%        1 
+%        - \frac{\pi_a^2}{2f^2}
+%    \right)
+%    (\cos{\alpha} + i \tau_1 \sin{\alpha})
+%    +  \frac{\pi_a}{f}
+%    \left(
+%        i\tau_a 
+%        - 2i \delta_{a1} \tau_1 \sin^2{\frac{\alpha}{2}}
+%        - \delta_{a1} \sin{\alpha}
+%    \right), \\
+%     \partial_\mu \Sigma 
+%     & = 
+%     - \frac{\pi_a \partial_\mu \pi_a}{f^2}
+%     \left(\cos{\alpha} + i \tau_1 \sin{\alpha}\right)
+%     + \frac{\partial_\mu \pi_a}{f}
+%     \left(
+%         i\tau_a 
+%         -2 i \delta_{a1} \tau_1 \sin^2{\frac{\alpha}{2}}
+%         - \delta_{a1}\sin{\alpha}\right), \\
+%     [v_\mu, \Sigma^\dagger] 
+%     & =
+%     \mu_I \delta^0_\mu
+%     \left[
+%         \left( 1 - \frac{\pi_a^2}{2f^2} \right) \tau_2 \sin{\alpha}
+%         + \frac{\pi_a}{f}
+%         \left(
+%             \delta_{a1} \cos{\alpha} \tau_2 - \delta_{a2} \tau_1
+%         \right)
+%     \right].
+%     \end{align*}
+up to and including $\Oh{(\pi/f)}$, which gives
+\begin{align*}
+    %%%%%%%%%%%%%%%%%%
+    % parital square %
+    %%%%%%%%%%%%%%%%%%
+    \Tr{\partial_\mu \Sigma \partial_\nu \Sigma^\dagger}
+    & = 2 \frac{\partial_\mu \pi_a \partial_\nu \pi_a}{f^2} \\
+    %%%%%%%%%%%%%%
+    % Cross term %
+    %%%%%%%%%%%%%
+    -i \Tr{\partial_\mu \Sigma \com{v_\nu}{\Sigma^\dagger} - \hc}
+    & = 
+    \frac{2\mu_I\pi_2}{f}(\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\sin{\alpha} + 
+    \frac{2\mu_I}{f^2}
+    [
+        \pi_1 (\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\pi_2 
+        - \pi_2 (\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\pi_1
+    ]\cos{\alpha}
+    \\
+    %%%%%%%%%%%%%%%%%
+    % Comm. squared %
+    %%%%%%%%%%%%%%%%%
+    - \Tr{\com{v_\nu}{\Sigma} \com{v_\nu}{\Sigma^\dagger}}
+    & = 2 \mu_I{}^2 \delta_\mu^0 \delta_\nu^0 
+    \left[
+        \sin^2{\alpha} + \frac{\pi_1}{f} \sin{2\alpha} 
+        + \frac{\pi_a \pi_b}{f^2} 
+        k_{ab}
+    \right].
+\end{align*}
+Using the form of the Pauli matrices, we can write $\chi$ as 
+\begin{align*}
+    \chi = 2 B_0 M = 2 B_0 (\bar m \one + \Delta m \tau_3),
+\end{align*}
+where $\bar m  = (m_u + m_d)/2, \, \Delta m = (m_u - m_d)/2$, which gives 
+\begin{align*}
+    \chi \Sigma^\dagger + \Sigma \chi^\dagger
+    & = 4 B_0 \Bigg\{
+         (\bar m + \Delta m \tau_3)
+        \left[
+            \left(
+                1 
+                - \frac{\pi_a^2}{2f^2}
+            \right)
+            \cos{\alpha}
+            - \frac{\pi_1}{f}    
+            \sin{\alpha}
+        \right]\\
+    & \quad \quad \quad
+    + \Delta m 
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+        \right)
+        \tau_2 \sin{\alpha}
+        +  \frac{\pi_a}{f}
+        \left(
+            \delta_{a1} \tau_2 \cos{\alpha} - \delta_{a2} \tau_1
+        \right)
+    \right]
+    \Bigg\}, \\
+    %%%%%%%%%%%%%%
+    % Difference %
+    %%%%%%%%%%%%%%
+    \chi \Sigma^\dagger  - \Sigma \chi^\dagger
+    & = - 4 i B_0 \Bigg\{
+        \bar m 
+        \left[
+            \left(
+                1 - \frac{\pi_a^2}{2f^2}
+            \right)
+            \tau_1 \sin{\alpha}
+            +  \frac{\pi_a}{f}    \left(
+                \tau_a 
+                - 2 \delta_{1a} \tau_1 \sin^2{\frac{\alpha}{2}}
+            \right)        
+        \right]
+        + \Delta m 
+            \frac{\pi_3}{f}
+    \Bigg\}.
+\end{align*}
+Combining these results gives all the terms in $\Ell_4$, to $\Oh[3]{(\pi/f)}$:
+%%%%%%%%%%%%%%%%%
+% Parts for L_4 %
+%%%%%%%%%%%%%%%%%
+\begingroup
+\allowdisplaybreaks % Make page break possible
+\begin{align}
+    %%%%%%%
+    % l_1 %
+    %%%%%%%
+    \notag
+    & \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2 
+    =
+    \Tr{\partial_\mu \Sigma \partial^\mu \Sigma ^\dagger
+    - i \left( \partial_\mu \Sigma \com{v^\mu}{\Sigma^\dagger} - \hc \right)
+    - \com{v_\mu}{\Sigma}\com{v^\mu}{\Sigma^\dagger} 
+    }^2 \\\notag
+    &\quad  =
+    \frac{8 \mu_I^2}{f^2} 
+    (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+    \sin^2{\alpha} \\\notag
+    &\quad  + 16 \mu_I^3 \left[
+        \frac{\partial_0 \pi_2}{f}
+            \sin^3{\alpha}
+        + \frac{1}{f^2} \left(3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+            \cos{\alpha} \sin^2{\alpha}
+    \right] \\ \label{l1}
+    & \quad + 4 \mu_I^4 
+    \left\{
+        \sin^4{\alpha}
+        + 2 \sin^2{\alpha}
+        \left[
+            \frac{\pi_1}{f}\sin{2\alpha}
+            + \frac{\pi_a \pi_b}{f^2}        
+            \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+        \right]
+    \right\}, \\
+    %%%%%%%
+    % l_2 %
+    %%%%%%%
+    \notag
+    & \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger}\\ \notag
+    & \quad = \frac{4 \mu_I{}^2}{f^2}
+    \left(
+        \partial_0 \pi_a\partial_0 \pi_a + \partial_0 \pi_2\partial_0 \pi_2 + \partial_\mu \pi_2\partial^\mu \pi_2
+    \right) \sin^2{\alpha} \\\notag
+    &\quad  + 16 \mu_I^3 \left[
+        \frac{\partial_0 \pi_2}{f}\
+            \sin^3{\alpha}
+        + \frac{1}{f^2} \left(3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+        \cos{\alpha} \sin^2{\alpha}
+    \right] \\\label{l2}
+    & \quad + 4 \mu_I^4 
+    \left\{
+        \sin^4{\alpha}
+        + 2 \sin^2{\alpha}
+        \left[
+            \frac{\pi_1}{f}\sin{2\alpha} 
+            + \frac{\pi_a \pi_b}{f^2}        
+            \left(k_{ab} + 2 \delta_{a1}\delta_{a2} \cos^2{\alpha} \right)
+        \right]
+    \right\}, \\
+    %%%%%%%
+    % l_4 %
+    %%%%%%%
+    \notag
+    & \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} 
+    \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger } \\\label{l4}
+    & \quad =
+    8 B_0 \bar m 
+    \Bigg\{
+        2 \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2} \cos{\alpha}
+        + 4 \mu_I 
+        \left[
+            \frac{\partial_0 \pi_2}{2 f} \sin{2\alpha}
+            + \frac{1}{f^2}
+            \left(
+                \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+                - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+            \right)
+        \right]\\\notag
+        & \quad + \mu_I{}^2
+        \left[
+            2\cos{\alpha}\sin^2{\alpha} 
+            - 2 \frac{\pi_1}{f} \sin{\alpha}
+            \left(3\sin^2{\alpha} - 1\right)
+            + \frac{1}{f^2}
+            \left(                
+                \pi_1^2[2 - 9 \sin^2{\alpha}]
+                + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+                - 3\pi_3^2\sin^2{\alpha}
+            \right)
+            \cos{\alpha}
+        \right]
+    \Bigg\}, \\
+    %%%%%%%
+    % l_3 %
+    %%%%%%%
+    \label{l3}
+    & \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger }^2
+    = (8 B_0 \bar m)^2 
+    \left[
+        \cos^2{\alpha} 
+        - \frac{\pi_1}{f} \sin{2\alpha}
+        + \frac{1}{f^2}\left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+    \right], \\
+    %%%%%%%
+    % l_7 %
+    %%%%%%%
+    \label{l7}
+    & \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger }^2
+     = - 16 \left( \frac{2 \Delta m B_0 \pi_3}{f} \right)^2, \\
+    %%%%%%%
+    % h_3 %
+    %%%%%%%
+    \notag
+    & \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left(\Sigma \chi^\dagger \right)^2}
+    \\\label{h3}
+    & \quad \quad = 16 B_0^2 \bar m^2
+    \left(
+        \cos{2\alpha} 
+        - 2\frac{\pi_1}{f} \sin{2\alpha}
+        - 2\frac{\pi_a \pi_a}{f^2} \cos^2{\alpha}
+        + 2\frac{\pi_1^2}{f^2} \sin^2{\alpha}
+    \right)
+    + 16 B_0^2 \Delta m^2
+    \left(
+        1- 2\frac{ \pi_3^2}{f^2}
+    \right)
+    , \\
+    %%%%%%%
+    % h_2 %
+    %%%%%%%
+    \label{h2}
+    & \Tr{\chi^\dagger \chi} = 8B_0^2\left( {\bar m}^2 + {\Delta m}^2\right).
+\end{align}
+
+\endgroup

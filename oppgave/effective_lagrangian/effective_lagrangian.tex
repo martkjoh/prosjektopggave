@@ -1,0 +1,42 @@
+The technique used in \chpt to obtain the effective Lagrangian of the pion relies on a ``theorem'', as formulated by Weinberg:
+\begin{quote}
+    [I]f one writes down the most general possible Lagrangian, including all terms consistent with assumed symmetry principles, and then calculates matrix elements with this Lagrangian to any given order of perturbation theory, the result will simply be the most general possible S-matrix consistent with analyticity, perturbative unitary, cluster decomposition and the assumed symmetry principles. \cite{WeinbergPhenom}
+\end{quote}
+In other words, if we write down the most general Lagrange density consistent with symmetries of the underlying theory, it will result in the most general S-matrix consistent with that theory, and important physical assumptions.
+This leaves a Lagrange density with infinitely many terms, and infinitely many free parameters.
+To be able to use this theory for anything one must have a method for ordering the terms in order of importance.
+As described in \cite{Scherer2002IntroductionTC}, by rescaling the external momenta $p_\mu \rightarrow t p_\mu$ and quark masses $m_i \rightarrow t^2 m_i$, each term in the Lagrangian obtains a factor $t^D$.
+The Lagrangian is then expanded as $\Ell = \sum_D \Ell_D$, where $\Ell_D$ contains all terms with a factor $t^D$.
+
+In our case, the underlying theory is QCD with two quarks, up and down, with mass matrix 
+\begin{equation}
+    \label{Mass matrix}
+    M =
+    \begin{pmatrix}
+        m_u & 0 \\
+        0 & m_d
+    \end{pmatrix}.
+\end{equation}
+In the isospin limit, $m_u = m_d$, the theory is invariant under global transformations by elements of the group $G' = \lieg{SU}{2}_L \times \lieg{SU}{2}_R \times \lieg{U}{1}_V$.
+All terms involving only pions are trivially invariant under $\lieg{U}{1}_V$, (HVORFOR?) so we focus on the $G = \lieg{SU}{2}_L \times \lieg{SU}{2}_R$ subgroup.
+This symmetry is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
+The Goldstone manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstone bosons, the pions.
+There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstone-fields
+\begin{equation*}
+    M_1 = \C{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
+\end{equation*}
+close to the ground state, into fields taking values in the Goldstone manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
+The \chpt effective Lagrangian will be constructed using this map, through the parametrization
+\begin{align}
+\label{sigma}
+    \Sigma : \Em_4 & \longrightarrow \lieg{SU}{2},\\ \notag
+    x & \longrightarrow \Sigma(x) = A_\alpha (U(x) \Sigma_0 U(x)) A_\alpha,
+\end{align}
+where
+\begin{align*}
+    \Sigma_0 = \one,\, 
+    A_\alpha = \exp(\frac{i \alpha}{2} \tau_1),\, 
+    U(x) = \exp(i \frac{\tau_a\pi_a(x)}{2f}).
+\end{align*}
+$\tau_a$ are the $\SU(2)$ generators, i.e. Pauli matrices, as described in \autoref{Conventions and notation}.
+$\pi_a$, where $ \, a \in \C{1, 2, 3}$, are the pion fields. These are real fields, meaning $\pi_a^\dagger = \pi_a$.

@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\input{../import.tex}
+\input{../newcommands.tex}
+
+\title{QCD Lagrangian}
+\author{Martin Johnsrud}
+\vspace{-8ex}
+\date{}
+
+
+\begin{document}
+    \maketitle
+    The QCD Lagrangian is, in compact notation
+    \begin{equation}
+        \Ell = \sum_{f} \bar q_{f} \left(i \slashed{D} - m_f\right) q_{f} - \frac{1}{4} G_{\mu \nu}^{a} G^{\mu \nu a}
+    \end{equation}
+    Including all indices gives
+    \begin{align*}
+        \mathrm{QCD}_{f\,c\,j}^{f'c'j}
+        & = 
+        \one_{ff'} \gamma^\mu_{jj'} 
+        \left[\one_{cc'}\partial_\mu - i g \lambda_{cc'}^a A_{a \mu}\right]
+        - m_{ff'} \one_{cc'} \one_{jj'} \\
+        \Ell_1
+        & = \bar q_{f\,c\,j} \, \mathrm{QCD}_{f\,c\,j}^{f'c'j} \,\, q_{f'c'j'}
+    \end{align*}
+    Here, $f \in \{ u, d, s, c, t, b \}$ are flavors, $c \in \{r, g, b\}$ are colors, $j \in \{0, 1, 2, 3\}$ are spinor indices, $\mu \in \{0, 1, 2, 3\}$ are space-time indices, $a \in \{1, ... 8\}$ are indices for the $\liea{su}{3}$ color algebra.
+
+    The gluon field strength tensor is given by
+    \begin{equation*}
+        G^a_{\mu \nu} = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + g f^{abc}A_\mu^b A_\nu^c,
+    \end{equation*}
+    where $A_\mu^a$ is the gluon field potential, $g$ the field coupling strength and $f^{abc}$ is the structure constants of the $\lieg{SU}{3}$ gauge group of the gluon potential. The covariant derivative is given by
+    \begin{equation*}
+        D_\mu = \partial_\mu - i g \lambda^a A^a_\mu,
+    \end{equation*}
+    which ensures the Lagrangians is invariant under the gauge transformation
+    \begin{align}
+        q(x) \rightarrow U(x) q(x), \quad U(x) = \exp(i \lambda^a \chi^a(x)) \in \lieg{SU}{3}.
+    \end{align}
+
+    \subsection*{Global symmetires}
+
+    The light quarks are quarks with the flavors the subset $l \in \{u, d, s\}$. Approximating $m_{ll'} = m_u \delta_{ll'}$ gives the Lagrangian a global $\lieg{U}{3}$ symmetry. In the chiral limit $m_u \rightarrow 0$, (HVORFOR KAN EN GJØRE DETTE) the Lagrangian splits into two parts, left- and right-handed, which both have the global flavor symmetry. Thus, the classical global symmetry becomes $\lieg{U}{3}_L \times \lieg{U}{3}_R$
+
+    \printbibliography
+\end{document}

@@ -1,0 +1,429 @@
+\subsection*{Leading order Lagrangian}
+
+The leading order Lagrangian in \chpt is \cite{Scherer2002IntroductionTC, mojahed}
+\begin{equation}
+    \label{chpt lagrangian}
+    \Ell_2 = 
+    \frac{f^2}{4} \Tr\left[\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger \right] 
+    + \frac{f^2}{4} \Tr \left[\chi^\dagger \Sigma + \Sigma^\dagger \chi \right].
+\end{equation}
+$\chi$ and $f$ are the free parameters of the theory. $f$ is the pion decay constant, while $\chi = 2B_0 M$. 
+Here, $M$ is the mass matrix \autoref{Mass matrix}, and $B_0$ is related to the quark condensate through $f^2 B_0 = - \ex{\bar u u}$. The covariant derivative is defined by
+\begin{equation*}
+    \nabla_\mu \Sigma = \partial_\mu \Sigma - i\com{v_\mu}{\Sigma}, \quad 
+    (\nabla_\mu \Sigma)^\dagger 
+    = \partial_\mu \Sigma^\dagger - i\com{v_\mu}{\Sigma^\dagger}, \quad
+    v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
+\end{equation*}
+where $\mu_I$ is the isospin chemical potential.
+To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using the fact that $\tau_a^2 = \one$ to write
+\begin{equation}
+    \label{A}
+    A_\alpha 
+    = \sum_n^\infty \frac{1}{n!} \left(\frac{i \alpha}{2} \tau_1 \right)^n 
+    = \sum_n^\infty 
+    \left[
+        \frac{\one}{(2n)!} \left(\frac{i \alpha}{2}\right)^{(2n)} 
+        + \frac{\tau_1}{(2n + 1)!} \left(\frac{i\alpha}{2}\right)^{(2n + 1)}
+    \right] 
+    = \one \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}}.
+\end{equation}
+The series expansion of $U$ is
+\begin{align*}
+    U = \exp(\frac{i \pi_a \tau_a}{2f}) = 
+    1
+    + \frac{i \pi_a \tau_a}{2f} 
+    + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+    + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+    + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    + \Oh[5]{(\pi/f)},
+\end{align*}
+which we use to calculate the expansion of the inner part of $\Sigma$, as given in \autoref{sigma},
+\begin{align*}
+    U\Sigma_0U & = 
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)\\
+    & \times
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)
+    + \Oh[5]{(\pi/f)}\\
+    &=
+    1 + \frac{i \pi_a \tau_a}{f}
+    + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^2
+    + \frac{4}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^3
+    + \frac{2}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^4
+    + \Oh[5]{(\pi/f)}.
+\end{align*}
+The symmetry of $\pi_a\pi_b$ means that
+\begin{align*}
+% Identitites
+    & (\pi_a \tau_a)^2
+    = 
+    \pi_a \pi_b \frac{1}{2} \acom{\tau_a}{\tau_b} 
+    =
+    \pi_a \pi_a, \quad
+    (\pi_a \tau_a)^3
+    =
+    \pi_a \pi_a \pi_b \tau_b,\quad
+    (\pi_a \tau_a)^4
+    =
+    \pi_a \pi_a \pi_b \pi_b.
+\end{align*}
+This gives us the expression
+\begin{align*}
+% Final expression
+    & U\Sigma_0U 
+    =
+    1
+    + i \frac{\pi_a \tau_a}{f} 
+    - \frac{\pi_a^2}{2f^2}
+    - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+    + \frac{\pi_a^2\pi_b^2}{24f^4}
+    + \Oh[5]{(\pi/f)}.
+\end{align*}
+We combine this result with \autoref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
+\begin{align*}
+    \Sigma & =  \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) 
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) \\
+    & =
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \cos^2{\frac{\alpha}{2}} \\
+    & -
+    \left(
+        1
+        + i \frac{\pi_a}{f} \tau_1\tau_a\tau_1
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \tau_1\tau_b\tau_1
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin^2{\frac{\alpha}{2}}\\
+    & + i
+    \left(
+        2 \tau_1
+        + i \frac{\pi_a}{f} \acom{\tau_1}{\tau_a}
+        - 2\tau_1 \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \acom{\tau_1}{\tau_b}
+        + 2\tau_1 \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin{\frac{\alpha}{2}}\cos{\frac{\alpha}{2}}.
+\end{align*}
+Using trigonometric identities and the commutator,
+\begin{align*}
+    \cos^2{\frac{\alpha}{2}} - \sin^2{\frac{\alpha}{2}} = \cos{\alpha}, \quad 
+    2 \cos{\frac{\alpha}{2}} \sin{\frac{\alpha}{2}} = \sin{\frac{\alpha}{2}}, \quad
+    \tau_1 \tau_a \tau_1
+    = -\tau_a + 2 \delta_{1a}\tau_1,
+\end{align*}
+the final expression of $\Sigma$ to $\Oh[5]{(\pi/f)}$ is
+\begin{align}
+    \Sigma =
+     \left(
+        1 
+        - \frac{\pi_a^2}{2f^2}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    (\cos{\alpha} + i \tau_1 \sin{\alpha})
+    +
+    \left(
+        \frac{\pi_a}{f} 
+        - \frac{\pi_b^2\pi_a}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin^2{\frac{\alpha}{2}} - \delta_{a1} \sin{\alpha}
+    \right).
+    \label{expansion of sigma}
+\end{align}
+
+The kinetic term in the \chpt Lagrangian is
+\begin{equation}
+    \nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger 
+    = \partial_\mu \Sigma \partial^\mu \Sigma^\dagger 
+    - i \left(\partial_\mu \Sigma \com{v^\mu}{\Sigma^\dagger} - \hc \right)
+    - \com{v_\mu}{\Sigma}\com{v_\mu}{\Sigma^\dagger}.
+    \label{kinetic term}
+\end{equation}
+Using \autoref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
+\begin{align}
+    \notag
+    \partial_\mu \Sigma = &
+    \left(
+        \frac{-1}{f^2}
+        + \frac{\pi_b^2}{6f^4}
+    \right)
+    (\cos{\alpha} + i \tau_1 \sin{\alpha}) (\pi_a \partial_\mu \pi_a)\\\notag
+    +&
+    \left(
+        \frac{\partial_\mu \pi_a}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_a 
+        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin^2{\frac{\alpha}{2}} - \delta_{1a} \sin{\alpha}
+    \right)
+    \\ \notag
+    =& 
+    \left[
+        \left(
+            \frac{-1}{f^2}
+            + \frac{\pi_b^2}{6f^4}
+        \right)
+        (\pi_a \partial_\mu \pi_a)
+        \cos{\alpha}
+        - 
+        \left(
+            \frac{\partial_\mu \pi_1}{f} 
+            - \frac{\pi_b^2 \partial_\mu\pi_1
+            + 2 \pi_1 \pi_b \partial_\mu\pi_b}{6f^3} 
+        \right)
+        \sin{\alpha}
+    \right]
+    \\ \notag 
+    - &
+    \left[
+        \left(
+            \frac{-1}{f^2}
+            + \frac{\pi_b^2}{6f^4}
+        \right)
+        (\pi_a \partial_\mu \pi_a)
+        \sin{\alpha}
+        - \left(
+        \frac{\partial_\mu \pi_1}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_1
+        + 2 \pi_1 \pi_b \partial_\mu\pi_b}{6f^3}
+        \right)
+        2 \sin^2{\frac{\alpha}{2}}
+    \right]
+    i \tau_1 \\ \label{Sigma derivative}
+    +& 
+    \left(
+        \frac{\partial_\mu \pi_a}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_a 
+        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    \right)
+    i \tau_a,
+\end{align}
+and
+\begin{align}
+    \notag
+    \com{v_\mu}{\Sigma} & = 
+    \frac{1}{2} \mu_I \delta^0_\mu
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        i \sin{\alpha} \com{\tau_3}{\tau_1}
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left(
+            i\com{\tau_a}{\tau_3} 
+            - 2i\delta_{a1}\sin^2{\frac{\alpha}{2}}\com{\tau_3}{\tau_1}
+        \right)
+    \right] \\
+    \notag
+    & =
+    -\mu_I \delta^0_\mu
+    \left\{
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \tau_2 \sin{\alpha}
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left[
+            (\delta_{a1} \tau_2 - \delta_{a2} \tau_1)
+            - 2\delta_{a1} \tau_2 \sin^2{\frac{\alpha}{2}}
+        \right]
+    \right\} \\
+    & =
+    -\mu_I \delta^0_\mu
+    \left\{
+        \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \sin{\alpha}
+        + 
+        \left(
+            \frac{\pi_1}{f} 
+            - \frac{\pi_b^2\pi_1}{6f^3} 
+        \right) \cos{\alpha}
+        \right]
+         \tau_2
+        -
+        \left(
+            \frac{\pi_2}{f} 
+            - \frac{\pi_b^2\pi_2}{6f^3} 
+        \right)
+        \tau_1
+    \right\}.
+    \label{sigma commutator}
+\end{align}
+Combining \autoref{Sigma derivative} and \autoref{sigma commutator} gives the following terms \footnote{The scripts used to aid the calculation of the Lagrangian is available at \url{https://github.com/martkjoh/prosjektopggave}}
+\begin{align*}
+    % Term 1
+    & \Tr{\partial_\mu \Sigma \partial^\mu \Sigma^\dagger}
+    = \frac{2}{f^2} \partial_\mu \pi_a \partial^\mu \pi_a
+    + \frac{2}{3f^4}
+    \left[
+        (\pi_a\partial_\mu \pi_a)(\pi_b\partial^\mu \pi_b)
+        -        
+        (\pi_a\partial_\mu \pi_b)(\pi_b\partial^\mu \pi_a)
+    \right], \\
+    % Term 2
+    -i  &\Tr{\partial^\mu\Sigma\com{v_\mu}{\Sigma^\dagger} - \hc}
+    =
+    4 \mu_I \frac{\partial_0\pi_2}{f}
+    + 8 \mu_I \frac{\pi_3}{3f^3}\sin{\alpha}(
+        \pi_2 \partial_0 \pi_3 - \pi_3 \partial_0 \pi_2
+        ) \sin{\alpha}
+    \\ & \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+    +
+    \left(
+        \frac{4\mu_I}{f^2} \cos{\alpha}
+        - \frac{8 \mu_I\pi_1}{3f^3} \sin{\alpha}
+        - \frac{4 \mu_I \pi_a \pi_a} {3f^4}\cos{\alpha} 
+    \right) 
+    (\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1), \\
+    % Term 3
+    - & \Tr{\com{v_\mu}{\Sigma}\com{v^\mu}{\Sigma^\dagger}}
+    = \mu_I{}^2
+    \bigg[
+        2 \sin^2{\alpha}
+        +
+        \left(
+            \frac{2}{f} 
+            - \frac{4\pi_a \pi_a}{3 f^3} 
+        \right)
+        \pi_1  \sin{2\alpha}
+        + \left(
+            \frac{2}{f^2}
+            - \frac{2 \pi_a \pi_a}{3 f^4} 
+        \right)
+        \pi_a \pi_b k_{ab}
+    \bigg], 
+    \\
+    % Mass Term
+    & \Tr{\Sigma + \Sigma^\dagger}
+    = 4 \cos{\alpha} 
+    - \frac{4 \pi_1}{f} \sin{\alpha} 
+    - \frac{2 \pi_a \pi_a}{f^2} \cos{\alpha}
+    + \frac{2 \pi_1 \pi_a \pi_a}{3 f^3} \sin{\alpha}
+    + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos{\alpha}, 
+    \end{align*}
+where $k_{ab} =\delta_{a1} \delta_{b1} \cos{2\alpha}  + \delta_{a2}\delta_{b2}\cos^2{\alpha} - \delta_{a3}\delta_{b3} \sin^2{\alpha}$.
+If we write the Lagrangian as show in \autoref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
+\begin{align}
+%%%%%%%%%%%%%%%%%%
+%% zeroth order %%
+%%%%%%%%%%%%%%%%%%
+\Ell_2^{(0)}
+&  =
+    f^2   
+    \left(
+        2B_0m \cos{\alpha}
+        + \frac{1}{2} \mu^2 \sin^2{\alpha}
+    \right),
+    \label{L0}
+\\
+%%%%%%%%%%%%%%%%%%
+%% first order %%
+%%%%%%%%%%%%%%%%%%
+\label{L1}
+\Ell_2^{(1)}
+& =
+    f 
+    (
+        \mu_I^2\cos{\alpha}
+        - 2B_0m
+    ) \pi_1 \sin{\alpha}
+    + f \mu_I \partial_0\pi_2 \sin{\alpha},
+\\
+%%%%%%%%%%%%%%%%%%
+%% second order %%
+%%%%%%%%%%%%%%%%%%
+\Ell_2^{(2)}
+& =
+    \frac{1}{2} \partial_\mu\pi_a\partial^\mu\pi_a
+    + \mu_I \cos{\alpha} \left( \pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1 \right)
+    - B_0m  \pi_a \pi_a \cos{\alpha}
+    + \frac{1}{2} \mu_I ^2 \pi_a \pi_b k_{ab},
+\label{L2}
+\\
+%%%%%%%%%%%%%%%%%%
+%% third order %%
+%%%%%%%%%%%%%%%%%%
+\notag
+\Ell_2^{(3)}
+& =
+    \frac{\pi_a\pi_a \pi_1}{6f}
+    (2B_0m \sin{\alpha}-2\mu_I{}^2 \sin{2\alpha})\\ \label{L3}
+    &
+    -
+    \frac{2 \mu_I}{3 f}
+    \left[
+        \pi_1(\pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1)
+        +
+        \pi_3(\pi_3\partial_0\pi_2-\pi_2 \partial_0\pi_3)
+    \right]
+    \sin{\alpha},
+\\
+%%%%%%%%%%%%%%%%%%
+%% fourth order %%
+%%%%%%%%%%%%%%%%%%
+\notag
+\Ell_2^{(4)}
+& =
+\frac{1}{6f^2}
+\C{    
+    \frac{1}{2} B_0m (\pi_a\pi_a)^2 \cos{\alpha}
+    -
+    \left[
+        (\pi_a \pi_a) (\partial_\mu \pi_b \partial^\mu \pi_b )
+        - (\pi_a \partial_\mu \pi_a)(\pi_b \partial^\mu \pi_b )
+    \right]
+}
+\\
+&
+- \frac{\mu_I \pi_a\pi_a}{3f^2}
+\left[
+    \left(\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+    \cos{\alpha}
+    + \frac{1}{2} \mu_I \pi_a \pi_b k_{ab}
+\right].
+\label{L4}
+\end{align}

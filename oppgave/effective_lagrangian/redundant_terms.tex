@@ -1,0 +1,149 @@
+\subsection*{Equation of motion and redundant terms}
+
+Changing the field parametrization that appear in the Lagrangian does not affect any of the physics, as it corresponds to a change of variables in the path integral~\cite{Scherer2002IntroductionTC,Chisholm:changeOfVar,Kamefuchi:changeOfVar}.
+However, a change of variables can result in new terms in the Lagrangian.
+As a result of this, terms that on the face of it appear independent may be redundant.
+These terms can be eliminated by using the classical equation of motion.
+In this section we show first the derivation of the equation of motion, then use this result to identify redundant terms which need not be included in the most general Lagrangian.
+
+We derive the equation of motion for the leading order Lagrangian using the principle of least action.
+Choosing the parametrization $\Sigma = \exp(i \pi_a \tau_a)$, a variation $\pi_a \rightarrow \pi_a + \delta \pi_a$ results in a variation in $\Sigma$, $\delta \Sigma = i \tau_a \delta \pi_a \Sigma $.
+The variation of the leading order action,
+\begin{equation}
+    S_2 = \int_\Omega \dd^4x \, \Ell_2,
+\end{equation}
+when varying $\pi_a$ is 
+\begin{align*}
+    \delta S = \int_\Omega \dd x \, \frac{f^2}{4}
+    \Tr{
+        (\nabla_\mu \delta \Sigma) (\nabla^\mu \Sigma)^\dagger
+        + (\nabla_\mu \Sigma) (\nabla^\mu \delta \Sigma)^\dagger
+        + \chi \delta \Sigma^\dagger + \delta \Sigma \chi^\dagger
+    }.
+\end{align*}
+Using the properties of the covariant derivative to do partial integration, as show in \autoref{Covarinat derivative}, as well as $\delta(\Sigma \Sigma^\dagger) = (\delta\Sigma)\Sigma^\dagger + \Sigma (\delta \Sigma)^\dagger = 0$, the variation of the action can be written
+\begin{align*}
+    \delta S 
+    & = \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{
+        - \delta \Sigma \nabla^2 \Sigma^\dagger
+        + (\nabla^2 \Sigma) (\Sigma^\dagger \delta \Sigma \Sigma^\dagger)
+        - \chi (\Sigma^\dagger \delta \Sigma \Sigma^\dagger)
+        + \delta \Sigma \chi^\dagger
+    } \\
+    & = 
+    \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{
+        \delta \Sigma \Sigma^\dagger 
+        \left[
+            (\nabla^2 \Sigma)\Sigma^\dagger
+            - \Sigma \nabla^2 \Sigma^\dagger
+            - \chi \Sigma^\dagger
+            + \Sigma \chi^\dagger
+        \right]
+        } \\
+    & = 
+    i \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{\tau_a 
+    \left[
+         (\nabla^2 \Sigma)\Sigma^\dagger
+        - \Sigma \nabla^2 \Sigma^\dagger
+        - \chi \Sigma^\dagger
+        + \Sigma \chi^\dagger
+    \right]
+    } 
+    \delta \pi_a = 0.
+\end{align*}  
+As the variation is arbitrary, the equation of motion to leading order is
+\begin{equation}
+    \Tr{
+        \tau_a 
+        \left[
+            (\nabla^2 \Sigma)\Sigma^\dagger
+            - \Sigma \nabla^2 \Sigma^\dagger
+            - \chi \Sigma^\dagger
+            + \Sigma \chi^\dagger
+        \right]
+    } = 0.
+\end{equation}
+This may be rewritten as a matrix equation. 
+Using that 
+\begin{align*}
+    \Tr{(\nabla_\mu \Sigma)\Sigma^\dagger}
+    = 
+    \Tr{i \tau_a (\partial_\mu \pi_a )\Sigma \Sigma^\dagger}
+    - i\Tr{[v_\mu, \Sigma]\Sigma^\dagger}
+    = 0,
+\end{align*}
+we can see that $\Tr{(\nabla^2 \Sigma)\Sigma^\dagger - \Sigma \nabla^2 \Sigma^\dagger} = 0$, and the equation of motion may be written as
+\begin{equation}
+    \label{EOM matrix form}
+    \mathcal{O}_\mathrm{EOM}^{(2)}(\Sigma) 
+    = 
+    (\nabla^2 \Sigma)\Sigma^\dagger
+    - \Sigma \nabla^2 \Sigma^\dagger
+    - \chi \Sigma^\dagger
+    + \Sigma \chi^\dagger
+    - \frac{1}{2}
+    \Tr{ \chi \Sigma^\dagger - \Sigma \chi^\dagger} = 0.
+\end{equation}
+
+The next step in eliminating redundant terms is to change the parametrization of $\Sigma$ by $\Sigma(x) \rightarrow \Sigma'(x)$. 
+Here, $ \Sigma(x) = e^{iS(x)} \Sigma'(x), \, S(x) \in \liea{su}{2}$. This change leads to a new Lagrange density, $\Ell[\Sigma] = \Ell[\Sigma'] + \Delta \Ell[\Sigma']$.
+We are free to choose $S(x)$, as long $\Sigma'$ still obeys the required transformation properties.
+Any terms in the Lagrangian $\Delta \Ell$ due to a reparametrization can be neglected, as argued earlier.
+When demanding that $\Sigma'$ obey the same symmetries as $\Sigma$,
+the most general transformation to second order in Weinberg's power counting scheme  is~\cite{Scherer2002IntroductionTC}
+\begin{equation}
+    \label{S reparametrization}
+    S_{2} = 
+    i \alpha_2 
+    \left[
+        (\nabla^2 \Sigma') \Sigma^\dagger - \Sigma' (\nabla^2 {\Sigma'})^\dagger
+    \right]
+    + i \alpha_2
+    \left[
+        \chi \Sigma'^\dagger - \Sigma' \chi^\dagger 
+        - \frac{1}{2} \Tr{\chi \Sigma'^\dagger - \Sigma' \chi^\dagger}
+    \right].
+\end{equation}
+$\alpha_1$ and $\alpha_2$ are arbitrary real numbers. As \autoref{S reparametrization} is to second order, $\Delta Ell$ is fourth order in Weinberg's power counting scheme.
+To leading order is given by
+\begin{align*}
+    \Ell_2\left[e^{i S_2}\Sigma '\right]
+    & =
+    \frac{f^2}{4}\Tr{[\nabla_\mu (1 +i S_2)\Sigma'][\nabla^\mu \Sigma'^\dagger  (1 - i S_2)]}
+    + \frac{f^2}{4} \Tr{\chi\Sigma'^\dagger (1 - i S_2) + (1 +i S_2)\Sigma' \chi^\dagger} \\
+    & = \Ell[\Sigma'] + 
+    i \frac{f^2}{4}
+    \Tr{[\nabla_\mu (S_2\Sigma')][\nabla^\mu\Sigma']^\dagger 
+    -  [\nabla_\mu\Sigma'][\nabla^\mu (\Sigma'^\dagger  S_2) ]}
+    - i \frac{f^2}{4} \Tr{\chi \Sigma'^\dagger S_2 - S_2 \Sigma' \chi^\dagger}
+\end{align*}
+Using the properties of the covariant derivative, as described in \autoref{Covarinat derivative}, we may use the product rule and partial integration to write the difference between the two Lagrangians to fourth order as
+\begin{align*}
+    \Delta \Ell[\Sigma'] 
+    & = 
+    i \frac{f^2}{4}
+    \Tr{
+        (\nabla_\mu S_2)
+        (\Sigma' \nabla^\mu \Sigma'^\dagger - (\nabla^\mu \Sigma') \Sigma'^\dagger) 
+    }
+    - i \frac{f^2}{4} \Tr{\chi \Sigma'^\dagger  S_2 - S_2 \Sigma' \chi^\dagger} \\
+    & = 
+    i \frac{f^2}{4}
+    \Tr{
+        S_2
+        \left[
+            \Sigma'^\dagger\nabla^2 \Sigma' - ( \nabla^2 \Sigma') \Sigma'^\dagger 
+            - \chi\Sigma'^\dagger + \Sigma' \chi^\dagger
+        \right]
+    }.
+\end{align*}
+Using the equation of motion \autoref{EOM matrix form}, and the fact that $\Tr{S_2} = 0$, this difference can be written as
+\begin{align}
+    \label{Delta reparametrization}
+    \Delta \Ell[\Sigma'] = \frac{f^2}{4} \Tr{i S_2 \mathcal{O}_\mathrm{EOM}^{(2)}(\Sigma')}.
+\end{align}
+Any term that can be written in the form of \autoref{Delta reparametrization} for arbitrary $\alpha_1, \alpha_2 \in \R$ is redundant, as we argued earlier, and may therefore be discarded.
+$\Delta \Ell_2$ is of fourth order, and it can thus be used to remove terms from $\Ell_4$ or higher order.

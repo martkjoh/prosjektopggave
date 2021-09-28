@@ -1,0 +1,173 @@
+\subsection*{Minimizing energy}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+The value of $\alpha$ is found by minimizing the free energy. 
+The first approximation to the free energy in the ground state is the static part of the Hamiltonian density $\He^{(0)}$, which we get from \autoref{L0} through
+\begin{equation}
+    \He_2^{(0)} = - \Ell_2^{(0)} = 
+    -f^2   
+    \left(
+        2B_0m \cos{\alpha}
+        + \frac{1}{2} \mu^2 \sin^2{\alpha}
+    \right),
+\end{equation}
+The minimum of this function is achieved when
+\begin{align*}
+    &\dv{\alpha} \He_2^{(0)} 
+    = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
+    = 0.
+\end{align*}
+This gives the solution set and minimization criterion
+\begin{align}
+    \alpha = \pi n, \, n \in \mathbb{Z} \quad
+    \mathrm{or} \quad
+    \cos{\alpha} = \frac{2B_0m}{\mu_I{}^2}.
+\end{align}
+We see that the linear part of the potential from \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\pi_1 \sin{\alpha}= 0$ if and only if the criterion for minimization is fulfilled.
+
+\subsection*{Propagator}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+
+We may write the quadratic part of the Lagrangian \autoref{L2} as \footnote{Summation over isospin index ($a,b,c$) will be explicit in this section.}
+\begin{align}
+    \Ell^{(2)}
+    =
+    \frac{1}{2} \sum_a \partial_\mu \pi_a \partial^\mu \pi_a
+    + \frac{1}{2} m_{12} (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)
+    - \frac{1}{2} \sum_a m_a^2 \pi_a^2,
+\end{align}
+where
+\begin{align}
+    m_1^2 &= 2 B_0 m \cos{\alpha} - \mu_I^2 \cos{2\alpha}, \\
+    m_2^2 &= 2 B_0 m \cos{\alpha} - \mu_I^2 \cos^2{\alpha}, \\
+    m_3^2 &= 2 B_0 m \cos{\alpha} + \mu_I^2 \sin^2{\alpha}, \\
+    m_{12} &= 2 \mu_I \cos{\alpha}.
+\end{align}
+The components of the Euler-Lagrange equations of this field are
+\begin{equation*}
+    \pdv{\Ell}{\pi_a} = 
+    \frac{1}{2} m_{12} (\delta_{a1} \partial_0 \pi_2 - \delta_{a2}\partial_0 \pi_1) 
+    - m^2_{a} \pi_a, \quad
+    \pdv{\Ell}{(\partial_\mu \pi_a)} = 
+    \partial^\mu \pi_a - \frac{1}{2} m_{12} \delta^\mu_0 (\delta_{a1}\pi_2  - \delta_{a2}\pi_1).
+\end{equation*}
+This gives the equation of motion for the field
+\begin{equation}
+    \partial^\mu \partial_\mu \pi_a + m_a^2 \pi_a
+    =  m_{12}(\delta_{a1} \partial_0 \pi_2  - \delta_{a2} \partial_0 \pi_1).
+\end{equation}
+The propagator of the pion field is defined by
+\begin{equation}
+    \left[
+        \delta_{ab}(\partial^\mu\partial_\mu + m^2_a)
+        -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_0
+    \right] 
+    D_{bc}(x, x') 
+    = -i \delta(x - x') \delta_{ac}.
+\end{equation}
+The momentum space propagator, as defined in the \autoref{Conventions and notation}, fulfills
+\begin{equation*}
+    -\left[
+        \delta_{ab}(p^2 - m_a^2)
+        +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) 
+    \right] 
+    \tilde D_{bc}(p) 
+    := A_{ab} \tilde D_{bc}(p) = -i \delta_{ac},
+\end{equation*}
+where
+\begin{equation*}
+    A = -
+    \begin{pmatrix}
+        p^2 - m^2_1             & i p_0 m_{12}     & 0             \\
+        - i p_0 m_{12}            & p^2 - m^2_2       & 0             \\
+        0                       & 0                 & p^2 - m^2_3
+    \end{pmatrix}.
+\end{equation*}
+The spectrum of the particles is given by solving $\det(A) = 0$ for $p^0$. With $p = (p_0, P)$ as the four momentum, this gives
+\begin{align*}
+    \det(A) & = A_{33} \left(A_{11} A_{22} + A_{12}^2\right)
+    = - \left(p^2 - m^2_3\right)
+    \left[
+        \left(p^2 - m^2_1\right)
+        \left(p^2 - m^2_2\right)
+        - p_0^2 m_{12}^2
+    \right] = 0,
+\end{align*}
+This equation has the solutions
+\begin{align}
+    E_0^2 &= P^2 + m_2^2, \\
+    E_\pm^2
+    & = P^2 +
+    \frac{1}{2}
+    \left(
+        m_1^2 + m_2^2 + m_{12}^2 
+    \right)
+    \pm 
+    \frac{1}{2}
+    \sqrt{
+        4P^2m_{12}^2 
+        +
+        \left(
+            m_1^2 + m_2^2 + m_{12}^2
+        \right)^2
+        - 4 m_1^2 m_2^2
+    }.
+\end{align}
+This gives the effective masses
+\begin{align}
+    m_0^2 &= m_2^2, \\
+    m_\pm^2
+    & =  \frac{1}{2}
+    \left[
+        m_1^2 + m_2^2 + m_{12}^2 
+    \right]
+    \pm \frac{1}{2}
+    \sqrt{
+        \left(
+            m_1^2 + m_2^2 + m_{12}^2
+        \right)^2
+        - 4 m_1^2 m_2^2
+    }.
+\end{align}
+The propagator may then be obtained as described in \autoref{Conventions and notation},
+\begin{align}
+    \notag
+    D & = i A^{-1} = \frac{i}{\det(A)}
+    \begin{pmatrix}
+        A_{22} A_{33}   & A_{12}A_{33}  & 0 \\
+        -A_{12}A_{33}   & A_{11}A_{33}  & 0 \\
+        0               & 0             & A_{11}A_{22} + A_{12}^2
+    \end{pmatrix} \\
+    & = i
+    \begin{pmatrix}
+        \frac{
+            p^2 - m_2^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } 
+        & \frac{
+            - ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        \frac{
+            ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        }
+        & \frac{
+            p^2 - m_1^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        0 & 0 & 
+        \frac{1}{p_0^2 - E_0^2}
+    \end{pmatrix}.
+\end{align}

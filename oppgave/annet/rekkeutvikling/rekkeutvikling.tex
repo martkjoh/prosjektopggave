@@ -1,0 +1,809 @@
+\documentclass{article}
+
+\input{../import.tex}
+\input{../newcommands.tex}
+
+\title{Pion Lagrangian}
+\author{Martin Johnsrud}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% TODO %%%%%%%
+% Forklare hva \pi_a og \mu_I er
+% Si tidelig at pi er reel
+% Legge til \one der det trengs
+% være mer konsekevent på parantes {[()]}
+% Ha ligningsnummer
+% Bytte fra m² til B0 m, \chi
+% Finne invers propagator
+% Minimere mhp \alpha, se om det girl L_lin(a) = 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+    \maketitle
+    \section{Second order \chpt Lagrangian}
+    The leading order Lagrangian in \chpt is \cite{mojahed, Scherer2002IntroductionTC}
+    \begin{equation*}
+        \Ell = 
+        \frac{f^2}{4} \Tr\left[\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger \right] 
+        + \frac{f^2m^2}{4} \Tr \left[\Sigma + \Sigma^\dagger\right].
+    \end{equation*}
+    $m$ and $f$ are the pion mass and the pion decay constant, which are both free parameters of the theory. The covariant derivative is defined by
+    \begin{equation*}
+        \nabla_\mu \Sigma = \partial_\mu \Sigma - i[v_\mu, \Sigma], \quad 
+        (\nabla_\mu \Sigma)^\dagger 
+        = \partial_\mu \Sigma^\dagger - i[v_\mu, \Sigma^\dagger], \quad
+        v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
+    \end{equation*}
+    while $\Sigma$ is defined by
+\begin{align*}
+    & \Sigma = A_\alpha (U \Sigma_0 U) A_\alpha, \\
+    & \Sigma_0 = \mathbb{1},\, A_\alpha = \exp(\frac{i \alpha}{2} \tau_1),\, U = \exp(i \frac{\tau_a\pi_a}{2f}).
+\end{align*}
+$\tau_a$ are the $\SU(2)$ generators, i.e. Pauli matrices, and obey
+\begin{align*}
+    \com{\tau_a}{\tau_b} = 2 i \eps_{abc}\tau_c, \quad 
+    \acom{\tau_a}{\tau_b} = 2\delta_{ab} \one,
+    \quad \Tr[\tau_a] = 0,
+    \quad \Tr[\tau_a \tau_b] = 2 \delta_{ab} \one.
+\end{align*}
+(FORKLAE HVA $\pi_a$, AT DET ER REELT, OG DERMED OGSÅ $\Sigma$)
+As $\tau_a^2 = \one$, we may write
+\begin{equation*}
+    A_\alpha 
+    = \sum_n^\infty \frac{1}{n!} \left(\frac{i \alpha}{2} \tau_1 \right)^n 
+    = \sum_n^\infty 
+    \left[
+        \frac{1}{(2n)!} \left(\frac{i \alpha}{2}\right)^{(2n)} 
+        + \frac{\tau_1}{(2n + 1)!} \left(\frac{i\alpha}{2}\right)^{(2n + 1)}
+    \right] 
+    = \one \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}).
+\end{equation*}
+Expanding the inner term of $\Sigma$ to order $(\pi/f)^2$ gives
+\begin{align*}
+    U \Sigma_0 U
+    & = 
+    \exp(i \frac{\tau_a\pi_a}{2f}) 
+    \one
+    \exp(i \frac{\tau_b\pi_b}{2f}) = 
+    \left( 
+        1
+        + i \frac{\tau_a \pi_a}{2f}
+        + \frac{1}{2} \left(i \frac{ \tau_a \pi_a }{2f} \right)^2
+    \right)
+    \one
+    \left(
+        1
+        + i \frac{\tau_a\pi_b}{2f}
+        + \frac{1}{2} \left(i \frac{\tau_b\pi_b}{2f} \right)^2
+    \right) \\
+    & = 
+    1
+    + i \frac{\tau_a \pi_a}{f}
+    - \frac{\pi_a \pi_b \tau_a \tau_b}{2f^2}.
+\end{align*}
+The symmetry of $\pi_a\pi_b$ means that
+\begin{align*}
+    \pi_a \pi_b \tau_a \tau_b
+    = 
+    \pi_a \pi_b \frac{1}{2} \acom{\tau_a}{\tau_b} 
+    =
+    \pi_a \pi_a \one.
+\end{align*}
+Thus, to $\Oh[3]{(\pi / f)}$, 
+\begin{align*}
+    % Linje 1
+    \Sigma
+    & = 
+    \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) 
+    \left(
+        1 
+        + \frac{\tau_a\pi_a}{f}
+        - \frac{\pi_a \pi_a}{2f^2}
+    \right)
+    \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) \\
+    % Linje 2
+    & = 
+    \left[
+    \cos(\frac{\alpha}{2})
+    \left(
+        1 
+        + \frac{\tau_a\pi_a}{f} 
+        - \frac{\pi_a \pi_a}{2f^2}
+    \right) 
+    + i \sin(\frac{\alpha}{2})
+    \left(
+        \tau_1
+        + \frac{\pi_a \tau_a}{f} \tau_1
+        - \tau_1\frac{\pi_a \pi_a}{2f^2}
+    \right)
+    \right]
+    \Big(  \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) 
+    \\
+    % Linje 3
+    & = 
+    \cos(\frac{\alpha}{2})^2
+    \left(
+        1 
+        + \frac{\pi_a \tau_a}{f}
+        - \frac{\pi_a \pi_a}{2f^2}
+    \right)
+    - \sin(\frac{\alpha}{2})^2
+    \left(
+        1 
+        + i \frac{\pi_a \tau_a}{f} \tau_1
+        - \frac{\pi_a \pi_a}{2f^2}
+    \right) \\
+    % Linje 4
+    &
+    + \cos(\frac{\alpha}{2}) \sin(\frac{\alpha}{2}) 
+    \left(
+        2i\tau_1
+        - \frac{\pi_a}{f} \acom{\tau_a}{\tau_1}
+        - i \frac{\pi_a \pi_a \tau_1}{f^2}
+    \right)
+\end{align*}
+Using trigonometric identities and the commutator,
+\begin{align*}
+    \cos(\frac{\alpha}{2})^2 - \sin(\frac{\alpha}{2})^2 = \cos(\alpha), \quad 2 \cos(\frac{\alpha}{2})\sin(\frac{\alpha}{2}) = \sin(\frac{\alpha}{2}), \quad
+    \tau_1 \tau_a \tau_1
+    = -\tau_a + 2 \delta_{1a}\tau_1
+\end{align*}
+we may write $\Sigma$ as
+\begin{align*}
+    & \Sigma = \\
+    &
+    (\cos(\alpha) + i \tau_1 \sin(\alpha))
+    \left(
+        1 
+        - \frac{\pi_a \pi_a}{2f^2}
+    \right)
+    + i \frac{ \pi_a }{f}
+    \left(
+        \tau_a \cos(\frac{\alpha}{2})^2 -(2 \delta_{1a}\tau_1 - \tau_a) \sin(\frac{\alpha}{2})^2
+    \right)
+    + \sin(\alpha)
+    \left(
+        -\frac{\pi_a}{f}\delta_{a1}
+    \right) \\
+    &
+    = (\cos(\alpha) + i \tau_1 \sin(\alpha))
+    \left(
+        1 - \frac{\pi_a \pi_a}{2f^2}
+    \right)
+    + i \frac{\pi_a}{f}\tau_a
+    - \frac{\pi_a}{f}\delta_{1a} 
+    \left(
+      2  i \tau_1 \sin(\frac{\alpha}{2})^2 + \sin(\alpha)
+    \right).
+\end{align*}
+The kinetic term in the Lagrangian is
+\begin{align*}
+    \nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger 
+    & = (\partial_\mu \Sigma - i[v_\mu, \Sigma]) 
+    (\partial^\mu \Sigma- i[v^\mu, \Sigma])^\dagger
+    = \partial_\mu \Sigma \partial^\mu \Sigma^\dagger - i([v_\mu, \Sigma] \partial^\mu \Sigma^\dagger - \hc) + [v_\mu, \Sigma]\left([v^\mu, \Sigma]\right)^\dagger.
+\end{align*}
+The terms needed to calculate this is, to $\Oh[3]{(\pi /f)}$
+\begin{align*}
+    \partial_\mu \Sigma
+    & = - \frac{\pi_a\partial_\mu \pi_a}{f^2} (\cos(\alpha) + i \tau_1 \sin(\alpha))
+    + \frac{\partial_\mu \pi_a}{f}
+    \left(
+        i\tau_a - \delta_{1a} 
+        \left[
+        2  i \tau_1 \sin(\frac{\alpha}{2})^2 + \sin(\alpha)
+        \right]
+    \right) \\
+    & = 
+    - \frac{\pi_a\partial_\mu \pi_a}{f^2} \cos(\alpha) 
+    - \frac{\partial_\mu \pi_1}{f} \sin(\alpha)
+    -\left(
+        i\frac{\pi_a\partial_\mu \pi_a}{f^2}\sin(\alpha)
+        + 2 i \frac{\partial_\mu \pi_1}{f}\sin(\frac{\alpha}{2})^2
+    \right) \tau_1 
+    + \frac{\partial_\mu \pi_a}{f}  i\tau_a
+\end{align*}
+and (using $v_\mu = \frac{1}{2} \mu_I \delta^0_\mu \tau_3$, and $[\tau_3, \tau_a] = 2 i \eps_{3ac} \tau_c = 2i (\delta_{a1}\tau_2-\delta_{a2}\tau_1)$, $[\tau_3, \tau_1] = 2 i \tau_2$)
+\begin{align*}
+    [v_\mu, \Sigma] 
+    & = \frac{1}{2} \mu_I \delta_\mu^0 
+    \left[
+        i \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)[\tau_3, \tau_1]
+        +i \frac{\pi_a}{f}[\tau_3, \tau_a] 
+        - 2 i \frac{\pi_a}{f}\delta_{1 a} \sin(\frac{\alpha}{2})^2[\tau_3, \tau_1]
+    \right] \\
+    & = - \delta_\mu^0 \mu_I
+    \left[
+        \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right) \tau_2
+        + \frac{\pi_a}{f} (\delta_{a1}\tau_2-\delta_{a2}\tau_1)
+        - 2 \frac{\pi_a}{f}\delta_{1 a} \sin(\frac{\alpha}{2})^2 \tau_2
+    \right] \\
+    % & = - \delta_\mu^0 \mu_I
+    % \left(
+    %     \left[
+    %         \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+    %         + \frac{\pi_a}{f}\delta_{a1}
+    %         - 2 \frac{\pi_a}{f}\delta_{1 a} \sin(\frac{\alpha}{2})^2
+    %     \right]\tau_2
+    %     -\frac{\pi_a}{f}\delta_{a2}\tau_1
+    % \right) \\
+    & = - \delta_\mu^0 \mu_I
+    \left[
+        \left(
+            \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+            + \frac{\pi_1}{f} \cos(\alpha)
+        \right)\tau_2
+        -\frac{\pi_2}{f}\tau_1
+    \right]
+\end{align*}
+The first term is, to second order
+\begin{align*}
+    \partial_\mu \Sigma \partial^\mu \Sigma^\dagger 
+    & = \frac{\partial_\mu \pi_a \partial^\mu \pi_b}{f^2}
+    \left[
+        i\left(\tau_a - \delta_{1a} 2 \tau_1 \sin(\frac{\alpha}{2})^2 \right)
+        - \delta_{1a}\sin(\alpha)
+    \right]
+    \left[
+        i\left(\tau_b - \delta_{1b} 2 \tau_1 \sin(\frac{\alpha}{2})^2 \right)
+        - \delta_{1b}\sin(\alpha)
+    \right] \\
+    & = \frac{\partial_\mu\pi_a \partial^\mu \pi_b}{f^2}
+    \bigg[
+        \tau_a\tau_b
+        - 2 \sin(\frac{\alpha}{2})^2 
+        \left(\delta_{1a}\tau_1 \tau_b + \delta_{1}\tau_a \tau_1\right)
+            + \delta_{1a}\delta_{1b} \left(4 \sin(\frac{\alpha}{2})^2 + \sin(\alpha)^2 
+        \right) \\
+        % Whitespace
+        &\phantom{=\frac{1}{f^2} \partial_\mu\pi_a \partial^\mu \pi_b \bigg[}
+        % Whitespace        
+        - i \sin(\alpha)
+        \left(
+            \tau_a \delta_{1 b} + \tau_b \delta_{1 a} 
+            - 4 \delta_{1 a}\delta_{1 b} \tau_1 \sin(\frac{\alpha}{2})^2
+        \right)
+    \bigg]\\
+    \Tr\C{\partial_\mu \Sigma \partial^\mu \Sigma^\dagger}
+    & = \frac{ \partial_\mu\pi_a \partial^\mu \pi_b}{f^2}
+    \left[
+        2 \delta_{ab}- 2 \sin(\frac{\alpha}{2})^2 4 \delta_{a1}\delta_{b1}
+        + 2 \delta_{1a}\delta_{1b}
+        \left(4 \sin(\frac{\alpha}{2})^4 + \sin(\alpha)^2 \right)
+    \right] \\
+    % & = 2 \frac{ \partial_\mu\pi_a \partial^\mu \pi_b}{f^2}
+    % \left(
+    %     \delta_{ab}- 
+    %     \delta_{a1}\delta_{b1}
+    %     \left(
+    %         - 4 \sin(\frac{\alpha}{2})^2 
+    %         \left[ 1 - \sin(\frac{\alpha}{2})^2 \right] 
+    %         + \sin(\alpha)^2 
+    %     \right)
+    % \right) 
+    & = 2 \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2}.
+\end{align*}
+Expanding the second term in the kinetic part of the Lagrangian yields (FORTEGN PGA KONJUGAT!!!!)
+\begin{align*}
+    & \Tr\left\{[v^\mu, \Sigma] \partial_\mu \Sigma^\dagger\right\}\\
+    & = \mu_I \Tr\bigg\{
+        \left(
+        \left[
+            \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+            + \frac{\pi_1}{f} \cos(\alpha)
+        \right]\tau_2
+        -\frac{\pi_a}{f}\delta_{a2}\tau_1
+        \right) \\
+    %Whitespace
+    & \phantom{= \mu_I \Tr\bigg[ }
+    %Whitespace
+        \times 
+        \left(
+            \frac{\pi_a\partial_0 \pi_a}{f^2} \cos(\alpha) 
+            + \frac{\partial_0 \pi_1}{f} \sin(\alpha)
+            + \left[
+                i\frac{\pi_a\partial_0 \pi_a}{f^2}\sin(\alpha)
+                + 2 i \frac{\partial_0 \pi_1}{f}\sin(\frac{\alpha}{2})^2
+            \right] \tau_1
+            - i\frac{\partial_0 \pi_a }{f} \tau_a
+        \right)
+        \bigg\} \\
+% Third line
+    &= \mu_I\Bigg\{
+        \left( 2 i \frac{\partial_0 \pi_1}{f}\sin(\frac{\alpha}{2})^2 \right)
+        \left( -\frac{\pi_2}{f}\right) \Tr\{\tau_1\tau_1\}
+        - i\frac{\partial_0 \pi_a }{f}
+        \left[
+            \left(
+                \sin(\alpha)
+                + \frac{\pi_1}{f}\cos(\alpha)
+            \right) \Tr\C{\tau_a\tau_2}
+            -\frac{\pi_2}{f}\Tr\{\tau_a\tau_1\}
+        \right]
+        \Bigg\} \\
+    & =-2i\mu_I \left[
+        \frac{\partial_0 \pi_2}{f}\sin(\alpha) 
+        + 
+        \left(
+            \frac{\pi_1 \partial_0 \pi_2}{f^2} 
+            - \frac{\pi_2 \partial_0 \pi_1}{f^2}
+        \right)
+        \cos(\alpha)
+    \right] 
+    = -2i\frac{\mu_I}{f^2}
+    \left[ 
+        f \partial_0 \pi_2 \sin(\alpha) 
+        + (\pi_1\partial_0\pi_2 
+        - \pi_2\partial_0\pi_1)\cos(\alpha)
+        \right]
+\end{align*}
+Lastly, we have
+\begin{align*}
+    & \Tr[ [v_\mu, \Sigma][v^\mu, \Sigma^\dagger]] \\
+    & = \mu_I^2 \Tr \bigg[ 
+    \left(
+        \left[
+            \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+            + \frac{\pi_1}{f}\cos(\alpha)
+       \right]\tau_2
+        -\frac{\pi_2}{f}\tau_1
+    \right)
+    \left(
+        \left[
+            \sin(\alpha)\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+            + \frac{\pi_1}{f}\cos(\alpha)
+        \right]\tau_2
+        -\frac{\pi_2}{f}\tau_1
+    \right)^\dagger
+    \bigg]\\
+    & = 2 \mu_I^2 \left[
+        \sin(\alpha)^2 \left(1 - \frac{\pi_a \pi_a}{2f^2}\right)^2
+        +2\sin(\alpha)\cos(\alpha)\frac{\pi_1}{f}\left(1 - \frac{\pi_a \pi_a}{2f^2}\right)
+        +\cos(\alpha)^2 \frac{\pi_1^2}{f^2} + \frac{\pi_2^2}{f^2}
+    \right] \\
+    & = 2 \frac{\mu_I^2}{f^2} 
+    \left[
+        f^2\sin(\alpha)^2
+        + f \pi_1 \sin(2 \alpha)
+        -  \pi_a\pi_a \sin(\alpha)^2
+        + \pi_1^2\cos(\alpha)^2 
+        + \pi_2^2
+    \right] \\
+    & = 2 \frac{\mu_I^2}{f^2} \left[
+        f^2\sin(\alpha)^2
+        + f \pi_1 \sin(2 \alpha)
+        + \pi_1^2 \cos(2\alpha)
+        + \pi_2^2 \cos(\alpha)^2
+        - \pi_3^2 \sin(\alpha)^2
+    \right]
+\end{align*}
+The second term of the Lagrangian is
+\begin{align*}
+    \Tr[\Sigma + \Sigma^\dagger] 
+    & = 
+    \cos(\alpha) \left(1 - \frac{\pi_a\pi_a}{2f^2}\right) \Tr[\one] 
+    - \frac{\pi_a}{f} \delta_{1 a} \sin(\alpha) \Tr[\one] 
+    + \hc
+\end{align*}
+This means that the total Lagrangian is
+\begin{align*}
+    \Ell = &\,
+    \frac{1}{2} \partial_\mu \pi_a \partial^\mu \pi_a
+    + \mu_I 
+    \left[
+        f \partial_0 \pi_2 \sin(\alpha)
+        + (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)\cos(\alpha)
+    \right] \\
+    & + \frac{\mu_I^2}{2} 
+    \left[
+        f^2\sin(\alpha)^2
+        + f \pi_1 \sin(2 \alpha)
+        + \pi_1^2 \cos(2\alpha)
+        + \pi_2^2 \cos(\alpha)^2
+        - \pi_3^2 \sin(\alpha)^2
+    \right] \\
+    & +
+    m^2 f^2 \cos(\alpha)
+    \left(1 - \frac{\pi_a\pi_a}{2f^2}\right)
+    - m^2 f \pi_1 \sin(\alpha)
+\end{align*}
+Splitting the Lagrangian up into $\Ell = \Ell_\mathrm{static} + \Ell_\mathrm{linear} + \Ell_\mathrm{quad}$ gives
+\begin{align*}
+    \Ell_\mathrm{static} 
+    & = m^2 f^2 \cos(\alpha) + \frac{1}{2} \mu_I^2 f^2 \sin(\alpha)^2\\
+    \Ell_\mathrm{linear}
+    & = \mu_I f \sin(\alpha) \partial_0 \pi_2 
+    + f \left( \frac{1}{2} \mu_I^2  \sin(2\alpha) - m^2 \sin(\alpha)\right) \pi_1 \\
+    \Ell_\mathrm{quad}
+    & = 
+    \frac{1}{2} \partial_\mu \pi_a \partial^\mu \pi_a
+    + \mu_I \cos(\alpha) (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)
+    - \frac{1}{2} m^2 \cos(\alpha ) \pi_a \pi_a 
+    + \mu_I^2(\cos(2\alpha) \pi_1^2 + \cos(\alpha)^2 \pi_2^2 - \sin(\alpha)^2 \pi_3^2) \\
+    & = 
+    \frac{1}{2} \partial_\mu \pi_a \partial^\mu \pi_a
+    + \mu_I \cos(\alpha) (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)
+    - \frac{1}{2} M_{a} \pi_a \pi_a,
+\end{align*}
+where $M_a = \left(m^2 \cos(\alpha) - \mu_I^2 \cos(2\alpha),\, m^2 \cos(\alpha) - \mu_I^2 \cos(\alpha)^2, m^2 \cos(\alpha) + \mu_I^2 \sin(\alpha)^2\right)$
+
+\section{3. and 4. order}
+Further expansion of $\Sigma$ gives
+\begin{align*}
+    U = \exp(\frac{i \pi_a \tau_a}{2f}) = 
+    1
+    + \frac{i \pi_a \tau_a}{2f} 
+    + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+    + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+    + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    + \Oh[5]{(\pi/f)}
+\end{align*}
+\begin{align*}
+    U\Sigma_0U & = 
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)\\
+    & \times
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)
+    + \Oh[5]{(\pi/f)}\\
+    &=
+    1 + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^1
+    + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^2
+    + \frac{4}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^3
+    + \frac{2}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^4
+    + \Oh[5]{(\pi/f)} \\
+% Identitites
+    & (\pi_a \tau_a)^2
+    = 
+    \pi_a \pi_a, \,
+    (\pi_a \tau_a)^3
+    =
+    \pi_a \pi_a \pi_b \tau_b,\,
+    (\pi_a \tau_a)^4
+    =
+    \pi_a \pi_a \pi_b \pi_b. \\
+% Final expression
+    & U\Sigma_0U 
+    =
+    1
+    + i \frac{\pi_a \tau_a}{f} 
+    - \frac{\pi_a^2}{2f^2}
+    - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+    + \frac{\pi_a^2\pi_b^2}{24f^4}
+    + \Oh[5]{(\pi/f)}
+\end{align*}
+This means that (SIGMA) to the fourth order is
+\begin{align*}
+    \Sigma & =  \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) 
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) \\
+    & =
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \cos(\frac{\alpha}{2})^2 \\
+    & -
+    \left(
+        1 
+        + i \frac{\pi_a}{f} \tau_1\tau_a\tau_1
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \tau_1\tau_b\tau_1
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin(\frac{\alpha}{2})^2\\
+    & + i
+    \left(
+        2 \tau_1
+        + i \frac{\pi_a}{f} \acom{\tau_1}{\tau_a}
+        - 2\tau_1 \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \acom{\tau_1}{\tau_b}
+        + 2\tau_1 \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin(\frac{\alpha}{2})\cos(\frac{\alpha}{2}) \\
+% Final expression
+    &= \left(
+        1 
+        - \frac{\pi_a^2}{2f^2}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    (\cos(\alpha) + i \tau_1 \sin(\alpha))
+    + 
+    \left(
+        \frac{\pi_a}{f} 
+        - \frac{\pi_b^2\pi_a}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+    \right)
+\end{align*}
+\begin{align*}
+    \partial_\mu \Sigma = &
+    \left(
+        \frac{-1}{f^2}
+        + \frac{\pi_b^2}{6f^4}
+    \right)
+    (\cos(\alpha) + i \tau_1 \sin(\alpha)) (\pi_a \partial_\mu \pi_a)\\
+    & + 
+    \left(
+        \frac{\partial_\mu \pi_a}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_a 
+        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+    \right)
+\end{align*}
+\begin{align*}
+    [\Sigma, v_\mu] & = 
+    \frac{1}{2} \mu_I \delta^0_\mu
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        i \sin(\alpha) \com{\tau_3}{\tau_1}
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left(
+            i\com{\tau_a}{\tau_3} 
+            - 2i\delta_{a1}\sin(\frac{\alpha}{2})^2\com{\tau_3}{\tau_1}
+        \right)
+    \right] \\
+    & =
+    - \mu_I \delta^0_\mu
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \sin(\alpha) \tau_2
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left(
+            (\delta_{a1}\tau_2-\delta_{a2}\tau_1)
+            - 2\delta_{a1}\sin(\frac{\alpha}{2})^2 \tau_2
+        \right)
+    \right] \\
+    & =
+    - \mu_I \delta^0_\mu
+    \left[
+        \left\{
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \sin(\alpha)
+        + 
+        \left(
+            \frac{\pi_1}{f} 
+            - \frac{\pi_b^2\pi_1}{6f^3} 
+        \right) \cos(\alpha)
+        \right\} \tau_2
+        -
+        \left(
+            \frac{\pi_2}{f} 
+            - \frac{\pi_b^2\pi_2}{6f^3} 
+        \right)
+        \tau_1
+    \right]
+\end{align*}
+This gives Lagrangian term
+\begin{align*}
+    % (Almost) Original
+    % \Ell^{(0)}_2 
+    % &  =
+    %     \frac{1}{2} \delta ^2 f^2 \mu ^2 \sin ^2(\alpha )
+    %     + f^2 m^2 \cos (\alpha ) 
+    % \\
+    % \Ell^{(1)}_2    
+    % & =
+    %     - f m^2 \pi _1 \sin (\alpha )
+    %     + \delta ^2 f \mu ^2 \pi _1 \sin (\alpha ) \cos (\alpha )
+    %     + \delta  f \mu  \sin (\alpha )
+    %     \pi _2'
+    % \\
+    % \Ell^{(2)}_2 
+    % & =
+    %     - \frac{1}{2} m^2 \pi_1^2 \cos (\alpha )
+    %     - \frac{1}{2} m^2 \pi_2^2 \cos (\alpha )
+    %     - \frac{1}{2} m^2 \pi_3^2
+    %     \cos (\alpha )\\
+    %     & + \mu ^2 
+    %     \left(
+    %         - \frac{1}{2} \delta^2 \pi _3^2 \sin ^2(\alpha )
+    %         + \frac{1}{2} \delta^2 \pi _2^2 \cos ^2(\alpha )
+    %         + \frac{1}{2} \delta^2 \pi _1^2 \cos (2 \alpha )
+    %     \right) \\
+    %     & + \mu  
+    %     \left(
+    %         \delta  \pi_1 \cos (\alpha) \pi _2'
+    %         - \delta  \pi_2 \cos (\alpha ) \pi _1'
+    %     \right)
+    %     + \frac{1}{2} \pi_1'^2
+    %     + \frac{1}{2} \pi_2'^2
+    %     + \frac{1}{2} \pi_3'^2
+    % \\
+    % \Ell^{(3)}_2 
+    % & =
+    %     \frac{\frac{1}{6} m^2 \pi _1^3 \sin (\alpha )
+    %     + \frac{1}{6} m^2 \pi _2^2 \pi _1 \sin (\alpha )
+    %     + \frac{1}{6} m^2
+    %     \pi _3^2 \pi _1 \sin (\alpha )}{f}
+    %     + \frac{\mu ^2 \left(
+    %         - \frac{1}{3} \delta ^2 \pi _1^3 \sin (2 \alpha
+    %     )
+    %     - \frac{1}{3} \delta ^2 \pi _2^2 \pi _1 \sin (2 \alpha )
+    %     - \frac{1}{3} \delta ^2 \pi _3^2 \pi _1 \sin (2
+    %     \alpha )\right)}{f}
+    %     + \frac{\mu  \left(
+    %         - \frac{2}{3} \delta  \pi _1^2 \sin (\alpha ) \pi _2'
+    %     + \frac{2}{3} \delta 
+    %     \pi _2 \pi _1 \sin (\alpha ) \pi _1'
+    %     - \frac{2}{3} \delta  \pi _3^2 \sin (\alpha ) \pi _2'
+    %     + \frac{2}{3}
+    %     \delta  \pi _2 \pi _3 \sin (\alpha ) \pi _3'\right)}{f}
+    % \\
+    % \Ell^{(4)}_2 
+    % & =\frac{
+    %   \frac{1}{24} m^2 \pi_1^4 \cos (\alpha)
+    %    +\frac{1}{12} m^2 \pi_2^2 \pi_1^2 \cos (\alpha)
+    %    +\frac{1}{12} m^2 \pi_3^2 \pi_1^2 \cos (\alpha)
+    %    +\frac{1}{24} m^2 \pi_2^4 \cos (\alpha)
+    %    +\frac{1}{24} m^2 \pi_3^4 \cos (\alpha)
+    %    +\frac{1}{12} m^2 \pi_2^2 \pi_3^2 \cos (\alpha)-\frac{1}{6}
+    %    \pi_1^2 \pi_2'^2-\frac{1}{6} \pi_1^2 \pi_3'^2
+    %    +\frac{1}{3} \pi_2 \pi_1 \pi_1' \pi_2'
+    %    +\frac{1}{3} \pi_3 \pi_1 \pi_1' \pi_3'-\frac{1}{6} \pi_2^2 \pi_1'^2-\frac{1}{6} \pi_3^2 \pi_1'^2-\frac{1}{6} \pi_3^2 \pi_2'^2-\frac{1}{6} \pi_2^2 \pi_3'^2
+    %    +\frac{1}{3}
+    %    \pi_2 \pi_3 \pi_2' \pi_3'
+    % }{f^2}
+    %    +\frac{\mu^2 \left(-\frac{1}{6} \delta^2 \pi_1^4 \cos (2 \alpha)-\frac{1}{4} \delta^2 \pi_2^2 \pi_1^2 \cos (2 \alpha)-\frac{1}{4} \delta^2 \pi_3^2 \pi_1^2
+    %    \cos (2 \alpha)-\frac{1}{12} \delta^2 \pi_2^4 \cos (2 \alpha)-\frac{1}{12} \delta^2 \pi_3^4 \cos (2
+    %    \alpha)-\frac{1}{6} \delta^2 \pi_2^2 \pi_3^2 \cos (2 \alpha)-\frac{1}{12} \delta^2 \pi_2^2 \pi_1^2
+    %    +\frac{1}{12} \delta^2 \pi_3^2 \pi_1^2-\frac{1}{12} \delta^2 \pi_2^4
+    %    +\frac{1}{12} \delta^2 \pi_3^4\right)}{f^2}
+    %    +\frac{\mu  \left(-\frac{1}{3} \delta  \pi_1^3 \cos (\alpha) \pi_2'
+    %    +\frac{1}{3}
+    %    \delta  \pi_2 \pi_1^2 \cos (\alpha) \pi_1'-\frac{1}{3} \delta  \pi_2^2 \pi_1 \cos (\alpha)
+    %    \pi_2'-\frac{1}{3} \delta  \pi_3^2 \pi_1 \cos (\alpha) \pi_2'
+    %    +\frac{1}{3} \delta  \pi_2^3 \cos
+    %    (\alpha) \pi_1'
+    %    +\frac{1}{3} \delta  \pi_2 \pi_3^2 \cos (\alpha) \pi_1'\right)}{f^2}
+%%%%%%%%%%%%%%%%%%%%
+%% New and better %%
+%%%%%%%%%%%%%%%%%%%%
+\Ell^{(0)}_2 
+&  =
+    \frac{1}{2} f^2 \mu ^2 \sin ^2(\alpha )
+    + f^2 m^2 \cos (\alpha ) 
+\\
+\Ell^{(1)}_2    
+& =
+    f 
+    (
+        \mu_I^2 \sin (\alpha) \cos (\alpha)
+        - m^2\sin (\alpha)
+    )\pi_1 
+    + f \mu_I \sin(\alpha) \partial_0\pi _2
+\\
+\Ell^{(2)}_2 
+& =
+    \frac{1}{2} \partial_\mu\pi_a\partial^\mu\pi_a
+    + \mu_I  \left( \pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1 \right) \cos(\alpha)
+    - \frac{1}{2} m^2 \pi_a\pi_a \cos (\alpha )
+    + \frac{\mu_I ^2 }{2}
+    \left(
+          \pi_2^2 \cos(\alpha)^2
+        + \pi_1^2 \cos (2 \alpha )
+        - \pi_3^2 \sin(\alpha)^2
+    \right) 
+\\
+\Ell^{(3)}_2 
+& =
+    \frac{\pi_a\pi_a \pi_1}{6f}
+    (m^2 \sin (\alpha )-2\mu ^2 \sin (2\alpha ))
+    + 
+    \frac{2 \mu}{3 f}
+    \left(
+        \pi_2 \pi_1\partial_0\pi_1
+        - \pi_1^2 \partial_0\pi_2
+        - \pi_3^2\partial_0\pi_2
+        + \pi_2 \pi_3 \partial_0\pi _3
+    \right)\sin (\alpha )
+\\
+\Ell^{(4)}_2 
+& =
+\frac{1}{6f^2}
+\Bigg[
+    \frac{1}{4} m^2 (\pi_a\pi_a)^2 \cos(\alpha)
+    -
+    (
+        \pi_a \pi_a \partial_\mu \pi_b \partial^\mu \pi_b 
+        - \pi_a \partial_\mu \pi_a \pi_b \partial^\mu \pi_b 
+    )
+\Bigg]
+\\
+&
++ \frac{\mu \pi_a\pi_a}{3f^2}
+\C{    
+    \bigg(\pi_2\partial_0 \pi_1 - \pi_1 \partial_0 \pi_2\bigg) 
+    \cos(\alpha)
+    - \frac{\mu}{2}
+    \bigg(
+        \cos(2\alpha) \pi_1^2
+        + \cos(\alpha)^2 \pi_2^2
+        - \sin(\alpha)^2 \pi_3^2
+    \bigg)
+}a
+\end{align*}
+% Assuming $\pi_a^\dagger = \pi_a$
+% \begin{align*}
+%     & \Tr[\partial_\mu \Sigma \partial^\mu \Sigma^\dagger] = \\
+%     & \mathrm{Tr}\bigg[
+%         \left(
+%         \frac{-1}{f^2}
+%     \right)^2
+%     (\cos(\alpha) + i \tau_1 \sin(\alpha))^2 (\pi_a \partial_\mu \pi_a)^2 + 
+%     \left(
+%         \frac{\partial_\mu \pi_a}{f} 
+%         - \frac{\pi_b^2 \partial_\mu\pi_a 
+%         + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+%     \right)^2
+%     \left(
+%         i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+%     \right)^2 \\
+%     +& \left(
+%         \frac{-1}{f^2}
+%         + \frac{\pi_b^2}{6f^4}
+%     \right)
+%     \left(
+%         \frac{\partial_\mu \pi_a}{f} 
+%         - \frac{\pi_b^2 \partial_\mu\pi_a 
+%         + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+%     \right)
+%     \acom{
+%         \cos(\alpha) + i \tau_1 \sin(\alpha)
+%         }
+%         {
+%         i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+%         }
+%     \bigg] \\
+%     & =
+%     \frac{(\pi_a \partial_\mu \pi_a)^2}{f^4}2 (\cos(\alpha)^2 - \sin(\alpha2))
+%     + \left(
+%         \frac{(\partial_\mu \pi_a)^2}{f^2}
+%         + ...
+%     \right)
+% \end{align*}
+\printbibliography
+\end{document}

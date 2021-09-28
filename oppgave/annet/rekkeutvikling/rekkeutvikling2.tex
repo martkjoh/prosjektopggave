@@ -1,0 +1,1282 @@
+\documentclass{article}
+
+\input{../import.tex}
+\input{../newcommands.tex}
+\input{../glossary.tex}
+
+\title{The effective pion Lagrangian.}
+\author{Martin Johnsrud}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% TODO %%%%%%%
+% Forklare hva \alpha er (forstå hva \alpha er)
+% være mer konsekevent på parantes {[()]}
+% Forklare power counting og effective Lagrangian
+% Sjekke partial integraion pi1 d0 pi2
+% Fjerne paranteser sin(a), og ha eksponenten riktig
+% Skifte notasjon på M^2 og K (progpagator)
+% Bytte notasjon på q (propagaotr), samkjøre med Martin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% SPØRSMÅL %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Er det ikke noe symmetribrudd hvis \mu_I = 0 ?
+% Hvis ikk, hvordan er F0 og mu_I begge frie parametere?
+% Setter vi faktisk m = 0? Hvordan har vi parameteren \chi hvis m = 0
+% Hvordan er SU(2)(kompakt) isomorf til R^3???
+% Hvor kommer EOM inn i bildet? Det ser ut som det bare er et navn...
+% Kan jeg droppe l_4 termen?
+
+
+\begin{document}
+\maketitle 
+
+\section{Effective Lagrangians}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+
+The technique used in \chpt to obtain the effective Lagrangian of the pion relies on a ``theorem'', formulated by \citeauthor{WeinbergPhenom}:
+\begin{quote}
+    [I]f one writes down the most general possible Lagrangian, including all terms consistent with assumed symmetry principles, and then calculates matrix elements with this Lagrangian to any given order of perturbation theory, the result will simply be the most general possible S-matrix consistent with analyticity, perturbative unitarity, cluster decomposition and the assumed symmetry principles \cite{WeinbergPhenom}.
+\end{quote}
+In other words, if we write down the most general Lagrange density consistent with symmetries of the underlying theory, it will result in the most general S-matrix consistent with important physical assumptions and our underlying theory.
+All that is left to do is to tune the free parameters that this leaves.
+As this Lagrangian contains infinitely many terms, and thus infinitely many free parameters, a method for ordering them in terms of importance is needed.
+As described in \cite{Scherer2002IntroductionTC}, by rescaling the external momenta $p_\mu \rightarrow t p_\mu$ and quark masses $m_i \rightarrow t^2 m_i$, each term in the Lagrangian obtains a factor $t^D$.
+The Lagrangian is then expanded as $\Ell = \sum_D \Ell_D$, where $\Ell_D$ contains all terms with a factor $t^D$.
+
+In our case, the underlying theory is QCD with two quarks, up and down, with masses 
+\begin{equation*}
+    M =
+    \begin{pmatrix}
+        m_u & 0 \\
+        0 & m_d
+    \end{pmatrix}.
+\end{equation*}
+In the isospin limit, $m_u = m_d = m(=0?)$, the theory is invariant under global transformations in the group $G' = \lieg{SU}{2}_L \times \lieg{SU}{2}_R \times \lieg{U}{1}_V$.
+All terms involving only pions is trivially invariant under $\lieg{U}{1}_V$, (HVORFOR?) so we focus on the $G = \lieg{SU}{2}_L \times \lieg{SU}{2}_R$ subgroup.
+This symmetry is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
+The Goldstein manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstein bosons, the pions.
+There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstein-fields
+\begin{equation*}
+    M_1 = \C{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
+\end{equation*}
+close to the ground state, into fields taking values in the Goldstein manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
+The \chpt effective Lagrangian will be constructed using this map, through the parametrization
+\begin{align}
+\label{sigma}
+    \Sigma : \Em_4 & \longrightarrow \lieg{SU}{2},\\ \notag
+    x & \longrightarrow \Sigma(x) = A_\alpha (U(x) \Sigma_0 U(x)) A_\alpha,
+\end{align}
+where 
+\begin{align*}
+    \Sigma_0 = \one,\, 
+    A_\alpha = \exp(\frac{i \alpha}{2} \tau_1),\, 
+    U(x) = \exp(i \frac{\tau_a\pi_a(x)}{2f}).
+\end{align*}
+$\tau_a$ are the $\SU(2)$ generators, i.e. Pauli matrices, as described in \autoref{Conventions and notation}
+$\pi_a$, where $ \, a \in \C{1, 2, 3}$, are the pion fields. These are real fields, meaning $\pi_a^\dagger = \pi_a$.
+
+\section{Leading order Lagrangian}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+
+The leading order Lagrangian in \chpt is \cite{mojahed, Scherer2002IntroductionTC}
+\begin{equation}
+    \label{chpt lagrangian}
+    \Ell_2 = 
+    \frac{f^2}{4} \Tr\left[\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger \right] 
+    + \frac{f^2}{4} \Tr \left[\chi^\dagger \Sigma + \Sigma^\dagger \chi \right].
+\end{equation}
+$\chi$ and $f$ are the free parameters of the theory. $f$ is the pion decay constant, while \gls{chi} $= 2B_0 M$. Here, $M$ is the mass matrix of the quarks, which in the isospin limit are taken to be equal. That is, $m = m_u = m_d$. $B_0$ is related to the quark condensate through $3 f^2 B_0 = - \ex{\bar q q}$. (ER DET SANT NÅR $\mu_I \neq 0?$) The covariant derivative is defined by
+\begin{equation*}
+    \nabla_\mu \Sigma = \partial_\mu \Sigma - i[v_\mu, \Sigma], \quad 
+    (\nabla_\mu \Sigma)^\dagger 
+    = \partial_\mu \Sigma^\dagger - i[v_\mu, \Sigma^\dagger], \quad
+    v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
+\end{equation*}
+where $\mu_I$ is the isospin chemical potential.
+This Lagrangian results in a pion mass of $M_\pi^2 = 2B_0m$. 
+To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using the fact that $\tau_a^2 = \one$ to write
+\begin{equation*}
+A_\alpha 
+= \sum_n^\infty \frac{1}{n!} \left(\frac{i \alpha}{2} \tau_1 \right)^n 
+= \sum_n^\infty 
+\left[
+    \frac{\one}{(2n)!} \left(\frac{i \alpha}{2}\right)^{(2n)} 
+    + \frac{\tau_1}{(2n + 1)!} \left(\frac{i\alpha}{2}\right)^{(2n + 1)}
+\right] 
+= \one \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}).
+\end{equation*}
+Using the expansion of the exponential, 
+\begin{align*}
+    U = \exp(\frac{i \pi_a \tau_a}{2f}) = 
+    1
+    + \frac{i \pi_a \tau_a}{2f} 
+    + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+    + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+    + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    + \Oh[5]{(\pi/f)}
+\end{align*}
+the inner part of the definition of $\Sigma$, as given in Eq. \eqref{sigma}, has the expansion
+\begin{align*}
+    U\Sigma_0U & = 
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)\\
+    & \times
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)
+    + \Oh[5]{(\pi/f)}\\
+    &=
+    1 + \frac{i \pi_a \tau_a}{f}
+    + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^2
+    + \frac{4}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^3
+    + \frac{2}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^4
+    + \Oh[5]{(\pi/f)}
+\end{align*}
+The symmetry of $\pi_a\pi_b$ means that
+\begin{align*}
+% Identitites
+    & (\pi_a \tau_a)^2
+    = 
+    \pi_a \pi_b \frac{1}{2} \acom{\tau_a}{\tau_b} 
+    =
+    \pi_a \pi_a, \quad
+    (\pi_a \tau_a)^3
+    =
+    \pi_a \pi_a \pi_b \tau_b,\quad
+    (\pi_a \tau_a)^4
+    =
+    \pi_a \pi_a \pi_b \pi_b.
+\end{align*}
+This gives us the expression
+\begin{align*}
+% Final expression
+    & U\Sigma_0U 
+    =
+    1
+    + i \frac{\pi_a \tau_a}{f} 
+    - \frac{\pi_a^2}{2f^2}
+    - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+    + \frac{\pi_a^2\pi_b^2}{24f^4}
+    + \Oh[5]{(\pi/f)},
+\end{align*}
+which we used to get the series expansion of $\Sigma$ up to $\Oh[5]{(\pi/f)}$
+\begin{align*}
+    \Sigma & =  \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) 
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \Big( \cos(\frac{\alpha}{2}) + i \tau_1 \sin(\frac{\alpha}{2}) \Big) \\
+    & =
+    \left(
+        1
+        + i \frac{\pi_a \tau_a}{f} 
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    \right)
+    \cos(\frac{\alpha}{2})^2 \\
+    & -
+    \left(
+        1
+        + i \frac{\pi_a}{f} \tau_1\tau_a\tau_1
+        - \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \tau_1\tau_b\tau_1
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin(\frac{\alpha}{2})^2\\
+    & + i
+    \left(
+        2 \tau_1
+        + i \frac{\pi_a}{f} \acom{\tau_1}{\tau_a}
+        - 2\tau_1 \frac{\pi_a^2}{2f^2}
+        - i \frac{\pi_a^2\pi_b}{6f^3} \acom{\tau_1}{\tau_b}
+        + 2\tau_1 \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    \sin(\frac{\alpha}{2})\cos(\frac{\alpha}{2}).
+\end{align*}
+Using trigonometric identities and the commutator,
+\begin{align*}
+    \cos(\frac{\alpha}{2})^2 - \sin(\frac{\alpha}{2})^2 = \cos(\alpha), \quad 2 \cos(\frac{\alpha}{2})\sin(\frac{\alpha}{2}) = \sin(\frac{\alpha}{2}), \quad
+    \tau_1 \tau_a \tau_1
+    = -\tau_a + 2 \delta_{1a}\tau_1,
+\end{align*}
+the final expression of $\Sigma$ to $\Oh[5]{(\pi/f)}$ is
+\begin{align}
+    \Sigma =
+     \left(
+        1 
+        - \frac{\pi_a^2}{2f^2}
+        + \frac{\pi_a^2\pi_b^2}{24f^4}
+    \right)
+    (\cos(\alpha) + i \tau_1 \sin(\alpha))
+    + 
+    \left(
+        \frac{\pi_a}{f} 
+        - \frac{\pi_b^2\pi_a}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+    \right).
+    \label{expansion of sigma}
+\end{align}
+
+The kinetic term in the \chpt Lagrangian is
+\begin{equation}
+    \nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger 
+    = \partial_\mu \Sigma \partial^\mu \Sigma^\dagger 
+    - i([v_\mu, \Sigma] \partial^\mu \Sigma^\dagger - \hc) 
+    + [v_\mu, \Sigma]\left([v^\mu, \Sigma]\right)^\dagger.
+    \label{kinetic term}
+\end{equation}
+Using \autoref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
+\begin{align}
+    \notag
+    \partial_\mu \Sigma = &
+    \left(
+        \frac{-1}{f^2}
+        + \frac{\pi_b^2}{6f^4}
+    \right)
+    (\cos(\alpha) + i \tau_1 \sin(\alpha)) (\pi_a \partial_\mu \pi_a)\\
+    +&
+    \left(
+        \frac{\partial_\mu \pi_a}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_a 
+        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    \right)
+    \left(
+        i\tau_a - 2i \delta_{a1}\tau_1\sin(\frac{\alpha}{2})^2 - \delta_{1a} \sin(\alpha)
+    \right)
+    \label{Sigma derivative}\\ \notag
+    =& 
+    \left[
+        \left(
+            \frac{-1}{f^2}
+            + \frac{\pi_b^2}{6f^4}
+        \right)
+        (\pi_a \partial_\mu \pi_a)
+        \cos(\alpha)
+        - 
+        \left(
+            \frac{\partial_\mu \pi_1}{f} 
+            - \frac{\pi_b^2 \partial_\mu\pi_1
+            + 2 \pi_1 \pi_b \partial_\mu\pi_b}{6f^3} 
+        \right)
+        \sin(\alpha)
+    \right]
+    \\ \notag 
+    - &
+    \left[
+        \left(
+            \frac{-1}{f^2}
+            + \frac{\pi_b^2}{6f^4}
+        \right)
+        (\pi_a \partial_\mu \pi_a)
+        \sin(\alpha)
+        - \left(
+        \frac{\partial_\mu \pi_1}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_1
+        + 2 \pi_1 \pi_b \partial_\mu\pi_b}{6f^3}
+        \right)
+        2 \sin(\frac{\alpha}{2})^2
+    \right]
+    i \tau_1 \\ \notag
+    +& 
+    \left(
+        \frac{\partial_\mu \pi_a}{f} 
+        - \frac{\pi_b^2 \partial_\mu\pi_a 
+        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    \right)
+    i \tau_a,
+\end{align}
+and
+\begin{align}
+    \notag
+    [v_\mu, \Sigma^\dagger] & = - 
+    \frac{1}{2} \mu_I \delta^0_\mu
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        i \sin(\alpha) \com{\tau_3}{\tau_1}
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left(
+            i\com{\tau_a}{\tau_3} 
+            - 2i\delta_{a1}\sin(\frac{\alpha}{2})^2\com{\tau_3}{\tau_1}
+        \right)
+    \right] \\
+    \notag
+    & =
+    \mu_I \delta^0_\mu
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \sin(\alpha) \tau_2
+        + 
+        \left(
+            \frac{\pi_a}{f} 
+            - \frac{\pi_b^2\pi_a}{6f^3} 
+        \right)
+        \left(
+            (\delta_{a1}\tau_2-\delta_{a2}\tau_1)
+            - 2\delta_{a1}\sin(\frac{\alpha}{2})^2 \tau_2
+        \right)
+    \right] \\
+    & =
+    \mu_I \delta^0_\mu
+    \left\{
+        \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+            + \frac{\pi_a^2\pi_b^2}{24f^4}
+        \right)
+        \sin(\alpha)
+        + 
+        \left(
+            \frac{\pi_1}{f} 
+            - \frac{\pi_b^2\pi_1}{6f^3} 
+        \right) \cos(\alpha)
+        \right]
+         \tau_2
+        -
+        \left(
+            \frac{\pi_2}{f} 
+            - \frac{\pi_b^2\pi_2}{6f^3} 
+        \right)
+        \tau_1
+    \right\}.
+    \label{sigma commutator}
+\end{align}
+Combining \autoref{Sigma derivative} and \autoref{sigma commutator} gives the following terms \footnote{The Mathematica script used to aid the calculation of the Lagrangian is available here: \url{https://github.com/martkjoh/prosjektopggave}}
+\begin{align*}
+    % Term 1
+    & \Tr{\partial_\mu \Sigma \partial^\mu \Sigma^\dagger}
+    = \frac{2}{f^2} \partial_\mu \pi_a \partial^\mu \pi_a
+    + \frac{2}{3f^4}
+    \left[
+        (\pi_a\partial_\mu \pi_a)(\pi_b\partial^\mu \pi_b)
+        -        
+        (\pi_a\partial_\mu \pi_b)(\pi_b\partial^\mu \pi_a)
+    \right], \\
+    % Term 2
+    -i  &\Tr{\com{v_\mu}{\Sigma}\partial^\mu\Sigma^\dagger - \hc}
+    % & =
+    % \frac{4 \mu_I}{f} \partial_0\pi_2 \sin(\alpha)
+    % + \frac{4\mu_I}{f^2}(\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1) \cos(\alpha)
+    % + \frac{8 \mu_I}{3f^3} \\
+    % &
+    % \left[
+    %     \pi_1(\pi_2 \partial_0 \pi_1 - \pi_1 \partial_0 \pi_2) + \pi_3(\pi_2 \partial_0 \pi_3 - \pi_3 \partial_0 \pi_2)
+    % \right] \sin(\alpha)
+    % \\ &
+    % - \frac{4 \mu_I}{3f^4}
+    % \pi_a \pi_a (\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1) \cos(\alpha)\\
+    % % Rewrite
+     =
+    \frac{4 \mu_I}{f} \partial_0\pi_2 \sin(\alpha)
+    + \frac{8 \mu_I}{3f^3}\sin(\alpha) \pi_3(
+        \pi_2 \partial_0 \pi_3 - \pi_3 \partial_0 \pi_2
+        )
+    \\ & \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+    +
+    \left(
+        \frac{4\mu_I}{f^2} \cos(\alpha)
+        - \frac{8 \mu_I\pi_1}{3f^3} \sin(\alpha)
+        - \frac{4 \mu_I \pi_a \pi_a} {3f^4}\cos(\alpha) 
+    \right) 
+    (\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1), \\
+    % Term 3
+    & \Tr{\com{v_\mu}{\Sigma}\com{v^\mu}{\Sigma}^\dagger}
+    % \\ & \quad \,
+    = \mu^2
+    \bigg[
+        2 \sin(\alpha)^2
+        +
+        \left(
+            \frac{2}{f} 
+            - \frac{4\pi_a \pi_a}{3 f^3} 
+        \right)
+        \pi_1  \sin(2\alpha)
+        + \left(
+            \frac{2}{f^2}
+            - \frac{2 \pi_a \pi_a}{3 f^4} 
+        \right)
+        \pi_a \pi_b k_{ab}
+        % \left(\cos(2 \alpha)\pi_1 + \cos(\alpha)^2 \pi_2 - \sin(\alpha)^2 \pi_3\right)
+    \bigg], 
+    \\
+    % Mass Term
+    & \Tr{\Sigma + \Sigma^\dagger}
+    = 4 \cos(\alpha) 
+    - \frac{4 \pi_1}{f} \sin(\alpha) 
+    - \frac{2 \pi_a \pi_a}{f^2} \cos(\alpha)
+    + \frac{2 \pi_1 \pi_a \pi_a}{3 f^3} 
+    + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos(\alpha), 
+    \end{align*}
+where $k_{ab} =\delta_{1a} \delta_{1b} \cos(\alpha)^2  + \delta_{2a}\delta_{2b} - \delta_{ab} \sin(\alpha)^2$.
+If we write the Lagrangian as show in \autoref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
+\begin{align}
+%%%%%%%%%%%%%%%%%%
+%% zeroth order %%
+%%%%%%%%%%%%%%%%%%
+\Ell_2^{(0)}
+&  =
+    f^2   
+    \left(
+        2B_0m \cos(\alpha )
+        + \frac{1}{2} \mu^2 \sin^2(\alpha )
+    \right),
+    \label{L0}
+\\
+%%%%%%%%%%%%%%%%%%
+%% first order %%
+%%%%%%%%%%%%%%%%%%
+\label{L1}
+\Ell_2^{(1)}
+& =
+    f 
+    (
+        \mu_I^2\cos (\alpha)
+        - 2B_0m
+    )\sin (\alpha) \pi_1 
+    + f \mu_I \sin(\alpha) \partial_0\pi_2,
+\\
+%%%%%%%%%%%%%%%%%%
+%% second order %%
+%%%%%%%%%%%%%%%%%%
+\Ell_2^{(2)}
+& =
+    \frac{1}{2} \partial_\mu\pi_a\partial^\mu\pi_a
+    + \mu_I \cos(\alpha) \left( \pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1 \right)
+    - B_0m \cos(\alpha) \pi_a \pi_a
+    + \frac{1}{2} \mu_I ^2 \pi_a \pi_b k_{ab},
+\label{L2}
+    % \\ \notag &
+    % - \frac{1}{2}
+    % \left[
+    %     \pi_1^2 \left(\chi\cos(\alpha) - \mu_I{}^2\cos(2\alpha) \right)
+    %     + \pi_2^2 \left(\chi\cos(\alpha) - \mu_I{}^2\cos(\alpha)^2 \right)
+    %     + \pi_2^2 \left(\chi\cos(\alpha) + \mu_I{}^2\sin(\alpha)^2 \right)
+    % \right]
+\\
+%%%%%%%%%%%%%%%%%%
+%% third order %%
+%%%%%%%%%%%%%%%%%%
+\label{L3}
+\Ell_2^{(3)}
+& =
+    \frac{\pi_a\pi_a \pi_1}{6f}
+    (2B_0m \sin (\alpha )-2\mu_I{}^2 \sin (2\alpha ))
+    + 
+    \frac{2 \mu_I}{3 f}
+    \left(
+        \pi_2 \pi_1\partial_0\pi_1
+        - \pi_1^2 \partial_0\pi_2
+        - \pi_3^2\partial_0\pi_2
+        + \pi_2 \pi_3 \partial_0\pi_3
+    \right)\sin (\alpha),
+\\
+%%%%%%%%%%%%%%%%%%
+%% fourth order %%
+%%%%%%%%%%%%%%%%%%
+\notag
+\Ell_2^{(4)}
+& =
+\frac{1}{6f^2}
+\C{    
+    \frac{1}{2} B_0m (\pi_a\pi_a)^2 \cos(\alpha)
+    -
+    \left[
+        (\pi_a \pi_a) (\partial_\mu \pi_b \partial^\mu \pi_b )
+        - (\pi_a \partial_\mu \pi_a)(\pi_b \partial^\mu \pi_b )
+    \right]
+}
+\\
+&
+- \frac{\mu_I \pi_a\pi_a}{3f^2}
+\left[
+    \bigg(\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\bigg) 
+    \cos(\alpha)
+    + \frac{1}{2} \mu_I ^2 \pi_a \pi_b k_{ab}
+\right].
+\label{L4}
+\end{align}
+
+The equation of motion for the leading order Lagrangian is found by using the principle of least action.
+Choosing the parametrization $\Sigma = \exp(i \pi_a \tau_a)$, a variation $\pi_a \rightarrow \pi_a + \varepsilon \eta_a = \pi_a + \delta \pi_a$ gives a variation in $\Sigma$, $\delta \Sigma = i \tau_a \delta \pi_a \Sigma $. 
+The variation of the action is then 
+\begin{align*}
+    \delta S = \int_\Omega \dd x \, \frac{f^2}{4}
+    \Tr{
+        (\nabla_\mu \delta \Sigma) (\nabla^\mu \Sigma)^\dagger
+        + (\nabla_\mu \Sigma) (\nabla^\mu \delta \Sigma)^\dagger
+        + \chi \delta \Sigma^\dagger + \delta \Sigma \chi^\dagger
+    }.
+\end{align*}
+Using the properties of the covariant derivative to do partial integration, as show in \autoref{Covarinat derivative}, as well as the $\delta(\Sigma \Sigma^\dagger) = (\delta\Sigma)\Sigma^\dagger + \Sigma (\delta \Sigma)^\dagger = 0$, the variation of the action can be written
+\begin{align*}
+    \delta S 
+    & = \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{
+        - \delta \Sigma \nabla^2 \Sigma^\dagger
+        + (\nabla^2 \Sigma) (\Sigma^\dagger \delta \Sigma \Sigma^\dagger)
+        - \chi (\Sigma^\dagger \delta \Sigma \Sigma^\dagger)
+        + \delta \Sigma \chi^\dagger
+    } \\
+    % & = 
+    % \frac{f^2}{4} \int_\Omega \dd x\, 
+    % \Tr{\delta \Sigma \left[
+    %     \Sigma^\dagger (\nabla^2 \Sigma)\Sigma^\dagger
+    %     - \nabla^2 \Sigma^\dagger
+    %     - \Sigma^\dagger \chi \Sigma^\dagger
+    %     + \chi^\dagger
+    % }\right] \\
+    & = 
+    \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{
+        \delta \Sigma \Sigma^\dagger 
+        \left[
+            (\nabla^2 \Sigma)\Sigma^\dagger
+            - \Sigma \nabla^2 \Sigma^\dagger
+            - \chi \Sigma^\dagger
+            + \Sigma \chi^\dagger
+        \right]
+        } \\
+    & = 
+    i \frac{f^2}{4} \int_\Omega \dd x\, 
+    \Tr{\tau_a 
+    \left[
+         (\nabla^2 \Sigma)\Sigma^\dagger
+        - \Sigma \nabla^2 \Sigma^\dagger
+        - \chi \Sigma^\dagger
+        + \Sigma \chi^\dagger
+    \right]
+    } 
+    \delta \pi_a = 0
+\end{align*}  
+As the variation is arbitrary, the equation of motion to leading order is
+\begin{equation}
+    \Tr{
+        \tau_a 
+        \left[
+            (\nabla^2 \Sigma)\Sigma^\dagger
+            - \Sigma \nabla^2 \Sigma^\dagger
+            - \chi \Sigma^\dagger
+            + \Sigma \chi^\dagger
+        \right]
+    } = 0.
+\end{equation}
+This may be rewritten as a matrix equation. 
+Using that 
+\begin{align*}
+    \Tr{(\nabla_\mu \Sigma)\Sigma^\dagger}
+    = 
+    \Tr{i \tau_a (\partial_\mu \pi_a )\Sigma \Sigma^\dagger}
+    - i\Tr{[v_\mu, \Sigma]\Sigma^\dagger}
+    = 0,
+\end{align*}
+we can se that $\Tr{(\nabla^2 \Sigma)\Sigma^\dagger - \Sigma \nabla^2 \Sigma^\dagger} = 0$, and the equation of motion may be written as
+\begin{equation}
+    \label{EOM matrix form}
+    \mathcal{O}_\mathrm{EOM}^{(2)}(\Sigma) 
+    = 
+    (\nabla^2 \Sigma)\Sigma^\dagger
+    - \Sigma \nabla^2 \Sigma^\dagger
+    - \chi \Sigma^\dagger
+    + \Sigma \chi^\dagger
+    - \frac{1}{2}
+    \Tr{ \chi \Sigma^\dagger - \Sigma \chi^\dagger} = 0.
+\end{equation}
+
+
+\section{Next to leading order Lagrangian}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+
+The next to leading order Lagrangian density is, assuming no external fields (ER DET RIKTIG FORMULERING? GAUGE FIELDS?)
+\begin{align}
+    \notag
+    \Ell_4 
+    % & = 
+    % \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    % + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    % \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    % +
+    % \frac{l_3 + l_4}{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    % \\ \notag
+    % &
+    % + \frac{l_4}{4}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    % - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    % + \frac{h_1 + h_2 - l_4}{4} \Tr{\chi \chi^\dagger} \\
+    % & + 
+    % \frac{h_1 - h_3 - l_4}{16} 
+    % \left[
+    %     \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    %     +\Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    %     -2\Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+    % \right] \\
+    % \notag
+    & = 
+    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    +
+    \frac{l_3 + h_1 - h_3 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \\ \notag
+    &
+    + \frac{l_4}{4}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    + \frac{h_1 - h_3 - l_4-l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    + \frac{h_1 + h_2 - l_4}{4} \Tr{\chi \chi^\dagger} \\
+    & -
+    \frac{h_1 - h_3 - l_4}{8} 
+        \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+    \label{NLO Lagrangian}
+\end{align}
+The form of the Lagrangian is not unique.
+Changing the parametrization of $\Sigma$ by $\Sigma(x) \rightarrow \Sigma'(x), \quad \Sigma(x) = e^{iS(x)} \Sigma'(x), \, S(x) \in \liea{su}{2}$ leads to a new Lagrangian density, $\Ell[\Sigma] = \Ell[\Sigma'] + \Delta \Ell[\Sigma']$.
+By tuning $S(x)$ it is possible to eliminate terms that naively appeared to be independent.
+When demanding that $\Sigma'$ obey the same symmetries as $\Sigma$, the most general transformation to $\Oh[2]{t}$ is
+\begin{equation*}
+    S_{2} = 
+    i \alpha_2 
+    \left[
+        (\nabla^2 \Sigma') \Sigma^\dagger - \Sigma' (\nabla^2 {\Sigma'})^\dagger
+    \right]
+    + i \alpha_2
+    \left[
+        \chi \Sigma'^\dagger - \Sigma' \chi^\dagger 
+        - \frac{1}{2} \Tr{\chi \Sigma'^\dagger - \Sigma' \chi^\dagger}
+    \right].
+\end{equation*}
+$\alpha_1$ and $\alpha_2$ are arbitrary real numbers. To $\Oh[4]{t}$, an arbitrary new parametrization gives the new Lagrangian
+\begin{align*}
+    \Ell_2\left[e^{i S_2}\Sigma '\right]
+    & =
+    \frac{f^2}{f}\Tr{[\nabla_\mu (1 +i S_2)\Sigma'][\nabla^\mu \Sigma'^\dagger  (1 - i S_2)]}
+    + \frac{f^2}{4} \Tr{\chi\Sigma'^\dagger (1 - i S_2) + (1 +i S_2)\Sigma' \chi^\dagger} \\
+    & = \Ell[\Sigma'] + 
+    i \frac{f^2}{4}
+    \Tr{[\nabla_\mu (S_2\Sigma')][\nabla^\mu\Sigma']^\dagger 
+    -  [\nabla_\mu\Sigma'][\nabla^\mu (\Sigma'^\dagger  S_2) ]}
+    - i \frac{f^2}{4} \Tr{\chi \Sigma'^\dagger S_2 - S_2 \Sigma' \chi^\dagger}
+\end{align*}
+Using the properties of the covariant derivative, as described in \autoref{Covarinat derivative}, we may use the product rule and partial integration to write the difference between the two Lagrangians as
+\begin{align*}
+    \Delta \Ell[\Sigma'] 
+    & = 
+    i \frac{f^2}{4}
+    \Tr{
+        (\nabla_\mu S_2)
+        (\Sigma' \nabla^\mu \Sigma'^\dagger - (\nabla^\mu \Sigma') \Sigma'^\dagger) 
+    }
+    - i \frac{f^2}{4} \Tr{\chi \Sigma'^\dagger  S_2 - S_2 \Sigma' \chi^\dagger} \\
+    & = 
+    i \frac{f^2}{4}
+    \Tr{
+        S_2
+        \left[
+            \Sigma'^\dagger\nabla^2 \Sigma' - ( \nabla^2 \Sigma') \Sigma'^\dagger 
+            - \chi\Sigma'^\dagger + \Sigma' \chi^\dagger
+        \right]
+    }.
+\end{align*}
+Using the equation of motion as given \autoref{EOM matrix form}, and the fact that $\Tr{S_2} = 0$, we may write this difference as
+\begin{align*}
+    \Delta \Ell[\Sigma'] = \frac{f^2}{4} \Tr{i S_2 \mathcal{O}_\mathrm{EOM}^{(2)}(\Sigma')}.
+\end{align*}
+As the physics are unchanged under a reparametrization, any term that can be rewritten in the form $\Delta \Ell$, for any $\alpha_1, \alpha_2 \in \R$ can be removed from the Lagrangian.
+$\Delta \Ell_2$ is of order $\Oh[4]{t}$, and it can thus be used to remove terms from $\Ell_4$.
+ 
+To expand this $\Ell_4$ to $\Oh[2]{(\pi/f)}$, we us the result from \autoref{Sigma derivative} and \autoref{sigma commutator},
+\begin{align*}
+    \Sigma & =
+    \left(
+       1 
+       - \frac{\pi_a^2}{2f^2}
+   \right)
+   (\cos(\alpha) + i \tau_1 \sin(\alpha))
+   +  \frac{\pi_a}{f}    \left(
+       i\tau_a 
+       - \delta_{1a} 2i \sin(\frac{\alpha}{2})^2 \tau_1 
+       - \delta_{1a} \sin(\alpha)
+   \right), \\
+    \partial_\mu \Sigma 
+    & = 
+    - \frac{\pi_a \partial_\mu \pi_a}{f^2}
+    \left(\cos(\alpha) + i \tau_1 \sin(\alpha)\right)
+    + \frac{\partial_\mu \pi_a}{f}
+    \left(
+        i\tau_a 
+        -2 i \delta_{a1} \sin(\frac{\alpha}{2})^2 \tau_1 
+        - \delta_{a1}\sin(\alpha)\right), \\
+    [v_\mu, \Sigma^\dagger] 
+    & =
+    \mu_I \delta^0_\mu
+    \left[
+        \left( 1 - \frac{\pi_a^2}{2f^2} \right) \sin(\alpha) \tau_2
+        + \frac{\pi_a}{f}
+        \left(
+            \delta_{a1} \cos(\alpha) \tau_2 - \delta_{a2} \tau_1
+        \right)
+    \right].
+    \end{align*}
+Up to and including $\Oh{(\pi/f)}$, this gives
+\begin{align*}
+    %%%%%%%%%%%%%%%%%%
+    % parital square %
+    %%%%%%%%%%%%%%%%%%
+    % & \partial_\mu \Sigma \partial_\nu \Sigma^\dagger
+    %  =
+    % \frac{\partial_\mu \pi_a \partial_\nu \pi_b}{f^2}
+    % \Bigg[
+    %     \tau_a \tau_b
+    %     + 2\sin(\frac{\alpha}{2})^2
+    %     \left(
+    %         2 \delta_{1a}\delta_{1b} 
+    %         - \delta_{1a} \tau_1 \tau_b - \delta_{1b} \tau_a \tau_1
+    %     \right)
+    %     + i 
+    %         \left(
+    %             \delta_{1a}\tau_b - \delta_{1b}\tau_a
+    %         \right)\sin(\alpha)
+    % \Bigg], \\
+    \Tr{\partial_\mu \Sigma \partial_\nu \Sigma^\dagger}
+    & =
+   2 \frac{\partial_\mu \pi_a \partial_\nu \pi_a}{f^2} \\
+    %%%%%%%%%%%%%%
+    % Cross term %
+    %%%%%%%%%%%%%
+    % & \partial_\mu \Sigma \com{v_\nu}{\Sigma^\dagger} 
+    % - \hc
+    %  = 
+    % 2 i \mu_I \delta_\nu^0
+    % \Bigg\{
+    %     \frac{\partial_\mu \pi_a}{f}
+    %     \left(
+    %         \tau_a - 2 \delta_{1 a} \sin(\frac{\alpha}{2})^2 \tau_1
+    %     \right)
+    %     \left[
+    %         \sin(\alpha) \tau_2 
+    %         +\frac{\pi_b}{f}
+    %         \left(
+    %             \delta_{b1} \cos(\alpha) \tau_2 - \delta_{2b} \tau_1
+    %         \right)
+    %     \right]
+    %     % \\
+    %     % & \quad \quad \quad \quad \quad
+    %     - \frac{\pi_a \partial_\mu \pi_a}{f^2}
+    %     \sin(\alpha)^2 \tau_1 \tau_2 
+    % \Bigg\}, \\
+    \Tr{\partial_\mu \Sigma \com{v_\nu}{\Sigma^\dagger} - \hc}
+    & = 2 i \mu_I 
+    \left[
+        (\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\pi_2 \sin(\alpha) + 
+        \cos(\alpha)
+        \frac{\pi_1 (\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\pi_2 
+        - \pi_2 (\delta_\mu^0\partial_\nu + \delta_\nu^0\partial_\mu)\pi_1}{f^2}
+    \right]
+    \\
+    %%%%%%%%%%%%%%%%%
+    % Comm. squared %
+    %%%%%%%%%%%%%%%%%
+    \Tr{\com{v_\nu}{\Sigma} \com{v_\nu}{\Sigma^\dagger}}
+    & =   -2 \mu_I{}^2 \delta_\mu^0 \delta_\nu^0 
+    \left[
+        \sin(\alpha)^2 + \frac{\pi_1}{f} \sin(2\alpha) 
+        + \frac{\pi_a \pi_b}{f^2} 
+        k_{ab}
+    \right].
+\end{align*}
+Using the form of the Pauli matrices, we may write $\chi$ as 
+\begin{align*}
+    \chi = 2 B_0 M = 2 B_0 (\bar m \one + \Delta m \tau_3),
+\end{align*}
+where $\bar m  = (m_u + m_d)/2, \, \Delta m = (m_u - m_d)/2$, which gives 
+\begin{align*}
+    \chi \Sigma^\dagger + \Sigma \chi^\dagger
+    %  = 2 B_0 \left[
+    %     \bar m (\Sigma^\dagger + \Sigma) 
+    %     + \Delta m ( \tau_3 \Sigma^\dagger + \Sigma \tau_3)
+    % \right] \\
+    % & = 2 B_0 \Bigg\{
+    %     2 \bar m 
+    %     \left[
+    %         \left(
+    %             1 
+    %             - \frac{\pi_a^2}{2f^2}
+    %         \right)
+    %         \cos(\alpha)
+    %         - \frac{\pi_a}{f}    
+    %         \delta_{1a} \sin(\alpha)
+    %     \right] \\
+    % &
+    % + \Delta m 
+    % \left[
+    %     \left(
+    %         1 
+    %         - \frac{\pi_a^2}{2f^2}
+    %     \right)
+    %     (2\cos(\alpha) 
+    %     + i \com{\tau_1}{\tau_3} \sin(\alpha))
+    %     +  \frac{\pi_a}{f}    
+    %     \left(
+    %         i\com{\tau_a}{\tau_3} 
+    %         - \delta_{1a} 2i \sin(\frac{\alpha}{2})^2 \com{\tau_1}{\tau_3}
+    %         - 2 \delta_{1a} \sin(\alpha)
+    %     \right)
+    % \right]
+    % \Bigg\} \\
+    % & = 2 B_0 \Bigg\{
+    %     2 (\bar m + \Delta m)
+    %     \left[
+    %         \left(
+    %             1 
+    %             - \frac{\pi_a^2}{2f^2}
+    %         \right)
+    %         \cos(\alpha)
+    %         - \frac{\pi_a}{f}    
+    %         \delta_{1a} \sin(\alpha)
+    %     \right] \\
+    % &
+    % - 2 i \Delta m 
+    % \left[
+    %     \left(
+    %         1 
+    %         - \frac{\pi_a^2}{2f^2}
+    %     \right)
+    %     \sin(\alpha) i \tau_2
+    %     +  \frac{\pi_a}{f}
+    %     \left(
+    %         i(\delta_{a1}\tau_2 - \delta_{a2}\tau_1)
+    %         - \delta_{1a} 2 \sin(\frac{\alpha}{2})^2 i\tau_2
+    %     \right)
+    % \right]
+    % \Bigg\} \\
+    & = 4 B_0 \Bigg\{
+         (\bar m + \Delta m \tau_3)
+        \left[
+            \left(
+                1 
+                - \frac{\pi_a^2}{2f^2}
+            \right)
+            \cos(\alpha)
+            - \frac{\pi_1}{f}    
+            \sin(\alpha)
+        \right]\\
+    & \quad \quad \quad
+    + \Delta m 
+    \left[
+        \left(
+            1 
+            - \frac{\pi_a^2}{2f^2}
+        \right)
+        \sin(\alpha) \tau_2
+        +  \frac{\pi_a}{f}
+        \left(
+            \delta_{a1} \cos(\alpha) \tau_2 - \delta_{a2}\tau_1
+        \right)
+    \right]
+    \Bigg\}, \\
+    %%%%%%%%%%%%%%
+    % Difference %
+    %%%%%%%%%%%%%%
+    \chi \Sigma^\dagger  - \Sigma \chi^\dagger
+    % = 2 B_0 
+    % \left[
+    %     \bar m (\Sigma^\dagger - \Sigma) 
+    %     + \Delta m ( \tau_3 \Sigma^\dagger - \Sigma \tau_3)
+    % \right] \\
+    % & = - 2 B_0 \Bigg\{
+    %     2 \bar m 
+    %     \left[
+    %         \left(
+    %             1 - \frac{\pi_a^2}{2f^2}
+    %         \right)
+    %         (i \tau_1 \sin(\alpha))
+    %         +  \frac{\pi_a}{f}    \left(
+    %             i\tau_a 
+    %             - \delta_{1a} 2i \sin(\frac{\alpha}{2})^2 \tau_1 
+    %         \right)        
+    %     \right] \\
+    % &
+    % i \Delta m 
+    % \left[
+    %     \left(
+    %         1 
+    %         - \frac{\pi_a^2}{2f^2}
+    %     \right)
+    %     (\sin(\alpha) \acom{\tau_3}{\tau_1})
+    %     +  \frac{\pi_a}{f}    
+    %     \left(
+    %         \acom{\tau_3}{\tau_a}
+    %         - \delta_{1a} 
+    %         2 \sin(\frac{\alpha}{2})^2 \acom{\tau_3}{\tau_1}
+    %     \right)        
+    % \right]
+    % \Bigg\} \\
+    & = - 4 i B_0 \Bigg\{
+        \bar m 
+        \left[
+            \left(
+                1 - \frac{\pi_a^2}{2f^2}
+            \right)
+            \sin(\alpha) \tau_1
+            +  \frac{\pi_a}{f}    \left(
+                \tau_a 
+                - \delta_{1a} 2 \sin(\frac{\alpha}{2})^2 \tau_1 
+            \right)        
+        \right]
+        + \Delta m 
+            \frac{\pi_3}{f}
+    \Bigg\}.
+\end{align*}
+This results in the terms, to $\Oh[2]{(\pi/f)}$
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    %%%%%%%
+    % l_1 %
+    %%%%%%%
+    & \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2 
+    =
+    \Tr{\partial_\mu \Sigma \partial^\mu \Sigma ^\dagger
+    - i (\partial_\mu \Sigma \com{v^\mu}{\Sigma^\dagger} - \hc) 
+    - \com{v_\mu}{\Sigma}\com{v^\mu}{\Sigma^\dagger} 
+    }^2 \\
+    &\quad  =
+    \frac{8 \mu_I^2}{f^2} 
+    (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+    \sin(\alpha)^2 \\
+    &\quad  + 16 \mu_I^3 \left[
+        \frac{\partial_0 \pi_2}{f}\
+            \sin(\alpha)^3
+        + \frac{3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1}{f^2} 
+        \cos(\alpha) \sin(\alpha)^2
+    \right] \\
+    & \quad + 4 \mu_I^4 
+    \left\{
+        \sin(\alpha)^4
+        + 2 \sin(\alpha) ^2 
+        \left[
+            \frac{\pi_1}{f}\sin(2 \alpha) 
+            + \frac{\pi_a \pi_b}{f^2}        
+            \left(k_{ab} + 2\cos(\alpha)^2 \delta_{a1}\delta_{a2}\right)
+        \right]
+    \right\}, \\
+    %%%%%%%
+    % l_2 %
+    %%%%%%%
+    & \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger}\\
+    & \quad = \frac{4 \mu_I{}^2}{f^2}
+    \left(
+        \partial_0 \pi_a\partial_0 \pi_a + \partial_0 \pi_2\partial_0 \pi_2 + \partial_\mu \pi_2\partial^2\mu \pi_2
+    \right) \sin(\alpha)^2 \\
+    &\quad  + 16 \mu_I^3 \left[
+        \frac{\partial_0 \pi_2}{f}\
+            \sin(\alpha)^3
+        + \frac{3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1}{f^2} 
+        \cos(\alpha) \sin(\alpha)^2
+    \right] \\
+    & \quad + 4 \mu_I^4 
+    \left\{
+        \sin(\alpha)^4
+        + 2 \sin(\alpha) ^2 
+        \left[
+            \frac{\pi_1}{f}\sin(2 \alpha) 
+            + \frac{\pi_a \pi_b}{f^2}        
+            \left(k_{ab} + 2\cos(\alpha)^2 \delta_{a1}\delta_{a2}\right)
+        \right]
+    \right\}, \\
+    %%%%%%%
+    % l_4 %
+    %%%%%%%
+    & \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} 
+    \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger } \\
+    & \quad =
+    8 B_0 \bar m 
+    \Bigg\{
+        2 \cos(\alpha) \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2}
+        + 4 \mu_I 
+        \left[
+            \frac{\partial_0 \pi_2}{2 f} \sin(2 \alpha)
+            + \frac{
+                \pi_1 \partial_0 \pi_2 \cos(2\alpha) 
+                - \pi_2 \partial_0 \pi_1\cos(\alpha)^2
+                }
+                {f^2}
+        \right]\\
+        & \quad + \mu_I{}^2
+        \left[
+            2\cos(\alpha)\sin(\alpha)^2 
+            - 2\sin(\alpha) 
+            \frac{\pi_1}{f}
+            \left(3\sin(\alpha)^2 - 1\right)
+            + \frac{                
+                \pi_1^2(2 - 9 \sin(\alpha)^2)
+                + \pi_2^2 (2 - 3 \sin(\alpha)^2)
+                - 3\pi_3^2\sin(\alpha)^2
+            }{f^2}
+            \cos(\alpha)
+        \right]
+    \Bigg\}, \\
+    %%%%%%%
+    % l_3 %
+    %%%%%%%
+    & \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger }^2
+    = (8 B_0 \bar m)^2 
+    \left[
+        \cos(\alpha)^2 
+        - \frac{\pi_1}{2f} \sin(2 \alpha) 
+        + \frac{1}{f^2}\left(\pi_1^2 \sin(\alpha)^2 - \pi_a \pi_a \cos(\alpha)^2)\right)
+    \right], \\
+    %%%%%%%
+    % l_7 %
+    %%%%%%%
+    & \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger }^2
+     = - 16 \left( \frac{2 \Delta m B_0 \pi_3}{f} \right)^2, \\
+    %%%%%%%
+    % h_3 %
+    %%%%%%%
+    & \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left(\Sigma \chi^\dagger \right)^2}
+    = 16 B_0 \bar m
+    \left(
+        \cos(2 \alpha) 
+        - \pi_1 \sin(2\alpha) 
+        - \cos(\alpha) \pi_a \pi_a
+        -\cos(2 \alpha) \pi_1^2
+    \right), \\
+    %%%%%%%
+    % h_2 %
+    %%%%%%%
+    & \Tr{\chi \chi^\dagger} = {\bar m}^2 + {\Delta m}^2.
+\end{align*}
+\endgroup
+
+\section{Minimizing energy}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+Minimizing the effective action $\Gamma[\pi]$ with respect to the expectation value $\pi_a(x) = \ex{\hat \pi_a}$ gives the ground state expectation value off the field. 
+The first order approximation to this is give by the classical potential. (HVORFOR?)
+The static Hamiltonian density $\He^{(0)}$, which we get from \autoref{L0} through
+\begin{equation*}
+    \He_2^{(0)} = - \Ell_2^{(0)} = 
+    -f^2   
+    \left(
+        2B_0m \cos(\alpha )
+        + \frac{1}{2} \mu^2 \sin^2(\alpha )
+    \right),
+\end{equation*}
+is minimized with respect to $\alpha$. This is achieved at 
+\begin{align}
+    &\dv{\alpha} \He_2^{(0)} 
+    = f^2\left(2B_0m - \mu_I^2\cos(\alpha)\right)\sin(\alpha) 
+    = 0.
+\end{align}
+This gives the solution set and minimization criterion
+\begin{align}
+    \alpha = \pi n, \, n \in \mathbb{Z} \quad
+    \mathrm{or} \quad
+    \cos(\alpha) = \frac{2B_0m}{\mu_I{}^2}.
+\end{align}
+We see that the linear part of the potential from \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos(\alpha) - 2B_0m)\sin(\alpha)\pi_1 = 0$ if and only if the criterion for minimization is fulfilled, as we expect (HVORFOR??).
+
+\section{Propagator}
+%%%%%%%%%%%%%%%%%
+%%%% SECTION %%%%
+%%%%%%%%%%%%%%%%%
+
+We may write the quadratic part of the Lagrangian \autoref{L2} as 
+\begin{align}
+    \Ell^{(2)}
+    =
+    \frac{1}{2} \delta_{ab} \partial_\mu \pi_a \partial^\mu \pi_b
+    + K_{ab} \pi_a \partial_0 \pi_b
+    - \frac{1}{2} M^2_{ab} \pi_a \pi_b,
+\end{align}
+where  (Er det mer naturlig å ha $m_\pi^2 = 2 B_0 m$?)
+\begin{align*}
+    M^2 & = \mathrm{diag} 
+    \left(
+        2 B_0 m \cos(\alpha) - \mu_I^2 \cos(2\alpha),\quad 
+        2 B_0 m \cos(\alpha) - \mu_I^2 \cos(\alpha)^2,\quad
+        2 B_0 m \cos(\alpha) + \mu_I^2 \sin(\alpha)^2
+    \right),
+    \\
+    K & =
+    \begin{pmatrix}
+        0 & \mu_I\cos(\alpha) & 0 \\
+        -\mu_I\cos(\alpha) & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix}.
+\end{align*}
+The components of the Euler-Lagrange equations of this field are
+\begin{equation*}
+    \pdv{\Ell}{\pi_c} = K_{cb} \partial_0 \pi_b - M^2_{cb} \pi_b, \quad
+    \pdv{\Ell}{(\partial_\mu \pi_c)} = \partial^\mu \pi_c - K_{ca}\delta^\mu_0 \pi_a.
+\end{equation*}
+This gives the equation of motion for the field
+\begin{equation}
+    \partial^\mu \partial_\mu \pi_a + M^2_{a b} \pi_b 
+    = 2 K_{ab}\partial_0 \pi_b 
+    = 2 \mu_I \cos(\alpha) (\delta_{a1}\pi_2 - \delta_{a2}\pi_1).
+\end{equation}
+The propagator of the pion field is defined by
+\begin{equation}
+    \left(
+        \delta_{ab}\partial_\mu\partial^\mu - 2 K_{ab} \partial_0 + M^2_{ab} 
+    \right) D_{bc}(x, x') 
+    = -i \delta(x - x') \delta_{ac}.
+\end{equation}
+The momentum space propagator, as defined in the \autoref{Conventions and notation}, fulfills
+\begin{equation*}
+    -(\delta_{ab}p^2 - 2 K_{ab} i p_0 - M_{ab}^2) \tilde D_{bc}(p) 
+    := A_{ab} \tilde D_{bc}(p) = -i \delta_{ac},
+\end{equation*}
+where
+\begin{equation*}
+    A = -
+    \begin{pmatrix}
+        p^2 - M^2_{11}              & -2 i p_0 K_{12}   & 0             \\
+        2 i p_0 K_{12}  & p^2 - M^2_{22}                & 0             \\
+        0                           & 0                 & p^2 - M^2_{33}
+    \end{pmatrix}.
+\end{equation*}
+The spectrum of the particles is given by solving $\det(A) = 0$ for $p^0$. With $p = (p_0, p_i) = (p_0, q)$ as the four momentum, this gives
+\begin{align*}
+    \det(A) & = A_{33} \left(A_{11} A_{22} + A_{12}^2\right)
+    = \left(p^2 - M^2_{33}\right)
+    \left[
+        \left(p^2 - M^2_{11}\right)
+        \left(p^2 - M^2_{22}\right)
+        - \left(2 p_0 K_{12}\right)^2
+    \right] = 0,
+\end{align*}
+This equation has the solutions
+\begin{align}
+    E_0^2 &= q^2 + M_{33}^2, \\
+    E_\pm^2
+    % & = q^2 + \frac{1}{2} 
+    % \left[
+    %     M_{11}^2 + M_{22}^2 + (2K_{12})^2 
+    % \right]
+    % \pm \frac{1}{2}
+    % \sqrt{
+    %     \left[
+    %     4q^2 + 2\left(M_{11}^2 + M_{22}^2\right)
+    %     + \left(2K_{12}\right)^2
+    %     \right]
+    %     \left(2K_{12}\right)^2
+    %     + \left(M_{11}^2 - M_{22}^2\right)^2
+    % }. \\
+    & = q^2 + \frac{1}{2} 
+    \left[
+        M_{11}^2 + M_{22}^2 + (2K_{12})^2 
+    \right]
+    \pm \frac{1}{2}
+    \sqrt{
+        4q^2\left(2K_{12}\right)^2 +
+        \left(
+            M_{11}^2 + M_{22}^2 + 2K_{12}^2
+        \right)^2
+        - 4 M_{11}^2 M_{22}^2
+    }.
+\end{align}
+where $K_{12} = \mu_I \cos(\alpha)$. 
+This gives the effective masses
+\begin{align}
+    m_0^2 &= M_{33}^2, \\
+    m_\pm^2
+    & = q\frac{1}{2} 
+    \left[
+        M_{11}^2 + M_{22}^2 + (2K_{12})^2 
+    \right]
+    \pm \frac{1}{2}
+    \sqrt{
+        \left(
+            M_{11}^2 + M_{22}^2 + 2K_{12}^2
+        \right)^2
+        - 4 M_{11}^2 M_{22}^2
+    }.
+\end{align}
+The propagator may then be obtained as described in \autoref{Conventions and notation}, (Sjekk fortegn off-diag.)
+\begin{align}
+    \notag
+    D & = - i A^{-1} = \frac{i}{\det(A)}
+    \begin{pmatrix}
+        A_{22} A_{33} & -A_{12}A_{33} & 0 \\
+        A_{12}A_{33} & A_{11}A_{33} & 0 \\
+        0 & 0 & A_{11}A_{22} + A_{12}^2
+    \end{pmatrix} \\
+    & = i
+    \begin{pmatrix}
+        \frac{
+            p^2 - M_{22}^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_-^2 - E_-^2)
+        } 
+        & \frac{
+            2ip_0K_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_-^2 - E_-^2)
+        } & 0 \\
+        \frac{
+            - 2ip_0K_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_-^2 - E_-^2)
+        }
+        & \frac{
+            p^2 - M_{11}^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_-^2 - E_-^2)
+        } & 0 \\
+        0 & 0 & 
+        \frac{1}{p_0^2 - E_0^2}
+    \end{pmatrix}.
+\end{align}
+
+
+
+\printbibliography
+
+\clearpage
+\input{../appendix.tex}
+
+\clearpage
+\printnoidxglossaries
+
+\end{document}
