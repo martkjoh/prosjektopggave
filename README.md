@@ -1,5 +1,6 @@
 # Prosjektopggave
-Skript og program brukt i prosjektoppgaven min, NTNU 2021.
+Files, scripts and programs used to write my "prosjektoppgaven", NTNU 2021.
 
-Files:
-* `lagrangian_expansion.nb` - script for finding the series expansion of the pion Lagrangian. Mentioned in chapter (Kapptilenummer).
+Folders:
+* `oppgave/` - latex files, as well as pdf for the text.
+* `scripts/` - scripts used for numerical and symbolical calculations. Mathematica and sage notebooks.
