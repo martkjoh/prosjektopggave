@@ -157,14 +157,45 @@ Furthermore, we have
 \end{equation}
 
 \subsection*{Propagators}
-If $A(x)[f(x)] = 0$ is the equation of motion for some field $f$, where $A(x)$ in general is a differential operator, then the propagator $D$ for this field is defined by
+If $D^{-1}[f(x)] = 0$ is the equation of motion for some field $f$, where $D^{-1}$ in general is a differential operator, then the propagator $D(x, x')$ for this field is defined by
 \begin{align*}
-    A(x) [D(x, x')] = - i \delta(x - x') \one.
+    D^{-1}[D(x, x')] = - i \delta(x - x') \one.
 \end{align*}
 Assuming $A$ is linear and independent of space, we may redefine $D(x - x', 0) \rightarrow D(x - x')$, and the Fourier transform with respect to both $x$ and $x'$ to obtain
 \begin{align*}
-    \F{A(x)[D(x, x')]}_{ac}(p, p') 
-    = \tilde A_{ab} (p) \, \tilde D_{bc}(p) \, \delta(p + p')
-    = -i \delta(p + p') \delta_{ac},
+    \F{D^{-1}[D(x, x')]}(p, p') 
+    = \tilde D^{-1}(p) \, \tilde D(p) \, \delta(p + p')
+    = -i \delta(p + p'),
 \end{align*}
-meaning the momentum space propagator $\tilde D(p) = \F{D(x)}(p)$ is given by $\tilde D = - i \tilde A^{-1}.$
+meaning the momentum space propagator $\tilde D(p) = \F{D(x)}(p)$ is given by $\tilde D = - i (\tilde  D^{-1})^{-1}.$
+
+For some differential operator $D^{-1}$, the thermal propagator is defined as
+\begin{equation}
+    D^{-1} D(X, Y) = \beta \delta(X - Y).
+\end{equation}
+The Fourier transformed propagator is, assuming $D(X, Y) = D(X-Y, 0)$,
+\begin{align}
+    \tilde D(K, K') 
+    & = \frac{1}{V \beta^3} \int_{\Omega} \dd X \dd Y \, 
+    D(X, Y) \exp(- i [X\cdot K + Y\cdot K']) \\
+    & = \frac{1}{V \beta^3} \int_{\Omega} \dd X' \dd Y' \, D(X', 0) 
+    \exp(- i [X'\cdot \frac{1}{2} (K - K') + Y\cdot (K + K')]) \\
+    & = \frac{1}{V \beta^3} \tilde D(K) \beta \delta(K + K'),
+\end{align}
+where
+\begin{equation}
+    \tilde D(K) = \int \dd X e^{iK\cdot X} D(X, 0).
+\end{equation}
+Thus, 
+\begin{equation}
+    D^{-1} D(X, Y)
+    =  \int \dd K \, \tilde D(K) D^{-1} e^{i K(X - Y)}
+    = \beta \delta(X - Y)
+    =  \int \dd K e^{iK(X - Y) }.
+\end{equation}
+The thermal propagator in momentum space, $\tilde D(K)$, is given by 
+\begin{equation}
+    \tilde D^{-1} \tilde D(K) = 1, 
+\end{equation}
+where $\tilde D^{-1}$ are the eigenvalues of $D^{-1}$.
+
