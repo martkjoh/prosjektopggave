@@ -1,0 +1,134 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{math}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzmath{
+        \r = 0.1;   % radius of curve to inf
+        \t = 6;     % how far the curve is rotaed
+    }
+    \begin{axis}[axis lines=center, ticks=none, view/h=120, view/v=5]
+    % Large circles
+    \addplot3[%
+        domain=rad(\t):2*pi-rad(\t),
+        samples=100,
+        samples y=0,
+        no marks,
+        smooth,
+        thick,
+        blue
+    ]
+    (
+        {sqrt(1 - \r^2)*cos(deg(x))}, 
+        {\r}, 
+        {sqrt(1 - \r^2)*sin(deg(x))}
+    );
+    %
+    \addplot3[%
+        domain=rad(\t):2*pi-rad(\t),
+        samples=100,
+        samples y=0,
+        no marks,
+        smooth,
+        thick,
+        blue
+    ]
+    (
+        {sqrt(1 - \r^2)*cos(deg(x))}, 
+        {-\r},
+        {sqrt(1 - \r^2)*sin(deg(x))}
+    );
+    % Small curves touching infinity
+    \addplot3[%
+        domain=pi:2*pi,
+        samples=100,
+        samples y=0,
+        no marks,
+        smooth,
+        thick,
+        blue
+    ]
+    (   {1*cos(\t) - \r*sin(deg(x))*sin(\t)},
+        {\r*cos(deg(x))},
+        {1*sin(\t) + \r*sin(deg(x))*cos(\t)}
+    );
+    %
+    \addplot3[%
+        domain=0:pi,
+        samples=100,
+        samples y=0,
+        no marks,
+        smooth,
+        thick,
+        blue
+    ]
+    (   {1*cos(-\t) - \r*sin(deg(x))*sin(-\t)},
+        {\r*cos(deg(x))},
+        {1*sin(-\t) + \r*sin(deg(x))*cos(-\t)}
+    );
+    %
+    \addplot3[%
+        opacity = 0.1,
+        mesh,
+        black,
+        z buffer = sort,
+        samples = 50,
+        variable = \u,
+        variable y = \v,
+        domain = 0:180,
+        y domain = 0:360,
+    ]
+    ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(1,0,0)[$\infty$]};
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(-1,0,0)[$0$]};
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(0,0,1)[$-1$]};
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(0,0,-1)[$1$]};
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(0,1,0)[$-i$]};
+    \addplot3[
+        mark=*,
+        black, 
+        point meta=explicit symbolic,
+        nodes near coords
+        ]
+    coordinates {(0,-1,0)[$i$]};
+    % Poles
+    \addplot3[mark=x, red] coordinates {(1/sqrt(2), 0, 1/sqrt(2))};
+    \addplot3[mark=x, red] coordinates {(sqrt(3)/2, 0, 1/2)};
+    \addplot3[mark=x,red] coordinates {(1/sqrt(2), 0, -1/sqrt(2))};
+    \addplot3[mark=x, red]coordinates {(sqrt(3)/2,0,-1/2)};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

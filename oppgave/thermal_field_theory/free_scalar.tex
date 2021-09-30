@@ -6,17 +6,19 @@ One starts with a free theory, which can be solved exactly.
 Then an interaction term is added, which is accounted for peturbatively by using Feynman diagrams.
 The Euclidean Lagrangian for a free scalar gas is, after integrating by parts,
 \begin{equation*}
-    \Ell_E = \frac{1}{2} \varphi(X) \left( -\partial_\tau^2 - \nabla^2 + m^2 \right) \varphi(X)
+    \Ell_E = \frac{1}{2} \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
 \end{equation*}
 Here, $\Omega$ is the domain $[0, \beta] \times V$, and $X = (\tau, \vec x)$ is the Euclidean coordinate which is a result of the Wick-rotation.
+Furthermore, we have introduced the Euclidean Laplace operator, $\partial_E^2 = \partial_\tau^2 + \nabla^2$.
 Following the procedure as described in \autoref{imaginary-time formalism} to obtain the thermal partition function yields
 \begin{equation*}
     Z = C \int_S \D \varphi(X) 
     \exp{
         - \int_\Omega \dd X \frac{1}{2} 
-        \varphi(X) \left( -\partial_\tau^2 - \nabla^2 + m^2 \right) \varphi(X)
+        \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
     }.
 \end{equation*}
+Here, $K = (\omega_n, \vec k)$ is the Euclidean Fourier-space coordinate.
 We then insert the Fourier expansion of $\varphi$, and change the functional integration variable to the Fourier components.
 The integration measures are related by
 \begin{equation*}
@@ -36,38 +38,39 @@ The action becomes
     & = - \frac{1}{2} V \beta^2 \, \int_{\tilde \Omega} \dd K \,
     \tilde \varphi(K)^*
     \left(
-        \omega_n^2 + \vec k^2 + m^2
+        \omega_n^2 + \omega_k^2
     \right)
-    \tilde \varphi(K).
+    \tilde \varphi(K),
 \end{align*}
+where $\omega_k^2 = \vec k^2 + m^2$.
+$\tilde \Omega$ is the reciprocal space corresponding to $\Omega$, as described in \autoref{Conventions and notation}.
 We used the fact that $\varphi$ is real, which implies that $\tilde \varphi(-K) = \tilde \varphi(K)^*$, as well as the identity \autoref{thermal delta}.
 This gives the partition function 
 \begin{equation*}
     Z = C \int_{\tilde S} \D \tilde \varphi(K) 
     \exp{
         -  \frac{1}{2} V \int_{\tilde \Omega} \dd K \, 
-        \tilde \varphi(K)^* \left[\beta^2 (\omega_n^2+ \omega^2)\right] \tilde \varphi(K)
+        \tilde \varphi(K)^* \left[\beta^2 (\omega_n^2+ \omega_k^2)\right] \tilde \varphi(K)
     },
 \end{equation*}
-where $\omega^2 = \vec k^2 + m^2$.
-Going back to before the continuum limit, this integral can be written
+Going back to before the continuum limit, this integral can be written as a product of Gaussian integrals, and may therefore be evaluated
 \begin{align*}
     Z = C \prod_{n=-\infty}^\infty \prod_{k \in \tilde V}
     \left(
         \int \dd \tilde \varphi_{n, \vec k} \,
         \exp{
             - \frac{1}{2} \tilde \varphi_{n, \vec k}^*
-            \left[\beta^2 (\omega_n^2+ \omega^2)\right] 
+            \left[\beta^2 (\omega_n^2+ \omega_k^2)\right] 
             \tilde \varphi_{n, \vec k}
             }
     \right)
     = 
     C \prod_{n=-\infty}^\infty \prod_{k \in \tilde V} 
-    \sqrt{\frac{2 \pi}{\beta^2 (\omega_n^2 + \omega^2)}}.
+    \sqrt{\frac{2 \pi}{\beta^2 (\omega_n^2 + \omega_k^2)}}.
 \end{align*}
 The partition function is related to Helmholtz free energy $F$ through
 \begin{equation*}
-    \frac{F}{T V}= - \frac{\ln(Z)}{V} = \frac{1}{2} \int_\Omega \dd K \frac{1}{2} \ln[\beta^2(\omega_n^2 + \omega^2)] + \frac{F_0}{TV},
+    \frac{F}{T V}= - \frac{\ln(Z)}{V} = \frac{1}{2} \int_{\tilde \Omega} \dd K \frac{1}{2} \ln[\beta^2(\omega_n^2 + \omega_k^2)] + \frac{F_0}{TV},
 \end{equation*}
 where $F_0$ is a constant.
 
@@ -106,36 +109,21 @@ This is found by diagonalizing the operator,
     \langle x, D x \rangle 
     = \int_\Omega \dd X \varphi(X)\left(-\partial_E^2+m^2\right)\varphi(X)
     = V  \int_{\tilde \Omega} \dd K 
-    \tilde \varphi(K)^* [\beta^2(\omega^2 +\omega_n^2)] \tilde \varphi(K),
+    \tilde \varphi(K)^* [\beta^2(\omega_k^2 +\omega_n^2)] \tilde \varphi(K),
 \end{equation*}
 leaving us with the same result
 \begin{equation*}
     \beta F 
     = \frac{1}{2} \Tr{\ln(-\partial_E^2 + m^2)} 
-    = \frac{1}{2} V \int_{\tilde \Omega} \dd K \ln[\beta^2(\omega_n^2 + \omega^2)].
+    = \frac{1}{2} V \int_{\tilde \Omega} \dd K \ln[\beta^2(\omega_n^2 + \omega_k^2)].
 \end{equation*}
 How to work this sum is shown in \autoref{thermal sum}
-% Finally, using the identity
-% \begin{equation*}
-%     \sum_{n=-\infty}^\infty \frac{1}{n^2 + (\theta/2 \pi)^2} '
-%     = \frac{2 \pi^2}{\theta}\coth\frac{\theta}{2}
-% \end{equation*}
-% we may write
-% \begin{align*}
-%     & \sum_{n=-\infty}^\infty \ln[(2 \pi n)^2 + (\beta\omega)^2]
-%     = \int_c^{(\omega\beta)^2} \sum_{n=-\infty}^\infty 
-%     \frac{\dd \theta^2}{(2 \pi n)^2 + \theta^2} 
-%     + \sum_{n=-\infty}^\infty \ln[(2\pi n + c)] \\
-%     & =\int_c^{(\beta\omega)^2}\frac{\dd \theta^2 }{2\theta} \coth\frac{\theta}{2} +C
-%     =\int_{\sqrt{c}}^{\beta\omega}\dd \theta \, \coth\frac{\theta}{2}+ C
-%     = 2\ln\left(\sinh\frac{\beta \omega}{2}\right) + C' 
-%     = \beta \omega + 2\ln(1 - e^{-\beta \omega}) + C''
-% \end{align*}
 This gives the free energy density, after dropping the additive constant,
 \begin{equation}
-    \Ef = F/V 
+    \label{free scalar free enrgy}
+    \beta \Ef = \frac{F}{VT}
     = \frac{1}{2} \int_{\tilde V} \frac{\dd^3 k}{(2 \pi)^3}
     \left[
-        \omega + \frac{2}{\beta}\ln(1 - e^{-\beta\omega})
-    \right].
+        \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
+    \right] + \frac{F_0}{VT}
 \end{equation}
