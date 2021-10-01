@@ -8,8 +8,8 @@ The Euclidean Lagrangian for a free scalar gas is, after integrating by parts,
 \begin{equation*}
     \Ell_E = \frac{1}{2} \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
 \end{equation*}
-Here, $\Omega$ is the domain $[0, \beta] \times V$, and $X = (\tau, \vec x)$ is the Euclidean coordinate which is a result of the Wick-rotation.
-Furthermore, we have introduced the Euclidean Laplace operator, $\partial_E^2 = \partial_\tau^2 + \nabla^2$.
+Here, $X = (\tau, \vec x)$ is the Euclidean coordinate which is a result of the Wick-rotation.
+We have introduced the Euclidean Laplace operator, $\partial_E^2 = \partial_\tau^2 + \nabla^2$.
 Following the procedure as described in \autoref{imaginary-time formalism} to obtain the thermal partition function yields
 \begin{equation*}
     Z = C \int_S \D \varphi(X) 
@@ -18,12 +18,13 @@ Following the procedure as described in \autoref{imaginary-time formalism} to ob
         \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
     }.
 \end{equation*}
-Here, $K = (\omega_n, \vec k)$ is the Euclidean Fourier-space coordinate.
+Here, $\Omega$ is the domain $[0, \beta] \times V$.
 We then insert the Fourier expansion of $\varphi$, and change the functional integration variable to the Fourier components.
 The integration measures are related by
 \begin{equation*}
     \D \varphi(X) = \det(\frac{\delta \varphi(X)}{\delta \tilde \varphi(K)}) \D\tilde \varphi(K).
 \end{equation*}
+$K = (\omega_n, \vec k)$ is the Euclidean Fourier-space coordinate.
 The determinant factor which appears may be absorbed into the constant $C$, as the integration variables are related by a linear transform.
 The action becomes 
 \begin{align*}

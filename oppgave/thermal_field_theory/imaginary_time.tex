@@ -1,6 +1,6 @@
 \subsection*{Imaginary-time formalism}
 \label{imaginary-time formalism}
-In classical mechanics, a thermal system at temperature $T = 1 / \beta$ is described as a ensemble state, which have a probability $P_n$ of being in state $n$, with energy $E_n$.
+In classical mechanics, a thermal system at temperature $T = 1 / \beta$ is described as an ensemble state, which have a probability $P_n$ of being in state $n$, with energy $E_n$.
 In the canonical ensemble, the probability is proportional to $e^{-\beta E_n}$.
 The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
 \begin{equation*}
@@ -32,7 +32,7 @@ The partition function $Z$ ensures that the probabilities adds up to 1, and is d
 \end{equation}
 
 The grand canonical ensemble takes into account the conserved charges of the system.
-Conserved charges are a result of Nôthers theorem.
+Conserved charges are a result of Nöther's theorem.
 Assume we have a set of fields $\varphi_\alpha$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_\alpha]$ has a \emph{continuous symmetry}, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
 To define a continuous symmetry of the Lagrangian, we need a one-parameter family of transformations,
 \begin{equation*}
@@ -93,27 +93,27 @@ These field operators have time independent eigenvectors, $\ket{\varphi}$ and $\
 \end{equation}
 In analogy with regular quantum mechanics, they obey the relations~\cite{Kapusta:finiteTemp}
 \footnote{Some authors write $\D\pi/2 \pi$. This extra factor $2\pi$ is a convention which in this text is left out for notational clarity.}
-\begin{align}
+\begin{gather}
     \label{functional completness}
-    \one & 
+    \one
     = \int \D \varphi(\vec x) \ketbra{\varphi}{\varphi} 
     = \int \D\pi(\vec x) \ketbra{\pi}{\pi}, \\
-    & \braket{\varphi}{\pi} 
+     \braket{\varphi}{\pi} 
     = \exp(i \int_V \dd x \, \varphi(\vec x) \pi(\vec x)), \\
     \braket{\pi_a}{\pi_b}
-    = \prod_{x} & \delta(\phi_a(\vec x) - \phi_b(\vec x)), \quad
+    =  \delta(\phi_a - \phi_b), \quad
     \braket{\varphi_a}{\varphi_b} 
-    = \prod_{x} \delta(\varphi_a(\vec x) - \varphi_b(\vec x)).
-\end{align}
+    = \delta(\varphi_a - \varphi_b).
+\end{gather}
 The functional integral is defined by starting with $M$ degrees of freedom, $\{\varphi_m\}_{m=1}^M$ located at a finite grid $\{\vec x_m\}_{m=1}^M \subset V$.
 The integral is then the limit of the integral over all degrees of freedom, as $M \rightarrow \infty$:
 \begin{equation*}
     \int \D \varphi(\vec x) = \lim_{M \rightarrow \infty} \int \left(\prod_{m=1}^M \dd \varphi_m\right).
 \end{equation*}
-The functional Dirac-delta $\prod_x\delta(f(x))$ is generalization of the familiar Dirac delta function.
+The functional Dirac-delta $\delta(f) = \prod_x\delta(f(x))$ is generalization of the familiar Dirac delta function.
 Given a functional $\mathcal{F}[f]$, it is defined by the relation
 \begin{equation}
-    \int \D f(x)\, \mathcal{F}[f] \prod_x \delta(f(x) - g(x)) = \mathcal{F}[g].
+    \int \D f(x)\, \mathcal{F}[f] \delta(f - g) = \mathcal{F}[g].
 \end{equation}
 The Hamiltonian is the limit of a sum of Hamiltonians $\hat H_m$ for each point $\vec x_m$
 \begin{equation*}
@@ -122,7 +122,7 @@ The Hamiltonian is the limit of a sum of Hamiltonians $\hat H_m$ for each point 
     \frac{V}{M} \hat H_m(\{\hat \varphi_m\}, \{\hat \pi_m\}).
 \end{equation*}
 $H_m$ may depend on the local degrees of freedom $\hat \varphi_m, \, \hat \pi_m$ as well as those at neighboring points.
-By inserting the completeness relations \autoref{functional completness} into the definition of the partition function, it may be written as
+By inserting the completeness relations \autoref{functional completness} $N$ times into the definition of the partition function, it may be written as
 \begin{align*}
     Z& 
     = \int \D\varphi(\vec x) \, \inner{\varphi}{e^{- \beta \hat H}}{\varphi}
@@ -184,7 +184,7 @@ With a Hamiltonian density of the form $\He = \frac{1}{2} \pi^2 + \frac{1}{2} (\
         \right]
     } \\
     & = \lim_{M,N \rightarrow \infty} \left( \frac{M N }{2 \pi V \beta} \right)^{MN/2}
-    \exp{- \int_0^\beta\dd \tau \int_V \dd^3x \, \frac{1}{2}\dot \varphi^2}
+    \exp{- \int_0^\beta\dd \tau \int_V \dd^3x \, \frac{1}{2}\dot \varphi^2},
 \end{align*}
 where $\dot \varphi_{m, n} = (\varphi_{m, n+1} - \varphi_{m, n})/\epsilon$.
 The partition function is then, 
@@ -203,14 +203,16 @@ In the last line, we exploited the fact that the variable of integration $\pi_{n
 \begin{equation*}
     \int_{-\infty}^{\infty} \dd x \, e^{-a x^2/2} = \sqrt{\frac{2 \pi}{a}}.
 \end{equation*}
-The partition function resulting from this procedure may also be obtained the ground state path integral
+
+The partition function resulting from this procedure may also be obtained by starting with the ground state path integral
 \begin{equation*}
     Z_g
     =\int \D\varphi\D\pi
     \exp{i \int_{\Omega'} \dd^4 x \, \left(\pi\dot\varphi - \He[\varphi, \pi]\right)}
     = C' \int \D \varphi(x)
-    \exp{i \int_{\Omega'} \dd^4 x \, \Ell[\varphi, \partial_\mu \varphi]}.
+    \exp{i \int_{\Omega'} \dd^4 x \, \Ell[\varphi, \partial_\mu \varphi]},
 \end{equation*}
+and follow a formal procedure.
 The domain of the functional integral $\int \D \varphi$ is restricted from \emph{all} (smooth enough) field configurations $\varphi(t, \vec x)$, to only those that obey $\varphi(\beta, \vec x) = e^{i\theta} \varphi(0, \vec x) $, which is denoted $S$.
 The action integral is modified by performing a Wick-rotation of the time coordinate $t$. 
 This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity, and making the change of variable $it \rightarrow \tau$.
