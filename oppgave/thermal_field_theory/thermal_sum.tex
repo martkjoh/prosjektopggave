@@ -24,7 +24,8 @@ By exploiting the properties of $i n_B(i z)$, as described in \autoref{Conventio
     \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
     = \oint_\gamma \frac{\dd z}{2 \pi i} f(z) (i n_B(i z)),
 \end{equation*}
-where $\gamma$ is a contour that goes from $- \infty - i \epsilon$ to $+ \infty - i \epsilon$, crosses the real line at $\infty$, goes from $+ \infty - i \epsilon$ to $- \infty + i \epsilon$ before closing the curve. (FIGURE)
+where $\gamma$ is a contour that goes from $- \infty - i \epsilon$ to $+ \infty - i \epsilon$, crosses the real line at $\infty$, goes from $+ \infty - i \epsilon$ to $- \infty + i \epsilon$ before closing the curve.
+The contour $\gamma$, and the change of integral contours is illustrated in \autoref{fig:integral contours}
 This result exploits Cauchy's integral formula, by letting the poles of $in_B(iz)$ at the Matsubara frequencies ``pick out'' the necessary residues.
 The integral over $\gamma$ is equivalent to two integrals along $\R \pm i \epsilon$,
 \begin{align*}
@@ -42,8 +43,20 @@ The integral over $\gamma$ is equivalent to two integrals along $\R \pm i \epsil
 \end{align*}
 \begin{figure}
     \centering
-    \includegraphics{thermal_field_theory/plots/integral_cont.pdf}
-    \includegraphics{thermal_field_theory/plots/integral_cont2.pdf}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics{thermal_field_theory/plots/integral_cont.pdf}        
+    \end{subfigure}
+    \begin{subfigure}{0.18\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[-stealth] (0, 0) -- (1, 0);
+        \end{tikzpicture}
+        \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics{thermal_field_theory/plots/integral_cont2.pdf}
+    \end{subfigure} 
     \caption{The integral contour $\gamma$, and the result of deforming it into to contours close to the real line.}
     \label{fig:integral contours}
 \end{figure}

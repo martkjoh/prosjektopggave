@@ -2,7 +2,11 @@
 
 \usepackage{tikz}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
 \usetikzlibrary{math}
+\usetikzlibrary{arrows.meta}
+
 
 \begin{document}
 \begin{tikzpicture}
@@ -11,6 +15,19 @@
         \t = 0;     % how far the curve is rotaed
     }
     \begin{axis}[axis lines=center, ticks=none, view/h=120, view/v=5]
+    % Sphere
+    \addplot3[%
+    opacity = 0.1,
+    mesh,
+    black,
+    z buffer = sort,
+    samples = 50,
+    variable = \u,
+    variable y = \v,
+    domain = 0:180,
+    y domain = 0:360,
+    ]
+    ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
     % Large circles
     \addplot3[%
         domain=rad(\t):2*pi-rad(\t),
@@ -19,7 +36,8 @@
         no marks,
         smooth,
         thick,
-        blue
+        blue,
+        ->
     ]
     (
         {sqrt(1 - \r^2)*cos(deg(x))}, 
@@ -34,26 +52,15 @@
         no marks,
         smooth,
         thick,
-        blue
+        blue,
+        <-
     ]
     (
         {sqrt(1 - \r^2)*cos(deg(x))}, 
         {-\r},
         {sqrt(1 - \r^2)*sin(deg(x))}
     );
-    %
-    \addplot3[%
-        opacity = 0.1,
-        mesh,
-        black,
-        z buffer = sort,
-        samples = 50,
-        variable = \u,
-        variable y = \v,
-        domain = 0:180,
-        y domain = 0:360,
-    ]
-    ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+    % Points
     \addplot3[
         mark=*,
         black, 
@@ -96,11 +103,30 @@
         nodes near coords
         ]
     coordinates {(0,-1,0)[$i$]};
-    % Poles
-    \addplot3[mark=x, red] coordinates {(1/sqrt(2), 0, 1/sqrt(2))};
-    \addplot3[mark=x, red] coordinates {(sqrt(3)/2, 0, 1/2)};
-    \addplot3[mark=x,red] coordinates {(1/sqrt(2), 0, -1/sqrt(2))};
-    \addplot3[mark=x, red]coordinates {(sqrt(3)/2,0,-1/2)};
+    \addplot3[
+        domain=2:15,
+        samples=10,
+        red,
+        only marks,
+        mark=x,
+        ]
+    (
+        {cos(deg( pi/2* (ln(20) - ln(x))/ln(20)) )},
+        {0},
+        {sin(deg( pi/2* (ln(20) - ln(x))/ln(20)) ))}
+    );
+    \addplot3[
+        domain=2:18,
+        samples=12,
+        red,
+        only marks,
+        mark=x,
+        ]
+    (
+        {cos(deg( -pi/2* (ln(20) - ln(x))/ln(20)) )},
+        {0},
+        {sin(deg( -pi/2* (ln(20) - ln(x))/ln(20)) ))}
+    );
     \end{axis}
 \end{tikzpicture}
 \end{document}
