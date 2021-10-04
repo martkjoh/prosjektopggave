@@ -1,5 +1,5 @@
 \subsection{Fermions}
-The phase factor $e^{i\theta}$ that was introduced in (REF IMAG FORM.) can be decided by studying the properties of the thermal greens function, which are defined as
+The phase factor $e^{i\theta}$ that was introduced in \autoref{imaginary-time formalism} can be decided by studying the properties of the thermal greens function, which are defined as
 \begin{equation*}
     G(X_1, X_2) = G(\vec x, \vec y, \tau_1, \tau_2) 
     = \ex{e^{-\beta \hat H} \T{ \varphi(X_1) \varphi(X_2) } }.
@@ -70,86 +70,76 @@ The canonical momentum corresponding to $\psi$ is
 and the Hamiltonian density is 
 \begin{equation}
     \He = \pi \dot\psi - \Ell
-    = \bar \psi ( - \gamma^i\partial_i + m) \psi
+    = \bar \psi ( - i\gamma^i\partial_i + m) \psi
 \end{equation}
 which gives
 \begin{equation}
-    i \dot\psi \pi - \He(\psi, \pi) + \mu \psi^\dagger \psi
-    = \bar\psi[-\gamma^0 (\partial_\tau - \mu) + i\gamma^i \partial_i - m] \psi,
+    \Ell_E = 
+    - i \pi \dot\psi + \He(\psi, \pi) - \mu \psi^\dagger \psi
+    = \bar\psi[\gamma^0 (\partial_\tau - \mu) - i\gamma^i \partial_i - m] \psi,
 \end{equation}
 By using the Grassman-version of the Gaussian integral formula, the partition function can be written
 \begin{align*}
-    Z = \prod_{a b}\int \D \psi_a\D i\psi^\dagger_b 
+    Z & = \prod_{a b}\int \D \psi_a\D \bar \psi_b 
     \exp{
-        \int_\omega \dd X \, \bar \psi
+        - \int_\Omega \dd X \, \bar \psi
         \left[
-            -\gamma^0 (\partial_\tau -\mu)+ i \gamma^i \partial_i - m
+            \tilde\gamma_0(\partial_\tau -\mu) -  i \gamma^i \partial_i - m
         \right]
         \psi
+    }\\
+    & = \prod_{a b}\int \D \tilde \psi_a\D \tilde {\bar \psi}_b 
+    \exp{
+        - \int_{\tilde \Omega} \dd K \, \tilde {\bar \psi}
+        \left[
+            i \tilde\gamma_0(\omega_n + i\mu) + i \gamma_i p_i - m
+        \right]
+        \tilde \psi
     }
-    = \prod_{a b}\int \D \psi_a\D i\psi^\dagger_b  e^{\langle i\psi^\dagger, D \psi\rangle} 
-    = C \det(D),
+    = \prod_{a b}\int \D \tilde \psi_a\D \tilde {\bar \psi}_b 
+    e^{- \langle \tilde {\bar \psi}, D \psi\rangle} 
+    = \det(D),
 \end{align*}
 where 
 \begin{equation}
-    D = -i \gamma^0  [
-        (\mu-\partial_\tau) + i \gamma^i \partial_i - m
-        ].
+    D = i \gamma^0 (-i\partial_\tau + i\mu) - (- i \gamma^i) \partial_i - m
+    = 
+    \beta [i \tilde \gamma_a p_a - m ].
 \end{equation}
-This results in
-\begin{equation}
-    -\beta F = \ln(Z) = \Tr[\ln(D)] + C.
-\end{equation}
-Assuming $\psi_a(X)$ is a orthonormal set, we can calculate the trace
-\begin{align*}
-    \Tr[\ln(D)] 
-    & = \int_\Omega \dd X \, (i \psi_a(X)^\dagger) 
-    \ln\{ -i \gamma^0 [\gamma^0 (\mu-\partial_\tau) + i \gamma^i\partial_i -  m]\}_{ab} 
-    \psi_b(X) \\
-    & =
-    V \int_{\tilde \Omega} \dd K \,
-    \ln\{ -i \beta\gamma^0  [\gamma^0 (\mu - i\omega_n) - \gamma^i p_i - m]\}_{aa} \\
-    & =
-    V \int_{\tilde \Omega} \dd K \,
-    \ln\{ i \beta \gamma^0 [i\gamma^0 (\omega_n + i\mu) + i(-i\gamma^i) p_i + m]\}_{aa}\\
-    & =
-    V \int_{\tilde \Omega} \dd K \,
-    \ln\{ i \beta \gamma^0 [i \tilde \gamma_a p_{n;a} + m]\}_{aa}.
-\end{align*}
-In the last line, we have introduced the notation $p_{n;a} = (\omega_n + i \mu, p_i)$ and use the Euclidean gamma matrices, as defined in \autoref{Conventions and notation}.
-(JEG ER IKKE SIKKER PÅ DETTE) 
-Furthermore, we use the fact that
+This equality must be understood as an equality between linear operators, which are represented in different bases.
+We introduced the notation $p_{n;a} = (\omega_n + i \mu, p_i)$ and use the Euclidean gamma matrices, as defined in \autoref{Conventions and notation}.
+We use the fact that 
 \begin{equation*}
-    \ln[i\tilde\gamma_a p_a - m]
-    = \ln[i\tilde\gamma_a p_a - m] + \ln(\tilde\gamma_5 \tilde\gamma_5) 
-    = \ln[\tilde\gamma_5(i\tilde\gamma_a p_a - m)\tilde\gamma_5]
-    = \ln[-i\tilde\gamma_a p_a - m],
+    \det(i\tilde\gamma_a p_a - m)
+    = \det(\gamma^5 \gamma^5)
+    \det(i\tilde\gamma_a p_a - m)
+    = \det[\gamma^5 (i\tilde\gamma_a p_a - m) \gamma^5]
+    = \det(-i\tilde\gamma_a p_a - m),
 \end{equation*}
-which allows us to calculate
-\begin{align*}
-    &\ln\{ i \beta \gamma^0[i\tilde\gamma^0 (\omega_n + i\mu) + i(-i\tilde\gamma^i) p_i + m]\}\\
-    & = \ln[(i \tilde\gamma_a p_a + m)] + \frac{1}{4} \ln[(i \beta \gamma^0)^4]\\
-    & = \ln[\beta] + \frac{1}{2} 
-    \left\{
-        \ln[i \tilde\gamma^a p^a + m] + \ln[- i \tilde\gamma^a p^a + m]
-    \right\} \\
-    & = \frac{1}{2} 
-    \left\{
-        \ln[\beta^2 (i \tilde\gamma^a p^a + m)( - i \tilde\gamma^a p^a + m)]
-    \right\} \\
-    & = \frac{1}{2} \one \ln\{ \beta^2[(\omega_n + i\mu)^2 + \omega^2]\} 
-\end{align*}
-which gives
+Let $\tilde D = -i\tilde\gamma_a p_a - m$, which means we can write
 \begin{equation}
-    \Ef
-    = -\frac{2}{\beta} \int_{\tilde \Omega} \dd X \,  \ln\{ \beta^2[(\omega_n + i\mu)^2 + \omega^2]\} .
+    Z = \sqrt{\det(D)\det(\tilde D)} = \sqrt{\det(D\tilde D)} = \det[\one(p_a p_a + m^2)]^{1/2}.
 \end{equation}
-Using the fermionic version of the thermal sum, this gives the answer
+We have here used the anti-commutation rule for the Euclidean gamma-matrices, $\acom{\gamma_a}{\gamma_b} = 2 \delta_{ab}$.
+It is important to keep in mind that the determinant here refers to linear operators on the space of spinor functions.
+\begin{align}
+    ln(Z) & = \ln\left\{\det[\one(p_a p_a + m^2)]^{1/2}\right\}
+    = \frac{1}{2} \Tr{\ln[\one(p_a p_a + m^2)]} \\
+    & = \frac{1}{2} \int_{\tilde \Omega} \dd K \ln[\one \beta^2 (p_a p_a + m^2)]_{aa}
+\end{align}
+As the matrix within the logarithm is diagonal, the matrix-part of the trace is trivial, and the free energy may be written
 \begin{equation}
-    \Ef = - \frac{2}{\beta} \int\frac{\dd^3 p}{(2\pi)^3} \, 
+    \beta \Ef
+    = - 2 \int_{\tilde \Omega} \dd X \,  \ln\{ \beta^2[(\omega_n + i\mu)^2 + \omega_k^2]\} .
+\end{equation}
+Using the fermionic version of the thermal sum (TODO: UTLED DENNE) gives the answer
+\begin{equation}
+    \beta \Ef = - 2 \int\frac{\dd^3 p}{(2\pi)^3} \, 
     \left[
-        \beta \omega 
-        + \ln\left(1 + e^{-\beta(\omega+\mu)}\right)
-        + \ln\left(1 + e^{-\beta(\omega-\mu)}\right)
+        \beta \omega_k
+        + \ln\left(1 + e^{-\beta(\omega_k+\mu)}\right)
+        + \ln\left(1 + e^{-\beta(\omega_k-\mu)}\right)
     \right].
 \end{equation}
+We see again that the temperature-independent part of the integral diverges, and must be regulated.
+There are two temperature-dependent terms, one for each of the particles $\psi$ and $\bar \psi$.

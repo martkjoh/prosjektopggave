@@ -1,19 +1,23 @@
 \subsection{Regulating the free energy}
-The free energy integral we obtained from the energy for the free scalar \autoref{free scalar free enrgy}, has two parts,
+Using the result from \autoref{thermal sum} on the result for the free energy of the free scalar field, \autoref{free scalar result 2}, we get
+\begin{equation}
+    \label{free scalar free enrgy}
+    \beta \Ef = \frac{F}{VT}
+    = \frac{1}{2} \int_{\tilde V} \frac{\dd^3 k}{(2 \pi)^3}
+    \left[
+        \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
+    \right].
+\end{equation}
+This free energy has two parts, one dependent on temperature, and one not.
 Noticing that the integral is spherically symmetric, we may write
 \begin{equation}
-    J_0 = \frac{1}{2} \int_{\tilde \Omega} \frac{\dd^3 k}{(2 \pi)^3} \sqrt{k^2 + m^2}, \quad
-    J_T = \frac{1}{\beta} \int_{\tilde \Omega} \frac{\dd^3 k}{(2 \pi)^3} 
-    \ln\left[1 - \exp(- \beta \sqrt{k^2 + m^2})\right], 
+    J_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
+    J_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (m/T)^2}}), 
 \end{equation}
 The temperature-independent part, $J_0$, is clearly divergent, and we must therefore impose a regulator, and then add counter-terms.
 This differs from the zero-temperature formalism, where there were no need to renormalize the free theory.
 The second part of the integral, is convergent. 
-To see this, we first exploit that it is spherically symmetric to write
-\begin{equation}
-    J_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (\beta m)^2}}).
-\end{equation}
-Using the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{\epsilon}$, we can find the leading part of the  integrand for large $k$'s, 
+To see this, we use the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{\epsilon}$ to find the leading part of the integrand for large $k$'s, 
 \begin{equation}
     x^2 \ln(1 - e^{-\sqrt{x^2 + (\beta m)^2}}) \sim - x^2 e^{-x}, 
 \end{equation}
@@ -25,7 +29,7 @@ In the limit of $T \rightarrow \infty$, we get
 \end{equation}
 where $\sigma$ is the Stefan-Boltzmann constant. 
 
-We use dimensional regularization on the temperature independent term. 
+Returning to the temperature-independent, we use dimensional regularization on the temperature to see its singular behavior.
 To that end, we define
 \begin{equation}
     \Phi(m, d, A) = \int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-A},
@@ -64,7 +68,7 @@ This is the beta-function, which can be written in terms of gamma-funcitons~\cit
     I = B\left(A - \frac{d}{2}, \frac{d}{2}\right) 
     = \frac{\Gamma\left(A - \frac{d}{2}\right) \Gamma\left(\frac{d}{2}\right)}{\Gamma(A)}.
 \end{equation}
-Putting it all together, this gives
+Combining this gives
 \begin{equation}
     \Phi = 
     \frac{
@@ -99,14 +103,14 @@ Expanding around $\epsilon = 0$ gives
     \frac{1}{(\epsilon - 2)(\epsilon - 1)}
     &\sim \frac{1}{2}\left(1 + \frac{3}{2} \epsilon\right).
 \end{align}
-Inserting this back into the function gives
+The singular behavior of the time-independent term is therefore
 \begin{align}
-    \Phi = 
-    - \frac{m^4}{2^5 \pi^2} \mu^{-2 \epsilon}
-    \left[1 + \epsilon \ln\left(4 \pi \frac{\mu^2}{m^2}\right)\right]
-    \left(\frac{1}{\epsilon} - \gamma\right) \left(1 + \frac{3}{2} \epsilon\right)
-    \sim
-    - \frac{m^4}{2^5 \pi^2} \mu^{-2 \epsilon}
+    J_0 \sim
+    % - \frac{m^4}{2^6 \pi^2} \mu^{-2 \epsilon}
+    % \left[1 + \epsilon \ln\left(4 \pi \frac{\mu^2}{m^2}\right)\right]
+    % \left(\frac{1}{\epsilon} - \gamma\right) \left(1 + \frac{3}{2} \epsilon\right)
+    % \sim
+    - \frac{m^4}{2^6 \pi^2} \mu^{-2 \epsilon}
     \left[
         \frac{1}{\epsilon} 
         - \gamma + \frac{3}{2}

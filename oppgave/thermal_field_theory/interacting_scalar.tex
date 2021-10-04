@@ -10,7 +10,7 @@ We write the Lagrangian in the form
 \end{equation*}
 $\Ell^{(I)}$ is called the interaction term, and makes it impossible to exactly solve for the partition function.
 Instead, we turn to perturbation theory.
-The grand canonical partition function in this theory
+The canonical partition function in this theory
 \begin{equation}
     Z = \Tr{e^{- \beta \hat H}}
     = \int_S \D \varphi \, \exp{
@@ -70,14 +70,14 @@ where
 %             \tilde \dd K\, [\beta^2(\omega_n^2 + \omega_n^2)] |\tilde \varphi(K)|^2
 % \end{equation}
 
-To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introduce the the partition function with a source term
+To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introduce the partition function with a source term
 \begin{align}
     Z[J] = \int_S \D \varphi \, \exp{
         - \frac{1}{2} \int_\Omega \dd X \, \varphi (-\partial_E^2 + m^2) \varphi
         + \int_\Omega \dd X \, J \varphi
     }.
 \end{align}
-Using the thermal Greens function $D(X, Y)$, as defined in \autoref{Conventions and notation}, we may complete the square to write
+Using the thermal Greens function $D_0(X, Y)$, as defined in \autoref{Conventions and notation}, we may complete the square to write
 \begin{align}
     Z[J] = Z[0]\exp{\frac{1}{2} \int_{\Omega} \dd X \dd Y J(X) D_0(X, Y) J(Y)}
     = Z[0] \exp(W[J])
@@ -88,9 +88,8 @@ We can now write
     = \frac{1}{Z[0]}
     \frac{\delta}{\delta J(X)} \frac{\delta}{\delta J(Y)} 
     Z[J] \Big|_{J=0} 
-    = D(X, Y),
+    = D_0(X, Y),
 \end{equation}
-where $D(X, Y)$ is the thermal propagator, as defined in \autoref{Conventions and notation}
 This generalizes to higher order expectation values,
 \begin{equation}
     \ex{\varphi(X_i) \dots \varphi(X_n)}_0
@@ -105,9 +104,9 @@ A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
 Wick theorem states that,
 \begin{equation}
     \ex{\prod_{i=1}^{2m} \varphi(X_i)  }_0
-    = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})}.
+    = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})},
 \end{equation}
-where the  sum is over all tuples $(a, b)$ that define a valid and unique pairing.
+where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
 Using Wick's theorem, the expectation values we are evaluating can be written
 \begin{align*}
     \ex{{S_I}^m} & 
@@ -122,7 +121,7 @@ Using Wick's theorem, the expectation values we are evaluating can be written
     \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}
 \end{align*}
 where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$.
-Inserting the fourier expandions of the field gives
+Inserting the Fourier expantions of the field gives
 \begin{align*}
     & \ex{{S_I}^m} \\ 
     &\quad 
@@ -150,10 +149,10 @@ Inserting the fourier expandions of the field gives
     \sum_{\{a, b\}} 
     \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)})
 \end{align*}
-Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, and $\tilde D(K)$ is the thermal propagator for the free field, as defined in \autoref{Conventions and notation}.
-In this case, the thermal propagator of the free field is
+Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, and $\tilde D_0(K)$ is the thermal propagator for the free field, as defined in \autoref{Conventions and notation}.
+In this case, it is
 \begin{equation}
-    D_0(K) = D_0(\omega_n, \vec k) = \frac{1}{\omega_k^2 + \omega_n^2}.
+    \tilde D_0(K) = \tilde D_0(\omega_n, \vec k) = \frac{1}{\omega_k^2 + \omega_n^2}.
 \end{equation}
 This expectation value can be represented graphically using Feynman diagrams.
 The thermal $\lambda \varphi^2$-theory gets the prescription
@@ -176,7 +175,7 @@ The factor $1/4!$ is removed as a general Feynman diagram represent all diagrams
 Some diagrams are more symmetric, such that an exchange of momenta still gives \emph{the same pairing}. 
 This is dealt with by dividing with a symmetry factor $s$, which is described in detail in~\cite{Peskin:IntroQFT}.
 
-Calculating $\ex{{S_I}^n}_0$ boils down to the sum of all possible Feynman diagrams with $m$ vertices.
+Calculating $\ex{{S_I}^n}_0$ boils down to the sum of all possible Feynman diagrams with $n$ vertices.
 The first example is 
 \begin{align}
     \ex{S_I} = 
@@ -216,7 +215,6 @@ The first example is
 
 For higher order, one gets both connected and disconnected diagrams.
 Let $\ex{{S_I}^n}_{0, c}$ be only the connected diagrams, i.e. those diagrams in which it is possible to move between all vertices along a series of edges.
-
 A general diagram contain $n_i$ copies of a connected diagram with the value $V_i$.
 The value of the total diagram is then the product of the value of all its disconnected pieces, but with the caveat that each diagram has a symmetry factor of $n_i!$.
 The sum of all diagrams is thus 
@@ -230,34 +228,34 @@ Thus, the correction to the free energy is given by the sum of all connected dia
     - \beta F = \ln(Z_0) + \sum_n \ex{{S_I}^n}_{0, c}.
 \end{equation}
 
-\subsection*{Rester}
+% \subsection*{Rester}
 
 
-Expectation values of field configurations with different momenta vanish,
-\begin{equation}
-    K' \neq K \implies \ex{\varphi(K) \varphi(K')}_0 = 0.
-\end{equation}
-This is due to the symmetry of the functional integrand.
-This can be seen by going back to the discrete version of the integral.
-The integral can then be factored into integrals over each degree of freedom, $\varphi_{n,m}$.
-The integrall over the degrees of freedom corresponding to $\varphi(K)$ and $\varphi(K')$ are of the form
-\begin{equation}
-    \int \dd \varphi_{n, m} \, \varphi_{n, m} \exp(- S^{(0)}_{n, m}) = 0,
-\end{equation}
-as the integral is over the entier real line, and the integrand is anti-symmetric in $\varphi_{n, m}$.
-The generalization of this rule is straight forward. 
-Assuming $f[\tilde \varphi]$ \emph{does not} depend on $\tilde \varphi(K)$, but possibly on $\tilde \varphi(K'), \, K \neq K'$, then
-\begin{equation}
-    \ex{f[\tilde \varphi](\tilde \varphi(K))^{(2n+1)}}_0 = 0, \, n \in \mathbb{Z}.
-\end{equation}
-Furthermore, as the field at different values of $K$ are independent, we get the familiar formula for expectation values of independent variables, that is
-\begin{equation}
-    \ex{f[\varphi(K)]g[\varphi(K')]}_0 = \ex{f[\varphi(K)]}_0 \ex{g[\varphi(K')]}_0, \quad
-    K \neq K'.
-\end{equation}
-This leads to a version of Wick's theorem for thermal systems, as it lays constrains on integrals of the form
-\begin{equation}
-    \int_{\tilde \Omega} \dd K_1 \dots \dd K_n \,
-    \ex{\tilde \varphi(K_1) ... \tilde \varphi(K_n)}_0 \delta\left({\sum}_i K_i\right)
-    = 
-\end{equation}
+% Expectation values of field configurations with different momenta vanish,
+% \begin{equation}
+%     K' \neq K \implies \ex{\varphi(K) \varphi(K')}_0 = 0.
+% \end{equation}
+% This is due to the symmetry of the functional integrand.
+% This can be seen by going back to the discrete version of the integral.
+% The integral can then be factored into integrals over each degree of freedom, $\varphi_{n,m}$.
+% The integrall over the degrees of freedom corresponding to $\varphi(K)$ and $\varphi(K')$ are of the form
+% \begin{equation}
+%     \int \dd \varphi_{n, m} \, \varphi_{n, m} \exp(- S^{(0)}_{n, m}) = 0,
+% \end{equation}
+% as the integral is over the entier real line, and the integrand is anti-symmetric in $\varphi_{n, m}$.
+% The generalization of this rule is straight forward. 
+% Assuming $f[\tilde \varphi]$ \emph{does not} depend on $\tilde \varphi(K)$, but possibly on $\tilde \varphi(K'), \, K \neq K'$, then
+% \begin{equation}
+%     \ex{f[\tilde \varphi](\tilde \varphi(K))^{(2n+1)}}_0 = 0, \, n \in \mathbb{Z}.
+% \end{equation}
+% Furthermore, as the field at different values of $K$ are independent, we get the familiar formula for expectation values of independent variables, that is
+% \begin{equation}
+%     \ex{f[\varphi(K)]g[\varphi(K')]}_0 = \ex{f[\varphi(K)]}_0 \ex{g[\varphi(K')]}_0, \quad
+%     K \neq K'.
+% \end{equation}
+% This leads to a version of Wick's theorem for thermal systems, as it lays constrains on integrals of the form
+% \begin{equation}
+%     \int_{\tilde \Omega} \dd K_1 \dots \dd K_n \,
+%     \ex{\tilde \varphi(K_1) ... \tilde \varphi(K_n)}_0 \delta\left({\sum}_i K_i\right)
+%     = 
+% \end{equation}

@@ -1,5 +1,4 @@
-\subsection{Imaginary-time formalism}
-\label{imaginary-time formalism}
+\subsection{Statistichal Mechanics}
 In classical mechanics, a thermal system at temperature $T = 1 / \beta$ is described as an ensemble state, which have a probability $P_n$ of being in state $n$, with energy $E_n$.
 In the canonical ensemble, the probability is proportional to $e^{-\beta E_n}$.
 The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
@@ -8,9 +7,7 @@ The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
     = \sum_n A_n P_n = \frac{1}{Z} \sum_n A_n e^{- \beta E_n}, \quad 
     Z  = \sum_n e^{-\beta A_n}.
 \end{equation*}
-$Z$ is the partition function.
-
-In quantum mechanics, an ensemble configuration is described by a non-pure density operator,
+$Z$ is the partition function. In quantum mechanics, an ensemble configuration is described by a non-pure density operator,
 \begin{equation*}
     \hat \rho = C \sum_n P_n \ketbra{n}{n},
 \end{equation*}
@@ -63,13 +60,17 @@ obeys the conservation law
 The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. 
 The charge is defined as
 \begin{equation}
-    Q = \int_V \dd^3 x\, n_\mu j^\mu, \quad \, \pdv{t} Q = \nabla \cdot \vec j,
+    Q = \int_V \dd^3 x\, n_\mu j^\mu,
 \end{equation}
 where $n^\mu$ is the normal vector of $V$.
-For a surface of constant time, $n^\mu = (1, 0, 0, 0)$, and the conserved charged is
-\begin{equation}
+Using the divergence theorem again, and assuming the current falls of quickly enough, we can show that the total charge is conserved,
+\begin{equation*}
+    \pdv{t} Q = \int_V \dd^3 x \, \nabla \cdot \vec j = \int_{\partial V} \dd^2 x\, n'_\mu j^\mu = 0.
+\end{equation*}
+For a surface of constant time we may choose $n^\mu = (1, 0, 0, 0)$, and the conserved charged is
+\begin{equation*}
     Q = \int_V \dd x \, j^0.
-\end{equation}
+\end{equation*}
 In the grand canonical ensemble, a system with $n$ conserved charges $Q_i$ has probability proportional to $e^{-\beta (H - \mu_i Q_i)}$.
 $\mu_i$ are the chemical potentials corresponding to conserved charge $Q_i$.
 This leads to the partition function
@@ -77,6 +78,8 @@ This leads to the partition function
     Z = \Tr{e^{-\beta(\hat H - \mu_i \hat Q_i)}}.
 \end{equation}
 
+\subsection{Imaginary-time formalism}
+\label{imaginary-time formalism}
 The partition function may be calculated in a similar way to the path integral approach, in what is called the imaginary-time formalism. 
 This formalism is restricted to time independent problems, and is used to study fields in a volume $V$.
 This volume is taken to infinity in the thermodynamic limit.
@@ -127,15 +130,15 @@ By inserting the completeness relations \autoref{functional completness} $N$ tim
     Z& 
     = \int \D\varphi(\vec x) \, \inner{\varphi}{e^{- \beta \hat H}}{\varphi}
     = 
-    \prod_{n=1}^N  
+    \prod_{n=1}^N
     \left(
         \int \D \varphi_n (\vec x) \int \D \pi_n(\vec x)
     \right) 
-    \prod_{n=1}^N  \braket{\varphi_1}{\pi_1} 
-    \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}},
+    \prod_{n=1}^N  \braket{\varphi_n}{\pi_n}
+    \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}} \braket{\varphi_{1}}{\varphi_{n+1}},
 \end{align*}
-where $\epsilon = \beta / N$ and $\varphi_1 = \varphi_{n+1}$.
-Strictly speaking, we only need to require $\varphi_1 = e^{i\theta}\varphi_{n+1}$, as the partition function is only defined up to a constant.
+where $\epsilon = \beta / N$. The last term ensures that $\varphi_1 = \varphi_{N+1}$.
+Strictly speaking, we only need to require $\varphi_1 = e^{i\theta}\varphi_{N+1}$, as the partition function is only defined up to a constant.
 As will be shown later, bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$, i.e. $e^{i\theta} = 1$, while fermions follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$, i.e. $e^{i\theta} = -1$.
 We now want to exploit the fact that $\ket{\pi}$ and $\ket{\varphi}$ are the eigenvectors of the operators that define the Hamiltonian.
 In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(x), \hat \pi(x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(x), \pi_n(x)] \braket{\pi_n}{\varphi_{n+1}}$.
@@ -204,6 +207,7 @@ In the last line, we exploited the fact that the variable of integration $\pi_{n
     \int_{-\infty}^{\infty} \dd x \, e^{-a x^2/2} = \sqrt{\frac{2 \pi}{a}}.
 \end{equation*}
 
+
 The partition function resulting from this procedure may also be obtained by starting with the ground state path integral
 \begin{equation*}
     Z_g
@@ -213,24 +217,22 @@ The partition function resulting from this procedure may also be obtained by sta
     \exp{i \int_{\Omega'} \dd^4 x \, \Ell[\varphi, \partial_\mu \varphi]},
 \end{equation*}
 and follow a formal procedure.
-The domain of the functional integral $\int \D \varphi$ is restricted from \emph{all} (smooth enough) field configurations $\varphi(t, \vec x)$, to only those that obey $\varphi(\beta, \vec x) = e^{i\theta} \varphi(0, \vec x) $, which is denoted $S$.
-The action integral is modified by performing a Wick-rotation of the time coordinate $t$. 
+First, the action integral is modified by performing a Wick-rotation of the time coordinate $t$.
 This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity, and making the change of variable $it \rightarrow \tau$.
-The new variable is then restricted to the interval $\tau\in [0, \beta]$.
+The new variable is then restricted to the interval $\tau\in [0, \beta]$, and the domain of the functional integral $\int \D \varphi$ is restricted from \emph{all} (smooth enough) field configurations $\varphi(t, \vec x)$, to only those that obey $\varphi(\beta, \vec x) = e^{i\theta} \varphi(0, \vec x) $, which is denoted $S$.
 This procedure motivates the introduction of  the Euclidean Lagrange density, 
 $\Ell_E(\tau, \vec x) = -\Ell(-i \tau, \vec x)$, as well as the name ``imaginary-time formalism''.
 The result is the same partition function as before,
-\begin{align*}
-    Z = C \int_S \D \varphi \int \D \pi
+\begin{align}
+    Z & = C \int_S \D \varphi \int \D \pi
     \exp{
-        \int_0^\beta \dd \tau \int_V \dd^3x \, 
+        - \int_0^\beta \dd \tau \int_V \dd^3x \, 
         \left[
-            i\dot \varphi \pi
-            - \He(\varphi, \pi)
+            - i\dot \varphi \pi
+            + \He(\varphi, \pi)
         \right]
-    } 
-    =
+    } \nonumber \\ \label{free scalar result 2}
+    & =
     C' \int_S \D \varphi
     \exp{- \int_0^\beta \dd \tau \int_V \dd^3x \, \Ell_E(\varphi, \pi)}.
-\end{align*}
-
+\end{align}

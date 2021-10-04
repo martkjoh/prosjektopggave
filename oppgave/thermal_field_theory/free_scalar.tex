@@ -5,19 +5,19 @@ The procedure for obtaining the thermal properties of an interacting scalar fiel
 One starts with a free theory, which can be solved exactly.
 Then an interaction term is added, which is accounted for peturbatively by using Feynman diagrams.
 The Euclidean Lagrangian for a free scalar gas is, after integrating by parts,
-\begin{equation*}
+\begin{equation}
     \Ell_E = \frac{1}{2} \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
-\end{equation*}
+\end{equation}
 Here, $X = (\tau, \vec x)$ is the Euclidean coordinate which is a result of the Wick-rotation.
-We have introduced the Euclidean Laplace operator, $\partial_E^2 = \partial_\tau^2 + \nabla^2$.
+We have also introduced the Euclidean Laplace operator, $\partial_E^2 = \partial_\tau^2 + \nabla^2$.
 Following the procedure as described in \autoref{imaginary-time formalism} to obtain the thermal partition function yields
-\begin{equation*}
+\begin{equation}
     Z = C \int_S \D \varphi(X) 
     \exp{
         - \int_\Omega \dd X \frac{1}{2} 
         \varphi(X) \left( -\partial_E^2 + m^2 \right) \varphi(X)
     }.
-\end{equation*}
+\end{equation}
 Here, $\Omega$ is the domain $[0, \beta] \times V$.
 We then insert the Fourier expansion of $\varphi$, and change the functional integration variable to the Fourier components.
 The integration measures are related by
@@ -47,13 +47,13 @@ where $\omega_k^2 = \vec k^2 + m^2$.
 $\tilde \Omega$ is the reciprocal space corresponding to $\Omega$, as described in \autoref{Conventions and notation}.
 We used the fact that $\varphi$ is real, which implies that $\tilde \varphi(-K) = \tilde \varphi(K)^*$, as well as the identity \autoref{thermal delta}.
 This gives the partition function 
-\begin{equation*}
+\begin{equation}
     Z = C \int_{\tilde S} \D \tilde \varphi(K) 
     \exp{
         -  \frac{1}{2} V \int_{\tilde \Omega} \dd K \, 
         \tilde \varphi(K)^* \left[\beta^2 (\omega_n^2+ \omega_k^2)\right] \tilde \varphi(K)
     },
-\end{equation*}
+\end{equation}
 Going back to before the continuum limit, this integral can be written as a product of Gaussian integrals, and may therefore be evaluated
 \begin{align*}
     Z = C \prod_{n=-\infty}^\infty \prod_{k \in \tilde V}
@@ -70,9 +70,10 @@ Going back to before the continuum limit, this integral can be written as a prod
     \sqrt{\frac{2 \pi}{\beta^2 (\omega_n^2 + \omega_k^2)}}.
 \end{align*}
 The partition function is related to Helmholtz free energy $F$ through
-\begin{equation*}
+\begin{equation}
+    \label{result free scalar 1}
     \frac{F}{T V}= - \frac{\ln(Z)}{V} = \frac{1}{2} \int_{\tilde \Omega} \dd K \frac{1}{2} \ln[\beta^2(\omega_n^2 + \omega_k^2)] + \frac{F_0}{TV},
-\end{equation*}
+\end{equation}
 where $F_0$ is a constant.
 
 A faster and more formal way to get to this result is to compare the partition function to the multidimensional version of the Gaussian integral~\cite{Kapusta:finiteTemp, Peskin:IntroQFT}.
@@ -87,6 +88,7 @@ By diagonalizing $D$, we get the result
 \end{equation*}
 We may then use the identity
 \begin{equation}
+    \label{lndettrln}
     \det(D) = \prod_i \lambda_i = \exp{\Tr[\ln(D)]},
 \end{equation}
 where $\lambda_i$ are the eigenvalues of $D$.
@@ -112,19 +114,10 @@ This is found by diagonalizing the operator,
     = V  \int_{\tilde \Omega} \dd K 
     \tilde \varphi(K)^* [\beta^2(\omega_k^2 +\omega_n^2)] \tilde \varphi(K),
 \end{equation*}
-leaving us with the same result
+leaving us with the same result as we obtained in \autoref{result free scalar 1},
 \begin{equation*}
     \beta F 
     = \frac{1}{2} \Tr{\ln(-\partial_E^2 + m^2)} 
     = \frac{1}{2} V \int_{\tilde \Omega} \dd K \ln[\beta^2(\omega_n^2 + \omega_k^2)].
 \end{equation*}
-How to work this sum is shown in \autoref{thermal sum}
-This gives the free energy density, after dropping the additive constant,
-\begin{equation}
-    \label{free scalar free enrgy}
-    \beta \Ef = \frac{F}{VT}
-    = \frac{1}{2} \int_{\tilde V} \frac{\dd^3 k}{(2 \pi)^3}
-    \left[
-        \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
-    \right].
-\end{equation}
+Sums similar to this show up a lot, and it is show how to evaluate them in \autoref{thermal sum}.
