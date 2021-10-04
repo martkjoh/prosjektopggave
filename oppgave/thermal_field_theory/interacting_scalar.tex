@@ -5,7 +5,7 @@ We write the Lagrangian in the form
 \begin{equation*}
     \Ell = \Ell^{(0)} + \Ell^{(I)}, \quad 
     \Ell^{(0)} = 
-    \frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi  + m^2 \varphi^2 , \quad
+    \frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi - m^2 \varphi^2 , \quad
     \Ell^{(I)} = - \frac{\lambda}{4!} \varphi^4
 \end{equation*}
 $\Ell^{(I)}$ is called the interaction term, and makes it impossible to exactly solve for the partition function.
@@ -36,10 +36,10 @@ We may write the free energy as
         % {\int_S \D \varphi \, e^{S_0}}
     \right],
 \end{equation*}
-where $Z_0$ is the partition function from the free theory.
+where $Z_0$ is the partition function of the free theory.
 The correction to the partition function is thus given by
 \begin{equation}
-    Z_1 = \sum_{n=0}^\infty \frac{1}{n!} \ex{{S_I}^n}_0,
+    Z_I = \sum_{n=0}^\infty \frac{1}{n!} \ex{{S_I}^n}_0,
 \end{equation}
 where
 \begin{equation}
@@ -112,7 +112,7 @@ Using Wick's theorem, the expectation values we are evaluating can be written
     \ex{{S_I}^m} & 
     = \left(- \frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m
-    \ex{\varphi(X_1)^4 \dots \varphi(X_m)^4} \\ 
+    \ex{\varphi^4(X_1) \dots \varphi^4(X_m)} \\ 
     & \quad
     = \left(- \frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m \sum_{\{a, b\}}
@@ -121,7 +121,7 @@ Using Wick's theorem, the expectation values we are evaluating can be written
     \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}
 \end{align*}
 where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$.
-Inserting the Fourier expantions of the field gives
+Inserting the Fourier expansions of the field gives
 \begin{align*}
     & \ex{{S_I}^m} \\ 
     &\quad 
@@ -169,11 +169,16 @@ The thermal $\lambda \varphi^2$-theory gets the prescription
     \feynmandiagram[horizontal= i to f]{
         i[particle=$K$] -- [fermion] f,
     };
-    & = \frac{1}{\beta} \int_{\tilde \Omega} \dd K \,  D_0(K).
+    & = \frac{1}{\beta} D_0(K).
 \end{align}
+The expression is the integrated over all \emph{internal} momenta.
 The factor $1/4!$ is removed as a general Feynman diagram represent all diagrams with the same form, but different pairing of the momenta.
 Some diagrams are more symmetric, such that an exchange of momenta still gives \emph{the same pairing}. 
 This is dealt with by dividing with a symmetry factor $s$, which is described in detail in~\cite{Peskin:IntroQFT}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: SKRIV DETTE BEDRE! %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Calculating $\ex{{S_I}^n}_0$ boils down to the sum of all possible Feynman diagrams with $n$ vertices.
 The first example is 

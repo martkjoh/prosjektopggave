@@ -8,20 +8,19 @@ Using the result from \autoref{thermal sum} on the result for the free energy of
         \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
     \right].
 \end{equation}
-This free energy has two parts, one dependent on temperature, and one not.
+This free energy has two parts, the first part is dependent on temperature, the other is independent of temperature.
 Noticing that the integral is spherically symmetric, we may write
 \begin{equation}
     J_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
     J_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (m/T)^2}}), 
 \end{equation}
 The temperature-independent part, $J_0$, is clearly divergent, and we must therefore impose a regulator, and then add counter-terms.
-This differs from the zero-temperature formalism, where there were no need to renormalize the free theory.
-The second part of the integral, is convergent. 
+The second part of the integral is convergent. 
 To see this, we use the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{\epsilon}$ to find the leading part of the integrand for large $k$'s, 
 \begin{equation}
     x^2 \ln(1 - e^{-\sqrt{x^2 + (\beta m)^2}}) \sim - x^2 e^{-x}, 
 \end{equation}
-which is suppressed exponentially, making the integral convergent.
+which is exponentially suppressed, making the integral convergent.
 In the limit of $T \rightarrow \infty$, we get
 \begin{equation}
     J_\infty \sim \frac{T^4}{2 \pi^2} \int_\R \dd x \, x^2 \ln(1 - e^{-x})
@@ -29,25 +28,29 @@ In the limit of $T \rightarrow \infty$, we get
 \end{equation}
 where $\sigma$ is the Stefan-Boltzmann constant. 
 
-Returning to the temperature-independent, we use dimensional regularization on the temperature to see its singular behavior.
+Returning to the temperature-independent part, we use dimensional regularization to see its singular behavior.
 To that end, we define
 \begin{equation}
-    \Phi(m, d, A) = \int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-A},
+    % Bytte ut A med n?
+    \Phi(m, d, A) = \mu^{3 - d}\int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-A},
 \end{equation}
 so that $J_0 = \Phi(m, 3, 1/2) / 2$.
+The parameter $\mu$ has the dimensions of $k$, and is inserted to ensure that $\Phi$ does not change physical dimension for $d \neq 3$.
+Furthermore, as non-rational exponents are defined through the exponential functions, this parameter is needed to make the expression well-defined.
 Dimensional regularization takes uses the formula for integration of spherically symmetric function in $d$-dimensions,
 \begin{equation}
     \int_{\R^d} \dd^d x \, f(r) 
     = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd r \, r^{d-1}f(r),
 \end{equation}
-where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the gamma-function.
-The factor in the front of the integral comes from the solid-angle.
+where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the Gamma-function.
+The factor in the front of the integral comes from the solid angle.
 By extending this formula from integer-valued $d$ to real numbers, the function we defined becomes
 \begin{equation}
     \Phi 
-    = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd k \, 
+    = \frac{2 \pi^{d/2} \mu^{3 - d} }{\Gamma(d/2)} \int_\R \dd k \, 
     \frac{k^{d-1}}{(k^2 + m^2)^A}
-    = \frac{m^{d - 2A}}{(4 \pi)^{d / 2}\Gamma(d/2)} 
+    = \frac{m^{3-2A}}{(4 \pi)^{d / 2}\Gamma(d/2)} 
+    \left(\frac{m}{\mu}\right)^{d-3} 
     2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^A}, 
 \end{equation}
 where we have made the change of variables $m z = k$.
@@ -63,16 +66,17 @@ Thus,
 \begin{equation}
     I = \int_0^a \dd s \, s^{A - d/2 - 1} (1 - z)^{d/2 - 1}.
 \end{equation}
-This is the beta-function, which can be written in terms of gamma-funcitons~\cite{Peskin:IntroQFT}
+This is the beta-function, which can be written in terms of Gamma Functions~\cite{Peskin:IntroQFT}
 \begin{equation}
     I = B\left(A - \frac{d}{2}, \frac{d}{2}\right) 
     = \frac{\Gamma\left(A - \frac{d}{2}\right) \Gamma\left(\frac{d}{2}\right)}{\Gamma(A)}.
 \end{equation}
 Combining this gives
 \begin{equation}
-    \Phi = 
+    \Phi = m^{3 - 2A}
+    \left(\frac{m^2}{\mu^2}\right)^{(d-3)/2} 
     \frac{
-        (m^2)^{d/2 - A} \Gamma \left(A - \frac{d}{2} \right) 
+        \Gamma \left(A - \frac{d}{2} \right) 
     }
     {
         (4 \pi)^{d / 2}\Gamma(A)
@@ -80,16 +84,11 @@ Combining this gives
 \end{equation}
 Inserting $d = 3 - 2\epsilon$ and $A = -1/2$, we get
 \begin{equation}
-    \frac{
-        (m^2)^{3/2 - \epsilon - A} \Gamma \left(-2 + \epsilon \right) 
-    }
-    {
-        (4 \pi)^{3/2 - \epsilon}\Gamma(-1/2)
-    }
-    = 
-    \left(\frac{m^2}{4 \pi}\right)^{3/2} 
-    \frac{m}{- 2 \pi^{1/2}}
-    \mu^{-2\epsilon}
+    \Phi(m, 3 - 2\epsilon, -1/2)
+    =
+    \frac{m^4}{(4 \pi)^{d/2}\Gamma(-1/2)} \Gamma(-2 + \epsilon) \left(\frac{m^2}{\mu^2}\right)^{-\epsilon}
+    =
+    - \frac{m^4}{(4 \pi)^{2}}
     \left(\frac{m^2}{4 \pi \mu^2}\right)^{- \epsilon}
     \frac{\Gamma(\epsilon)}{(\epsilon - 2)(\epsilon - 1)},
 \end{equation}
@@ -110,10 +109,32 @@ The singular behavior of the time-independent term is therefore
     % \left[1 + \epsilon \ln\left(4 \pi \frac{\mu^2}{m^2}\right)\right]
     % \left(\frac{1}{\epsilon} - \gamma\right) \left(1 + \frac{3}{2} \epsilon\right)
     % \sim
-    - \frac{m^4}{2^6 \pi^2} \mu^{-2 \epsilon}
+    - \frac{1}{4}\frac{m^4}{(4 \pi)^2}
     \left[
         \frac{1}{\epsilon} 
         - \gamma + \frac{3}{2}
         + \ln\left(4 \pi \frac{\mu^2}{m^2}\right)
     \right].
 \end{align}
+
+With this regulator, one can then add counter-terms to cancel the $\frac{1}{\epsilon}$-divergence.
+The exact form of the counter-term is convention.
+One may also cancel the finite contribution due to the regulator.
+The minimal subtraction, or $\mathrm{MS}$, scheme, is to only subtract the divergent term, as the name suggest.
+We will use the modified minimal subtraction, or $\overline{ \mathrm{MS}}$, scheme.
+In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term,
+which can be interpreted as changing the parameter $\mu$ such that
+\begin{equation}
+    -\gamma + \ln{4\pi \frac{\mu^2}{m^2}} \rightarrow \ln(\frac{\mu^2}{m^2}),
+\end{equation}
+which leads to the expression
+\begin{equation}
+    J_0 \sim
+    - \frac{1}{4}\frac{m^4}{(4 \pi)^2}
+    \left[
+        \frac{1}{\epsilon} 
+        + \frac{3}{2}
+        + \ln\left(\frac{\mu^2}{m^2}\right)
+    \right].
+\end{equation}
+
