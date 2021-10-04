@@ -180,22 +180,22 @@ The Fourier transformed propagator is, assuming $D(X, Y) = D(X-Y, 0)$,
     D(X, Y) \exp(- i [X\cdot K + Y\cdot K']) \\
     & = \frac{1}{V \beta^3} \int_{\Omega} \dd X' \dd Y' \, D(X', 0) 
     \exp(- i [X'\cdot \frac{1}{2} (K - K') + Y\cdot (K + K')]) \\
-    & = \frac{1}{V \beta^3} \tilde D(K) \beta \delta(K + K'),
+    & = \frac{1}{V \beta^2} \tilde D(K) \delta(K + K'),
 \end{align}
 where
 \begin{equation}
     \tilde D(K) = \int \dd X e^{iK\cdot X} D(X, 0).
 \end{equation}
-Thus, 
-\begin{equation}
-    D^{-1} D(X, Y)
-    =  \int \dd K \, \tilde D(K) D^{-1} e^{i K(X - Y)}
-    = \beta \delta(X - Y)
-    =  \int \dd K e^{iK(X - Y) }.
-\end{equation}
-The thermal propagator in momentum space, $\tilde D(K)$, is given by 
-\begin{equation}
-    \tilde D^{-1} \tilde D(K) = 1, 
-\end{equation}
-where $\tilde D^{-1}$ are the eigenvalues of $D^{-1}$.
+
+% Thus, 
+% \begin{equation}
+%     D^{-1} D(X, Y)
+%     =  \int \dd K \, \tilde D(K) D^{-1} e^{i K(X - Y)}
+%     = \beta \delta(X - Y)
+%     =  \int \dd K e^{iK(X - Y) }.
+% \end{equation}
+% The thermal propagator in momentum space, $\tilde D(K)$, is given by 
+% \begin{equation}
+%     \tilde D^{-1} \tilde D(K) = 1.
+% \end{equation}
 

@@ -79,24 +79,24 @@ where $F_0$ is a constant.
 A faster and more formal way to get to this result is to compare the partition function to the multidimensional version of the Gaussian integral~\cite{Kapusta:finiteTemp, Peskin:IntroQFT}.
 The partition function is on the form 
 \begin{equation*}
-    I_n = \int_{\R^n} \dd^n x\, \exp{- \frac{1}{2} \langle x, D x\rangle },
+    I_n = \int_{\R^n} \dd^n x\, \exp{- \frac{1}{2} \langle x, D_0^{-1} x\rangle },
 \end{equation*}
-where $D$ is a linear operator, and $\langle \cdot , \cdot \rangle$ an inner product on the corresponding vector space.
-By diagonalizing $D$, we get the result
+where $D_0^{-1}$ is a linear operator, and $\langle \cdot , \cdot \rangle$ an inner product on the corresponding vector space.
+By diagonalizing $D_0^{-1}$, we get the result
 \begin{equation*}
-    I_n = \sqrt{\frac{(2 \pi)^n}{\det(D)}}.
+    I_n = \sqrt{\frac{(2 \pi)^n}{\det(D_0^{-1})}}.
 \end{equation*}
 We may then use the identity
 \begin{equation}
     \label{lndettrln}
-    \det(D) = \prod_i \lambda_i = \exp{\Tr[\ln(D)]},
+    \det(D) = \prod_i \lambda_i = \exp{\Tr[\ln(D_0^{-1})]},
 \end{equation}
-where $\lambda_i$ are the eigenvalues of $D$.
-The trace in this context is defined by the vector space $D$ acts on.
-For given an orthonormal basis $x_n$, such that $\langle x_n, x_n'\rangle = \delta_{nn'}$ the trace can be evaluated as $\Tr{D} = \sum_n \langle x_n, D x_n \rangle$.
+where $\lambda_i$ are the eigenvalues of $D_0^{-1}$.
+The trace in this context is defined by the vector space $D_0^{-1}$ acts on.
+For given an orthonormal basis $x_n$, such that $\langle x_n, x_n'\rangle = \delta_{nn'}$ the trace can be evaluated as $\Tr{D_0^{-1}} = \sum_n \langle x_n, D_0^{-1} x_n \rangle$.
 Identifying 
 \begin{equation*}
-    \langle x, D x\rangle = \int_\Omega \dd X \varphi(X)\left(-\partial_E^2+m^2\right)\varphi(X),
+    \langle x, D_0^{-1} x\rangle = \int_\Omega \dd X \varphi(X)\left(-\partial_E^2+m^2\right)\varphi(X),
 \end{equation*}
 we get the formal result
 \begin{equation*}
@@ -109,7 +109,7 @@ and
 The logarithm may then be evaluated by using the eigenvalues of the linear operator.
 This is found by diagonalizing the operator,
 \begin{equation*}
-    \langle x, D x \rangle 
+    \langle x, D_0^{-1} x \rangle 
     = \int_\Omega \dd X \varphi(X)\left(-\partial_E^2+m^2\right)\varphi(X)
     = V  \int_{\tilde \Omega} \dd K 
     \tilde \varphi(K)^* [\beta^2(\omega_k^2 +\omega_n^2)] \tilde \varphi(K),
@@ -121,3 +121,9 @@ leaving us with the same result as we obtained in \autoref{result free scalar 1}
     = \frac{1}{2} V \int_{\tilde \Omega} \dd K \ln[\beta^2(\omega_n^2 + \omega_k^2)].
 \end{equation*}
 Sums similar to this show up a lot, and it is show how to evaluate them in \autoref{thermal sum}.
+Comparing with the definitions of the thermal propagator in \autoref{Conventions and notation}, we can write the free energy compactly as
+\begin{equation}
+    \label{free energy from propagator}
+    \beta F = \frac{1}{2} \Tr{\ln[D_0^{-1}(K, K'))]} 
+    = \frac{1}{2} \Tr{\ln[\beta^2 D_0^{-1}(K)]}.
+\end{equation}
