@@ -1,0 +1,32 @@
+\section{Integrals}
+\subsection{Gaussian integrals}
+A useful integral is the Gaussian integral,
+\begin{equation}
+    \int_\R \dd x \, \exp(- \frac{1}{2} a x^2) = \sqrt{\frac{2 \pi}{a}},
+\end{equation}
+for $a \in \R$. The imaginary version,
+\begin{equation}
+    \int_R \dd x \, \exp(i \frac{1}{2} a x^2 ) 
+\end{equation}
+does not converge. However, if we change the contour of integration slightly, by rotating it clockwise to $C = \R(1 + i\epsilon)$,
+\begin{figure}
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}
+            \draw (-2, 0) -- (2, 0) node[right] {$\mathrm{Re}(x)$};
+            \draw (0, -2) -- (0, 2) node[above] {$\mathrm{Im}(x)$};
+            \draw[->, thick] (-1.8, 0) -- (1.8, 0);
+        \end{tikzpicture}    
+    \end{subfigure}
+    \begin{subfigure}{0.18\textwidth}
+        \begin{tikzpicture}
+            \draw[->] (-1, 0) -- (1, 0);
+        \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}
+            \draw (-2, 0) -- (2, 0) node[right] {$\mathrm{Re}(x)$};
+            \draw (0, -2) -- (0, 2) node[above] {$\mathrm{Im}(x)$};
+            \draw[->, thick] (-1.8, -0.1) -- (1.8, 0.1);
+        \end{tikzpicture}    
+    \end{subfigure}
+\end{figure}

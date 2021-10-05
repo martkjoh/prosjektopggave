@@ -1,11 +1,40 @@
 \subsection{Free energy of the pions}
+The partition function of \chpt is 
+\begin{equation}
+    Z = \int \D \pi_a \, \exp{i \int \dd x \Ell[\pi_a]}
+    = 
+    \int \D \pi_a \, \exp{i \int \dd x \left(\Ell_2 + \Ell_4 + ... \right)}.
+\end{equation}
+Considering only the lowest order Lagrangian, it may be written expanded around $\pi_a = 0$
+\begin{equation}
+    \Ell_2[\pi_a] 
+    = \Ell_2[\pi_a = 0] 
+    + \pi_a  \pdv{\Ell_2}{\pi_a}\Big|_{\pi_a=0}
+    + \pi_a \pi_b \pdv[2]{\Ell_2}{\pi_a}{\pi_b}\Big|_{\pi_a=0}
+    + \Oh[3]{(\pi/f)}.
+\end{equation}
+We showed that, when minimizing $\alpha$, $\pdv{\Ell_2}{\pi_a}\Big|_{\pi_a=0} = 0$. 
+Furthermore, $\Ell_2[\pi_a = 0] = \Ell_2^{(0)}$ so the partition function may be written
+\begin{equation}
+    Z = \int \D \varphi_a \, 
+    \exp{i \int \, \left( \Ell_a^{(0)} +  \right)}
+\end{equation}
+
+
 The lowest order contribution to the pion is given by the free propagator, \autoref{free pion propagator}, by the formula \autoref{free energy from propagator}.
 This is, however, evaluated in the imaginary-time formalism.
+In the zero-temperature limit, 
 This means that the time coordinate is replaced by $t \rightarrow - \tau$, and is restricted to $\tau \in [0, \beta]$.
 This result in a discrete set of energies, the Matsubara frequencies $\omega = 2 \pi n / \beta$.
 The result is
 \begin{equation}
-    \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0]} 
-    = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0]
+    \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
+    = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
+\end{equation}
+At $T = 0$, this is given by (HVORFOR?)
+\begin{equation}
+    \Ef = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} \sum_a \ln[D_0^{-1}]
+    = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} 
+    \left[\ln(p_0^2 - E_+^2) +  \ln(p_0^2 - E_-^2) + \ln(p_0^2 - E_0^2) \right]
 \end{equation}
 
