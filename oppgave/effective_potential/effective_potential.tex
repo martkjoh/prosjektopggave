@@ -1,3 +1,110 @@
+The ground state partition function is given by
+\begin{equation}
+    Z = \lim_{T\rightarrow \infty} \braket{\Omega, T}{-T, \Omega}
+    = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-2iHT} }{\Omega}
+    = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
+\end{equation}
+where $\ket{\Omega}$ is the vacuum of the theory~\cite{Peskin:IntroQFT,weinberg_1995}.
+If one introduces a source by altering the Hamiltonian, $\He \rightarrow \He - J(x)\varphi(x)$, we get the generating functional
+\begin{equation}
+    Z[J] = 
+    \int \D \pi \D \varphi \, 
+    \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]+ J\varphi\right) }
+\end{equation}
+If $\He$ is quadratic in $\pi$, we can complete the square and integrate out $\pi$ to obtain
+\begin{equation}
+    Z[J] = \int \D \varphi \, \exp{i \int \dd x\, (\Ell[\varphi] + J \varphi)}
+    := \exp(i W[J]).
+\end{equation}
+Here we defined the \emph{generating functional for connected diagrams}, $W[J]$.
+The reason for the name will become apparent later. (HUSK Å REFFERE TILBAKE)
+The expectation value of some function of the field-configuration, $A = A[\varphi]$, in the precesense of the source $J$ is
+\begin{equation}
+    \ex{A}_J = \frac{1}{Z[J]} A\left( -i  \fdv{J}\right) Z[J].
+\end{equation}
+(DEFINE FUNCTIONAL DERIVATIVE)
+The expectation value of the field defines a functional,
+\begin{equation}
+    \label{calssical field functional}
+    \varphi[J](x) = \ex{\varphi(x)}_J = 
+    \frac{1}{Z[J]} \left( -i  \fdv{J}\right) Z[J]
+    = \fdv{J(x)} W[J],
+\end{equation}
+and is sometimes called the \emph{classical field}.
+The notation $\Ef[f](x)$ means that $\Ef$ is a functional which takes in a function $f$, and returns the new function $(\Ef[f])(x)$.
+One example is the Lagrangian density, which takes in a field, and returns a function which has a value for each point in space-time.
+% We can reverse this relationship, by defining the functional $J[\varphi](x)$ as \emph{the current which causes the classical field $\varphi$}.
+% That is, if $\varphi[J_0](x) = \varphi_0(x)$ for some source $J_0$, then $J[\varphi_0] = J_0$
+
+We can use the Legendre-transformation of $W[J]$ to define the new quantity,
+\begin{equation}
+    \Gamma[\varphi]
+    = W[J] - \int \dd x \, J(x) \varphi(x), 
+\end{equation}
+such that
+\begin{equation}
+    \fdv{\varphi(x)} \Gamma[\varphi]
+    = \int \dd y \, \fdv{J(y)}{\varphi(x)} \fdv{J(y)} W[J]
+    - \int \dd y \, \fdv{J(y)}{\varphi(x)} \varphi(x)
+    - J(x)
+    = - J(x).
+\end{equation}
+Here, we used the relation \autoref{calssical field functional}.
+This means that the equations of motion for the expectation value of the field in the absence of a external current is
+\begin{equation}
+    \fdv{\Gamma}{\varphi} = 0.
+\end{equation}
+This is similar to the classical Euler-Lagrange equations, which are
+\begin{equation}
+    \fdv{S}{\varphi} = \pdv{\Ell}{\pi} - \partial_\mu \pdv{\Ell}{(\partial_\mu \varphi)} = 0,
+\end{equation}
+and is why $\Gamma$ is called the \emph{effective potential}.
+Let $\varphi*$ solve the quantum mechanical version of the equation of motion, i.e.
+\begin{equation}
+    \fdv{\Gamma[\varphi*]}{\varphi} = 0.
+\end{equation}
+We can the classical action around this point, by setting $\varphi(x) = \varphi^*(x) + \eta(x)$ for some function $\eta$.
+The generating functional becomes
+\begin{align}
+    Z[J] 
+    = \int \D (\varphi^* + \eta) \, 
+    \exp{i S[\varphi^* + \eta] + i \int \dd^4 x J (\varphi^* + \eta) }
+\end{align}
+The funcitonal version of a Taylor expansion is
+\begin{equation}
+    S[\varphi^* + \eta] = 
+    S[\varphi^*]
+    + \int \dd x \fdv{S[\varphi^*]}{\varphi(x)} \eta(x)
+    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
+    + \dots
+\end{equation}
+Inserting this into $Z[J]$, with $S_I$ to denote the derivatives of higher order than $2$, we get
+\begin{align*}
+    &Z[J] = \\ 
+    &\int \D \eta  
+    \exp{
+        i \int \dd^4 x \left(  \Ell[\varphi^*] + J \varphi^*  \right)
+        + i \int \dd x \left(  \fdv{S[\varphi^*]}{\varphi(x)} + J(x) \right) \eta(x)
+        + i \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y) 
+        + i S_I[\eta]
+        }
+\end{align*}
+In the first term we used the definition of the classical action. This term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
+The next term is the calssical eqation of motion with a source, 
+\begin{equation}
+    \fdv{S[\varphi]}{\varphi(x)} = - J(x),
+\end{equation} 
+evaluated at $\varphi^*$.
+The second to last term is a Gaussian integral, and may be evaluated as described in \autoref{gaussian integrals},
+\begin{equation}
+    \int \D \eta \, \exp(
+        i \frac{1}{2} \int \dd x \dd y\,  
+        \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
+        )
+        = C \det\left( \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)^{-1/2d}
+\end{equation}
+
+
 \subsection{Minimizing energy}
 %%%%%%%%%%%%%%%%%
 %%%% SECTION %%%%
