@@ -50,27 +50,100 @@ such that
     = - J(x).
 \end{equation}
 Here, we used the relation \autoref{calssical field functional}.
-This means that the equations of motion for the expectation value of the field in the absence of a external current is
+This means that the equations of motion for the expectation value of the field in the absence of an external current is
 \begin{equation}
     \fdv{\Gamma}{\varphi} = 0.
 \end{equation}
 This is similar to the classical Euler-Lagrange equations, which are
+Comparing this to the classical Euler-Lagrange equations with a source,
 \begin{equation}
     \fdv{S}{\varphi} = \pdv{\Ell}{\pi} - \partial_\mu \pdv{\Ell}{(\partial_\mu \varphi)} = 0,
 \end{equation}
+we see that the effective potential $\Gamma$
 and is why $\Gamma$ is called the \emph{effective potential}.
-Let $\varphi*$ solve the quantum mechanical version of the equation of motion, i.e.
+
+In free theory, we may write
 \begin{equation}
-    \fdv{\Gamma[\varphi*]}{\varphi} = 0.
+    W[J] = \frac{1}{2} \int \dd^x \dd^4y J(x) D_0(x - y) J(y),
 \end{equation}
-We can the classical action around this point, by setting $\varphi(x) = \varphi^*(x) + \eta(x)$ for some function $\eta$.
+where $D_0$ is the free propagator.
+We may reverse the relation \autoref{calssical field functional} to write the source in terms of the field,
+\begin{equation}
+    J = D_0^{-1} \varphi(x)
+\end{equation}
+This is the field equation for the free field with a source.
+For the scalar Klein-Gordon field, $D_0^{-1} = \partial^2 + m^2$
+Inserting these two relation into the definition of the effective action, and assuming we can do partial integration with $D_0^{-1}$, we get
+\begin{equation}
+    \Gamma[\varphi] = W[J] - \int \dd^4x J(x)\varphi(x)
+    = 
+    \int \dd x( 
+        \frac{1}{2}\int \dd y (D_0^{-1} \varphi ) D_0 (D_0^{-1} \varphi ) 
+        - (D_0^{-1} \varphi ) \varphi
+        )
+    = - \frac{1}{2} \int \dd^4 x \varphi(x) D_0^{-1} \varphi(x)
+\end{equation}
+This is the classical action.
+Thus, the effective action $\Gamma$ and the classical action $S$ are the same to first order in perturbation theory.
+
+To interpret $\Gamma$ further, we can define a new theory, with a coupling $g$, 
+\begin{equation}
+    \label{partition function with g}
+    Z[J, g] = \int \D \varphi 
+    \exp{ i g^{-1} \left( \Gamma[\varphi] + \int \dd^4x \varphi(x) J(x) \right) }
+    = e^{iW[J]}
+\end{equation}
+The propagator for this theory is 
+\begin{equation}
+    D_g(x - y) 
+    =
+    \left(
+         - g^{-1} \frac{\delta^2 \Gamma}{\delta \varphi(x) \delta \varphi(y)} 
+         \right)^{-1} \propto g
+\end{equation}
+All vertices in this theory, on the other hand, will be proportional to $g^{-1}$.
+Regardless of what the Feynman-diagrams in this theory are, the number of loops of a connected diagram is $L = V - I + 1$, where $V$ is the number of vertices, and $I$ the number of internal lines.
+To see this, one can imagine adding a new vertex to an existing diagram.
+This splits a line in two.
+Any line stemming from this vertex that connect back into the same diagram, create the same number of new loops, vertices and lines, and the formula is fulfilled by induction.
+This means that any diagram is proportional to $g^{L+1}$.
+In the limit $g \rightarrow 0$, the theory is fully described by only three-level diagrams.
+Furthermore, we may use the stationary approximation on \autoref{partition function with g}.
+In one dimension, it is given by
+\begin{equation}
+    \int \dd x \, \exp(i g f(x)) 
+    \approx \sqrt{\frac{2 \pi }{f''(x_0)}}\exp( f(x_0)), 
+    \, f'(x) = 0, g\rightarrow \infty
+\end{equation}
+The generalization of this approximation gives
+\begin{equation}
+    Z \approx 
+    C \det(- \frac{\delta^2 \Gamma[\varphi']}{\delta \varphi^2})
+    \exp{i g^{-1} \left(\Gamma[\varphi'] + \int \dd^4x J \varphi'  \right)  },
+\end{equation}
+where $\varphi'$ fulfills
+\begin{equation}
+    \funcdv{\varphi} \left( \Gamma[\varphi] + \int \dd^4 x J \varphi \right)
+    = \funcdv{\varphi(x)}{\Gamma} + J(x) = 0,
+\end{equation}
+which is exactly $\varphi[J](x)$. This means that
+\begin{equation}
+    g W[J] = \Gamma[\varphi] + \int \dd^x J(x) \varphi(x) + \mathcal{O}(g)
+\end{equation}
+
+
+Let $\varphi^*$ solve the quantum mechanical version of the equation of motion, i.e.
+\begin{equation}
+    \fdv{\Gamma[\varphi^*]}{\varphi} = 0.
+\end{equation}
+We can Taylor-expand the classical action around this point, by setting $\varphi(x) = \varphi^*(x) + \eta(x)$ for some function $\eta$.
 The generating functional becomes
 \begin{align}
     Z[J] 
     = \int \D (\varphi^* + \eta) \, 
     \exp{i S[\varphi^* + \eta] + i \int \dd^4 x J (\varphi^* + \eta) }
 \end{align}
-The funcitonal version of a Taylor expansion is
+The functional version of a Taylor expansion is
 \begin{equation}
     S[\varphi^* + \eta] = 
     S[\varphi^*]
@@ -95,13 +168,45 @@ The next term is the calssical eqation of motion with a source,
     \fdv{S[\varphi]}{\varphi(x)} = - J(x),
 \end{equation} 
 evaluated at $\varphi^*$.
+\begin{equation}
+    \fdv{S[\varphi^*]}{\varphi(x)} + J(x)
+    = \fdv{\Gamma[\varphi^*]}{\varphi(x)} + J(x)
+    + \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
+    = \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
+    := \delta J
+\end{equation}
 The second to last term is a Gaussian integral, and may be evaluated as described in \autoref{gaussian integrals},
 \begin{equation}
     \int \D \eta \, \exp(
         i \frac{1}{2} \int \dd x \dd y\,  
         \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
         )
-        = C \det\left( \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)^{-1/2d}
+        = C \det\left( \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)^{-1/2}
+\end{equation}
+This leaves us with 
+\begin{align}
+    W[J] 
+    & = -i \ln(Z) \\
+    & = 
+    \int\dd^4 x \, \left(\Ell[\varphi^*] + J \varphi^*\right)
+    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\varphi^*]}{\, \delta \varphi^2} \right)}
+    + \int \D \eta \, \exp{i \int \dd^4 x \delta J(x) \eta  }
+    + \int \D \eta \, e^{iS_I}
+\end{align}
+$\delta J$ is ultimately dependent on our choice of $J$ to define $\varphi$.
+It contributes to the expectation value of $\eta$, through tadpole diagrams
+\begin{align}
+    \ex{\eta}_{j=0} = 
+    \feynmandiagram [horizontal=a to b]{
+    a --[inline=(b.base), fermion] b[blob]
+    }; 
+\end{align}
+This can be removed by using the renormalization condition
+\begin{equation}
+    \feynmandiagram [horizontal=a to b]{
+    a --[inline=(b.base), fermion] b[blob]
+    };
+    = 0.
 \end{equation}
 
 
