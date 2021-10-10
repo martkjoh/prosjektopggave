@@ -1,40 +1,59 @@
 \subsection{Free energy of the pions}
-The partition function of \chpt is 
+The action of \chpt is 
 \begin{equation}
-    Z = \int \D \pi_a \, \exp{i \int \dd x \Ell[\pi_a]}
+    S[\pi_a] =\int \dd x \Ell[\pi_a]
     = 
-    \int \D \pi_a \, \exp{i \int \dd x \left(\Ell_2 + \Ell_4 + ... \right)}.
+    \int \dd x \left(
+        \Ell^{(0)}_2[\pi_a] +\Ell^{(1)}_2[\pi_a] + \Ell^{(2)}_2[\pi_a] + \Ell^{(2)}_4[\pi_a] 
+        + \Ell_I[\pi_a] 
+        \right),
 \end{equation}
-Considering only the lowest order Lagrangian, it may be written expanded around $\pi_a = 0$
+where $\Ell_I[\pi_a] $ is the higher order terms.
+The action may be expanded around $\pi_a = 0$,
 \begin{equation}
-    \Ell_2[\pi_a] 
-    = \Ell_2[\pi_a = 0] 
-    + \pi_a  \pdv{\Ell_2}{\pi_a}\Big|_{\pi_a=0}
-    + \pi_a \pi_b \pdv[2]{\Ell_2}{\pi_a}{\pi_b}\Big|_{\pi_a=0}
+    S[\varphi]
+    = 
+    S^{(0)}[\pi_a = 0] 
+    + \int \dd x \, \pi_a  \frac{\delta S}{\delta \pi_a(x)}\Big|_{\pi_a=0}
+    + \int \dd x \dd y \, \pi_a(x) \pi_b(y)
+    \frac{\delta^2 S}{\delta \pi_a(x) \delta \pi_a(y)}\Big|_{\pi_a=0}
     + \Oh[3]{(\pi/f)}.
 \end{equation}
-We showed that, when minimizing $\alpha$, $\pdv{\Ell_2}{\pi_a}\Big|_{\pi_a=0} = 0$. 
-Furthermore, $\Ell_2[\pi_a = 0] = \Ell_2^{(0)}$ so the partition function may be written
+We showed that, when minimizing $\alpha$, $\frac{\delta S_2}{\delta \pi_a(x)}\Big|_{\pi_a=0} = 0$. 
+Furthermore, $\Ell_2[\pi_a = 0] = \Ell_2^{(0)}$. 
+% The lowest order contribution to the pion is given by the free propagator, \autoref{free pion propagator}, by the formula \autoref{free energy from propagator}.
+% This is, however, evaluated in the imaginary-time formalism.
+% In the zero-temperature limit, 
+% This means that the time coordinate is replaced by $t \rightarrow - \tau$, and is restricted to $\tau \in [0, \beta]$.
+% This result in a discrete set of energies, the Matsubara frequencies $\omega = 2 \pi n / \beta$.
+% The result is
+% \begin{equation}
+%     \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
+%     = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
+% \end{equation}
+In the limit $\beta = \infty$, the free energy density of the system is given by $ \beta \Ef
+= \frac{i}{T V} \ln(Z)$ (HVORFOR?). 
+Using the expansion as described in \autoref{Effective potential}, the free energy density to and including second order is given by 
 \begin{equation}
-    Z = \int \D \varphi_a \, 
-    \exp{i \int \, \left( \Ell_a^{(0)} +  \right)}
+    \beta \Ef
+    = \frac{i}{T V} \ln(Z)
+    = \int \dd x\, \Ell^{(0)}[\pi_a = 0]
+    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}.
+    % = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} 
+    % \left[\ln(p_0^2 - E_+^2) +  \ln(p_0^2 - E_-^2) + \ln(p_0^2 - E_0^2) \right]
 \end{equation}
-
-
-The lowest order contribution to the pion is given by the free propagator, \autoref{free pion propagator}, by the formula \autoref{free energy from propagator}.
-This is, however, evaluated in the imaginary-time formalism.
-In the zero-temperature limit, 
-This means that the time coordinate is replaced by $t \rightarrow - \tau$, and is restricted to $\tau \in [0, \beta]$.
-This result in a discrete set of energies, the Matsubara frequencies $\omega = 2 \pi n / \beta$.
-The result is
+As the ground sate is $\pi_a = 0$, the only terms that will remain in the trace-terms are those that are second order in the pion-fields.
+We can therefore evaluate
+\begin{align}
+    \frac{\delta^2 S_2}{\delta \varphi(x)\delta \varphi(y)}
+    = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} \left( \Ell^{2} \right)
+    = D^{-1}(x - y),
+\end{align}
+where $D(x -y)$ is the propagator of the pion-fields.
+As we found the eigenvalues of the inverse propagator, the trace part can be written as
+(DETTE ER IKKE HELT RIKTIG)
 \begin{equation}
-    \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
-    = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
-\end{equation}
-At $T = 0$, this is given by (HVORFOR?)
-\begin{equation}
-    \Ef = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} \sum_a \ln[D_0^{-1}]
-    = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} 
-    \left[\ln(p_0^2 - E_+^2) +  \ln(p_0^2 - E_-^2) + \ln(p_0^2 - E_0^2) \right]
+    - \frac{1}{2} (VT) \int \frac{\dd^4 p}{(2 \pi )^4} \, 
+    \left[ \ln(E_0^2) + \ln(E_+^2) + \ln(E_-^2) \right].
 \end{equation}
 

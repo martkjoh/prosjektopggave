@@ -1,3 +1,4 @@
+\label{Effective potential}
 The ground state partition function is given by
 \begin{equation}
     Z = \lim_{T\rightarrow \infty} \braket{\Omega, T}{-T, \Omega}
@@ -128,7 +129,7 @@ where $\varphi'$ fulfills
 \end{equation}
 which is exactly $\varphi[J](x)$. This means that
 \begin{equation}
-    g W[J] = \Gamma[\varphi] + \int \dd^x J(x) \varphi(x) + \mathcal{O}(g)
+    g W[J] = \Gamma[\varphi] + \int \dd^4x\,  J(x) \varphi(x) + \mathcal{O}(g)
 \end{equation}
 
 
@@ -148,7 +149,7 @@ The functional version of a Taylor expansion is
     S[\varphi^* + \eta] = 
     S[\varphi^*]
     + \int \dd x \fdv{S[\varphi^*]}{\varphi(x)} \eta(x)
-    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
+    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
     + \dots
 \end{equation}
 Inserting this into $Z[J]$, with $S_I$ to denote the derivatives of higher order than $2$, we get
@@ -158,7 +159,8 @@ Inserting this into $Z[J]$, with $S_I$ to denote the derivatives of higher order
     \exp{
         i \int \dd^4 x \left(  \Ell[\varphi^*] + J \varphi^*  \right)
         + i \int \dd x \left(  \fdv{S[\varphi^*]}{\varphi(x)} + J(x) \right) \eta(x)
-        + i \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y) 
+        + i \frac{1}{2} \int \dd x \dd y\,  
+        \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y) 
         + i S_I[\eta]
         }
 \end{align*}
@@ -185,11 +187,12 @@ The second to last term is a Gaussian integral, and may be evaluated as describe
 \end{equation}
 This leaves us with 
 \begin{align}
+    \label{generating functional}
     W[J] 
     & = -i \ln(Z) \\
     & = 
     \int\dd^4 x \, \left(\Ell[\varphi^*] + J \varphi^*\right)
-    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\varphi^*]}{\, \delta \varphi^2} \right)}
+    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)}
     + \int \D \eta \, \exp{i \int \dd^4 x \delta J(x) \eta  }
     + \int \D \eta \, e^{iS_I}
 \end{align}

@@ -1,0 +1,72 @@
+\section{Functional Derivatives}
+Functional derivatives generalize the notion of a gradient and the directional derivative.
+A function $f(p)$, where $p$ is point with coordinates $x_i = x_i(p)$, has a gradient
+\begin{equation}
+    \dd f_p = \pdv{f(p)}{x_i} \dd x_i.
+\end{equation}
+The derivative in a particular direction $v = v^i \partial_i$ is 
+\begin{equation}
+    \dv{\epsilon} f(x_i + \epsilon v_i) = f(x) + \dd f_x (v) = f(x) + \pdv{f}{x^i}v_i.
+\end{equation}
+This is generalized to functionals through the definition of functional derivative, and the variation of a functional.
+Let $F[f]$ be a functional, i.e. a machine that takes in a function, and returns a number.
+The obvious example in our case is the action, which takes in one or more field-configurations, and returns a single real number.
+We will assume here that the functions have the domain $\Omega$, with coordinates $x$.
+The functional derivative is defined as
+\begin{equation}
+    \delta F[f]
+    =
+    \dv{\epsilon} F[f + \epsilon \eta] \Big|_{\epsilon = 0}
+    = \int_\Omega \dd x \, \frac{\delta F[f]}{\delta f(x)} \eta(x).
+\end{equation}
+$\eta(x)$ is here an arbitrary function, but we will make the important assumption that it as well as all its derivatives are zero at the boundary of its domain $\Omega$.
+This allows us to discard surface terms stemming from partial integration, which we will use frequently.
+We may use the definition to derive one of the fundamental relations of functional derivation.
+Take the functional $F[f] = f(x)$. 
+Then,
+\begin{equation}
+    \label{Functional derivative delta identity}
+    \delta F[f] = \dv{\epsilon} [f(x) + \epsilon \eta(x)] = \eta(x) = \int \dd y \, \delta(x - y) \eta(y)
+\end{equation}
+This leads to the identity
+\begin{equation}
+    \frac{\delta f(x)}{\delta f(y)} = \delta(x - y),
+\end{equation}
+for any function $f$.
+Higher functional derivatives are defined similarly, by applying functional variation repeatedly
+\begin{equation}
+    \delta^n F[f] = \dv{\epsilon} \delta^{n-1}F[f + \epsilon \eta_n] \big|_{\epsilon=0}
+    = \int \left(\prod_{i=1}^n \dd x_i\right)
+    \frac{\delta^n F[f]}{ \delta f(x_n)\dots\delta f(x_n)} \left(\prod_{i=1}^n \eta_i(x_i)\right).
+\end{equation}
+A functional may be expanded in a generalization of the Fourier series, which has the form
+\begin{equation}
+    F[f_0 + f] = F[f_0] + \int_\Omega \dd x \, f(x) \frac{\delta F[f_0]}{\delta f(x)}\bigg|_{f = f_0}
+    + \frac{1}{2!}\int_\Omega \dd x \dd y \, f(x) f(y) \frac{\delta^2 F [f_0]}{\delta f(x) \delta f(y)}
+    + \dots
+\end{equation}
+As an example, the Klein-Gorodn action,
+\begin{equation}
+    S[\varphi] = - \frac{1}{2}\int_\Omega \dd x \, \varphi (\partial^2 + m^2) \varphi(x).
+\end{equation}
+It can be evaluated quickly by using \autoref{Functional derivative delta identity} and partial integration
+\begin{equation}
+    \funcdv{\varphi(x)} S[\varphi] 
+    = 
+    - \frac{1}{2} \int_\Omega \dd y \, 
+    [\delta(x - y)(\partial_y^2 + m^2)\varphi(y) + \varphi(y) (\partial_y^2 + m^2)\delta(x - y)]
+    = 
+    - \int_\Omega \dd y \, 
+    \delta(x - y)(\partial_y^2 + m^2)\varphi(y)
+    = (\partial_y^2 + m^2)\varphi(y)
+\end{equation}
+The second derivative is
+\begin{equation}
+    \frac{\delta^2S[\varphi]}{\delta \varphi(x)\delta \varphi(y)}
+    =
+    \funcdv{f(x)} (\partial_y^2 + m^2)\varphi(y)
+    = 
+    (\partial_y^2 + m^2) \delta(x - y).
+\end{equation}
+
+
