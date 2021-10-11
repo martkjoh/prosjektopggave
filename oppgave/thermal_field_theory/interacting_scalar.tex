@@ -16,7 +16,7 @@ The canonical partition function in this theory
     = \int_S \D \varphi \, \exp{
         - \int_\Omega \dd X \left(\Ell_E^{(0)} + \Ell_E^{(I)}\right)
     }
-    = \int_S \D \varphi \, e^{S_0} e^{S_I}.
+    = \int_S \D \varphi \, e^{-S_0} e^{-S_I}.
 \end{equation}
 Here, $S_0$ and $S_I$ denote the Euclidean action due to the free and interacting Lagrangian, respectively.
 The domain of integration $S$ is again periodic field configurations $\varphi(\beta, \vec x) = \varphi(0, \vec x)$.
@@ -24,7 +24,7 @@ We may write the free energy as
 \begin{equation*}
     - \beta F = \ln
     \left[
-        \int_S \D \varphi \, e^{S_0} \sum_n \frac{1}{n!} {S_I}^n
+        \int_S \D \varphi \, e^{-S_0} \sum_n \frac{1}{n!} {(-S_I)}^n
     \right]
     = \ln[Z_0] 
     + \ln
@@ -39,13 +39,13 @@ We may write the free energy as
 where $Z_0$ is the partition function of the free theory.
 The correction to the partition function is thus given by
 \begin{equation}
-    Z_I = \sum_{n=0}^\infty \frac{1}{n!} \ex{{S_I}^n}_0,
+    Z_I = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \ex{{S_I}^n}_0,
 \end{equation}
 where
 \begin{equation}
     \ex{A}_0 = \frac{
-        \int_S \D \varphi \, A \, e^{S_0} }
-    {\int_S \D \varphi \, e^{S_0}}.
+        \int_S \D \varphi \, A \, e^{-S_0} }
+    {\int_S \D \varphi \, e^{-S_0}}.
 \end{equation}
 % Notice that the constant factor from the Jacobian due to the change of variable $\varphi \rightarrow \tilde \varphi$ does not affect the expectation value, as the same factor is in both the numerator and denominator.
 % If the quantity $A$ is a function of the momentum-space fields, $A = A[\tilde \varphi(K)]$, then this expectation value takes the form
@@ -71,6 +71,7 @@ where
 % \end{equation}
 
 To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introduce the partition function with a source term
+% TODO: Sjekk fortegn forran J phi
 \begin{align}
     Z[J] = \int_S \D \varphi \, \exp{
         - \frac{1}{2} \int_\Omega \dd X \, \varphi (-\partial_E^2 + m^2) \varphi
