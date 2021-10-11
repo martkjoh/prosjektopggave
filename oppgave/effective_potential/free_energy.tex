@@ -13,7 +13,7 @@ The action may be expanded around $\pi_a = 0$,
 \begin{equation}
     S[\varphi]
     = 
-    S^{(0)}[\pi_a = 0] 
+    S[\pi_a = 0] 
     + \int \dd x \, \pi_a  \frac{\delta S}{\delta \pi_a(x)}\Big|_{\pi_a=0}
     + \int \dd x \dd y \, \pi_a(x) \pi_b(y)
     \frac{\delta^2 S}{\delta \pi_a(x) \delta \pi_a(y)}\Big|_{\pi_a=0}
@@ -35,25 +35,60 @@ In the limit $\beta = \infty$, the free energy density of the system is given by
 = \frac{i}{T V} \ln(Z)$ (HVORFOR?). 
 Using the expansion as described in \autoref{Effective potential}, the free energy density to and including second order is given by 
 \begin{equation}
+    \label{Free energy to second order}
+    \Omega = 
     \beta \Ef
     = \frac{i}{T V} \ln(Z)
-    = \int \dd x\, \Ell^{(0)}[\pi_a = 0]
-    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}.
-    % = \frac{1}{2} \int \frac{\dd^4 k}{(2 \pi)^4} 
-    % \left[\ln(p_0^2 - E_+^2) +  \ln(p_0^2 - E_-^2) + \ln(p_0^2 - E_0^2) \right]
+    = S[\pi_a = 0]
+    +\ln{\det\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}^{-1/2}.
 \end{equation}
 As the ground sate is $\pi_a = 0$, the only terms that will remain in the trace-terms are those that are second order in the pion-fields.
-We can therefore evaluate
+We can therefore evaluate the functional derivative with the rules given in \autoref{section:Functional derivative},
 \begin{align}
-    \frac{\delta^2 S_2}{\delta \varphi(x)\delta \varphi(y)}
-    = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} \left( \Ell^{2} \right)
-    = D^{-1}(x - y),
+    \frac{\delta^2 S }{\delta \varphi(x)\delta \varphi(y)}
+    = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} 
+    \int \dd x \, \Ell^{(2)}_2
+    = D^{-1}_x \delta(x - y),
 \end{align}
-where $D(x -y)$ is the propagator of the pion-fields.
-As we found the eigenvalues of the inverse propagator, the trace part can be written as
-(DETTE ER IKKE HELT RIKTIG)
+where $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autoref{quadratic lagrangian}, and $D^{-1}_x$ is the corresponding inverse propagator of the pion-fields,
 \begin{equation}
-    - \frac{1}{2} (VT) \int \frac{\dd^4 p}{(2 \pi )^4} \, 
-    \left[ \ln(E_0^2) + \ln(E_+^2) + \ln(E_-^2) \right].
+    D_x^{-1} = 
+    - \left[
+        \delta_{ab}(\partial_x^\mu\partial_{x,\mu} + m^2_a)
+        -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
+    \right] 
+\end{equation}
+The first order contribution is
+\begin{equation}
+    \Omega_0 = \frac{1}{VT}\int \dd^4 x \, \Ell_2^{(0)} = \Ell_2^{(0)}.
+\end{equation}
+The leading order correction, $\Omega_2$, is given by the functional determinant.
+The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the 3 pion-indices, as well as a functional part.
+In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields as
+\begin{equation}
+    \det(- D^{-1} \delta (x - y)) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
+\end{equation}
+The Dirac-delta is removed by using partial integration.
+The functional determinant can therefore be evaluated as
+\begin{align}
+    -\frac{1}{2} \ln{\det\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}
+    & = \ln \det(p_0^2 - E_0^2) + \ln \det(p_0^2 - E_+^2) + \ln \det(p_0^2 - E_-^2) \\
+    & = \Tr{ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2)+  \ln(p_0^2 - E_-^2) } \\
+    & = (VT) \int \frac{\dd^4 p}{(2 \pi)^4} 
+    \left[ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2) + \ln(p_0^2 - E_-^2)  \right].
+\end{align}
+These all have the form
+\begin{equation}
+    I = \int \frac{\dd^4 p}{(2 \pi)^2} \ln(-p^2 + \omega(p)^2).
+\end{equation}
+We will here pereform a Wick-rotation, and use the trick
+\begin{equation}
+    \pdv{\alpha} (p^2 + \omega(p)^2)^{-\alpha} \Big|_{\alpha=0}
+    = \pdv{\alpha} \exp{-\alpha \ln(p^2 + \omega(p)^2) } \Big|_{\alpha=0}
+    = \ln(p^2 + \omega(p)^2),
+\end{equation}
+to write the integral on the form
+\begin{equation}
+    I = \pdv{\alpha} \int \frac{\dd^4 p_E}{(2 \pi)^4} (p_E^2 + \omega(p)^2)^{-\alpha} \Big|_{\alpha=0}
 \end{equation}
 
