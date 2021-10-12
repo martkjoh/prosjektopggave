@@ -97,18 +97,19 @@ This generalizes to higher order expectation values,
     = \left(\prod_{i=1}^n \frac{\delta}{\delta J(X_i)}\right) 
     Z[J] \Big|_{J=0},
 \end{equation}
-The exponential form of $Z[J]$ leads straight forwardly to Wick's theorem, which states that an expectation value of $2n$ fields is a sum of \emph{all possible, distinct} combination of $n$ propagators.
-To write this in a formal way, we define the functions $a$ and $b$, which define a way to pair up $2m$ elements.
-The domain of the functions are the integers between $1$ and $m$, the image a subset of the integers between $1$ and $2m$ of size $m$.
-A valid pairing is a set $\{(a(1), b(1)), \dots (a(m), b(m))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $2m$ are featured.
-A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
-Wick theorem states that,
-\begin{equation}
-    \ex{\prod_{i=1}^{2m} \varphi(X_i)  }_0
-    = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})},
-\end{equation}
-where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
-Using Wick's theorem, the expectation values we are evaluating can be written
+
+% The exponential form of $Z[J]$ leads straight forwardly to Wick's theorem, which states that an expectation value of $2n$ fields is a sum of \emph{all possible, distinct} combination of $n$ propagators.
+% To write this in a formal way, we define the functions $a$ and $b$, which define a way to pair up $2m$ elements.
+% The domain of the functions are the integers between $1$ and $m$, the image a subset of the integers between $1$ and $2m$ of size $m$.
+% A valid pairing is a set $\{(a(1), b(1)), \dots (a(m), b(m))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $2m$ are featured.
+% A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
+% Wick theorem states that,
+% \begin{equation}
+%     \ex{\prod_{i=1}^{2m} \varphi(X_i)  }_0
+%     = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})},
+% \end{equation}
+% where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
+Using Wick's theorem, as described in (INTRO EFFECTIVE FIELD THEORY) the expectation values we are evaluating can be written
 \begin{align*}
     \ex{{S_I}^m} & 
     = \left(- \frac{\lambda }{4!}\right)^m 
