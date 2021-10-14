@@ -72,13 +72,13 @@ The canonical momentum corresponding to $\psi$ is
 and the Hamiltonian density is 
 \begin{equation}
     \He = \pi \dot\psi - \Ell
-    = \bar \psi ( - i\gamma^i\partial_i + m) \psi
+    = \bar \psi (-i\gamma^i\partial_i + m) \psi
 \end{equation}
 which gives
 \begin{equation}
     \Ell_E = 
     - i \pi \dot\psi + \He(\psi, \pi) - \mu \bar \psi \gamma^0 \psi
-    = \bar\psi[\gamma^0 (\partial_\tau - \mu) - i\gamma^i \partial_i - m] \psi,
+    = \bar\psi[\gamma^0 (\partial_\tau - \mu) - i\gamma^i \partial_i + m] \psi,
 \end{equation}
 By using the Grassman-version of the Gaussian integral formula, the partition function can be written
 \begin{align*}
@@ -86,7 +86,7 @@ By using the Grassman-version of the Gaussian integral formula, the partition fu
     \exp{
         - \int_\Omega \dd X \, \bar \psi
         \left[
-            \tilde\gamma_0(\partial_\tau -\mu) -  i \gamma^i \partial_i - m
+            \tilde\gamma_0(\partial_\tau -\mu) -  i \gamma^i \partial_i + m
         \right]
         \psi
     }\\
@@ -94,7 +94,7 @@ By using the Grassman-version of the Gaussian integral formula, the partition fu
     \exp{
         - \int_{\tilde \Omega} \dd K \, \tilde {\bar \psi}
         \left[
-            i \tilde\gamma_0(\omega_n + i\mu) + i \gamma_i p_i - m
+            i \tilde\gamma_0(\omega_n + i\mu) + i \gamma_i p_i + m
         \right]
         \tilde \psi
     } \\
@@ -105,21 +105,21 @@ By using the Grassman-version of the Gaussian integral formula, the partition fu
 In the second line, we have inserted the Fourier expansion of the field, as defined in \autoref{Conventions and notation}, and changed variable of integration, as we did for the scalar field.
 The linear operator in this case is 
 \begin{equation}
-    D_0^{-1} = i \gamma^0 (-i\partial_\tau + i\mu) - (- i \gamma^i) \partial_i - m
+    D_0^{-1} = i \gamma^0 (-i\partial_\tau + i\mu) - (- i \gamma^i) \partial_i + m
     = 
-    \beta [i \tilde \gamma_a p_a - m ].
+    \beta [i \tilde \gamma_a p_a + m ].
 \end{equation}
 This equality must be understood as an equality between linear operators, which are represented in different bases.
 We introduced the notation $p_{n;a} = (\omega_n + i \mu, p_i)$ and use the Euclidean gamma matrices, as defined in \autoref{Conventions and notation}.
 We use the fact that 
 \begin{equation*}
-    \det(i\tilde\gamma_a p_a - m)
+    \det(i\tilde\gamma_a p_a + m)
     = \det(\gamma^5 \gamma^5)
-    \det(i\tilde\gamma_a p_a - m)
-    = \det[\gamma^5 (i\tilde\gamma_a p_a - m) \gamma^5]
-    = \det(-i\tilde\gamma_a p_a - m),
+    \det(i\tilde\gamma_a p_a + m)
+    = \det[\gamma^5 (i\tilde\gamma_a p_a + m) \gamma^5]
+    = \det(-i\tilde\gamma_a p_a + m),
 \end{equation*}
-Let $\tilde D = -i\tilde\gamma_a p_a - m$, which means we can write
+Let $\tilde D = -i\tilde\gamma_a p_a + m$, which means we can write
 \begin{equation}
     Z = \sqrt{\det(D)\det(\tilde D)} = \sqrt{\det(D\tilde D)} = \det[\one(p_a p_a + m^2)]^{1/2},
 \end{equation}

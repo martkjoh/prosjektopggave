@@ -1,6 +1,6 @@
 \section{Integrals}
 \subsection{Gaussian integrals}
-\label{gaussian integrals}
+\label{section:gaussian integrals}
 A useful integral is the Gaussian integral,
 \begin{equation}
     \int_\R \dd z \, \exp(- \frac{1}{2} a z^2) = \sqrt{\frac{2 \pi}{a}},
@@ -57,32 +57,50 @@ This gives the result
     \label{complex gauss 1D}
     \int_\R \dd x \, \exp(i \frac{1}{2}(a + i\epsilon) x^2) 
     = \int_{\sqrt{i}\R} \dd x \, \exp(i\frac{1}{2} ax^2)
-    = \sqrt{i} \int_\R \dd y\, \exp(-\frac{1}{2} a y^2) = \sqrt{\frac{2 \pi i}{a}}
+    = \sqrt{i} \int_\R \dd y\, \exp(-\frac{1}{2} (-a) y^2) = \sqrt{\frac{2 \pi i}{(-a)}}
 \end{equation}
 where we have made the change of variable $y = (1+i)/\sqrt{2} x = \sqrt{i} x$.
-
 In $n$ dimensions, the Gaussian integral formula generalizes to
 \begin{equation}
-    I_n = \int_{\R^n} \dd^n x \, \exp{-\frac{1}{2} x_n A_{nm} x_m } =\sqrt{\frac{(2 \pi)^n}{\det(A)}},
+    \int_{\R^n} \dd^n x \, \exp{-\frac{1}{2} x_n A_{nm} x_m } =\sqrt{\frac{(2 \pi)^n}{\det(A)}},
 \end{equation}
 where $A$ is a matrix with $n$ real, positive eigenvalues.
 We may also generalize \autoref{complex gauss 1D},
-\begin{equation}
-    I'_n = 
-    \int_{\R^n} \dd^n x \, \exp{i\frac{1}{2} x_n( A_{nm} + i \epsilon \delta_{nm}) x_m } =\sqrt{\frac{(2 \pi i )^n}{\det(A)}}.
-\end{equation}
-
-The final generalization is to functional integrals.
-The bilinear becomes
-\begin{equation}
-    x_n A_{nm} x_m \rightarrow \int \dd x \, \varphi(x) A \varphi(x),
-\end{equation}
-where $A$ is some operator.
-The first Gaussian integral becomes
-\begin{equation}
-    I_\infty = \int \D \varphi \, \exp(- \frac{1}{2} \int \dd x \, \varphi(x) A \varphi(x) )
-    = C (\det(A))^{-1/2}.
-\end{equation}
+\begin{align}
+    \int_{\R^n} \dd^n x \, \exp{i\frac{1}{2} x_n( A_{nm} + i \epsilon \delta_{nm}) x_m } =\sqrt{\frac{(2 \pi i )^n}{\det(-A)}}.
+\end{align}
+The final generalization is to functional integrals,
+% The bilinear becomes
+% \begin{equation}
+%     x_n A_{nm} x_m \rightarrow \int \dd x \, \varphi(x) A \varphi(x),
+% \end{equation}
+% where $A$ is some operator.
+% The first Gaussian integral becomes
+\begin{align}
+    \int \D \varphi \, \exp(- \frac{1}{2} \int \dd x \, \varphi(x) A \varphi(x) )
+    = C (\det(A))^{-1/2},
+    \int \D \varphi \, \exp(i\frac{1}{2} \int \dd x \, \varphi(x) A \varphi(x) )
+    = C (\det(-A))^{-1/2}.
+\end{align}
 $C$ is here a divergent constant, but will either fall away as we are only looking at the logarithm of $I_\infty$ and are able to throw away additive constants, or ratios between quantities which are both multiplied by $C$.
 
+The Gaussian integral can be used for the stationary phase approximation.
+In one dimension, it is
+\begin{equation}
+    \int \dd x \, \exp(i \alpha f(x)) 
+    \approx \sqrt{\frac{2 \pi }{f''(x_0)}}\exp( f(x_0)), 
+    \, f'(x) = 0, \, \alpha\rightarrow \infty
+\end{equation}
+The functional generalization of this is
+\begin{equation}
+    \int \D \varphi \exp{i S[\varphi]}
+    \approx 
+    C \det(- \frac{\delta^2 S[\varphi_0]}{\delta \varphi^2})
+    \exp{i \alpha S[\varphi_0]  }, \quad
+    \frac{\delta S[\varphi_0]}{\delta \varphi} = 0…
+\end{equation}
+Here, $S[\varphi]$ is a general functional of $\varphi$, and we have used the Taylor expansion, as described in \autoref{section:Functional derivative}, and $\varphi_0$ fulfills
+\begin{equation}
+    = \funcdv{\varphi(x)}{\Gamma} + J(x) = 0,
+\end{equation}
 
