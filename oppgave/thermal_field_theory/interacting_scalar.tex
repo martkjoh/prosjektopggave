@@ -10,7 +10,7 @@ We write the Lagrangian in the form
 \end{equation*}
 $\Ell^{(I)}$ is called the interaction term, and makes it impossible to exactly solve for the partition function.
 Instead, we turn to perturbation theory.
-The canonical partition function in this theory
+The canonical partition function in this theory is
 \begin{equation}
     Z = \Tr{e^{- \beta \hat H}}
     = \int_S \D \varphi \, \exp{
@@ -30,10 +30,6 @@ We may write the free energy as
     + \ln
     \left[
         Z_I
-        % \sum_n \frac{1}{n!}  
-        % \frac{
-        %     \int_S \D \varphi \, e^{S_0} {S_I}^n}
-        % {\int_S \D \varphi \, e^{S_0}}
     \right],
 \end{equation*}
 where $Z_0$ is the partition function of the free theory.
@@ -47,31 +43,8 @@ where
         \int_S \D \varphi \, A \, e^{-S_0} }
     {\int_S \D \varphi \, e^{-S_0}}.
 \end{equation}
-% Notice that the constant factor from the Jacobian due to the change of variable $\varphi \rightarrow \tilde \varphi$ does not affect the expectation value, as the same factor is in both the numerator and denominator.
-% If the quantity $A$ is a function of the momentum-space fields, $A = A[\tilde \varphi(K)]$, then this expectation value takes the form
-% \begin{equation}
-%     \ex{A}_0 = 
-%     \frac{
-%         \int_{\tilde S} \D \tilde \varphi(K) \, f[\tilde\varphi(K)] \, 
-%         \exp{- \frac{1}{2} \langle \tilde \varphi^*, D \tilde \varphi \rangle}
-%         }
-%     {
-%         \int_{\tilde S} \D \tilde \varphi(K) \,
-%         \exp{
-%             - \frac{1}{2} \langle \tilde \varphi^*, D \tilde \varphi \rangle
-%             }
-%     }.
-% \end{equation}
-% where, as before, 
-% \begin{equation}
-%     \langle \tilde \varphi^*, D \tilde \varphi \rangle
-%     = 
-%     \int_\Omega 
-%             \tilde \dd K\, [\beta^2(\omega_n^2 + \omega_n^2)] |\tilde \varphi(K)|^2
-% \end{equation}
 
 To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introduce the partition function with a source term
-% TODO: Sjekk fortegn forran J phi
 \begin{align}
     Z[J] = \int_S \D \varphi \, \exp{
         - \frac{1}{2} \int_\Omega \dd X \, \varphi (-\partial_E^2 + m^2) \varphi
@@ -98,18 +71,7 @@ This generalizes to higher order expectation values,
     Z[J] \Big|_{J=0},
 \end{equation}
 
-% The exponential form of $Z[J]$ leads straight forwardly to Wick's theorem, which states that an expectation value of $2n$ fields is a sum of \emph{all possible, distinct} combination of $n$ propagators.
-% To write this in a formal way, we define the functions $a$ and $b$, which define a way to pair up $2m$ elements.
-% The domain of the functions are the integers between $1$ and $m$, the image a subset of the integers between $1$ and $2m$ of size $m$.
-% A valid pairing is a set $\{(a(1), b(1)), \dots (a(m), b(m))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $2m$ are featured.
-% A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
-% Wick theorem states that,
-% \begin{equation}
-%     \ex{\prod_{i=1}^{2m} \varphi(X_i)  }_0
-%     = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})},
-% \end{equation}
-% where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
-Using Wick's theorem, as described in (INTRO EFFECTIVE FIELD THEORY) the expectation values we are evaluating can be written
+Using Wick's theorem, as described in \autoref{section:path integral}, the expectation values we are evaluating can be written
 \begin{align*}
     \ex{{S_I}^m} & 
     = \left(- \frac{\lambda }{4!}\right)^m 
@@ -122,7 +84,8 @@ Using Wick's theorem, as described in (INTRO EFFECTIVE FIELD THEORY) the expecta
     \dots
     \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}
 \end{align*}
-where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$.
+where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$, such that $X_{m + i} = X_i$.
+The functions $a,\,b$ represents a possible pairing, as described in \autoref{section: effective action}.
 Inserting the Fourier expansions of the field gives
 \begin{align*}
     & \ex{{S_I}^m} \\ 
@@ -151,7 +114,7 @@ Inserting the Fourier expansions of the field gives
     \sum_{\{a, b\}} 
     \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)})
 \end{align*}
-Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, and $\tilde D_0(K)$ is the thermal propagator for the free field, as defined in \autoref{Conventions and notation}.
+Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, where $\tilde D_0(K)$ is the thermal propagator for the free field, as defined in \autoref{Conventions and notation}.
 In this case, it is
 \begin{equation}
     \tilde D_0(K) = \tilde D_0(\omega_n, \vec k) = \frac{1}{\omega_k^2 + \omega_n^2}.
@@ -160,109 +123,22 @@ This expectation value can be represented graphically using Feynman diagrams.
 The thermal $\lambda \varphi^2$-theory gets the prescription
 
 \begin{align}
-    \feynmandiagram [inline=(a.base), small, horizontal=i1 to f2]
-    {
-    {i1} -- [fermion, edge label'=$K_1$] a[dot] 
-    -- [anti fermion, edge label'=$K_3$] {f1},
-    {i2} -- [fermion, edge label'=$K_2$] a -- [anti fermion, edge label'=$K_4$] {f2},
-    };
+    \includegraphics[width=0.15\textwidth, valign=c]{figurer/feynman-diagram/phi-4_vertex.eps}
     & = -\lambda \beta
     \delta \left({\sum}_i K_i \right), \\ \nonumber \\
-    \feynmandiagram[horizontal= i to f]{
-        i[particle=$K$] -- [fermion] f,
-    };
+    \includegraphics[width=0.2\textwidth, valign=c]{figurer/feynman-diagram/phi-4_propagator.eps}
     & = \frac{1}{\beta} D_0(K).
 \end{align}
-The expression is the integrated over all \emph{internal} momenta.
-The factor $1/4!$ is removed as a general Feynman diagram represent all diagrams with the same form, but different pairing of the momenta.
-Some diagrams are more symmetric, such that an exchange of momenta still gives \emph{the same pairing}. 
-This is dealt with by dividing with a symmetry factor $s$, which is described in detail in~\cite{Peskin:IntroQFT}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO: SKRIV DETTE BEDRE! %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Lastly, one has to divide by a symmetry factor of the diagram $s$, which is described in detail in~\cite{Peskin:IntroQFT}.
 
 Calculating $\ex{{S_I}^n}_0$ boils down to the sum of all possible Feynman diagrams with $n$ vertices.
 The first example is 
 \begin{align}
     \ex{S_I} = 
-    \feynmandiagram[small, horizontal=a to b, inline=(b.base)]
-    {
-        b[dot] --[fermion, half left, looseness=1.5, edge label'=$K_1$] a 
-        --[fermion, half left, looseness=1.5, edge label'=$K_2$] b,
-        b --[fermion, half right, looseness=1.5, edge label'=$K_3$] c 
-        --[fermion, half right, looseness=1.5, edge label'=$K_4$] b,
-    }; 
-    +
-    \feynmandiagram[small, horizontal=a to b, inline=(b.base)]
-    {
-        b[dot] --[fermion, half left, looseness=1.5, edge label'=$K_1$] a 
-        --[fermion, half left, looseness=1.5, edge label'=$K_4$] b,
-        b --[fermion, half right, looseness=1.5, edge label'=$K_2$] c 
-        --[fermion, half right, looseness=1.5, edge label'=$K_4$] b,
-    };
-    +
-    \feynmandiagram[small, horizontal=a to b, inline=(b.base)]
-    {
-        b[dot] --[fermion, half left, looseness=1.5, edge label'=$K_1$] a 
-        --[fermion, half left, looseness=1.5, edge label'=$K_4$] b,
-        b --[fermion, half right, looseness=1.5, edge label'=$K_2$] c 
-        --[fermion, half right, looseness=1.5, edge label'=$K_3$] b,
-    };
-    = 
-    \frac{3}{4!} \times 
-    \feynmandiagram[small, horizontal=a to b, inline=(b.base)]
-    {
-        b[dot] --[fermion, half left, looseness=1.5] a 
-        --[fermion, half left, looseness=1.5] b,
-        b --[fermion, half right] c 
-        --[fermion, half right] b,
-    };.
+    \frac{1}{8} \includegraphics[width=0.15\textwidth, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
 \end{align}
 
-For higher order, one gets both connected and disconnected diagrams.
-Let $\ex{{S_I}^n}_{0, c}$ be only the connected diagrams, i.e. those diagrams in which it is possible to move between all vertices along a series of edges.
-A general diagram contain $n_i$ copies of a connected diagram with the value $V_i$.
-The value of the total diagram is then the product of the value of all its disconnected pieces, but with the caveat that each diagram has a symmetry factor of $n_i!$.
-The sum of all diagrams is thus 
+In \autoref{section:path integral}, we saw that the sum of all vacuum diagrams is the exponential of the sum of all \emph{connected} diagrams, so the free energy of the interacting theory is given by
 \begin{equation}
-    Z_I = \sum_n \frac{1}{n!} \ex{{S_I}^n} 
-    = \sum_{ all\,sets\,\{n_i\}} \prod_i \frac{1}{n_i!}V_i^{n_i}
-    = \prod_i \sum_{n_i} \frac{1}{n_i!}V_i^{n_i} = \exp({\sum}_i V_i).
+    - \beta F = \ln(Z_0) + \Sigma(\mathrm{all\,\, connected\,\, diagrams})
 \end{equation}
-Thus, the correction to the free energy is given by the sum of all connected diagrams,
-\begin{equation}
-    - \beta F = \ln(Z_0) + \sum_n \ex{{S_I}^n}_{0, c}.
-\end{equation}
-
-% \subsection*{Rester}
-
-
-% Expectation values of field configurations with different momenta vanish,
-% \begin{equation}
-%     K' \neq K \implies \ex{\varphi(K) \varphi(K')}_0 = 0.
-% \end{equation}
-% This is due to the symmetry of the functional integrand.
-% This can be seen by going back to the discrete version of the integral.
-% The integral can then be factored into integrals over each degree of freedom, $\varphi_{n,m}$.
-% The integrall over the degrees of freedom corresponding to $\varphi(K)$ and $\varphi(K')$ are of the form
-% \begin{equation}
-%     \int \dd \varphi_{n, m} \, \varphi_{n, m} \exp(- S^{(0)}_{n, m}) = 0,
-% \end{equation}
-% as the integral is over the entier real line, and the integrand is anti-symmetric in $\varphi_{n, m}$.
-% The generalization of this rule is straight forward. 
-% Assuming $f[\tilde \varphi]$ \emph{does not} depend on $\tilde \varphi(K)$, but possibly on $\tilde \varphi(K'), \, K \neq K'$, then
-% \begin{equation}
-%     \ex{f[\tilde \varphi](\tilde \varphi(K))^{(2n+1)}}_0 = 0, \, n \in \mathbb{Z}.
-% \end{equation}
-% Furthermore, as the field at different values of $K$ are independent, we get the familiar formula for expectation values of independent variables, that is
-% \begin{equation}
-%     \ex{f[\varphi(K)]g[\varphi(K')]}_0 = \ex{f[\varphi(K)]}_0 \ex{g[\varphi(K')]}_0, \quad
-%     K \neq K'.
-% \end{equation}
-% This leads to a version of Wick's theorem for thermal systems, as it lays constrains on integrals of the form
-% \begin{equation}
-%     \int_{\tilde \Omega} \dd K_1 \dots \dd K_n \,
-%     \ex{\tilde \varphi(K_1) ... \tilde \varphi(K_n)}_0 \delta\left({\sum}_i K_i\right)
-%     = 
-% \end{equation}

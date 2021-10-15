@@ -1,6 +1,7 @@
 \subsection{The 1PI effective action}
+\label{section: effective action}
 The generating functional for connected diagrams, $W[J]$, is dependent on the external current $J$.
-Analogously to what is done in thermodynamics and Lagrangian and Hamiltonian mechanics, we can change define a new quantity, with a different independent variable, using the Legendre transformation.
+Analogously to what is done in thermodynamics and Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
 The new independent variable is 
 \begin{equation}
     \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J := \varphi_J(x).
@@ -24,7 +25,7 @@ If we compare this to the classical equations of motion of a field $\varphi$ wit
 \begin{equation}
     \frac{\delta S[\varphi]}{\delta \varphi(x)} = -J(x),
 \end{equation}
-we see that $\Gamma$ is an action that gives the equation of motion for the expectation value of a field.
+we see that $\Gamma$ is an action that gives the equation of motion for the expectation value of the field, given a source current $J(x)$.
 
 To interpret $\Gamma$ further we define a new theory where it is the action, and with a coupling $g$, 
 \begin{equation}
@@ -42,7 +43,7 @@ If we add a new loop to a diagram with $n$ loops by joining two vertices, the fo
 If we attach a new vertex with one line, the formula still holds, and as the diagram is connected, any more lines connecting the new vertex to the diagram will create additional loops.
 This ensures that the formula holds, by induction.
 As a consequence of this, any diagram is proportional to $g^{L-1}$.
-This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level diagrams, that is only by diagrams without loops.
+This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level diagrams, i.e. by only considering diagrams without loops.
 In this limit, we may use the stationary phase approximation, as described in \autoref{section:gaussian integrals}, which gives
 \begin{equation}
     Z \approx 
@@ -57,297 +58,29 @@ This means that
 \end{equation}
 which is exactly the Legendre transformation we started out with, modulo the factor $g$.
 $\Gamma$ is therefore the action which describes the full theory at the three level.
+For a free theory, the classical action $S$ equals the effective action, as there are no loop diagrams.
 
 We showed in \autoref{correlation function} that the propagator $\ex{\varphi(x)\varphi(y)}_J$ is given by functional derivatives of $W$.
 Using the chain rule, together with \autoref{effective equation of motion}, we get
 \begin{align}
     \int \dd^4 z \frac{\delta^2 W[J]}{\delta J(x) \delta J(z)} 
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
+    =
     \int \dd^4 z \frac{\delta \varphi_J[z]}{\delta J(x)}
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
     = \frac{\delta^2 \Gamma[\varphi_J]}{\delta J(x) \varphi_J(y)}
     = - \delta(x - y).
 \end{align}
-This shows that the inverse propagator is given by the effective action, which is the of all one-particle-irreducible (1PI) diagrams with two external vertices.
+This shows that the inverse propagator is given by the effective action, which is the sum of all one-particle-irreducible (1PI) diagrams with two external vertices.
 More generally, $\Gamma$ is the generating functional for 1PI diagrams.
-This shows that $\Gamma$ and $S$ are the same to first order in perturbation theory.
-% In free theory, we may write
-% \begin{equation}
-%     W[J] = \frac{1}{2} \int \dd^4 x \dd^4y J(x) D_0(x - y) J(y),
-% \end{equation}
-% where $D_0$ is the free propagator.
-% We may reverse the relation \autoref{calssical field functional} to write the source in terms of the field,
-% \begin{equation}
-%     J = D_0^{-1} \varphi(x)
-% \end{equation}
-% This is the field equation for the free field with a source.
-% For the scalar Klein-Gordon field, $D_0^{-1} = \partial^2 + m^2$
-% Inserting these two relation into the definition of the effective action, and assuming we can do partial integration with $D_0^{-1}$, we get
-% \begin{equation}
-%     \Gamma[\varphi] = W[J] - \int \dd^4x J(x)\varphi(x)
-%     = 
-%     \int \dd x( 
-%         \frac{1}{2}\int \dd y (D_0^{-1} \varphi ) D_0 (D_0^{-1} \varphi ) 
-%         - (D_0^{-1} \varphi ) \varphi
-%         )
-%     = - \frac{1}{2} \int \dd^4 x \varphi(x) D_0^{-1} \varphi(x)
-% \end{equation}
-% This is the classical action.
-% Thus, the effective action $\Gamma$ and the classical action $S$ are the same to first order in perturbation theory.
 
-
-Let $\varphi^*$ solve the quantum mechanical version of the equation of motion, i.e.
+The expectation value of the ground state field configuration, that is at $J=0$, is given by 
 \begin{equation}
-    \fdv{\Gamma[\varphi^*]}{\varphi} = 0.
+    \frac{\delta \Gamma[\varphi_0]}{\delta \varphi(x)} = 0.
 \end{equation}
-We can Taylor-expand the classical action around this point, by setting $\varphi(x) = \varphi^*(x) + \eta(x)$ for some function $\eta$.
-The generating functional becomes
-\begin{align}
-    Z[J] 
-    = \int \D (\varphi^* + \eta) \, 
-    \exp{i S[\varphi^* + \eta] + i \int \dd^4 x J (\varphi^* + \eta) }
-\end{align}
-The functional version of a Taylor expansion is
+Assuming this configuration is independent of $x$, we can write
 \begin{equation}
-    S[\varphi^* + \eta] = 
-    S[\varphi^*]
-    + \int \dd x \fdv{S[\varphi^*]}{\varphi(x)} \eta(x)
-    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
-    + \dots
+    \Gamma[\varphi_0] = - V T \Ve_{\mathrm{eff}}(\varphi_0),
 \end{equation}
-Inserting this into $Z[J]$, with $S_I$ to denote the derivatives of higher order than $2$, we get
-\begin{align*}
-    &Z[J] = \\ 
-    &\int \D \eta  
-    \exp{
-        i \int \dd^4 x \left(  \Ell[\varphi^*] + J \varphi^*  \right)
-        + i \int \dd x \left(  \fdv{S[\varphi^*]}{\varphi(x)} + J(x) \right) \eta(x)
-        + i \frac{1}{2} \int \dd x \dd y\,  
-        \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y) 
-        + i S_I[\eta]
-        }
-\end{align*}
-In the first term we used the definition of the classical action. This term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
-The next term is the calssical eqation of motion with a source, 
-\begin{equation}
-    \fdv{S[\varphi]}{\varphi(x)} = - J(x),
-\end{equation} 
-evaluated at $\varphi^*$.
-\begin{equation}
-    \fdv{S[\varphi^*]}{\varphi(x)} + J(x)
-    = \fdv{\Gamma[\varphi^*]}{\varphi(x)} + J(x)
-    + \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
-    = \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
-    := \delta J
-\end{equation}
-The second to last term is a Gaussian integral, and may be evaluated as described in \autoref{gaussian integrals},
-\begin{equation}
-    \int \D \eta \, \exp(
-        i \frac{1}{2} \int \dd x \dd y\,  
-        \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
-        )
-        = C \det\left( \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)^{-1/2}
-\end{equation}
-This leaves us with 
-\begin{align}
-    \label{generating functional}
-    W[J] 
-    & = -i \ln(Z) \\
-    & = 
-    \int\dd^4 x \, \left(\Ell[\varphi^*] + J \varphi^*\right)
-    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)}
-    + \int \D \eta \, \exp{i \int \dd^4 x \delta J(x) \eta  }
-    + \int \D \eta \, e^{iS_I}
-\end{align}
-$\delta J$ is ultimately dependent on our choice of $J$ to define $\varphi$.
-It contributes to the expectation value of $\eta$, through tadpole diagrams
-\begin{align}
-    \ex{\eta}_{j=0} = 
-    \feynmandiagram [horizontal=a to b]{
-    a --[inline=(b.base), fermion] b[blob]
-    }; 
-\end{align}
-This can be removed by using the renormalization condition
-\begin{equation}
-    \feynmandiagram [horizontal=a to b]{
-    a --[inline=(b.base), fermion] b[blob]
-    };
-    = 0.
-\end{equation}
-
-
-\subsection{Minimizing energy}
-%%%%%%%%%%%%%%%%%
-%%%% SECTION %%%%
-%%%%%%%%%%%%%%%%%
-The value of $\alpha$ is found by minimizing the free energy. 
-The first approximation to the free energy in the ground state is the static part of the Hamiltonian density $\He^{(0)}$, which we get from \autoref{L0} through
-\begin{equation}
-    \He_2^{(0)} = - \Ell_2^{(0)} = 
-    -f^2   
-    \left(
-        2B_0m \cos{\alpha}
-        + \frac{1}{2} \mu^2 \sin^2{\alpha}
-    \right),
-\end{equation}
-The minimum of this function is achieved when
-\begin{align*}
-    &\dv{\alpha} \He_2^{(0)} 
-    = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
-    = 0.
-\end{align*}
-This gives the solution set and minimization criterion
-\begin{align}
-    \alpha = \pi n, \, n \in \mathbb{Z} \quad
-    \mathrm{or} \quad
-    \cos{\alpha} = \frac{2B_0m}{\mu_I{}^2}.
-\end{align}
-We see that the linear part of the potential from \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\pi_1 \sin{\alpha}= 0$ if and only if the criterion for minimization is fulfilled.
-
-\subsection{Propagator}
-%%%%%%%%%%%%%%%%%
-%%%% SECTION %%%%
-%%%%%%%%%%%%%%%%%
-\label{section:propagator}
-We may write the quadratic part of the Lagrangian \autoref{L2} as \footnote{Summation over isospin index ($a,b,c$) will be explicit in this section.}
-\begin{align}
-    \label{quadratic lagrangian}
-    \Ell_2^{(2)}
-    =
-    \frac{1}{2} \sum_a \partial_\mu \pi_a \partial^\mu \pi_a
-    + \frac{1}{2} m_{12} (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)
-    - \frac{1}{2} \sum_a m_a^2 \pi_a^2,
-\end{align}
-where
-\begin{align}
-    m_1^2 &= 2 B_0 m \cos{\alpha} - \mu_I^2 \cos{2\alpha}, \\
-    m_2^2 &= 2 B_0 m \cos{\alpha} - \mu_I^2 \cos^2{\alpha}, \\
-    m_3^2 &= 2 B_0 m \cos{\alpha} + \mu_I^2 \sin^2{\alpha}, \\
-    m_{12} &= 2 \mu_I \cos{\alpha}.
-\end{align}
-The components of the Euler-Lagrange equations of this field are
-\begin{equation*}
-    \pdv{\Ell}{\pi_a} = 
-    \frac{1}{2} m_{12} (\delta_{a1} \partial_0 \pi_2 - \delta_{a2}\partial_0 \pi_1) 
-    - m^2_{a} \pi_a, \quad
-    \pdv{\Ell}{(\partial_\mu \pi_a)} = 
-    \partial^\mu \pi_a - \frac{1}{2} m_{12} \delta^\mu_0 (\delta_{a1}\pi_2  - \delta_{a2}\pi_1).
-\end{equation*}
-This gives the equation of motion for the field
-\begin{equation}
-    \partial^\mu \partial_\mu \pi_a + m_a^2 \pi_a
-    =  m_{12}(\delta_{a1} \partial_0 \pi_2  - \delta_{a2} \partial_0 \pi_1).
-\end{equation}
-The propagator of the pion field is defined by
-\begin{equation}
-    \left[
-        \delta_{ab}(\partial^\mu\partial_\mu + m^2_a)
-        -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_0
-    \right] 
-    D_{bc}(x, x') 
-    = -i \delta(x - x') \delta_{ac}.
-\end{equation}
-The momentum space propagator, as defined in the \autoref{Conventions and notation}, fulfills
-\begin{equation*}
-    -\left[
-        \delta_{ab}(p^2 - m_a^2)
-        +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) 
-    \right] 
-    \tilde D_{bc}(p) 
-    := A_{ab} \tilde D_{bc}(p) = -i \delta_{ac},
-\end{equation*}
-where
-\begin{equation*}
-    A = -
-    \begin{pmatrix}
-        p^2 - m^2_1             & i p_0 m_{12}     & 0             \\
-        - i p_0 m_{12}            & p^2 - m^2_2       & 0             \\
-        0                       & 0                 & p^2 - m^2_3
-    \end{pmatrix}.
-\end{equation*}
-The spectrum of the particles is given by solving $\det(A) = 0$ for $p^0$. With $p = (p_0, P)$ as the four momentum, this gives
-\begin{align*}
-    \det(A) & = A_{33} \left(A_{11} A_{22} + A_{12}^2\right)
-    = - \left(p^2 - m^2_3\right)
-    \left[
-        \left(p^2 - m^2_1\right)
-        \left(p^2 - m^2_2\right)
-        - p_0^2 m_{12}^2
-    \right] = 0,
-\end{align*}
-This equation has the solutions
-\begin{align}
-    E_0^2 &= P^2 + m_2^2, \\
-    E_\pm^2
-    & = P^2 +
-    \frac{1}{2}
-    \left(
-        m_1^2 + m_2^2 + m_{12}^2 
-    \right)
-    \pm 
-    \frac{1}{2}
-    \sqrt{
-        4P^2m_{12}^2 
-        +
-        \left(
-            m_1^2 + m_2^2 + m_{12}^2
-        \right)^2
-        - 4 m_1^2 m_2^2
-    }.
-\end{align}
-This gives the effective masses
-\begin{align}
-    m_0^2 &= m_2^2, \\
-    m_\pm^2
-    & =  \frac{1}{2}
-    \left[
-        m_1^2 + m_2^2 + m_{12}^2 
-    \right]
-    \pm \frac{1}{2}
-    \sqrt{
-        \left(
-            m_1^2 + m_2^2 + m_{12}^2
-        \right)^2
-        - 4 m_1^2 m_2^2
-    }.
-\end{align}
-The propagator may then be obtained as described in \autoref{Conventions and notation},
-\begin{align}
-    \notag
-    D_0 & = i A^{-1} = \frac{i}{\det(A)}
-    \begin{pmatrix}
-        A_{22} A_{33}   & A_{12}A_{33}  & 0 \\
-        -A_{12}A_{33}   & A_{11}A_{33}  & 0 \\
-        0               & 0             & A_{11}A_{22} + A_{12}^2
-    \end{pmatrix} \\
-    \label{free pion propagator}
-    & = i
-    \begin{pmatrix}
-        \frac{
-            p^2 - m_2^2
-        }
-        {
-            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
-        } 
-        & \frac{
-            - ip_0m_{12}
-        }
-        {
-            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
-        } & 0 \\
-        \frac{
-            ip_0m_{12}
-        }
-        {
-            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
-        }
-        & \frac{
-            p^2 - m_1^2
-        }
-        {
-            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
-        } & 0 \\
-        0 & 0 & 
-        \frac{1}{p_0^2 - E_0^2}
-    \end{pmatrix}.
-\end{align}
+where $\Ve_{\mathrm{eff}}$ is the effective potential.
+$V$ is the volume of space, while $T$ is the time duration of our space-time.

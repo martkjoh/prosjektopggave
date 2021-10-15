@@ -1,26 +1,76 @@
 \subsection{Free energy of the pions}
-The action of \chpt is 
+In this section, we calculate the tree level contribution to the free energy of the pions.
+Our approach is to start with a mean field approximation for the expectation value of the field, $\ex{\pi_a(x)}_0 = \pi^*_a = 0$, and then expand the action in a Taylor series around this point.
+The free energy is 
 \begin{equation}
-    S[\pi_a] =\int \dd x \Ell[\pi_a]
-    = 
-    \int \dd x \left(
-        \Ell^{(0)}_2[\pi_a] +\Ell^{(1)}_2[\pi_a] + \Ell^{(2)}_2[\pi_a] + \Ell^{(2)}_4[\pi_a] 
-        + \Ell_I[\pi_a] 
-        \right),
+    \Omega = i \ln(Z).
 \end{equation}
-where $\Ell_I[\pi_a] $ is the higher order terms.
-The action may be expanded around $\pi_a = 0$,
+With the constant expectation value $\pi^*_a$ we can use the result from \autoref{section: effective action} to write
 \begin{equation}
-    S[\varphi]
+    \Omega = -W[J=0] = V T \, \Veff(\pi^*_a).
+\end{equation}
+The first approximation of the effective potential, which is given by the classical action of a constant field.
+In this case it is given by the static ($\pi_a$-independent) part of the Lagrangian, $S[\pi^*_a] = -V T \, \Ell_2^{(0)}$.
+From \autoref{L0} we have
+\begin{equation}
+    - \Ell_2^{(0)} = 
+    -f^2   
+    \left(
+        2B_0m \cos{\alpha}
+        + \frac{1}{2} \mu^2 \sin^2{\alpha}
+    \right).
+\end{equation}
+The value of $\alpha$ is found by minimizing the free energy,
+\begin{align*}
+    &\dv{\alpha} \Ell_2^{(0)} 
+    = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
+    = 0.
+\end{align*}
+This gives the criterion
+\begin{align}
+    \alpha = \pi n, \, n \in \mathbb{Z} \quad
+    \mathrm{or} \quad
+    \cos{\alpha} = \frac{2B_0m}{\mu_I{}^2}.
+\end{align}
+In our discussion of effective action and effective potential, we saw that a constant expectation value, will fulfill the equation of motion
+\begin{equation}
+    \frac{\delta \Gamma[\pi^*_a]}{\delta \pi_a(x)}
+    = - V T \pdv{\Ve_{\mathrm{eff}}(\pi^*_a)}{\pi_a} = 0.
+\end{equation}
+As the first approximation to the effective action is from the classical action, this equation becomes
+\begin{equation}
+    \pdv{\Ve^{(1)}(\pi^*_a)}{\pi_a} = 0,
+\end{equation}
+where $\Ve^{(1)}$ is the linear part of the potential. 
+From \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which shows that the minimization criterion we found ensures that the equation of motion is fulfilled.
+
+Using the functional Taylor-expansion, as described in \autoref{section:Functional derivative}, we may expand the action of the pions around the ground state $\pi_a^* $
+\begin{equation}
+    S[\pi_a]
     = 
-    S[\pi_a = 0] 
-    + \int \dd x \, \pi_a  \frac{\delta S}{\delta \pi_a(x)}\Big|_{\pi_a=0}
+    S[\pi_a^*] 
+    + \int \dd x \, \pi_a  \frac{\delta S[\pi_a^*]}{\delta \pi_a(x)}
     + \int \dd x \dd y \, \pi_a(x) \pi_b(y)
-    \frac{\delta^2 S}{\delta \pi_a(x) \delta \pi_a(y)}\Big|_{\pi_a=0}
+    \frac{\delta^2 S[\pi_a^*]}{\delta \pi_a(x) \delta \pi_a(y)}
     + \Oh[3]{(\pi/f)}.
+\end{equation} 
+We showed that
+\begin{equation}
+    \frac{\delta S[\pi_a^*]}{\delta \varphi_a} = 0.
 \end{equation}
-We showed that, when minimizing $\alpha$, $\frac{\delta S_2}{\delta \pi_a(x)}\Big|_{\pi_a=0} = 0$. 
-Furthermore, $\Ell_2[\pi_a = 0] = \Ell_2^{(0)}$. 
+Inserting this expansion into the partition function we get
+\begin{equation}
+    \ln(Z) = \ln\left[ \int \D \varphi_a e^{i S[\pi_a]} \right]
+    = i S[\pi_a^*] + \ln\left[
+        \int \D \varphi_a 
+        \exp(
+            i \int \dd^4 x \dd^4 y \, \pi_a(x) \pi_a(y)
+            \frac{\delta^2 S[\pi_a^*]}{\delta \pi_a(x) \delta \pi_a(y)}
+            ) 
+    \right]
+    + \dots,
+\end{equation}
+where $\dots$ represent loop corrections.
 % The lowest order contribution to the pion is given by the free propagator, \autoref{free pion propagator}, by the formula \autoref{free energy from propagator}.
 % This is, however, evaluated in the imaginary-time formalism.
 % In the zero-temperature limit, 
@@ -31,26 +81,23 @@ Furthermore, $\Ell_2[\pi_a = 0] = \Ell_2^{(0)}$.
 %     \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
 %     = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
 % \end{equation}
-In the limit $\beta = \infty$, the free energy density of the system is given by $ \beta \Ef
-= \frac{i}{T V} \ln(Z)$ (HVORFOR?). 
-Using the expansion as described in \autoref{Effective potential}, the free energy density to and including second order is given by 
+The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals}, so the level is
 \begin{equation}
     \label{Free energy to second order}
-    \Omega = 
-    \beta \Ef
-    = \frac{i}{T V} \ln(Z)
-    = S[\pi_a = 0]
-    +\ln{\det\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}^{-1/2}.
+    \Omega 
+    = \Omega_0
+    + i\ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}^{-1/2}+ \dots.
 \end{equation}
-As the ground sate is $\pi_a = 0$, the only terms that will remain in the trace-terms are those that are second order in the pion-fields.
-We can therefore evaluate the functional derivative with the rules given in \autoref{section:Functional derivative},
+$\Omega_0 = iS[\pi_a^* ]$ is the static contribution we found using the mean field contribution.
+The next term is the tree level contribution, $\Omega_1$.
+The functional derivative can be evaluated using with the rules given in \autoref{section:Functional derivative}, which gives
 \begin{align}
-    \frac{\delta^2 S }{\delta \varphi(x)\delta \varphi(y)}
+    \frac{\delta^2 S[\pi_a^*] }{\delta \varphi(x)\delta \varphi(y)}
     = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} 
-    \int \dd x \, \Ell^{(2)}_2
-    = D^{-1}_x \delta(x - y),
+    \int \dd^4 x \, \Ell^{(2)}_2
+    = D^{-1}_x \delta(x - y).
 \end{align}
-where $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autoref{quadratic lagrangian}, and $D^{-1}_x$ is the corresponding inverse propagator of the pion-fields,
+Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autoref{quadratic lagrangian}, and $D^{-1}_x$ is the corresponding inverse propagator of the pion fields,
 \begin{equation}
     D_x^{-1} = 
     - \left[
@@ -58,26 +105,24 @@ where $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autor
         -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
     \right] 
 \end{equation}
-The first order contribution is
+The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the 3 pion indices, as well as a functional part.
+In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields
 \begin{equation}
-    \Omega_0 = \frac{1}{VT}\int \dd^4 x \, \Ell_2^{(0)} = \Ell_2^{(0)}.
-\end{equation}
-The leading order correction, $\Omega_2$, is given by the functional determinant.
-The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the 3 pion-indices, as well as a functional part.
-In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields as
-\begin{equation}
-    \det(- D^{-1} \delta (x - y)) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
+    \det(- D^{-1}) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
 \end{equation}
 The Dirac-delta is removed by using partial integration.
 The functional determinant can therefore be evaluated as
 \begin{align}
-    -\frac{1}{2} \ln{\det\left( - \frac{\delta^2 S[\pi_a=0]}{\delta \pi^2} \right)}
+    \nonumber
+    \ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}
     & = \ln \det(p_0^2 - E_0^2) + \ln \det(p_0^2 - E_+^2) + \ln \det(p_0^2 - E_-^2) \\
+    \nonumber
     & = \Tr{ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2)+  \ln(p_0^2 - E_-^2) } \\
     & = (VT) \int \frac{\dd^4 p}{(2 \pi)^4} 
-    \left[ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2) + \ln(p_0^2 - E_-^2)  \right].
+    \left[ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2) + \ln(p_0^2 - E_-^2)  \right],
 \end{align}
-These all have the form
+where we have used the identity $\ln\det(A) = \Tr \ln (A)$.
+These terms all have the form
 \begin{equation}
     I = \int \frac{\dd^4 p}{(2 \pi)^2} \ln(-p^2 + \omega(p)^2).
 \end{equation}

@@ -8,14 +8,14 @@ Using the result from \autoref{thermal sum} on the result for the free energy of
         \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
     \right].
 \end{equation}
-This free energy has two parts, the first part is dependent on temperature, the other is independent of temperature.
+This free energy has two parts, the first part is dependent on temperature, the other is temperature independent vacuum contribution.
 Noticing that the integral is spherically symmetric, we may write
 \begin{equation}
     J_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
     J_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (m/T)^2}}), 
 \end{equation}
 The temperature-independent part, $J_0$, is clearly divergent, and we must therefore impose a regulator, and then add counter-terms.
-The second part of the integral is convergent. 
+$J_T$, however, is convergent. 
 To see this, we use the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{\epsilon}$ to find the leading part of the integrand for large $k$'s, 
 \begin{equation}
     x^2 \ln(1 - e^{-\sqrt{x^2 + (\beta m)^2}}) \sim - x^2 e^{-x}, 
@@ -123,9 +123,9 @@ One may also cancel the finite contribution due to the regulator.
 The minimal subtraction, or $\mathrm{MS}$, scheme, is to only subtract the divergent term, as the name suggest.
 We will use the modified minimal subtraction, or $\overline{ \mathrm{MS}}$, scheme.
 In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term,
-which can be interpreted as changing the parameter $\mu$ such that
+which can be interpreted as changing the parameter $\mu$
 \begin{equation}
-    -\gamma + \ln{4\pi \frac{\mu^2}{m^2}} \rightarrow \ln(\frac{\mu^2}{m^2}),
+    -\gamma + \ln(4\pi \frac{\mu^2}{m^2}) \rightarrow \ln(\frac{\mu^2}{m^2}),
 \end{equation}
 which leads to the expression
 \begin{equation}

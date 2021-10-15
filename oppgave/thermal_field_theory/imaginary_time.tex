@@ -1,4 +1,5 @@
-\subsection{Statistichal Mechanics}
+This section is based on~\cite{Kapusta:finiteTemp,Vuorinen:Thermal_QFT}.
+\subsection{Statistical Mechanics}
 In classical mechanics, a thermal system at temperature $T = 1 / \beta$ is described as an ensemble state, which have a probability $P_n$ of being in state $n$, with energy $E_n$.
 In the canonical ensemble, the probability is proportional to $e^{-\beta E_n}$.
 The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
@@ -40,12 +41,12 @@ Here, $\eta_\alpha(x)$ is some arbitrary function which define the transformatio
 Applying this transformation to the Lagrangian will in general change its form,
 \begin{equation*}
     \Ell[\varphi_\alpha] \rightarrow \Ell[\varphi_\alpha']
-    \sim \Ell[\varphi_\alpha] + \varepsilon \delta \Ell, \,
+    \sim \Ell[\varphi_\alpha] + \delta \Ell, \,
     \varepsilon \rightarrow 0.
 \end{equation*}
 If the change in the Lagrangian can be written as a total derivative, i.e.
 \begin{equation*}
-    \delta \Ell = \partial_\mu K^\mu(x),
+    \delta \Ell = \varepsilon \partial_\mu K^\mu(x),
 \end{equation*}
 we say that the Lagrangian has a continuous symmetry.
 This is because a term of this form will result in a boundary term in the action integral, which does not contribute to the variation of the action.
@@ -135,13 +136,13 @@ By inserting the completeness relations \autoref{functional completness} $N$ tim
         \int \D \varphi_n (\vec x) \int \D \pi_n(\vec x)
     \right) 
     \prod_{n=1}^N  \braket{\varphi_n}{\pi_n}
-    \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}} \braket{\varphi_{1}}{\varphi_{n+1}},
+    \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}} \braket{\varphi_{1}}{\varphi_{N+1}},
 \end{align*}
 where $\epsilon = \beta / N$. The last term ensures that $\varphi_1 = \varphi_{N+1}$.
 Strictly speaking, we only need to require $\varphi_1 = e^{i\theta}\varphi_{N+1}$, as the partition function is only defined up to a constant.
 As will be shown later, bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$, i.e. $e^{i\theta} = 1$, while fermions follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$, i.e. $e^{i\theta} = -1$.
 We now want to exploit the fact that $\ket{\pi}$ and $\ket{\varphi}$ are the eigenvectors of the operators that define the Hamiltonian.
-In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(x), \hat \pi(x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(x), \pi_n(x)] \braket{\pi_n}{\varphi_{n+1}}$.
+In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(\vec x), \hat \pi(\vec x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(\vec x), \pi_n(\vec x)] \braket{\pi_n}{\varphi_{n+1}}$.
 This relationship does not, however, hold for more general functions of the field operators.
 In that case, one has to be more careful about the ordering of the operators, for example by using \emph{Weyl ordering}~\cite{Peskin:IntroQFT}.
 By series expanding $e^{-\epsilon \hat H}$ and exploiting this relationship, the partition function can be written as, to second order in $\epsilon$,
@@ -153,7 +154,7 @@ By series expanding $e^{-\epsilon \hat H}$ and exploiting this relationship, the
     \right)
     \exp[-\epsilon \sum_{n=1}^N \int_V \dd^3x \,
     \left(
-        \He(\varphi_n(\vec x), \pi_n(\vec x)) - i \pi_n(\vec x) \frac{\varphi_n(\vec x) - \varphi_{n+1}(\vec x)}{\epsilon}
+        \He[\varphi_n(\vec x), \pi_n(\vec x)] - i \pi_n(\vec x) \frac{\varphi_n(\vec x) - \varphi_{n+1}(\vec x)}{\epsilon}
     \right)
     ].
 \end{align*}
@@ -171,7 +172,7 @@ In the limit $N \rightarrow \infty$, the expression for the partition function b
         \right\}
         },
 \end{align}
-where $S$ is the set of field configurations $\varphi$ such that  $\varphi(\beta, \vec x) = \varphi(0, \vec x)$.
+where $S$ is the set of field configurations $\varphi$ such that $\varphi(\beta, \vec x) = \varphi(0, \vec x)$.
 With a Hamiltonian density of the form $\He = \frac{1}{2} \pi^2 + \frac{1}{2} (\nabla \varphi)^2 + \Ve(\varphi)$, we can evaluate the integral over the canonical momentum $\pi$ by discretizing $\pi(\tau_n, \vec x_m) = \pi_{n,m}$,
 \begin{align*}
     & \int \D \pi \exp{-  \int_0^\beta\dd \tau \int_V \dd^3x 

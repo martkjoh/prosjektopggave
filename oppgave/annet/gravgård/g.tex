@@ -1,0 +1,204 @@
+\documentclass{article}
+
+\input{../../import.tex}
+\input{../../newcommands.tex}
+\title{Gravgård}
+% \author{Martin Johnsrud}
+\vspace{-8ex}
+\date{}
+
+\begin{document}
+    \maketitle
+    Gravgården er hvor tekster går for å dø. Ting som er fjernet fra main, men som jeg ikke helt klarer å slette enda
+    \section{path integral}
+    By Wick's theorem, an $n$-point correlated is given by the sum of all Feynman diagrams with $n$ external vertices.
+    The factor $Z[0]^{-1}$ divides out all \emph{vacuum bubbles}, that is diagrams without external vertices.
+    We can show this by considering 
+
+    Here we defined the \emph{generating functional for connected diagrams}, $W[J]$.
+    The reason for the name will become apparent later. (HUSK Å REFFERE TILBAKE)
+    The expectation value of some function of the field-configuration, $A = A[\varphi]$, in the precesense of the source $J$ is
+    \begin{equation}
+        \ex{A}_J = \frac{1}{Z[J]} A\left( -i  \fdv{J}\right) Z[J].
+    \end{equation}
+    (DEFINE FUNCTIONAL DERIVATIVE)
+    The expectation value of the field defines a functional,
+    \begin{equation}
+        \label{calssical field functional}
+        \varphi[J](x) = \ex{\varphi(x)}_J = 
+        \frac{1}{Z[J]} \left( -i  \fdv{J}\right) Z[J]
+        = \fdv{J(x)} W[J],
+    \end{equation}
+    and is sometimes called the \emph{classical field}.
+    The notation $\Ef[f](x)$ means that $\Ef$ is a functional which takes in a function $f$, and returns the new function $(\Ef[f])(x)$.
+    One example is the Lagrangian density, which takes in a field, and returns a function which has a value for each point in space-time.
+    We can reverse this relationship, by defining the functional $J[\varphi](x)$ as \emph{the current which causes the classical field $\varphi$}.
+    That is, if $\varphi[J_0](x) = \varphi_0(x)$ for some source $J_0$, then $J[\varphi_0] = J_0$
+
+\section{free scalar}
+    Comparing with the definitions of the thermal propagator in \autoref{Conventions and notation}, we can write the free energy compactly as
+    \begin{equation}
+        \label{free energy from propagator}
+        \beta F = \frac{1}{2} \Tr{\ln[D_0^{-1}(K, K'))]} 
+        = \frac{1}{2} \Tr{\ln[\beta^2 D_0^{-1}(K)]}.
+    \end{equation}
+
+\section{interacting scalar}
+    Notice that the constant factor from the Jacobian due to the change of variable $\varphi \rightarrow \tilde \varphi$ does not affect the expectation value, as the same factor is in both the numerator and denominator.
+    If the quantity $A$ is a function of the momentum-space fields, $A = A[\tilde \varphi(K)]$, then this expectation value takes the form
+    \begin{equation}
+        \ex{A}_0 = 
+        \frac{
+            \int_{\tilde S} \D \tilde \varphi(K) \, f[\tilde\varphi(K)] \, 
+            \exp{- \frac{1}{2} \langle \tilde \varphi^*, D \tilde \varphi \rangle}
+            }
+        {
+            \int_{\tilde S} \D \tilde \varphi(K) \,
+            \exp{
+                - \frac{1}{2} \langle \tilde \varphi^*, D \tilde \varphi \rangle
+                }
+        }.
+    \end{equation}
+    where, as before, 
+    \begin{equation}
+        \langle \tilde \varphi^*, D \tilde \varphi \rangle
+        = 
+        \int_\Omega 
+                \tilde \dd K\, [\beta^2(\omega_n^2 + \omega_n^2)] |\tilde \varphi(K)|^2
+    \end{equation}
+    The exponential form of $Z[J]$ leads straight forwardly to Wick's theorem, which states that an expectation value of $2n$ fields is a sum of \emph{all possible, distinct} combination of $n$ propagators.
+    To write this in a formal way, we define the functions $a$ and $b$, which define a way to pair up $2m$ elements.
+    The domain of the functions are the integers between $1$ and $m$, the image a subset of the integers between $1$ and $2m$ of size $m$.
+    A valid pairing is a set $\{(a(1), b(1)), \dots (a(m), b(m))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $2m$ are featured.
+    A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
+    Wick theorem states that,
+    \begin{equation}
+        \ex{\prod_{i=1}^{2m} \varphi(X_i)  }_0
+        = \sum_{\{(a, b)\}} \ex{\varphi(X_{a(i)}) \varphi(X_{b(i)})},
+    \end{equation}
+    where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
+
+    \begin{align}
+        \feynmandiagram [inline=(a.base), small, horizontal=i1 to f2]
+        {
+        {i1} -- [fermion, edge label'=$K_1$] a[dot] 
+        -- [anti fermion, edge label'=$K_3$] {f1},
+        {i2} -- [fermion, edge label'=$K_2$] a -- [anti fermion, edge label'=$K_4$] {f2},
+        };
+        \feynmandiagram[horizontal= i to f]{
+            i[particle=$K$] -- [fermion] f,
+        };
+    \end{align}
+    The expression is the integrated over all \emph{internal} momenta.
+    The factor $1/4!$ is removed as a general Feynman diagram represent all diagrams with the same form, but different pairing of the momenta.
+    Some diagrams are more symmetric, such that an exchange of momenta still gives \emph{the same pairing}. 
+    
+\section{effective action}
+
+In free theory, we may write
+\begin{equation}
+    W[J] = \frac{1}{2} \int \dd^4 x \dd^4y J(x) D_0(x - y) J(y),
+\end{equation}
+where $D_0$ is the free propagator.
+We may reverse the relation \autoref{calssical field functional} to write the source in terms of the field,
+\begin{equation}
+    J = D_0^{-1} \varphi(x)
+\end{equation}
+This is the field equation for the free field with a source.
+For the scalar Klein-Gordon field, $D_0^{-1} = \partial^2 + m^2$
+Inserting these two relation into the definition of the effective action, and assuming we can do partial integration with $D_0^{-1}$, we get
+\begin{equation}
+    \Gamma[\varphi] = W[J] - \int \dd^4x J(x)\varphi(x)
+    = 
+    \int \dd x( 
+        \frac{1}{2}\int \dd y (D_0^{-1} \varphi ) D_0 (D_0^{-1} \varphi ) 
+        - (D_0^{-1} \varphi ) \varphi
+        )
+    = - \frac{1}{2} \int \dd^4 x \varphi(x) D_0^{-1} \varphi(x)
+\end{equation}
+This is the classical action.
+Thus, the effective action $\Gamma$ and the classical action $S$ are the same to first order in perturbation theory.
+
+
+Let $\varphi^*$ solve the quantum mechanical version of the equation of motion, i.e.
+\begin{equation}
+    \fdv{\Gamma[\varphi^*]}{\varphi} = 0.
+\end{equation}
+We can Taylor-expand the classical action around this point, by setting $\varphi(x) = \varphi^*(x) + \eta(x)$ for some function $\eta$.
+The generating functional becomes
+\begin{align}
+    Z[J] 
+    = \int \D (\varphi^* + \eta) \, 
+    \exp{i S[\varphi^* + \eta] + i \int \dd^4 x J (\varphi^* + \eta) }
+\end{align}
+The functional version of a Taylor expansion is
+\begin{equation}
+    S[\varphi^* + \eta] = 
+    S[\varphi^*]
+    + \int \dd x \fdv{S[\varphi^*]}{\varphi(x)} \eta(x)
+    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
+    + \dots
+\end{equation}
+Inserting this into $Z[J]$, with $S_I$ to denote the derivatives of higher order than $2$, we get
+\begin{align*}
+    &Z[J] = \\ 
+    &\int \D \eta  
+    \exp{
+        i \int \dd^4 x \left(  \Ell[\varphi^*] + J \varphi^*  \right)
+        + i \int \dd x \left(  \fdv{S[\varphi^*]}{\varphi(x)} + J(x) \right) \eta(x)
+        + i \frac{1}{2} \int \dd x \dd y\,  
+        \frac{\delta^2 S[\varphi^*]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y) 
+        + i S_I[\eta]
+        }
+\end{align*}
+In the first term we used the definition of the classical action. This term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
+The next term is the classical equation of motion with a source, 
+\begin{equation}
+    \fdv{S[\varphi]}{\varphi(x)} = - J(x),
+\end{equation} 
+evaluated at $\varphi^*$.
+\begin{equation}
+    \fdv{S[\varphi^*]}{\varphi(x)} + J(x)
+    = \fdv{\Gamma[\varphi^*]}{\varphi(x)} + J(x)
+    + \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
+    = \left(\fdv{S[\varphi^*]}{\varphi(x)} - \fdv{\Gamma[\varphi^*]}{\varphi(x)} \right)
+    := \delta J
+\end{equation}
+The second to last term is a Gaussian integral, and may be evaluated as described in \autoref{section:gaussian integrals},
+\begin{equation}
+    \int \D \eta \, \exp(
+        i \frac{1}{2} \int \dd x \dd y\,  
+        \frac{\delta^2 S[\varphi^*]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
+        )
+        = C \det\left( \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)^{-1/2}
+\end{equation}
+This leaves us with 
+\begin{align}
+    \label{generating functional}
+    W[J] 
+    & = -i \ln(Z) \\
+    & = 
+    \int\dd^4 x \, \left(\Ell[\varphi^*] + J \varphi^*\right)
+    - \frac{1}{2} \Tr{\ln\left( - \frac{\delta^2 S[\varphi^*]}{\delta \varphi^2} \right)}
+    + \int \D \eta \, \exp{i \int \dd^4 x \delta J(x) \eta  }
+    + \int \D \eta \, e^{iS_I}
+\end{align}
+$\delta J$ is ultimately dependent on our choice of $J$ to define $\varphi$.
+It contributes to the expectation value of $\eta$, through tadpole diagrams
+\begin{align}
+    \ex{\eta}_{j=0} = 
+    \feynmandiagram [horizontal=a to b]{
+    a --[inline=(b.base), fermion] b[blob]
+    }; 
+\end{align}
+This can be removed by using the renormalization condition
+\begin{equation}
+    \feynmandiagram [horizontal=a to b]{
+    a --[inline=(b.base), fermion] b[blob]
+    };
+    = 0.
+\end{equation}
+
+
+
+\end{document}

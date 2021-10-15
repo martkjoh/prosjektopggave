@@ -1,13 +1,14 @@
-\label{Effective potential}
+\label{Free energy and the effective action}
 \subsection{QFT via path integrals}
-This section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2} (Schwarz).
+\label{section:path integral}
+The theory in this section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 The ground state path integral is given by
 \begin{equation}
     Z = \lim_{T\rightarrow \infty} \braket{\Omega, T}{-T, \Omega}
     = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-2iHT} }{\Omega}
     = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
 \end{equation}
-where $\ket{\Omega}$ is the vacuum of the theory~\cite{Peskin:IntroQFT,weinberg_1995}.
+where $\ket{\Omega}$ is the vacuum of the theory.
 By introducing a source term into the Hamiltonian, $\He \rightarrow \He - J(x)\varphi(x)$, we get the generating functional
 \begin{equation}
     Z[J] = 
@@ -19,7 +20,7 @@ If $\He$ is quadratic in $\pi$, we can complete the square and integrate out $\p
     Z[J] = C \int \D \varphi \, \exp{i \int \dd^4 x\, (\Ell[\varphi] + J \varphi)}.
 \end{equation}
 $C$ is infinite, but constant, and will drop out of physical quantities.
-$Z[J]$ is called the generating functional as correlation functions $\ex{\varphi(X_1)\varphi(X_2)...} = \inner{\Omega}{T{\varphi(X_1)\varphi(X_2)\dots}}{\Omega}$ are given by functional derivatives of $Z[J]$, 
+$Z[J]$ is called the generating functional as correlation functions $\ex{\varphi(X_1)\varphi(X_2)...} = \inner{\Omega}{T\left\{\varphi(X_1)\varphi(X_2)\dots\right\}}{\Omega}$, where $T$ is the time ordering operator, are given by functional derivatives of $Z[J]$, 
 \begin{equation}
     \label{correlator from generating functional}
     \ex{\varphi(X_1)\varphi(X_2)...}
@@ -35,11 +36,6 @@ where
 \end{equation}
 is the action.
 The functional derivative is described in \autoref{section:Functional derivative}.
-
-% By Wick's theorem, an $n$-point correlated is given by the sum of all Feynman diagrams with $n$ external vertices.
-% The factor $Z[0]^{-1}$ divides out all \emph{vacuum bubbles}, that is diagrams without external vertices.
-% We can show this by considering 
-
 In a free theory, we are able to write
 \begin{equation}
     Z_0[J] = Z_0[0] \exp(i W_0[J]), \quad 
@@ -57,24 +53,29 @@ Wick theorem states that,
     = \sum_{\{(a, b)\}} \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0,
 \end{equation}
 where the sum is over all tuples $(a, b)$ that define a valid and unique pairing.
-A generating functional in a general theory is 
+The subscript on the expectation value indicates that it is evaluated in the free theory.
+A generating functional in a general can be written
 \begin{equation}
     Z[J] 
     = Z[0] \ex{\exp(iS_I + i\int \dd^4 x \, J(x) \varphi(x))}_0,
 \end{equation}
-where the subscript indicates that the expectation value is taken in the free theory.
+where $S_I$ is the interacting part of the action.
 The expectation value can be expanded in a power series, 
 \begin{equation}
     \sum_{n, m} \frac{1}{n! m!} \ex{(iS_I)^n \left(i\int \dd^4 x \, J(x) \varphi(x)\right)^m}_0.
 \end{equation}
 This equals \emph{the sum of all diagrams with external sources $J(x)$}.
-The expectation value
+These diagrams have no external legs, but the source gives rise to the vertex 
 \begin{equation}
-    \ex{(iS_I)^n (\varphi(x)J(x))^m}_0
+    \includegraphics[width=0.25\textwidth, valign=c]{figurer/feynman-diagram/cnt_vertex.eps}
 \end{equation}
-are all diagrams with $n$ vertices given by the Feynman rules from the interacting action $S_I$, as well as $m$ m source vertices.
+% The expectation value
+% \begin{equation}
+%     \ex{(iS_I)^n (\varphi(x)J(x))^m}_0
+% \end{equation}
+% are all diagrams with $n$ vertices given by the Feynman rules from the interacting action $S_I$, as well as $m$ m source vertices.
 
-Consider a general diagram, built up of $N$ different connected sub-diagrams, where sub-diagram $i$ appears $n_i$ times.
+Consider a general diagram without external legs, built up of $N$ different connected sub-diagrams, where sub-diagram $i$ appears $n_i$ times.
 As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
 \begin{align}
     \label{Feinman diagrams}
@@ -104,7 +105,7 @@ This allows us to write the sum of all diagrams as
     = \prod_{i = 1}^{\infty} \sum_{n_i=1}^{\infty} \frac{1}{n_i!} V_i^{n_i}
     = \exp(i {\sum}_i V_i).
 \end{equation}
-We showed that the generating functional $Z[J]$ were the sum of all diagrams due to external currents.
+We showed that the generating functional $Z[J]$ were the $Z[0]$ times the sum of all diagrams due to external currents.
 Using \autoref{sum of all diagrams}, we see that the sum of all \emph{connected} diagrams $W[J]$ is given by
 \begin{equation}
     Z[J] = Z[0]\exp(i W[J]).
@@ -119,23 +120,3 @@ Furthermore, correlation functions in the full interacting theory is
     \label{correlation function}
     \ex{\varphi(x_1)\dots} = \left(\prod_i \funcdv{J(x_i)}\right) W[J] \Big|_{J=0}.
 \end{equation}
-
-% Here we defined the \emph{generating functional for connected diagrams}, $W[J]$.
-% The reason for the name will become apparent later. (HUSK Å REFFERE TILBAKE)
-% The expectation value of some function of the field-configuration, $A = A[\varphi]$, in the precesense of the source $J$ is
-% \begin{equation}
-%     \ex{A}_J = \frac{1}{Z[J]} A\left( -i  \fdv{J}\right) Z[J].
-% \end{equation}
-% (DEFINE FUNCTIONAL DERIVATIVE)
-% The expectation value of the field defines a functional,
-% \begin{equation}
-%     \label{calssical field functional}
-%     \varphi[J](x) = \ex{\varphi(x)}_J = 
-%     \frac{1}{Z[J]} \left( -i  \fdv{J}\right) Z[J]
-%     = \fdv{J(x)} W[J],
-% \end{equation}
-% and is sometimes called the \emph{classical field}.
-% The notation $\Ef[f](x)$ means that $\Ef$ is a functional which takes in a function $f$, and returns the new function $(\Ef[f])(x)$.
-% One example is the Lagrangian density, which takes in a field, and returns a function which has a value for each point in space-time.
-% We can reverse this relationship, by defining the functional $J[\varphi](x)$ as \emph{the current which causes the classical field $\varphi$}.
-% That is, if $\varphi[J_0](x) = \varphi_0(x)$ for some source $J_0$, then $J[\varphi_0] = J_0$
