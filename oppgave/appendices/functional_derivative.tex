@@ -46,26 +46,27 @@ A functional may be expanded in a generalization of the Fourier series, which ha
     + \frac{1}{2!}\int_\Omega \dd x \dd y \, f(x) f(y) \frac{\delta^2 F [f_0]}{\delta f(x) \delta f(y)}
     + \dots
 \end{equation}
-As an example, the Klein-Gorodn action,
+As an example, the Klein-Gorodn action
 \begin{equation}
-    S[\varphi] = - \frac{1}{2}\int_\Omega \dd x \, \varphi (\partial^2 + m^2) \varphi(x).
+    S[\varphi] = - \frac{1}{2}\int_\Omega \dd x \, \varphi (\partial^2 + m^2) \varphi(x)
 \end{equation}
-It can be evaluated quickly by using \autoref{Functional derivative delta identity} and partial integration
-\begin{equation}
+can be evaluated quickly by using \autoref{Functional derivative delta identity} and partial integration
+\begin{align}
+    \nonumber
     \funcdv{\varphi(x)} S[\varphi] 
-    = 
+    & = 
     - \frac{1}{2} \int_\Omega \dd y \, 
-    [\delta(x - y)(\partial_y^2 + m^2)\varphi(y) + \varphi(y) (\partial_y^2 + m^2)\delta(x - y)]
-    = 
+    [\delta(x - y)(\partial_y^2 + m^2)\varphi(y) + \varphi(y) (\partial_y^2 + m^2)\delta(x - y)] \\
+    & = 
     - \int_\Omega \dd y \, 
-    \delta(x - y)(\partial_y^2 + m^2)\varphi(y)
-    = (\partial_y^2 + m^2)\varphi(y)
-\end{equation}
+    \delta(x - y)(\partial_y^2 + m^2)\varphi(y) 
+    = (\partial_x^2 + m^2)\varphi(x)
+\end{align}
 The second derivative is
 \begin{equation}
     \frac{\delta^2S[\varphi]}{\delta \varphi(x)\delta \varphi(y)}
     =
-    \funcdv{f(x)} (\partial_y^2 + m^2)\varphi(y)
+    \funcdv{\varphi(x)} (\partial_y^2 + m^2)\varphi(y)
     = 
     (\partial_y^2 + m^2) \delta(x - y).
 \end{equation}

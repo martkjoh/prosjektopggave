@@ -1,7 +1,7 @@
 \subsection{The 1PI effective action}
 \label{section: effective action}
 The generating functional for connected diagrams, $W[J]$, is dependent on the external current $J$.
-Analogously to what is done in thermodynamics and Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
+Analogously to what is done in thermodynamics and in Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
 The new independent variable is 
 \begin{equation}
     \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J := \varphi_J(x).
@@ -43,38 +43,40 @@ If we add a new loop to a diagram with $n$ loops by joining two vertices, the fo
 If we attach a new vertex with one line, the formula still holds, and as the diagram is connected, any more lines connecting the new vertex to the diagram will create additional loops.
 This ensures that the formula holds, by induction.
 As a consequence of this, any diagram is proportional to $g^{L-1}$.
-This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level diagrams, i.e. by only considering diagrams without loops.
+This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level, i.e. by only considering diagrams without loops.
 In this limit, we may use the stationary phase approximation, as described in \autoref{section:gaussian integrals}, which gives
 \begin{equation}
-    Z \approx 
+    Z[J, g] \approx 
     C \det(- \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi^2})
-    \exp{i g^{-1} \left(\Gamma[\varphi_J] + \int \dd^4x J \varphi_J \right)  },
+    \exp{i g^{-1} \left(\Gamma[\varphi_J] + \int \dd^4x J \varphi_J \right)  }.
 \end{equation}
 This means that
 \begin{equation}
-    -i g \ln(Z[J]) 
-    = g^{-1} W[J] 
+    -i g \ln(Z[J, g]) 
+    = g W[J, g] 
     = \Gamma[\varphi_J] + \int \dd^4x\,  J(x) \varphi_J(x) + \mathcal{O}(g),
 \end{equation}
 which is exactly the Legendre transformation we started out with, modulo the factor $g$.
-$\Gamma$ is therefore the action which describes the full theory at the three level.
+$\Gamma$ is therefore the action which describes the full theory at the tree level.
 For a free theory, the classical action $S$ equals the effective action, as there are no loop diagrams.
 
-We showed in \autoref{correlation function} that the propagator $\ex{\varphi(x)\varphi(y)}_J$ is given by functional derivatives of $W$.
+The propagator $D(x, y)$, which is the connected 2 point function $\ex{\varphi(x)\varphi(y)}_J$, is given by the second functional derivative of $W[J]$, times $-i$.
 Using the chain rule, together with \autoref{effective equation of motion}, we get
 \begin{align}
-    \int \dd^4 z \frac{\delta^2 W[J]}{\delta J(x) \delta J(z)} 
+    (-i)\int \dd^4 z \frac{\delta^2 W[J]}{\delta J(x) \delta J(z)} 
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
     =
-    \int \dd^4 z \frac{\delta \varphi_J[z]}{\delta J(x)}
+    (-i)\int \dd^4 z \frac{\delta \varphi_J[z]}{\delta J(x)}
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
-    = \frac{\delta^2 \Gamma[\varphi_J]}{\delta J(x) \varphi_J(y)}
-    = - \delta(x - y).
+    =
+    \fdiff{}{J(x)}  \fdiff{\Gamma[\varphi_J]}{\varphi_J(y)}
+    = \delta(x - y).
 \end{align}
-This shows that the inverse propagator is given by the effective action, which is the sum of all one-particle-irreducible (1PI) diagrams with two external vertices.
-More generally, $\Gamma$ is the generating functional for 1PI diagrams.
+This shows that the second functional derivative of the effective action is $iD^{-1}$, where $D^{-1}$ is the inverse propagator.
+The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams, with two external vertices.
+More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
-The expectation value of the ground state field configuration, that is at $J=0$, is given by 
+The expectation value of the ground state field configuration, that is at $J=0$, $\ex{\varphi(x)}_{J=0} = \varphi_0(x)$ obeys the equation of motion
 \begin{equation}
     \frac{\delta \Gamma[\varphi_0]}{\delta \varphi(x)} = 0.
 \end{equation}

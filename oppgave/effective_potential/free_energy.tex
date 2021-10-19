@@ -1,4 +1,5 @@
 \subsection{Free energy of the pions}
+(HAR JEG FORSTÅTT DETT RIKTIG?)
 In this section, we calculate the tree level contribution to the free energy of the pions.
 Our approach is to start with a mean field approximation for the expectation value of the field, $\ex{\pi_a(x)}_0 = \pi^*_a = 0$, and then expand the action in a Taylor series around this point.
 The free energy is 
@@ -22,8 +23,8 @@ From \autoref{L0} we have
 \end{equation}
 The value of $\alpha$ is found by minimizing the free energy,
 \begin{align*}
-    &\dv{\alpha} \Ell_2^{(0)} 
-    = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
+    -&\dv{\alpha} \Ell_2^{(0)} 
+    = - f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
     = 0.
 \end{align*}
 This gives the criterion
@@ -42,7 +43,7 @@ As the first approximation to the effective action is from the classical action,
     \pdv{\Ve^{(1)}(\pi^*_a)}{\pi_a} = 0,
 \end{equation}
 where $\Ve^{(1)}$ is the linear part of the potential. 
-From \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which shows that the minimization criterion we found ensures that the equation of motion is fulfilled.
+From \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which shows that the minimization criterion we found ensures that the equation of motion is obeyed.
 
 Using the functional Taylor-expansion, as described in \autoref{section:Functional derivative}, we may expand the action of the pions around the ground state $\pi_a^* $
 \begin{equation}
@@ -56,7 +57,7 @@ Using the functional Taylor-expansion, as described in \autoref{section:Function
 \end{equation} 
 We showed that
 \begin{equation}
-    \frac{\delta S[\pi_a^*]}{\delta \varphi_a} = 0.
+    \frac{\delta S[\pi_a^*]}{\delta \pi_a} = -VT\, \diffp{\Veff(\pi_a^*)}{\pi_a} = 0.
 \end{equation}
 Inserting this expansion into the partition function we get
 \begin{equation}
@@ -81,14 +82,14 @@ where $\dots$ represent loop corrections.
 %     \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
 %     = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
 % \end{equation}
-The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals}, so the level is
+The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals},
 \begin{equation}
     \label{Free energy to second order}
     \Omega 
     = \Omega_0
-    + i\ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}^{-1/2}+ \dots.
+    - \ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}^{-1/2}+ \dots.
 \end{equation}
-$\Omega_0 = iS[\pi_a^* ]$ is the static contribution we found using the mean field contribution.
+$\Omega_0 = -S[\pi_a^* ]$ is the static contribution we found using the mean field approximation.
 The next term is the tree level contribution, $\Omega_1$.
 The functional derivative can be evaluated using with the rules given in \autoref{section:Functional derivative}, which gives
 \begin{align}
@@ -110,7 +111,6 @@ In \autoref{section:propagator} we found the matrix part of  the determinant in 
 \begin{equation}
     \det(- D^{-1}) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
 \end{equation}
-The Dirac-delta is removed by using partial integration.
 The functional determinant can therefore be evaluated as
 \begin{align}
     \nonumber
@@ -126,7 +126,7 @@ These terms all have the form
 \begin{equation}
     I = \int \frac{\dd^4 p}{(2 \pi)^2} \ln(-p^2 + \omega(p)^2).
 \end{equation}
-We will here pereform a Wick-rotation, and use the trick
+We will here perform a Wick-rotation, and use the trick
 \begin{equation}
     \pdv{\alpha} (p^2 + \omega(p)^2)^{-\alpha} \Big|_{\alpha=0}
     = \pdv{\alpha} \exp{-\alpha \ln(p^2 + \omega(p)^2) } \Big|_{\alpha=0}
@@ -134,6 +134,7 @@ We will here pereform a Wick-rotation, and use the trick
 \end{equation}
 to write the integral on the form
 \begin{equation}
-    I = \pdv{\alpha} \int \frac{\dd^4 p_E}{(2 \pi)^4} (p_E^2 + \omega(p)^2)^{-\alpha} \Big|_{\alpha=0}
+    I = \pdv{\alpha} \int \frac{\dd^4 p_E}{(2 \pi)^4} (p_E^2 + \omega(p)^2)^{-\alpha} \Big|_{\alpha=0}.
 \end{equation}
+The subscript $E$ indicate that $p_E$ is a Euclidead four-vector.
 
