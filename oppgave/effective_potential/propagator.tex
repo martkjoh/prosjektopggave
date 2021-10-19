@@ -71,7 +71,7 @@ The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. 
 \end{align*}
 This equation has the solutions
 \begin{align}
-    E_0^2 &= P^2 + m_2^2, \\
+    E_0^2 &= P^2 + m_3^2, \\
     E_\pm^2
     & = P^2 +
     \frac{1}{2}
@@ -89,9 +89,11 @@ This equation has the solutions
         - 4 m_1^2 m_2^2
     }.
 \end{align}
-The (tree-level) masses are found by setting $P = 0$, i.e. the rest-frame energy, and are
+These are the energies of the three particles $\pi_0$, $\pi_+$ and $\pi_+$.
+$\pi_0$ is $\pi_3$, while $\pi_\pm$ are linear combinations of $\pi_1$ and $\pi_2$.
+The (tree-level) masses of these particles are found by setting $P = 0$, i.e. the rest-frame energy, and are
 \begin{align}
-    m_0^2 &= m_2^2, \\
+    m_0^2 &= m_3^2, \\
     m_\pm^2
     & =  \frac{1}{2}
     \left[
@@ -105,6 +107,10 @@ The (tree-level) masses are found by setting $P = 0$, i.e. the rest-frame energy
         - 4 m_1^2 m_2^2
     }.
 \end{align}
+With these energies we can write the determinan of the inverse propagator as
+\begin{equation}
+    \det(D^{-1}) = - (p_0^2 - E_0^2) (p_0^2 - E_+^2) (p_0^2 - E_-^2).
+\end{equation}
 The propagator may then be obtained as described in \autoref{Conventions and notation},
 \begin{align}
     \notag

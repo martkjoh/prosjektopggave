@@ -1,4 +1,5 @@
 \subsection{Regulating the free energy}
+\label{section: regualting free energy}
 Using the result from \autoref{thermal sum} on the result for the free energy of the free scalar field, \autoref{free scalar result 2}, we get
 \begin{equation}
     \label{free scalar free enrgy}
@@ -30,11 +31,13 @@ where $\sigma$ is the Stefan-Boltzmann constant.
 
 Returning to the temperature-independent part, we use dimensional regularization to see its singular behavior.
 To that end, we define
+(HAR BYTTET A-$\alpha$, INNFØRT $n=3$ (limitien til d))
+(TODO: SKRIVE OM RESTEN TIL Å BRUKE n, $\alpha$)
 \begin{equation}
-    % Bytte ut A med n?
-    \Phi(m, d, A) = \mu^{3 - d}\int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-A},
+    \label{def dimreg integral}
+    \Phi_n(m, d, \alpha) = \mu^{n - d}\int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-\alpha},
 \end{equation}
-so that $J_0 = \Phi(m, 3, 1/2) / 2$.
+so that $J_0 = \Phi_3(m, 3, 1/2) / 2$.
 The parameter $\mu$ has the dimensions of $k$, and is inserted to ensure that $\Phi$ does not change physical dimension for $d \neq 3$.
 Furthermore, as non-rational exponents are defined through the exponential functions, this parameter is needed to make the expression well-defined.
 Dimensional regularization takes uses the formula for integration of spherically symmetric function in $d$-dimensions,
