@@ -59,7 +59,7 @@ where
         0                       & 0                 & p^2 - m^2_3
     \end{pmatrix}.
 \end{equation*}
-The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. With $p = (p_0, P)$ as the four momentum, this gives
+The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. With $p = (p_0, \vv p)$ as the four momentum, this gives
 \begin{align*}
     \det(D^{-1}) & = D^{-1}_{33} \left(D^{-1}_{11} D^{-1}_{22} + (D^{-1}_{12})^2\right)
     = - \left(p^2 - m^2_3\right)
@@ -71,9 +71,11 @@ The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. 
 \end{align*}
 This equation has the solutions
 \begin{align}
-    E_0^2 &= P^2 + m_3^2, \\
+    \label{dispresion relation pi 0}
+    E_0^2 &= |\vv p|^2 + m_3^2, \\
+    \label{dispresion relation pi pm}
     E_\pm^2
-    & = P^2 +
+    & = |\vv p|^2 +
     \frac{1}{2}
     \left(
         m_1^2 + m_2^2 + m_{12}^2 
@@ -81,7 +83,7 @@ This equation has the solutions
     \pm 
     \frac{1}{2}
     \sqrt{
-        4P^2m_{12}^2 
+        4|\vv p|^2m_{12}^2 
         +
         \left(
             m_1^2 + m_2^2 + m_{12}^2
@@ -91,7 +93,7 @@ This equation has the solutions
 \end{align}
 These are the energies of the three particles $\pi_0$, $\pi_+$ and $\pi_+$.
 $\pi_0$ is $\pi_3$, while $\pi_\pm$ are linear combinations of $\pi_1$ and $\pi_2$.
-The (tree-level) masses of these particles are found by setting $P = 0$, i.e. the rest-frame energy, and are
+The (tree-level) masses of these particles are found by setting $\vv p = 0$, i.e. the rest-frame energy, and are
 \begin{align}
     m_0^2 &= m_3^2, \\
     m_\pm^2

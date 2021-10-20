@@ -1,5 +1,6 @@
 \subsection{Free energy of the pions}
 (HAR JEG FORSTÅTT DETT RIKTIG?)
+This section follows \cite{Andersen:two-flavor-chpt,mojahed}
 In this section, we calculate the tree level contribution to the free energy of the pions.
 Our approach is to start with a mean field approximation for the expectation value of the field, $\ex{\pi_a(x)}_0 = \pi^*_a = 0$, and then expand the action in a Taylor series around this point.
 The free energy is 
@@ -157,15 +158,61 @@ we get
 We see that the is what we would expect physically, the total energy is the integral of the energy of each mode.
 This results in 
 \begin{equation}
-    \Omega_1 = V T \, \frac{1}{2} 
-    \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_i)\right]
-    = \Omega_{1, \pi_0} + \Omega_{1, \pi_\pm}.
+    \Omega_1 = 
+    V T \, \frac{1}{2} 
+    \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_-)\right]
+    = \Omega_{1, \pi_0} + \Omega_{1, \pi_\pm} + \Omega_{1, \pi_-}.
 \end{equation}
 The first integral is identical to what we find for the free scalar gas.
 In the $\overline{\mathrm{MS}}$-scheme,
 \begin{equation}
-    \Omega_{1, \pi_0} = - VT \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
+    \Omega_{1, \pi_0} 
+    = 
+    - VT \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
     \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right] + \mathcal{O}(\epsilon),
 \end{equation}
 as calculated in \autoref{section: regualting free energy}.
-
+$\mu$ is the renormalization scale, which is introduced to make dimensional regularization well-defined.
+The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is more complicated.
+By expanding $E_+ + E_-$, as given in \autoref{dispresion relation pi pm}, in powers of $1 / \abs{\vv{p}}$, we get 
+\begin{equation}
+    E_+ + E_-
+    = 2  \abs{\vv{p}}
+    + [m_{12} + 2(m_1^2 + m_2^2)]\frac{1}{4 \abs{\vv{p}}}
+    - \left[ m_{12}^4 + 4 m_{12}^2(m_1^2 + m_2^2) + 8(m_1^4 + m_2^4) \right] \frac{1}{64 \abs{\vv{p}}^3}
+    + \Oh[-5]{ \abs{\vv{p}}}.
+\end{equation}
+The higher order terms result in a convergent integral.
+$E_+ + E_-$ has the same UV-behavior as $E_1 + E_2$, i.e. they differ by  $\Oh[-5]{|\vv p|}$, where $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$. 
+The divergent part of the free energy of the $\pi_\pm$-particles is therefore, using the $\mathrm{\overline{MS}}$-scheme, 
+\begin{equation}
+    \Omega^{\mathrm{div}}_{1, \pi_+} + \Omega^{\mathrm{div}}_{1, \pi_-}
+    = 
+    - VT \frac{1}{4}
+    \left\{
+        \frac{\tilde m_1^4}{(4\pi)^2} 
+        \left[
+            \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
+        \right]
+        +
+        \frac{\tilde m_2^4}{(4\pi)^2} 
+        \left[
+            \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_2^2})
+        \right] 
+    \right\} 
+    + \mathcal{O}(\epsilon).
+\end{equation}
+We define
+\begin{equation}
+    \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}
+    = 
+    V T \, \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 + E_2),
+\end{equation}
+which is a finite integral.
+The total free energy at tree level is thus
+\begin{equation}
+    \Omega = \Omega_0 
+    + \Omega_{1, \pi_0} 
+    + \Omega^{\mathrm{div}}_{1, \pi_+} + \Omega^{\mathrm{div}}_{1, \pi_-}
+    + \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}.
+\end{equation}
