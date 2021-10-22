@@ -1,18 +1,18 @@
 \subsection{Free energy of the pions}
-(HAR JEG FORSTÅTT DETT RIKTIG?)
 This section follows \cite{Andersen:two-flavor-chpt,mojahed}
-In this section, we calculate the tree level contribution to the free energy of the pions.
-Our approach is to start with a mean field approximation for the expectation value of the field, $\ex{\pi_a(x)}_0 = \pi^*_a = 0$, and then expand the action in a Taylor series around this point.
-The free energy is 
+In this section, we calculate the lowest order and next-to-lowest order contribution to the free energy of the pions.
+The free energy is
 \begin{equation}
-    \Omega = i \ln(Z).
+    \Omega = i \ln(Z),
 \end{equation}
+where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}.
+$\pi_a$ parametrizes disturbances from the ground state $\ex{\pi_a(x)}_{J=0} = 0$.
 With the constant expectation value $\pi^*_a$ we can use the result from \autoref{section: effective action} to write
 \begin{equation}
-    \Omega = -W[J=0] = V T \, \Veff(\pi^*_a).
+    \Omega = -W[J=0] = V T \, \Veff(0).
 \end{equation}
-The first approximation of the effective potential, which is given by the classical action of a constant field.
-In this case it is given by the static ($\pi_a$-independent) part of the Lagrangian, $S[\pi^*_a] = -V T \, \Ell_2^{(0)}$.
+The first order approximation of the effective potential, which is given by the classical action of a constant field.
+In this case it is given by the static ($\pi_a$-independent) part of the Lagrangian, $S[0] = -V T \, \Ell_2^{(0)}$.
 From \autoref{L0} we have
 \begin{equation}
     - \Ell_2^{(0)} = 
@@ -30,71 +30,65 @@ The value of $\alpha$ is found by minimizing the free energy,
 \end{align*}
 This gives the criterion
 \begin{align}
-    \alpha = \pi n, \, n \in \mathbb{Z} \quad
+    \alpha \in \{0, \pi\} \quad
     \mathrm{or} \quad
     \cos{\alpha} = \frac{2B_0m}{\mu_I{}^2}.
 \end{align}
-In our discussion of effective action and effective potential, we saw that a constant expectation value, will fulfill the equation of motion
+In our discussion of effective action and effective potential, we saw that a constant expectation value such as $\pi_a = 0$ fulfill the equation of motion
 \begin{equation}
-    \frac{\delta \Gamma[\pi^*_a]}{\delta \pi_a(x)}
-    = - V T \pdv{\Ve_{\mathrm{eff}}(\pi^*_a)}{\pi_a} = 0.
+    \frac{\delta \Gamma[\varphi_a]}{\delta \pi_a(x)} \bigg|_{\pi_a=0}
+    = - V T \pdv{\Veff}{\pi_a}\bigg|_{\pi_a=0} = 0.
 \end{equation}
 As the first approximation to the effective action is from the classical action, this equation becomes
 \begin{equation}
-    \pdv{\Ve^{(1)}(\pi^*_a)}{\pi_a} = 0,
+    \pdv{\Ve^{(1)}}{\pi_a} \bigg|_{\pi_a=0} = 0,
 \end{equation}
 where $\Ve^{(1)}$ is the linear part of the potential. 
 From \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which shows that the minimization criterion we found ensures that the equation of motion is obeyed.
 
-Using the functional Taylor-expansion, as described in \autoref{section:Functional derivative}, we may expand the action of the pions around the ground state $\pi_a^* $
+Using the functional Taylor-expansion, as described in \autoref{section:Functional derivative}, we may expand the action of the pions around the ground state $\pi_a^=0$
 \begin{equation}
     S[\pi_a]
     = 
-    S[\pi_a^*] 
-    + \int \dd x \, \pi_a  \frac{\delta S[\pi_a^*]}{\delta \pi_a(x)}
-    + \int \dd x \dd y \, \pi_a(x) \pi_b(y)
-    \frac{\delta^2 S[\pi_a^*]}{\delta \pi_a(x) \delta \pi_a(y)}
+    S[0] 
+    + \int \dd^4 x \, \pi_a(x)  \frac{\delta S[\pi_a]}{\delta \pi_a(x)} \bigg|_{\pi_a=0}
+    + \int \dd^4 x \dd^4 y \, \pi_a(x) \pi_b(y)
+    % \frac{\delta^2 S[\pi_a]}{\delta \pi_a(x) \delta \pi_a(y)} 
+    \fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)}
+    \bigg|_{\pi_a=0}
     + \Oh[3]{(\pi/f)}.
-\end{equation} 
-We showed that
-\begin{equation}
-    \frac{\delta S[\pi_a^*]}{\delta \pi_a} = -VT\, \diffp{\Veff(\pi_a^*)}{\pi_a} = 0.
 \end{equation}
+The second term in this expansion vanishes as shown earlier.
 Inserting this expansion into the partition function we get
-\begin{equation}
-    \ln(Z) = \ln\left[ \int \D \varphi_a e^{i S[\pi_a]} \right]
-    = i S[\pi_a^*] + \ln\left[
+\begin{align}
+    \nonumber
+    \ln(Z) 
+    &= \ln\left[ \int \D \varphi_a e^{i S[\pi_a]} \right] \\
+    & = i S[0] 
+    + \ln\left[
         \int \D \varphi_a 
         \exp(
             i \int \dd^4 x \dd^4 y \, \pi_a(x) \pi_a(y)
-            \frac{\delta^2 S[\pi_a^*]}{\delta \pi_a(x) \delta \pi_a(y)}
+            \fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi_a=0}
             ) 
     \right]
     + \dots,
-\end{equation}
-where $\dots$ represent loop corrections.
-% The lowest order contribution to the pion is given by the free propagator, \autoref{free pion propagator}, by the formula \autoref{free energy from propagator}.
-% This is, however, evaluated in the imaginary-time formalism.
-% In the zero-temperature limit, 
-% This means that the time coordinate is replaced by $t \rightarrow - \tau$, and is restricted to $\tau \in [0, \beta]$.
-% This result in a discrete set of energies, the Matsubara frequencies $\omega = 2 \pi n / \beta$.
-% The result is
-% \begin{equation}
-%     \beta \Ef = \frac{1}{2V} \Tr{\ln[\beta^2 D_0^{-1}]} 
-%     = \frac{1}{2} \int_{\tilde \Omega} \dd K \, \sum_a \ln[\beta^2 D_0^{-1}]_{aa}
-% \end{equation}
-The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals},
+\end{align}
+where $\dots$ represent higher order corrections.
+The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals}.
+This results in a free energy
 \begin{equation}
     \label{Free energy to second order}
     \Omega 
     = \Omega_0 + \Omega_ 1 + \dots, \quad 
-    \Omega_1 = -i \frac{1}{2} \ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}
+    \Omega_0 = -S[0],  \quad
+    \Omega_1 = 
+    -i \frac{1}{2} \ln{\det\left( -\fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)}\bigg|_{\pi_a=0} \right)}.
 \end{equation}
-$\Omega_0 = -S[\pi_a^* ]$ is the static contribution we found using the mean field approximation.
-The next term is the tree level contribution, $\Omega_1$.
-The functional derivative can be evaluated using with the rules given in \autoref{section:Functional derivative}, which gives
+
+The first correction, $\Omega_1$, can be evaluated using the rules for functional differentiation given in \autoref{section:Functional derivative}, 
 \begin{align}
-    \frac{\delta^2 S[\pi_a^*] }{\delta \varphi(x)\delta \varphi(y)}
+    \fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi_a=0}
     = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} 
     \int \dd^4 x \, \Ell^{(2)}_2
     = D^{-1}_x \delta(x - y).
@@ -107,7 +101,7 @@ Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autor
         -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
     \right] 
 \end{equation}
-The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the 3 pion indices, as well as a functional part.
+The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the three pion indices, as well as a functional part.
 In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields
 \begin{equation}
     \det(- D^{-1}) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
@@ -115,7 +109,7 @@ In \autoref{section:propagator} we found the matrix part of  the determinant in 
 The functional determinant can therefore be evaluated as
 \begin{align}
     \nonumber
-    \ln{\det\left( - \frac{\delta^2 S[\pi_a^*]}{\delta \pi^2} \right)}
+    \ln{\det\left( - \fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi_a=0} \right)}
     & = \ln \det(p_0^2 - E_0^2) + \ln \det(p_0^2 - E_+^2) + \ln \det(p_0^2 - E_-^2) \\
     \nonumber
     & = \Tr{ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2)+  \ln(p_0^2 - E_-^2) } \\
@@ -139,17 +133,19 @@ and then preform a Wick-rotation of the $p_0$-integral to write the integral on 
     I = i \pdv{\alpha} \int \frac{\dd^4 p}{(2 \pi)^4} \left(p_0^2 + E^2\right)^{-\alpha} \Big|_{\alpha=0},
 \end{equation}
 where $p$ now is a Euclidean four-vector.
-The $p_0$ integral equals $\Phi_1(E, 1, \alpha)$, as defined in \autoref{def dimreg integral}, 
+The $p_0$ integral equals $\Phi_1(E, 1, \alpha)$, as defined in \autoref{def dimreg integral}. 
+The result is therefore given by \autoref{result dimreg},
 \begin{equation}
-    \int \frac{\dd p_0}{2 \pi} (p_0^2 + E)^{-\alpha} = \frac{E^{1-2\alpha}}{\sqrt{4 \pi}} \frac{\Gamma(\alpha-1/2)}{\Gamma(\alpha)}
+    \int \frac{\dd p_0}{2 \pi} (p_0^2 + E)^{-\alpha} 
+    = \frac{E^{1-2\alpha}}{\sqrt{4 \pi}} \frac{\Gamma(\alpha-\frac{1}{2})}{\Gamma(\alpha)}
 \end{equation}
-The derivative of the gamma function is $\Gamma(\alpha) = \psi(\alpha)\Gamma(\alpha)$, where $\psi(\alpha)$ is the digamma function.
+The derivative of the gamma function is $\Gamma'(\alpha) = \psi(\alpha)\Gamma(\alpha)$, where $\psi(\alpha)$ is the digamma function.
 Using
 \begin{align}
-    \diffp{}{\alpha} \left(\frac{\Gamma(\alpha - 1/2) }{\Gamma(\alpha)}\right) \Big|_{\alpha=0}
-    = \Gamma(\alpha - 1 / 2) \frac{\psi(\alpha - 1/2) - \psi(\alpha)}{\Gamma(\alpha)} \Big|_{\alpha=0}
+    \diffp{}{\alpha} & \frac{\Gamma(\alpha - \frac{1}{2}) }{\Gamma(\alpha)} \Big|_{\alpha=0}
+    = \Gamma\left(\alpha - \frac{1}{2}\right) \frac{\psi(\alpha - \frac{1}{2}) - \psi(\alpha)}{\Gamma(\alpha)} \Big|_{\alpha=0}
     = \sqrt{4 \pi}, \\
-    \frac{\Gamma(\alpha - 1/2) }{\Gamma(\alpha)}\Big|_{\alpha=0} = 0,
+    & \frac{\Gamma(\alpha - \frac{1}{2}) }{\Gamma(\alpha)}\Big|_{\alpha=0} = 0,
 \end{align}
 we get
 \begin{equation}
@@ -163,7 +159,7 @@ This results in
     \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_-)\right]
     = \Omega_{1, \pi_0} + \Omega_{1, \pi_\pm} + \Omega_{1, \pi_-}.
 \end{equation}
-The first integral is identical to what we find for the free scalar gas.
+The first integral is identical to what we find for the free field in \autoref{section:free scalar field}.
 In the $\overline{\mathrm{MS}}$-scheme,
 \begin{equation}
     \Omega_{1, \pi_0} 
@@ -209,10 +205,11 @@ We define
     V T \, \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 + E_2),
 \end{equation}
 which is a finite integral.
-The total free energy at tree level is thus
+The total free energy is thus
 \begin{equation}
     \Omega = \Omega_0 
     + \Omega_{1, \pi_0} 
     + \Omega^{\mathrm{div}}_{1, \pi_+} + \Omega^{\mathrm{div}}_{1, \pi_-}
-    + \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}.
+    + \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}
+    + \dots.
 \end{equation}

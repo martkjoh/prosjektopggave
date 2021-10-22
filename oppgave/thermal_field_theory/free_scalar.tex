@@ -1,5 +1,5 @@
 \subsection{Free scalar field}
-
+\label{section:free scalar field}
 This section uses notation as described in \autoref{Conventions and notation}.
 The procedure for obtaining the thermal properties of an interacting scalar field is similar to that used in scattering theory.
 One starts with a free theory, which can be solved exactly.
@@ -77,7 +77,7 @@ The partition function is related to Helmholtz free energy $F$ through
 where $F_0$ is a constant.
 
 A faster and more formal way to get to this result is to compare the partition function to the multidimensional version of the Gaussian integral~\cite{Kapusta:finiteTemp, Peskin:IntroQFT}.
-The partition function is on the form 
+The partition function has the form 
 \begin{equation*}
     I_n = \int_{\R^n} \dd^n x\, \exp{- \frac{1}{2} \langle x, D_0^{-1} x\rangle },
 \end{equation*}
@@ -89,7 +89,7 @@ By diagonalizing $D_0^{-1}$, we get the result
 We may then use the identity
 \begin{equation}
     \label{lndettrln}
-    \det(D) = \prod_i \lambda_i = \exp{\Tr[\ln(D_0^{-1})]},
+    \det(D_0^{-1}) = \prod_i \lambda_i = \exp{\Tr[\ln(D_0^{-1})]},
 \end{equation}
 where $\lambda_i$ are the eigenvalues of $D_0^{-1}$.
 The trace in this context is defined by the vector space $D_0^{-1}$ acts on.
@@ -120,4 +120,4 @@ leaving us with the same result as we obtained in \autoref{result free scalar 1}
     = \frac{1}{2} \Tr{\ln(-\partial_E^2 + m^2)} 
     = \frac{1}{2} V \int_{\tilde \Omega} \dd K \ln[\beta^2(\omega_n^2 + \omega_k^2)].
 \end{equation*}
-Sums similar to this show up a lot, and it is show how to evaluate them in \autoref{thermal sum}.
+Sums similar to this show up a lot, and it is show how to evaluate them in \autoref{section:thermal sum}.

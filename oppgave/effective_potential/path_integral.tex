@@ -3,10 +3,10 @@ The theory in this section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinb
 
 \subsection{QFT via path integrals}
 \label{section:path integral}
-The ground state path integral is given by
+The vacuum transition amplitude is given by the path integral
 \begin{equation}
-    Z = \lim_{T\rightarrow \infty} \braket{\Omega, T}{-T, \Omega}
-    = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-2iHT} }{\Omega}
+    Z = \lim_{T\rightarrow \infty} \braket{\Omega, T/2}{-T/2, \Omega}
+    = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-iHT} }{\Omega}
     = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
 \end{equation}
 where $\ket{\Omega}$ is the vacuum of the theory.
@@ -14,7 +14,7 @@ By introducing a source term into the Hamiltonian density, $\He \rightarrow \He 
 \begin{equation}
     Z[J] = 
     \int \D \pi \D \varphi \, 
-    \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]+ J\varphi\right) }
+    \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]+ J\varphi\right) }.
 \end{equation}
 If $\He$ is quadratic in $\pi$, we can complete the square and integrate out $\pi$ to obtain
 \begin{equation}
@@ -75,10 +75,11 @@ The subscript on the expectation value indicates that it is evaluated in the fre
 
 If we have an interacting theory, that is a theory with an action $S = S_0 + S_I$, where $S_0$ is a free theory, the generating functional can be written
 \begin{equation}
+    \label{partition function of interacting theory.}
     Z[J] 
     = Z_0[0] \ex{\exp(iS_I + i\int \dd^4 x \, J(x) \varphi(x))}_0.
 \end{equation}
-The expectation value can be expanded in a power series, 
+We can expand the exponential in power series, which means the expectation in \autoref{partition function of interacting theory.} becomes
 \begin{equation}
     \sum_{n, m} \frac{1}{n! m!} \ex{(iS_I)^n \left(i\int \dd^4 x \, J(x) \varphi(x)\right)^m}_0.
 \end{equation}
@@ -109,7 +110,7 @@ As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
     \includegraphics[width=0.1\textwidth, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
     \times \dots.
 \end{align}
-If the value of subdiagram $i$ is $V_i$, then each copy of that subdiagram contribute a factor $V_i$ to the value of the total diagram.
+If sub-diagram $i$ as a stand-alone diagram equals $V_i$, then each copy of that subdiagram contribute a factor $V_i$ to the total diagram.
 However, due to the symmetry of permuting identical subdiagrams, one must divide by the extra symmetry factor $s = n_i !$, which is the total number of permutation of all the copies of diagram $i$.
 The value of the total diagram is therefore
 \begin{align}
@@ -125,7 +126,7 @@ This allows us to write the sum of all diagrams as
     = \prod_{i = 1}^{\infty} \sum_{n_i=1}^{\infty} \frac{1}{n_i!} V_i^{n_i}
     = \exp({\sum}_i V_i).
 \end{equation}
-We showed that the generating functional $Z[J]$ were the $Z_0[0]$ times the sum of all diagrams due to external currents.
+We showed that the generating functional $Z[J]$ were the $Z_0[0]$ times the sum of all diagrams due to external sources.
 Using \autoref{sum of all diagrams}, we see that the sum of all \emph{connected} diagrams $W[J]$ is given by
 \begin{equation}
     Z[J] = Z_0[0]\exp(i W[J]).

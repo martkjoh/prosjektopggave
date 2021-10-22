@@ -1,12 +1,12 @@
 \subsection{The 1PI effective action}
 \label{section: effective action}
-The generating functional for connected diagrams, $W[J]$, is dependent on the external current $J$.
+The generating functional for connected diagrams, $W[J]$, is dependent on the external source current $J$.
 Analogously to what is done in thermodynamics and in Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
 The new independent variable is 
 \begin{equation}
-    \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J := \varphi_J(x).
+    \varphi_J(x) := \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J.
 \end{equation}
-The subscript $J$ on the expectation value indicate that it is evaluated in the presence of a current.
+The subscript $J$ on the expectation value indicate that it is evaluated in the presence of a source.
 The Legendre transformation of $W$ is then
 \begin{equation}
     \Gamma[\varphi_J]
@@ -27,7 +27,8 @@ If we compare this to the classical equations of motion of a field $\varphi$ wit
 \end{equation}
 we see that $\Gamma$ is an action that gives the equation of motion for the expectation value of the field, given a source current $J(x)$.
 
-To interpret $\Gamma$ further we define a new theory where it is the action, and with a coupling $g$, 
+To interpret $\Gamma$ further we observe what happens if we treat $\Gamma[\varphi]$ as a classical action with a coupling $g$.
+The generating functional in this new theory is
 \begin{equation}
     \label{partition function with g}
     Z[J, g] = \int \D \varphi 
@@ -46,7 +47,7 @@ As a consequence of this, any diagram is proportional to $g^{L-1}$.
 This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level, i.e. by only considering diagrams without loops.
 In this limit, we may use the stationary phase approximation, as described in \autoref{section:gaussian integrals}, which gives
 \begin{equation}
-    Z[J, g] \approx 
+    Z[J, g\rightarrow 0] \approx 
     C \det(- \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi^2})
     \exp{i g^{-1} \left(\Gamma[\varphi_J] + \int \dd^4x J \varphi_J \right)  }.
 \end{equation}
@@ -82,7 +83,7 @@ The expectation value of the ground state field configuration, that is at $J=0$,
 \end{equation}
 Assuming this configuration is independent of $x$, we can write
 \begin{equation}
-    \Gamma[\varphi_0] = - V T \Ve_{\mathrm{eff}}(\varphi_0),
+    \Gamma[\varphi_0] = - V T \, \Ve_{\mathrm{eff}}(\varphi_0),
 \end{equation}
 where $\Ve_{\mathrm{eff}}$ is the effective potential.
-$V$ is the volume of space, while $T$ is the time duration of our space-time.
+$VT$ is the volume of space-time.

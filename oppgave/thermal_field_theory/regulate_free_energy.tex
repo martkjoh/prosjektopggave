@@ -1,16 +1,17 @@
 \subsection{Regulating the free energy}
 \label{section: regualting free energy}
-Using the result from \autoref{thermal sum} on the result for the free energy of the free scalar field, \autoref{free scalar result 2}, we get
+Using the result from \autoref{section:thermal sum} on the result for the free energy density of the free scalar field, \autoref{free scalar result 2}, we get
 \begin{equation}
     \label{free scalar free enrgy}
-    \beta \Ef = \frac{F}{VT}
+    \Ef = \frac{\ln(Z)}{\beta V}
     = \frac{1}{2} \int_{\tilde V} \frac{\dd^3 k}{(2 \pi)^3}
     \left[
-        \beta \omega_k + 2\ln(1 - e^{-\beta\omega_k})
+        \omega_k + \frac{2}{\beta }\ln(1 - e^{-\beta\omega_k})
     \right].
 \end{equation}
+The first part of this integral is a temperature independent vacuum energy, while the second part encodes all the termperature dependence of the free energy density
 This free energy has two parts, the first part is dependent on temperature, the other is temperature independent vacuum contribution.
-Noticing that the integral is spherically symmetric, we may write
+Noticing that the integral is spherically symmetric, we may write the two contributions as
 \begin{equation}
     J_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
     J_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (m/T)^2}}), 
@@ -25,41 +26,43 @@ which is exponentially suppressed, making the integral convergent.
 In the limit of $T \rightarrow \infty$, we get
 \begin{equation}
     J_\infty \sim \frac{T^4}{2 \pi^2} \int_\R \dd x \, x^2 \ln(1 - e^{-x})
-    = - T^4 \frac{\pi^2}{90} = -\frac{3}{2} \sigma T^4,
+    = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{1}{n} \diffp[2]{}{n} \int \dd x e^{-nx}
+    = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{2}{n^4}
+    = - \frac{T^4}{\pi^2} \zeta(4)
+    = - T^4 \frac{\pi^2}{90}.
+    % = -\frac{3}{2} \sigma T^4,
 \end{equation}
-where $\sigma$ is the Stefan-Boltzmann constant. 
+Where $\zeta$ is the Riemann-zeta function.
 
 Returning to the temperature-independent part, we use dimensional regularization to see its singular behavior.
 To that end, we define
-(HAR BYTTET A-$\alpha$, INNFØRT $n=3$ (limitien til d))
-(TODO: SKRIVE OM RESTEN TIL Å BRUKE n, $\alpha$)
 \begin{equation}
     \label{def dimreg integral}
     \Phi_n(m, d, \alpha) = \mu^{n - d}\int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-\alpha},
 \end{equation}
 so that $J_0 = \Phi_3(m, 3, 1/2) / 2$.
-The parameter $\mu$ has the dimensions of $k$, and is inserted to ensure that $\Phi$ does not change physical dimension for $d \neq 3$.
+The parameter $\mu$ has the dimensions of $k$, and is inserted to ensure that $\Phi_n$ does not change physical dimension for $d \neq n$.
 Furthermore, as non-rational exponents are defined through the exponential functions, this parameter is needed to make the expression well-defined.
 Dimensional regularization takes uses the formula for integration of spherically symmetric function in $d$-dimensions,
 \begin{equation}
     \int_{\R^d} \dd^d x \, f(r) 
     = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd r \, r^{d-1}f(r),
 \end{equation}
-where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the Gamma-function.
+where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the Gamma function.
 The factor in the front of the integral comes from the solid angle.
 By extending this formula from integer-valued $d$ to real numbers, the function we defined becomes
 \begin{equation}
-    \Phi 
-    = \frac{2 \pi^{d/2} \mu^{3 - d} }{\Gamma(d/2)} \int_\R \dd k \, 
-    \frac{k^{d-1}}{(k^2 + m^2)^A}
-    = \frac{m^{3-2A}}{(4 \pi)^{d / 2}\Gamma(d/2)} 
-    \left(\frac{m}{\mu}\right)^{d-3} 
-    2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^A}, 
+    \Phi_n
+    = \frac{2 \pi^{d/2} \mu^{n - d} }{\Gamma(d/2)} \int_\R \dd k \, 
+    \frac{k^{d-1}}{(k^2 + m^2)^\alpha}
+    = \frac{m^{n-2\alpha}}{(4 \pi)^{d / 2}\Gamma(d/2)} 
+    \left(\frac{m}{\mu}\right)^{d-n} 
+    2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}, 
 \end{equation}
 where we have made the change of variables $m z = k$.
 We make one more change of variable to the integral,
 \begin{equation}
-    I = 2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^A}
+    I = 2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}
 \end{equation}
 Let
 \begin{equation}
@@ -67,27 +70,27 @@ Let
 \end{equation}
 Thus,
 \begin{equation}
-    I = \int_0^a \dd s \, s^{A - d/2 - 1} (1 - z)^{d/2 - 1}.
+    I = \int_0^a \dd s \, s^{\alpha - d/2 - 1} (1 - z)^{d/2 - 1}.
 \end{equation}
-This is the beta-function, which can be written in terms of Gamma Functions~\cite{Peskin:IntroQFT}
+This is the beta function, which can be written in terms of Gamma functions~\cite{Peskin:IntroQFT}
 \begin{equation}
-    I = B\left(A - \frac{d}{2}, \frac{d}{2}\right) 
-    = \frac{\Gamma\left(A - \frac{d}{2}\right) \Gamma\left(\frac{d}{2}\right)}{\Gamma(A)}.
+    I = B\left(\alpha - \frac{d}{2}, \frac{d}{2}\right) 
+    = \frac{\Gamma\left(\alpha - \frac{d}{2}\right) \Gamma\left(\frac{d}{2}\right)}{\Gamma(\alpha)}.
 \end{equation}
 Combining this gives
 \begin{equation}
-    \Phi = m^{3 - 2A}
-    \left(\frac{m^2}{\mu^2}\right)^{(d-3)/2} 
+    \label{result dimreg}
+    \Phi_n(m, d, \alpha) = \frac{m^{n - 2\alpha}}{(4 \pi)^{d / 2}}
     \frac{
-        \Gamma \left(A - \frac{d}{2} \right) 
+        \Gamma \left(\alpha - \frac{d}{2} \right) 
     }
-    {
-        (4 \pi)^{d / 2}\Gamma(A)
-    }.
+    {\Gamma(\alpha)}
+    \left(\frac{m^2}{\mu^2}\right)^{\flatfrac{(d-n)}{2}} 
+    .
 \end{equation}
-Inserting $d = 3 - 2\epsilon$ and $A = -1/2$, we get
+Inserting $n=3$, $d = 3 - 2\epsilon$ and $\alpha = -1/2$, we get
 \begin{equation}
-    \Phi(m, 3 - 2\epsilon, -1/2)
+    \Phi_3(m, 3 - 2\epsilon, -1/2)
     =
     \frac{m^4}{(4 \pi)^{d/2}\Gamma(-1/2)} \Gamma(-2 + \epsilon) \left(\frac{m^2}{\mu^2}\right)^{-\epsilon}
     =
@@ -95,7 +98,7 @@ Inserting $d = 3 - 2\epsilon$ and $A = -1/2$, we get
     \left(\frac{m^2}{4 \pi \mu^2}\right)^{- \epsilon}
     \frac{\Gamma(\epsilon)}{(\epsilon - 2)(\epsilon - 1)},
 \end{equation}
-where we have used the defining property $\Gamma(z + 1) = z\Gamma(z)$, and inserted a parameter $\mu$ with the dimensions of $m$.
+where we have used the defining property $\Gamma(z + 1) = z\Gamma(z)$ and $\Gamma(1/2) = \sqrt \pi$.
 Expanding around $\epsilon = 0$ gives
 \begin{align}
     \left(\frac{m^2}{4 \pi \mu^2}\right)^{- \epsilon}

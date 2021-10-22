@@ -136,7 +136,7 @@ A often used identity is
     := \beta \delta(X - X').
 \end{align}
 
-\subsection{Bose distribution}
+\subsection{Particle distributions}
 The Bose distribution is defined as 
 \begin{equation}
     n_B(\omega) = \frac{1}{e^{\beta \omega} - 1}.
@@ -154,6 +154,20 @@ This means that $in_B(i\omega)$ has a pole on all Matsubara-frequencies, with re
 Furthermore, we have
 \begin{equation}
     \dv{\omega} \ln(1 - e^{-\beta \omega}) = \beta n_B(\omega).
+\end{equation}
+The Fermi distribution is
+\begin{equation}
+    n_F(\omega) = \frac{1}{e^{\beta \omega} + 1}.
+\end{equation}
+It obeys
+\begin{align}
+    &\diff{}{\omega} \ln(1 - e^{-\beta \omega}) = - \beta n_F(\omega), \\
+    & n_F(- i\omega) = 1 - n_F(i\omega).
+\end{align}
+The two distributions are related by
+\begin{equation}
+    2 n_B(i \omega; 2\beta) - n_B(i \omega; \beta)
+    = - n_F(i \omega; \beta ).
 \end{equation}
 
 \subsection{Propagators}

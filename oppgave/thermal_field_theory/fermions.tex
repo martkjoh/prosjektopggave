@@ -136,13 +136,13 @@ As the matrix within the logarithm is diagonal, the matrix-part of the trace is 
     \beta \Ef
     = - 2 \int_{\tilde \Omega} \dd X \,  \ln\{ \beta^2[(\omega_n + i\mu)^2 + \omega_k^2]\} .
 \end{equation}
-Using the fermionic version of the thermal sum (TODO: UTLED DENNE) gives the answer
+Using the fermionic version of the thermal sum from \autoref{section:thermal sum} gives the answer
 \begin{equation}
-    \beta \Ef = - 2 \int\frac{\dd^3 p}{(2\pi)^3} \, 
+    \Ef = 2 \int\frac{\dd^3 p}{(2\pi)^3} \, 
     \left[
         \beta \omega_k
-        + \ln\left(1 + e^{-\beta(\omega_k-\mu)}\right)
-        + \ln\left(1 + e^{-\beta(\omega_k+\mu)}\right)
+        + \frac{1}{\beta} \ln\left(1 + e^{-\beta(\omega_k-\mu)}\right)
+        + \frac{1}{\beta} \ln\left(1 + e^{-\beta(\omega_k+\mu)}\right)
     \right].
 \end{equation}
 We see again that the temperature-independent part of the integral diverges, and must be regulated.

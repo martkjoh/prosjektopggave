@@ -1,5 +1,5 @@
 \subsection{Thermal sum}
-\label{thermal sum}
+\label{section:thermal sum}
 
 When evaluating thermal integral, we will often encounter sums of the form
 \begin{equation}
@@ -18,30 +18,6 @@ We define the function
     = \frac{1}{\beta} \sum_{\omega_n} \frac{1}{(\omega_n + i\mu)^2 + \omega^2}. 
 \end{equation}
 
-Assume $f(z)$ is an analytic function, except perhaps on a set of isolated poles $\{z_i\}$ located outside the real line. 
-By exploiting the properties of $i n_B(i z)$, as described in \autoref{Conventions and notation}, we can rewrite the sum over Matsubara frequencies as a contour integral
-\begin{equation*}
-    \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
-    = \oint_\gamma \frac{\dd z}{2 \pi i} f(z) (i n_B(i z)),
-\end{equation*}
-where $\gamma$ is a contour that goes from $- \infty - i \epsilon$ to $+ \infty - i \epsilon$, crosses the real line at $\infty$, goes from $+ \infty - i \epsilon$ to $- \infty + i \epsilon$ before closing the curve.
-The contour $\gamma$, and the change of integral contours is illustrated in \autoref{fig:integral contours}
-This result exploits Cauchy's integral formula, by letting the poles of $in_B(iz)$ at the Matsubara frequencies ``pick out'' the necessary residues.
-The integral over $\gamma$ is equivalent to two integrals along $\R \pm i \epsilon$,
-\begin{align*}
-    \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
-    &= \left(
-        \int_{\infty + i \epsilon}^{-\infty + i \epsilon} \frac{\dd z}{2 \pi} 
-        + \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
-    \right) 
-    f(z) n_B(i z),
-    \\
-    & = \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
-    %TODO: Sjekk fortegn på z
-    \left[
-        f(z) + \left(f(z) + f(-z)\right) n_B(iz)
-    \right].
-\end{align*}
 \begin{figure}
     \centering
     \begin{subfigure}{0.4\textwidth}
@@ -62,8 +38,47 @@ The integral over $\gamma$ is equivalent to two integrals along $\R \pm i \epsil
     The red crosses illustrate the poles of $n_B$.}
     \label{fig:integral contours}
 \end{figure}
-In the last line, we have changed variables $z \rightarrow -z$ in the first integral, and exploited the property $n_B(-i z) = -1 - n_B(iz)$.
-As $n_B(iz)$ is analytic on the real line, the result is the sum of residues of $f$ in the lower half plane.
+
+We will first work with the sum over bosonic Matsubara frequencies.
+Assume $f(z)$ is an analytic function, except perhaps on a set of isolated poles $\{z_i\}$ located outside the real line. 
+By exploiting the properties of the Bose-distribution $n_B(z)$, as described in \autoref{Conventions and notation}, we can rewrite the sum over Matsubara frequencies as a contour integral
+\begin{equation*}
+    \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
+    = \oint_\gamma \frac{\dd z}{2 \pi i} f(z) i n_B(i z),
+\end{equation*}
+where $\gamma$ is a contour that goes from $- \infty - i \epsilon$ to $+ \infty - i \epsilon$, crosses the real line at $\infty$, goes from $+ \infty - i \epsilon$ to $- \infty + i \epsilon$ before closing the curve.
+The contour $\gamma$, and the change of integral contours is illustrated in \autoref{fig:integral contours}
+This result exploits Cauchy's integral formula, by letting the poles of $in_B(iz)$ at the Matsubara frequencies ``pick out'' the necessary residues.
+The integral over $\gamma$ is equivalent to two integrals along $\R \pm i \epsilon$,
+\begin{align}
+    \nonumber
+    \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
+    &= \left(
+        \int_{\infty + i \epsilon}^{-\infty + i \epsilon} \frac{\dd z}{2 \pi} 
+        + \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
+    \right) 
+    f(z) n_B(i z),
+    \\
+    \nonumber
+    & = \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
+    \left\{
+        f(-z) + \left[f(z) + f(-z)\right] n_B(iz)
+    \right\} 
+    \\
+    \label{bosonic sum to integral}
+    & = \int_{-\infty}^{\infty} \frac{\dd z}{2 \pi} f(z)
+    +
+    \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
+    \left[
+        f(z) - f(-z)
+    \right]
+    n_B(iz).
+\end{align}
+
+In the second line, we have changed variables $z \rightarrow -z$ in the first integral, and exploited the property $n_B(-i z) = -1 - n_B(iz)$.
+In the last line, we use the assumption that $f(z)$ is analytic on the real line, and therefore also in a neigbourhood of it. 
+This allows us to shift the first integral back to the real line.
+As $n_B(iz)$ is analytic outside the real line, the result of the second integral is the sum of residues of $f(z) + f(-z)$ in the lower half plane.
 The function
 \begin{equation}
     f(z) = \frac{1}{(z + i \mu)^2 + \omega^2} 
@@ -79,7 +94,7 @@ $z = - i (\mu \pm \omega)$, with residue $1 / 2 \omega$, so the function defined
     % = \left(\frac{-2 \pi i^2}{2 \pi \omega}\right)
     % [1 + n_B(\omega + \mu) + n_B(\omega - \mu)].
     = \frac{1}{2\omega}
-    [1 + n_B(\omega + \mu) + n_B(\omega - \mu)].
+    [1 + n_B(\omega - \mu) + n_B(\omega + \mu)].
 \end{equation}
 
 Using the anti-derivative of the Bose distribution, we get the final form of \autoref{j func}
@@ -96,3 +111,45 @@ Using the anti-derivative of the Bose distribution, we get the final form of \au
 The extra $\omega$-independent term $g'(\beta)$ is an integration constant.
 We see there are temperature dependent terms, one due to the particle and one due to the anti-particle, and one due to the antiparticle, as they have opposite chemical potentials.
 
+We now consider the sum over fermionic frequencies, which we for clarity denote $\tilde \omega_n$ in this chapter.
+The procedure in this case is the same, except that we have to use a function to with poles at the fermionic Matsubara frequencies.
+This is done by the Fermi distribution, $n_F(z)$, as described in \autoref{Conventions and notation}.
+The result is 
+\begin{equation}
+    \frac{1}{\beta} \sum_{\tilde \omega_n} f(\tilde \omega_n) 
+    = 
+    -\int_{-\infty}^{\infty} \frac{\dd z}{2 \pi} f(z)
+    +
+    \int_{-\infty - i \epsilon}^{\infty - i \epsilon}\frac{\dd z}{2 \pi}
+    \left[
+        f(z) - f(-z)
+    \right]
+    n_F(iz),
+\end{equation}
+and 
+\begin{equation}
+    i(\omega, \mu) = \frac{1}{2 \omega} [-1 + n_F(\omega - \mu) + n_F(\omega + \mu)].
+\end{equation}
+Using the antiderivative of the Fermi-distribution, we get
+\begin{equation}
+    j(\omega, \mu) 
+    = - \frac{1}{2} \omega 
+    - \frac{1}{2 \beta }
+    \left[
+        \ln\left(1 + e^{-\beta(\omega - \mu)}\right)
+        + \ln\left(1 + e^{-\beta(\omega + \mu)}\right)
+    \right].
+\end{equation}
+
+% If we denote the two different sums
+% \begin{equation}
+%     s_b(\beta) = \frac{1}{\beta} \sum_{\omega_n} f(\omega_n), \quad 
+%     s_f(\beta) = \frac{1}{\beta} \sum_{\tilde\omega_n} f(\tilde \omega_n),
+% \end{equation}
+% then they are related by
+% \begin{equation}
+%     s_f(\beta) 
+%     = \frac{1}{\beta} \sum_n f([2 \pi n + 1]/\beta)
+%     = \frac{1}{\beta} \sum_n \left\{ f(\pi n /\beta) - f(2 \pi n /\beta) \right\}
+%     = 2 s_b(2\beta) - s_b(\beta).
+% \end{equation}

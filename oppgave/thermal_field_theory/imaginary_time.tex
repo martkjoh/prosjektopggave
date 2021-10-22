@@ -58,20 +58,16 @@ obeys the conservation law
 \begin{equation}
     \partial_\mu j^\mu = 0.
 \end{equation}
-The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. 
-The charge is defined as
-\begin{equation}
-    Q = \int_V \dd^3 x\, n_\mu j^\mu,
-\end{equation}
-where $n^\mu$ is the normal vector of $V$.
-Using the divergence theorem again, and assuming the current falls of quickly enough, we can show that the total charge is conserved,
-\begin{equation*}
-    \pdv{t} Q = \int_V \dd^3 x \, \nabla \cdot \vec j = \int_{\partial V} \dd^2 x\, n'_\mu j^\mu = 0.
-\end{equation*}
-For a surface of constant time we may choose $n^\mu = (1, 0, 0, 0)$, and the conserved charged is
+The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
 \begin{equation*}
     Q = \int_V \dd^3 x \, j^0.
+\end{equation*} 
+Using the divergence theorem again, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
+\begin{equation*}
+    \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
 \end{equation*}
+Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$.
+
 In the grand canonical ensemble, a system with $n$ conserved charges $Q_i$ has probability proportional to $e^{-\beta (H - \mu_i Q_i)}$.
 $\mu_i$ are the chemical potentials corresponding to conserved charge $Q_i$.
 This leads to the partition function
@@ -95,7 +91,7 @@ These field operators have time independent eigenvectors, $\ket{\varphi}$ and $\
     \hat \varphi(\vec x) \ket{\varphi} = \varphi(\vec x) \ket{\varphi}, \quad
     \hat \pi(\vec x) \ket{\pi} = \pi(\vec x) \ket{\pi}.
 \end{equation}
-In analogy with regular quantum mechanics, they obey the relations~\cite{Kapusta:finiteTemp}
+In analogy with regular quantum mechanics, they obey the relations
 \footnote{Some authors write $\D\pi/2 \pi$. This extra factor $2\pi$ is a convention which in this text is left out for notational clarity.}
 \begin{gather}
     \label{functional completness}
