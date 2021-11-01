@@ -200,5 +200,761 @@ This can be removed by using the renormalization condition
 \end{equation}
 
 
+FULL LAGRANGIAN !!!!!
+\begin{align*}
+    & \Ell = \\
+& 
+    f^2   
+    \left(
+        2B_0m \cos{\alpha}
+        + \frac{1}{2} \mu^2 \sin^2{\alpha}
+    \right),
+\\
+& +
+    f 
+    (
+        \mu_I^2\cos{\alpha}
+        - 2B_0m
+    ) \pi_1 \sin{\alpha}
+    + f \mu_I \partial_0\pi_2 \sin{\alpha},
+\\
+& +
+    \frac{1}{2} \partial_\mu\pi_a\partial^\mu\pi_a
+    + \mu_I \cos{\alpha} \left( \pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1 \right)
+    - B_0m  \pi_a \pi_a \cos{\alpha}
+    + \frac{1}{2} \mu_I ^2 \pi_a \pi_b k_{ab},
+\\
+& +
+    \frac{\pi_a\pi_a \pi_1}{6f}
+    (2B_0m \sin{\alpha}-2\mu_I{}^2 \sin{2\alpha})\\
+    &
+    -
+    \frac{2 \mu_I}{3 f}
+    \left[
+        \pi_1(\pi_1 \partial_0\pi_2 - \pi_2\partial_0\pi_1)
+        +
+        \pi_3(\pi_3\partial_0\pi_2-\pi_2 \partial_0\pi_3)
+    \right]
+    \sin{\alpha},
+\\
+& +
+\frac{1}{6f^2}
+\curly{    
+    \frac{1}{2} B_0m (\pi_a\pi_a)^2 \cos{\alpha}
+    -
+    \left[
+        (\pi_a \pi_a) (\partial_\mu \pi_b \partial^\mu \pi_b )
+        - (\pi_a \partial_\mu \pi_a)(\pi_b \partial^\mu \pi_b )
+    \right]
+}
+\\
+&
+- \frac{\mu_I \pi_a\pi_a}{3f^2}
+\left[
+    \left(\pi_1\partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+    \cos{\alpha}
+    + \frac{1}{2} \mu_I \pi_a \pi_b k_{ab}
+\right].
+ \\
+ & + 
+  \frac{l_1}{4} 
+ \bigg(
+     \frac{8 \mu_I^2}{f^2} 
+     % term 1
+     (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+     \sin^2{\alpha}
+     + 16 \mu_I^3 
+     \left[
+         % term 2
+         \frac{\partial_0 \pi_2}{f}\sin^3{\alpha}
+         + \frac{1}{f^2} 
+         % term 3
+         \left(
+             3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1
+         \right)
+             \cos{\alpha} \sin^2{\alpha}
+     \right] \\
+     & + 4 \mu_I^4 
+     \left\{
+         % term 4
+         \sin^4{\alpha}
+         + 2 \sin^2{\alpha}
+         \left[
+             % term 5
+             \frac{\pi_1}{f}\sin{2\alpha}
+             % term 6
+             + \frac{\pi_a \pi_b}{f^2}        
+             \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+         \right]
+     \right\}
+ \bigg)
+ % 
+ \\
+ % \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+ & + \frac{l_2}{4} 
+ \bigg(
+     \frac{4 \mu_I{}^2}{f^2}
+     % term 7
+     \left(
+         \partial_0 \pi_a\partial_0 \pi_a 
+         + \partial_0 \pi_2\partial_0 \pi_2 
+         + \partial_\mu \pi_2\partial^\mu \pi_2
+     \right) 
+     \sin^2{\alpha}
+     + 16 \mu_I^3 
+     \left[
+         % term 8
+         \frac{\partial_0 \pi_2}{f} \sin^3{\alpha}
+         % term 9
+         + \frac{1}{f^2} \left(3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+         \cos{\alpha} \sin^2{\alpha}
+     \right] \\
+     & + 4 \mu_I^4 
+     \left\{
+         % term 9
+         \sin^4{\alpha}
+         + 2 \sin^2{\alpha}
+         \left[
+             % term 10
+             \frac{\pi_1}{f}\sin{2\alpha}
+             % term 11
+             + \frac{\pi_a \pi_b}{f^2}
+             \left(k_{ab} + 2 \delta_{a1}\delta_{a2} \cos^2{\alpha} \right)
+         \right]
+     \right\}
+ \bigg) \\
+ %\Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+ %\Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+ & +
+ \frac{l_3 + h_1 - h_3 }{16}
+ \bigg(
+     (8 B_0 \bar m)^2
+     \left[
+         % term 12
+         \cos^2{\alpha}
+         % term 13
+         - \frac{\pi_1}{f} \sin{2\alpha}
+         % term 14
+         + \frac{1}{f^2}\left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+     \right]    
+ \bigg)
+ %\Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+ \\
+ &
+ + \frac{l_4}{4}
+ \bigg(
+     8 B_0 \bar m
+     \Bigg\{
+         % term 
+         2 \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2} \cos{\alpha}
+         + 4 \mu_I 
+         \left[
+             \frac{\partial_0 \pi_2}{2 f} \sin{2\alpha}
+             + \frac{1}{f^2}
+             \left(
+                 \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+                 - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+             \right)
+         \right]\\\notag
+         & \quad + \mu_I{}^2
+         \left[
+             2\cos{\alpha}\sin^2{\alpha} 
+             - 2 \frac{\pi_1}{f} \sin{\alpha}
+             \left(3\sin^2{\alpha} - 1\right)
+             + \frac{1}{f^2}
+             \left(                
+                 \pi_1^2[2 - 9 \sin^2{\alpha}]
+                 + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+                 - 3\pi_3^2\sin^2{\alpha}
+             \right)
+             \cos{\alpha}
+         \right]
+     \Bigg\}    
+ \bigg) \\
+ %\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+ & + \frac{h_1 - h_3 - l_4-l_7}{16} 
+ \bigg(
+     - 16 \left( \frac{2 \Delta m B_0 \pi_3}{f} \right)^2
+ \bigg)
+ %\Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+ + \frac{h_1 + h_2 - l_4}{4} \left( 8B_0^2\left( {\bar m}^2 + {\Delta m}^2\right)\right) \\
+ & -
+ \frac{h_1 - h_3 - l_4}{8}
+ \bigg(
+     \left(
+         \cos{2\alpha} 
+         - 2\frac{\pi_1}{f} \sin{2\alpha}
+         - 2\frac{\pi_a \pi_a}{f^2} \cos^2{\alpha}
+         + 2\frac{\pi_1^2}{f^2} \sin^2{\alpha}
+     \right)
+     + 16 B_0^2 \Delta m^2
+     \left(
+         1- 2\frac{ \pi_3^2}{f^2}
+     \right)    
+ \bigg) \\
+&  + \mathcal{O}\left[ t^6 \left(\frac{\pi}{f}\right)^5 \right]
+\end{align*}
+
+
+% The next to leading order Lagrangian is therefore
+
+
+% \begin{align*}
+%     & \Ell_4 = \\
+%     & \frac{l_1}{4} 
+%     \bigg(
+%         % term 1 pi^2
+%         \frac{8 \mu_I^2}{f^2} 
+%         (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+%         \sin^2{\alpha}
+%         + 16 \mu_I^3 
+%         \left[
+%             % term 2 pi
+%             \frac{\partial_0 \pi_2}{f}\sin^3{\alpha}
+%             + \frac{1}{f^2} 
+%             % term 3 pi^2
+%             \left(
+%                 3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1
+%             \right)
+%                 \cos{\alpha} \sin^2{\alpha}
+%         \right] \\
+%         & + 4 \mu_I^4 
+%         \left\{
+%             % term 4 1
+%             \sin^4{\alpha}
+%             + 2 \sin^2{\alpha}
+%             \left[
+%                 % term 5 pi
+%                 \frac{\pi_1}{f}\sin{2\alpha}
+%                 % term 6 pi^2
+%                 + \frac{\pi_a \pi_b}{f^2}        
+%                 \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+%             \right]
+%         \right\}
+%     \bigg)
+%     % 
+%     \\
+%     % \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+%     & + \frac{l_2}{4} 
+%     \bigg(
+%         \frac{4 \mu_I{}^2}{f^2}
+%         % term 7 pi^2
+%         \left(
+%             \partial_0 \pi_a\partial_0 \pi_a 
+%             + \partial_0 \pi_2\partial_0 \pi_2 
+%             + \partial_\mu \pi_2\partial^\mu \pi_2
+%         \right) 
+%         \sin^2{\alpha}
+%         + 16 \mu_I^3 
+%         \left[
+%             % term 8 pi
+%             \frac{\partial_0 \pi_2}{f} \sin^3{\alpha}
+%             % term 9 pi^2
+%             + \frac{1}{f^2} \left(3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+%             \cos{\alpha} \sin^2{\alpha}
+%         \right] \\
+%         & + 4 \mu_I^4 
+%         \left\{
+%             % term 9 1
+%             \sin^4{\alpha}
+%             + 2 \sin^2{\alpha}
+%             \left[
+%                 % term 10 pi
+%                 \frac{\pi_1}{f}\sin{2\alpha}
+%                 % term 11 pi^2
+%                 + \frac{\pi_a \pi_b}{f^2}
+%                 \left(k_{ab} + 2 \delta_{a1}\delta_{a2} \cos^2{\alpha} \right)
+%             \right]
+%         \right\}
+%     \bigg) \\
+%     %\Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+%     %\Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+%     & +
+%     \frac{l_3 + h_1 - h_3 }{16}
+%     \bigg(
+%         (8 B_0 \bar m)^2
+%         \left[
+%             % term 12 1
+%             \cos^2{\alpha}
+%             % term 13 pi
+%             - \frac{\pi_1}{f} \sin{2\alpha}
+%             % term 14 pi^2
+%             + \frac{1}{f^2}\left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+%         \right]    
+%     \bigg)
+%     %\Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+%     \\
+%     &
+%     + \frac{l_4}{8}
+%     \bigg(
+%         8 B_0 \bar m
+%         \Bigg\{
+%             % term 15 pi^2
+%             2 \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2} \cos{\alpha}
+%             + 4 \mu_I 
+%             \left[
+%                 % term 16 pi
+%                 \frac{\partial_0 \pi_2}{2 f} \sin{2\alpha}
+%                 % term 17 pi^2
+%                 + \frac{1}{f^2}
+%                 \left(
+%                     \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+%                     - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+%                 \right)
+%             \right]\\
+%             & + \mu_I{}^2
+%             \left[
+%                 %term 18 1
+%                 2\cos{\alpha}\sin^2{\alpha} 
+%                 % term 19 pi
+%                 - 2 \frac{\pi_1}{f} \sin{\alpha}
+%                 \left(3\sin^2{\alpha} - 1\right)
+%                 % term 20 pi^2
+%                 + \frac{1}{f^2}
+%                 \left(                
+%                     \pi_1^2[2 - 9 \sin^2{\alpha}]
+%                     + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+%                     - 3\pi_3^2\sin^2{\alpha}
+%                 \right)
+%                 \cos{\alpha}
+%             \right]
+%         \Bigg\}    
+%     \bigg) \\
+%     %\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+%     & 
+%     % term 21 pi^2
+%     + \frac{h_1 - h_3 - l_4-l_7}{16} 
+%     \bigg(
+%         - 16 \left( \frac{2 \Delta m B_0 \pi_3}{f} \right)^2
+%     \bigg)
+%     %\Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+%     % term 22 1
+%     + \frac{h_1 + h_3 - l_4}{4} \left( 8B_0^2\left( {\bar m}^2 + {\Delta m}^2\right)\right) \\
+%     & -
+%     \frac{h_1 - h_3 - l_4}{8}
+%     \bigg(
+%         16 B_0^2 \bar m^2
+%         \left(
+%             % term 23 1
+%             \cos{2\alpha} 
+%             % term 24 pi
+%             - 2\frac{\pi_1}{f} \sin{2\alpha}
+%             % term 25 pi^2
+%             - 2\frac{\pi_a \pi_a}{f^2} \cos^2{\alpha}
+%             % term 26 pi^2
+%             + 2\frac{\pi_1^2}{f^2} \sin^2{\alpha}
+%         \right)
+%         + 16 B_0^2 \Delta m^2
+%         \left(
+%             % term 27 1
+%             1
+%             % term 28 pi^2
+%             - 2\frac{ \pi_3^2}{f^2}
+%         \right)    
+%     \bigg)
+%     %\Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+% \end{align*}
+
+
+
+The different terms of the NLO Lagrangian is
+\begin{align*}
+    \Ell_4^{(0)} & =
+    %
+    %
+    % zeroth order
+    %
+    %
+    % term 4 1
+    \frac{l_1}{4} 4 \mu_I^4 \sin^4{\alpha}
+    % term 9 1
+    + \frac{l_2}{4}  4 \mu_I^4 \sin^4{\alpha}
+    % term 12 1
+    + \frac{l_3 + h_1 - h_3}{16} (8 B_0 \bar m)^2 \cos^2{\alpha}
+    %term 18 1
+    + \frac{l_4}{8} 8 B_0 \bar m \mu_I{}^2 2\cos{\alpha}\sin^2{\alpha} \\
+    & 
+    % term 22 1
+    + \frac{h_1 + h_3 - l_4}{4} \left( 8B_0^2\left( {\bar m}^2 + {\Delta m}^2\right)\right)
+    % term 23 1 +  term 27 1
+    - \frac{h_1 - h_3 - l_4}{8}
+    \bigg(
+        16 B_0^2 \bar m^2 \cos{2\alpha} 
+        + 16 B_0^2 \Delta m^2
+    \bigg) \\
+    & = 
+    (l_1 + l_2)\mu_I^4 \sin^4{\alpha}
+    + l_3 (2 B_0 \bar m)^2 \cos^2{\alpha}
+    + l_4
+    [
+        2 B_0 \bar m \mu_I{}^2 \cos{\alpha}\sin^2{\alpha}
+        - 2 B_0^2
+        (\bar m^2 (1 - \cos 2 \alpha )) 
+    ]
+    \\
+    & 
+    + h_1
+        [
+            2 B_0^2 \bar m^2(1 - \cos 2 \alpha)
+            + (2 B_0 \bar m)^2 \cos^2\alpha
+        ]
+    + h_3
+        [
+            2 B_0^2 \bar m^2(1 + \cos 2 \alpha) 
+            - (2 B_0 \bar m)^2 \cos^2(\alpha)
+            + 4 B_0 \Delta m^2
+        ]
+    \\
+    & =
+    (l_1 + l_2)\mu_I^4 \sin^4{\alpha}
+    + l_3 (2 B_0 \bar m)^2 \cos^2{\alpha}
+    + l_4 
+    [
+        2 B_0 \bar m \mu_I{}^2 \cos{\alpha}
+        -
+        (2 B_0\bar m) ^2
+    ] \sin^2{\alpha}
+    + h_1 (2B_0 \bar m)^2
+    + h_3 (2B_0 \Delta m)^2
+    \\
+    & =
+    (l_1 + l_2)\mu_I^4 \sin^4{\alpha}
+    + (l_3 + l_4)(2 B_0 \bar m)^2 \cos^2{\alpha}
+    + l_4 (2 B_0 \bar m ) \mu_I{}^2 \cos{\alpha} \sin^2{\alpha}
+    - l_4 (2B_0 \bar m )^2
+    + h_1 (2B_0 \bar m)^2
+    + h_3 (2B_0 \Delta m)^2
+    \\
+    %
+    %
+    % first order
+    %
+    %
+    \Ell_4^{(1)} & =
+        % term 2 pi
+    \frac{l_1}{4} 
+    \bigg(
+        16 \mu_I^3 
+        \left[
+            \frac{\partial_0 \pi_2}{f}\sin^3{\alpha}
+        \right]
+    % term 5 pi
+    + 4 \mu_I^4 
+        \left\{
+            2 \sin^2{\alpha}
+            \left[
+                \frac{\pi_1}{f}\sin{2\alpha}
+            \right]
+        \right\}
+    \bigg)
+    % term 8 pi
+    + \frac{l_2}{4} 
+    \bigg(
+        16 \mu_I^3 
+        \left[
+            \frac{\partial_0 \pi_2}{f} \sin^3{\alpha}
+        \right] 
+    % term 10 pi
+    + 4 \mu_I^4 
+        \left\{
+            2 \sin^2{\alpha}
+            \left[
+                \frac{\pi_1}{f}\sin{2\alpha}
+            \right]
+        \right\}
+    \bigg) \\
+    % term 13 pi
+    & +
+    \frac{l_3 + h_1 - h_3 }{16}
+    \bigg(
+        (8 B_0 \bar m)^2
+        \left[
+            - \frac{\pi_1}{f} \sin{2\alpha}
+        \right]    
+    \bigg)
+    %%%%%%%%
+    + \frac{l_4}{4}
+    \bigg(
+        8 B_0 \bar m
+        \Bigg\{
+            % term 16 pi
+            4 \mu_I 
+            \left[
+                \frac{\partial_0 \pi_2}{2 f} \sin{2\alpha}
+            \right]
+            + \mu_I{}^2
+            \left[
+                % term 19 pi
+                - 2 \frac{\pi_1}{f} \sin{\alpha}
+                \left(3\sin^2{\alpha} - 1\right)
+            \right]
+        \Bigg\}
+    \bigg) 
+    \\
+    & -
+    \frac{h_1 - h_3 - l_4}{8}
+    \bigg(
+        16 B_0^2 \bar m^2
+        \left(
+            % term 24 pi
+            - 2\frac{\pi_1}{f} \sin{2\alpha}
+        \right)
+    \bigg) \\
+    & = 
+    % term 2 pi
+    (l_1 + l_2)
+    \bigg(
+        4 \mu_I^3 
+        \frac{\partial_0 \pi_2}{f}\sin^3{\alpha}
+    % term 5 pi
+    + \mu_I^4 
+    2 \sin^2{\alpha} \frac{\pi_1}{f}\sin{2\alpha}
+    \bigg)
+    \\
+    % term 13 pi
+    & -
+    (l_3 + h_1 - h_3 )
+    (2 B_0 \bar m)^2
+    \frac{\pi_1}{f} \sin{2\alpha}
+    %%%%%%%%
+    + l_4
+    2 B_0 \bar m
+    \Bigg\{
+        % term 16 pi
+        4 \mu_I 
+        \left[
+            \frac{\partial_0 \pi_2}{2 f} \sin{2\alpha}
+        \right]
+        - 2 \mu_I{}^2
+        % term 19 pi
+            \frac{\pi_1}{f} \sin{\alpha}
+        \left(3\sin^2{\alpha} - 1\right)
+    \Bigg\}    
+    \\
+    & +
+    (h_1 - h_3 - l_4)(2B_0 \bar m)^2 
+    % term 24 pi
+    \frac{\pi_1}{f} \sin{2\alpha} 
+    \\
+    & = 
+    % term 2 pi
+    (l_1 + l_2)
+    \frac{1}{f}
+    \left(
+        4 \mu_I^3 
+        \partial_0 \pi_2 \sin^3{\alpha}
+    % term 5 pi
+    + \mu_I^4 
+    2 \sin^2{\alpha} \pi_1 \sin{2\alpha}
+    \right)
+    % term 13 pi
+    -
+    (l_3 + l_4)
+    \frac{1}{f}
+    (2 B_0 \bar m)^2
+    \pi_1 \sin{2\alpha}
+    %%%%%%%% 
+    \\
+    & + l_4
+    2 B_0 \bar m
+    \frac{1}{f}
+    \left[
+        % term 16 pi
+        2 \mu_I 
+        \partial_0 \pi_2 \sin{2\alpha}
+        - 2 \mu_I{}^2
+        % term 19 pi
+        \pi_1 \sin{\alpha}
+        \left(3\sin^2{\alpha} - 1\right)
+    \right]
+    \\
+    %
+    %
+    % second order
+    %
+    %
+    \Ell_4^{(2)} & = 
+    \frac{l_1}{4} 
+    \bigg(
+        % term 1 pi^2
+        \frac{8 \mu_I^2}{f^2} 
+        (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+        \sin^2{\alpha}
+        % term 3 pi^2
+        + 16 \mu_I^3 
+        \left[
+            \left(
+                3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1
+            \right)
+                \cos{\alpha} \sin^2{\alpha}
+        \right] \\
+        % term 6 pi^2
+        & + 4 \mu_I^4 
+        \left\{
+            2 \sin^2{\alpha}
+            \left[
+                \frac{\pi_a \pi_b}{f^2}        
+                \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+            \right]
+        \right\}
+    \bigg)
+    % 
+    \\
+    & + \frac{l_2}{4} 
+    \bigg(
+        \frac{4 \mu_I{}^2}{f^2}
+        % term 7 pi^2
+        \left(
+            \partial_0 \pi_a\partial_0 \pi_a 
+            + \partial_0 \pi_2\partial_0 \pi_2 
+            + \partial_\mu \pi_2\partial^\mu \pi_2
+        \right) 
+        \sin^2{\alpha}
+        + 
+        % term 9 pi^2
+        16 \mu_I^3 
+        \left[
+            \frac{1}{f^2} \left(3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1\right)
+            \cos{\alpha} \sin^2{\alpha}
+        \right] \\
+        % term 11 pi^2
+        & + 4 \mu_I^4 
+        \left\{
+            2 \sin^2{\alpha}
+            \left[
+                + \frac{\pi_a \pi_b}{f^2}
+                \left(k_{ab} + 2 \delta_{a1}\delta_{a2} \cos^2{\alpha} \right)
+            \right]
+        \right\}
+    \bigg) \\
+    & +
+    \frac{l_3 + h_1 - h_3 }{16}
+    \bigg(
+        (8 B_0 \bar m)^2
+        \left[
+            % term 14 pi^2
+            + \frac{1}{f^2}\left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+        \right]    
+    \bigg)
+    \\
+    &
+    + \frac{l_4}{4}
+    \bigg(
+        8 B_0 \bar m
+        \Bigg\{
+            % term 15 pi^2
+            2 \frac{\partial_\mu \pi_a \partial^\mu \pi_a}{f^2} \cos{\alpha}
+            + 4 \mu_I 
+            \left[
+                % term 17 pi^2
+                + \frac{1}{f^2}
+                \left(
+                    \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+                    - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+                \right)
+            \right]\\
+            & + \mu_I{}^2
+            \left[
+                % term 20 pi^2
+                + \frac{1}{f^2}
+                \left(                
+                    \pi_1^2[2 - 9 \sin^2{\alpha}]
+                    + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+                    - 3\pi_3^2\sin^2{\alpha}
+                \right)
+                \cos{\alpha}
+            \right]
+        \Bigg\}    
+    \bigg) \\
+    & 
+    % term 21 pi^2
+    + \frac{h_1 - h_3 - l_4-l_7}{16} 
+    \bigg(
+        - 16 \left( \frac{2 \Delta m B_0 \pi_3}{f} \right)^2
+    \bigg) \\
+    & -
+    \frac{h_1 - h_3 - l_4}{8}
+    \bigg(
+        16 B_0^2 \bar m^2
+        \left(
+            % term 25 pi^2
+            - 2\frac{\pi_a \pi_a}{f^2} \cos^2{\alpha}
+            % term 26 pi^2
+            + 2\frac{\pi_1^2}{f^2} \sin^2{\alpha}
+        \right)
+        + 16 B_0^2 \Delta m^2
+        \left(
+            % term 28 pi^2
+            - 2\frac{ \pi_3^2}{f^2}
+        \right)    
+    \bigg)
+    \\
+    & = 
+    %%%%%%%%%%%%
+    %%%%%%%%%%%%
+    %%%%%%%%%%%%
+    l_1
+    \frac{2 \mu_I^2}{f^2}
+        (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+        \sin^2{\alpha}
+    + l_2 
+    \frac{4 \mu_I{}^2}{f^2}
+    % term 7 pi^2
+    \left(
+        \partial_0 \pi_a\partial_0 \pi_a 
+        + \partial_0 \pi_2\partial_0 \pi_2
+        + \partial_\mu \pi_2 \partial^\mu \pi_2 
+    \right) 
+    \sin^2{\alpha}
+    \\
+    & + 
+    \frac{l_1 + l_2}{f^2}
+    \left[>
+        % term 3 pi^2
+        4 \mu_I^3 
+        \left( 3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1 \right)
+        \cos{\alpha} \sin^2{\alpha}
+        % term 6 pi^2
+        + 2 \mu_I^4  \sin^2{\alpha} \, \pi_a \pi_b 
+            \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+    \right]
+    % 
+    \\
+    & +
+    \frac{l_3 + l_4}{f^2}
+    (2 B_0 \bar m)^2
+    % term 14 pi^2
+    \left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+    % \\
+    % &
+    +  \frac{l_4}{f^2}
+    2 B_0 \bar m
+    \bigg[
+    % term 15 pi^2
+    2 \partial_\mu \pi_a \partial^\mu \pi_a \cos{\alpha}
+    + 4 \mu_I 
+    % term 17 pi^2
+    \left(
+        \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+        - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+    \right)
+    \\
+    & 
+    + \mu_I{}^2
+    % term 20 pi^2
+    \left(                
+        \pi_1^2[2 - 9 \sin^2{\alpha}]
+        + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+        - 3\pi_3^2\sin^2{\alpha}
+    \right)
+    \cos{\alpha}
+    \bigg]
+    % \\
+    % & 
+    % term 21 pi^2
+    + \frac{l_7}{f^2}
+    \left( 2 \Delta m B_0 \right)^2 \pi_3^2
+\end{align*}
+
 
 \end{document}

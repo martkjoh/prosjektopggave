@@ -12,9 +12,9 @@ The next to leading order Lagrangian density is, assuming no external fields
     \frac{l_3 + h_1 - h_3 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
     \\ \notag
     &
-    + \frac{l_4}{4}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
     + \frac{h_1 - h_3 - l_4-l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
-    + \frac{h_1 + h_2 - l_4}{4} \Tr{\chi \chi^\dagger} \\
+    + \frac{h_1 + h_3 - l_4}{4} \Tr{\chi \chi^\dagger} \\
     & -
     \frac{h_1 - h_3 - l_4}{8} 
         \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
@@ -222,7 +222,7 @@ Combining these results gives all the terms in $\Ell_4$, to $\Oh[3]{(\pi/f)}$:
         \left[
             2\cos{\alpha}\sin^2{\alpha} 
             - 2 \frac{\pi_1}{f} \sin{\alpha}
-            \left(3\sin^2{\alpha} - 1\right)
+            \left(2 - 3\sin^2{\alpha}\right)
             + \frac{1}{f^2}
             \left(                
                 \pi_1^2[2 - 9 \sin^2{\alpha}]
@@ -275,3 +275,123 @@ Combining these results gives all the terms in $\Ell_4$, to $\Oh[3]{(\pi/f)}$:
 \end{align}
 
 \endgroup
+
+The different terms of the NLO Lagrangian is
+\begin{align*}
+    \Ell_4^{(0)} & =
+    %
+    %
+    % zeroth order
+    %
+    %
+    (l_1 + l_2)\mu_I^4 \sin^4{\alpha}
+    + (l_3 + l_4)(2 B_0 \bar m)^2 \cos^2{\alpha}
+    + l_4 (2 B_0 \bar m ) \mu_I{}^2 \cos{\alpha} \sin^2{\alpha}
+    - l_4 (2B_0 \bar m )^2
+    + h_1 (2B_0 \bar m)^2
+    + h_3 (2B_0 \Delta m)^2
+    \\
+    %
+    %
+    % first order
+    %
+    %
+    \Ell_4^{(1)} & =
+    \frac{l_1 + l_2}{f}
+    \left(
+        4 \mu_I^3 
+        \partial_0 \pi_2 \sin^3{\alpha}
+        % term 5 pi
+        + \mu_I^4 
+        2 \sin^2{\alpha} \pi_1 \sin{2\alpha}
+    \right)
+    % term 13 pi
+    -
+    \frac{l_3 + l_4}{f}
+    (2 B_0 \bar m)^2
+    \pi_1 \sin{2\alpha}
+    %%%%%%%% 
+    \\
+    & 
+    +
+    2 B_0 \bar m
+    \frac{l_4}{f}
+    \left[
+        % term 16 pi
+        2 \mu_I 
+        \partial_0 \pi_2 \sin{2\alpha}
+        - 2 \mu_I{}^2
+        % term 19 pi
+        \pi_1 \sin{\alpha}
+        \left(3\sin^2{\alpha} - 2\right)
+    \right]
+    \\
+    %
+    %
+    % second order
+    %
+    %
+    \Ell_4^{(2)} & = 
+    l_1
+    \frac{2 \mu_I^2}{f^2}
+        (\partial_\mu \pi_a \partial^\mu \pi_a + 2 \partial_\mu \pi_2 \partial^\mu \pi_2)
+        \sin^2{\alpha}
+    + l_2 
+    \frac{4 \mu_I{}^2}{f^2}
+    % term 7 pi^2
+    \left(
+        \partial_0 \pi_a\partial_0 \pi_a 
+        + \partial_0 \pi_2\partial_0 \pi_2
+        + \partial_\mu \pi_2 \partial^\mu \pi_2 
+    \right) 
+    \sin^2{\alpha}
+    \\
+    & + 
+    \frac{l_1 + l_2}{f^2}
+    \left[
+        % term 3 pi^2
+        4 \mu_I^3 
+        \left( 3 \pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1 \right)
+        \cos{\alpha} \sin^2{\alpha}
+        % term 6 pi^2
+        + 2 \mu_I^4  \sin^2{\alpha} \, \pi_a \pi_b 
+            \left(k_{ab} + 2\delta_{a1}\delta_{a2}\cos^2{\alpha} \right)
+    \right]
+    % 
+    \\
+    & +
+    \frac{l_3 + l_4}{f^2}
+    (2 B_0 \bar m)^2
+    % term 14 pi^2
+    \left(\pi_1^2 \sin^2{\alpha} - \pi_a \pi_a \cos^2{\alpha}\right)
+    % \\
+    % &
+    +  \frac{l_4}{f^2}
+    2 B_0 \bar m
+    \bigg[
+    % term 15 pi^2
+    2 \partial_\mu \pi_a \partial^\mu \pi_a \cos{\alpha}
+    + 4 \mu_I 
+    % term 17 pi^2
+    \left(
+        \pi_1 \partial_0 \pi_2 \cos{2\alpha}
+        - \pi_2 \partial_0 \pi_1\cos^2{\alpha}
+    \right)
+    \\
+    & 
+    + \mu_I{}^2
+    % term 20 pi^2
+    \left(                
+        \pi_1^2[2 - 9 \sin^2{\alpha}]
+        + \pi_2^2 [2 - 3 \sin^2{\alpha}]
+        - 3\pi_3^2\sin^2{\alpha}
+    \right)
+    \cos{\alpha}
+    \bigg]
+    % \\
+    % & 
+    % term 21 pi^2
+    + \frac{l_7}{f^2}
+    \left( 2 \Delta m B_0 \right)^2 \pi_3^2
+\end{align*}
+
