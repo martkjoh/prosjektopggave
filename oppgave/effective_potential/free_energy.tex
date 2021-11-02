@@ -1,96 +1,56 @@
 \subsection{Free energy of the pions}
-In this section, we calculate the leading order and next-to-leading order contribution to the free energy of the pions.
-We follow the procedure used in \cite{mojahed, Andersen:two-flavor-chpt}.
-The free energy is
+The equation of state (EOS) dictates the thermodynamic properties of a system.
+In this section, we will calculate the equation of state of the pions by calculating their free energy.
+We use the effective Lagrangian found in \autoref{serction:effective_pion_lagrangian} to find the leading-order contribution to one loop, and the next-to-leading order contribution at tree level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.
+\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
+The free energy density at zero temperature is given by
 \begin{equation}
-    \Omega = i \ln Z,
+    \Ef = \frac{i}{VT} \ln Z,
 \end{equation}
-where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}.
-$\pi_a$ parametrizes fluctuations around the ground state, which means that its expectation value must vanish, i.e. $\ex{\pi_a(x)}_{J=0} = 0$.
-With the constant expectation value for $\pi_a(x)$, we can use the result from \autoref{section: effective action} to write
+where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}, and $VT$ is the volume of space-time.
+This equals the effective potential in the ground state, which we found an explicit formula for in \autoref{section: effective action}, \cref{effective potential}.
+We write $\Ef = \Ef^{(0)} + \Ef^{(1)} + \dots$, where $\Ef^{(n)}$ refers to the n-loop contributions to the free energy density.
+The tree-level contribution $\Ef^{(0)}$ is the classical potential, which is given by the static ($\pi$-independent) part of the Lagrangian.
+From \cref{L0} we have the leading order contribution,
 \begin{equation}
-    \Omega = -W[J=0] = V T \, \Veff(0).
-\end{equation}
-The first order approximation of the effective potential, which is given by the classical action of a constant field.
-In this case it is given by the static ($\pi$-independent) part of the Lagrangian, $S[\pi = 0] = -V T \, \Ell_2^{(0)}$.
-From \autoref{L0} we have
-\begin{equation}
-    - \Ell_2^{(0)} = 
+    \Ef_2^{(0)}
+    = - \Ell_2^{(0)} 
+    = 
     -f^2   
     \left(
         2B_0m \cos{\alpha}
         + \frac{1}{2} \mu^2 \sin^2{\alpha}
     \right).
 \end{equation}
-The value of $\alpha$ is found by minimizing the free energy,
+$\alpha$ parameterize the ground state, which means that it's value must minimize the free energy,
 \begin{align*}
-    -&\dv{\alpha} \Ell_2^{(0)} 
-    = - f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
+    &\dv{\alpha} \Ef_2^{(0)} 
+    = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
     = 0.
 \end{align*}
 This gives the criterion
 \begin{align}
+    \label{leading order minization}
     \alpha \in \{0, \pi\} \quad
     \mathrm{or} \quad
     \cos{\alpha} = \frac{2B_0m}{\mu_I{}^2}.
 \end{align}
-In our discussion of effective action and effective potential, we saw that a constant expectation value such as $\pi_a = 0$ fulfill the equation of motion
-\begin{equation}
-    \fdiff{\Gamma}{\pi_a(x)}\bigg|_{\pi=0}
-    = - V T \pdv{\Veff}{\pi_a}\bigg|_{\pi=0} = 0.
-\end{equation}
-As the first approximation to the effective action is the classical action, this equation becomes
-\begin{equation}
-    \pdv{\Ve^{(1)}}{\pi_a} \bigg|_{\pi_a=0} = 0,
-\end{equation}
-where $\Ve^{(1)}$ is the linear part of the potential. 
-From \autoref{L1}, $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which shows that the minimization criterion we found ensures that the equation of motion is obeyed.
+In our discussion of the effective potential we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
+This means that the linear part of the classical potential should vanish.
+The linear part of the classical potential is given by \autoref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which vanishes given \cref{leading order minization}.
 
-Using the functional Taylor-expansion, as described in \autoref{section:Functional derivative}, we may expand the action of the pions around the ground state $\pi_a^=0$
+The one loop contribution to the free energy density is
 \begin{equation}
-    S[\pi_a]
-    = 
-    S[0] 
-    + \int \dd^4 x \, \pi_a(x)  \frac{\delta S[\pi]}{\delta \pi_a(x)} \bigg|_{\pi=0}
-    + \int \dd^4 x \dd^4 y \, \pi_a(x) \pi_b(y)
-    % \frac{\delta^2 S[\pi_a]}{\delta \pi_a(x) \delta \pi_a(y)} 
-    \fdiff{S[\pi]}{\pi_a(x), \pi_b(y)}
-    \bigg|_{\pi=0}
-    + \Oh[3]{(\pi/f)}.
+    \label{one loop free energy}
+    \Ef^{(1)}
+    = - \frac{i}{V T} \frac{1}{2}
+    \Tr{\ln\left( -\fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)} \right)}.
 \end{equation}
-The second term in this expansion vanishes as shown earlier.
-Inserting this expansion into the partition function we get
+This can be evaluated using the rules for functional differentiation given in \autoref{section:Functional derivative}.
+To leading order, 
 \begin{align}
-    \nonumber
-    \ln(Z) 
-    &= \ln\left[ \int \D \pi \, e^{i S[\pi]} \right] \\
-    & = i S[0] 
-    + \ln\left[
-        \int \D \pi \,
-        \exp(
-            i \int \dd^4 x \dd^4 y \, \pi_a(x) \pi_a(y)
-            \fdiff{S[\pi]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi=0}
-            ) 
-    \right]
-    + \dots,
-\end{align}
-where $\dots$ represent higher order corrections.
-The functional integral in the second terms can be evaluated using the functional version of the Gaussian integral, as described in \autoref{section:gaussian integrals}.
-This results in a free energy
-\begin{equation}
-    \label{Free energy to second order}
-    \Omega 
-    = \Omega_0 + \Omega_ 1 + \dots, \quad 
-    \Omega_0 = -S[0],  \quad
-    \Omega_1 = 
-    -i \frac{1}{2} 
-    \ln{\det\left( -\fdiff{S[\pi]}{\pi_a(x), \pi_b(y)}\bigg|_{\pi=0} \right)}.
-\end{equation}
-
-The first correction, $\Omega_1$, can be evaluated using the rules for functional differentiation given in \autoref{section:Functional derivative}, 
-\begin{align}
-    \fdiff{S[\pi]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi=0}
-    = \frac{\delta^2 }{\delta \varphi(x)\delta \varphi(y)} 
+    \fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)}
+    = \fdiff{}{\pi_a(x), \pi_b(y)}
     \int \dd^4 x \, \Ell^{(2)}_2
     = D^{-1}_x \delta(x - y).
 \end{align}
@@ -102,22 +62,23 @@ Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autor
         -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
     \right] 
 \end{equation}
-The functional determinant in \autoref{Free energy to second order} has a matrix part, due to the three pion indices, as well as a functional part.
+The functional determinant in \autoref{one loop free energy} has a matrix part, due to the three pion indices, as well as a functional part.
 In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields
 \begin{equation}
     \det(- D^{-1}) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
 \end{equation}
+These dispersion relations are functions of the three-momentum $\vec p$, and are given in \cref{dispresion relation pi 0,dispresion relation pi pm}.
 The functional determinant can therefore be evaluated as
 \begin{align}
     \nonumber
-    \ln{\det\left( - \fdiff{S[\pi_a]}{\pi_a(x), \pi_b(y)} \bigg|_{\pi_a=0} \right)}
+    \Tr{\ln\left( -\fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)} \right)}
     & = \ln \det(p_0^2 - E_0^2) + \ln \det(p_0^2 - E_+^2) + \ln \det(p_0^2 - E_-^2) \\
     \nonumber
     & = \Tr{ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2)+  \ln(p_0^2 - E_-^2) } \\
     & = (VT) \int \frac{\dd^4 p}{(2 \pi)^4} 
     \left[ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2) + \ln(p_0^2 - E_-^2)  \right],
 \end{align}
-where we have used the identity $\ln\det(A) = \Tr \ln (A)$.
+where we have used the identity $\ln\det M = \Tr \ln M $.
 These terms all have the form
 \begin{equation}
     I = \int \frac{\dd^4 p}{(2 \pi)^2} \ln(-p_0^2 + E^2),
@@ -155,37 +116,100 @@ we get
 We see that the is what we would expect physically, the total energy is the integral of the energy of each mode.
 This results in 
 \begin{equation}
-    \Omega_1 = 
-    V T \, \frac{1}{2} 
+    \Ef^{(1)} = 
+    \frac{1}{2} 
     \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_-)\right]
-    = \Omega_{1, \pi_0} + \Omega_{1, \pi_\pm} + \Omega_{1, \pi_-}.
+    = \Ef^{(1)}_{\pi_0} +\Ef^{(1)}_{\pi_+} + \Ef^{(1)}_{\pi_-}.
 \end{equation}
-The first integral is identical to what we find for a free field in \autoref{section:free scalar field}.
-In the $\overline{\mathrm{MS}}$-scheme,
+The first integral is identical to what we find for a free field in \autoref{section:free scalar field}, in the low temperature limit $\beta \rightarrow \infty$.
+These terms are all divergent, and must be regulated. 
+We will use dimensional regularization, in which the integral is generalized to $d$ dimensions, and the $\overline{\mathrm{MS}}$-scheme, as described in \autoref{section: regualting free energy}.
+Using the result for a free field \cref{free field regularized energy}, we get
 \begin{equation}
-    \Omega_{1, \pi_0} 
+    \Ef^{(1)}_{\pi_0} 
     = 
-    - VT \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
-    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right] + \mathcal{O}(\epsilon),
+    - \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
+    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right] + \mathcal{O}(\epsilon).
 \end{equation}
-as calculated in \autoref{section: regualting free energy}.
-$\mu$ is the renormalization scale, which is introduced to make dimensional regularization well-defined.
-The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is more complicated.
-By expanding $E_+ + E_-$, as given in \autoref{dispresion relation pi pm}, in powers of $1 / \abs{\vv{p}}$, we get 
+$\mu$ is the renormalization scale, which is introduced ensure that the integral has the same physical dimension for $d \neq 3$.
+
+The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is more complicated, as the dispersion relation is given by
 \begin{equation}
+    E_\pm
+    = 
+    \sqrt{
+        |\vv p|^2 +
+        \frac{1}{2}
+        \left(
+            m_1^2 + m_2^2 + m_{12}^2 
+        \right)
+        \pm 
+        \frac{1}{2}
+        \sqrt{
+            4|\vv p|^2m_{12}^2 
+            +
+            \left(
+                m_1^2 + m_2^2 + m_{12}^2
+            \right)^2
+            - 4 m_1^2 m_2^2
+        }
+    }.
+\end{equation}
+This is not an integral we can easily do in dimensional regularization.
+Instead, we will seek a function $f(\vv p)$ with the same UV-behavior, that is behavior for large $\vv p$, as $E_+ + E_-$.
+If we then add $0 = f(\vv p) - f(\vv p)$ to the integrand, we can isolate the divergent behavior
+\begin{equation}
+    \Ef_{\pi_\pm}^{(1)}
+    = 
+    \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} [E_+ + E_- + f(\vv p) - f(\vv p)]
+    = \Ef^{(1)}_{\mathrm{fin}, \pi_\pm } + \Ef^{(1)}_{\mathrm{div}, \pi_\pm}.
+\end{equation}
+This results in a finite integral, 
+\begin{equation}
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm } = \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} [E_+ + E_- - f(\vv p)],
+\end{equation}
+and isolate the divergence to
+\begin{equation}
+    \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
+    = 
+    \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} f(\vv p),
+\end{equation}
+which we hopefully will be able to do in dimensional regularization.
+We can explore the UV-behavior of $E_+ + E_-$ by expanding it in powers of $1 / \abs{\vv{p}}$,
+\begin{align}
+    \nonumber
     E_+ + E_-
-    = 2  \abs{\vv{p}}
-    + [m_{12} + 2(m_1^2 + m_2^2)]\frac{1}{4 \abs{\vv{p}}}
-    - \left[ m_{12}^4 + 4 m_{12}^2(m_1^2 + m_2^2) + 8(m_1^4 + m_2^4) \right] \frac{1}{64 \abs{\vv{p}}^3}
+    & = 
+    2  \abs{\vv{p}}
+    + \frac{m_{12} + 2(m_1^2 + m_2^2)}{4} \, {\abs{\vv{p}}}^{-1}
+    - \frac{m_{12}^4 + 4 m_{12}^2(m_1^2 + m_2^2) + 8(m_1^4 + m_2^4)}{64}
+    {\abs{\vv{p}}}^{-3}
+    + \Oh[-5]{ \abs{\vv{p}}} 
+    \\
+    & = 
+    a_1  \abs{\vv{p}}
+    + a_2 \, {\abs{\vv{p}}}^{-1}
+    + a_3
+    {\abs{\vv{p}}}^{-3}
     + \Oh[-5]{ \abs{\vv{p}}}.
-\end{equation}
-The higher-order terms result in a convergent integral.
-$E_+ + E_-$ has the same UV-behavior as $E_1 + E_2$, i.e. they differ by  $\Oh[-5]{|\vv p|}$, where $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$. 
-The divergent part of the free energy of the $\pi_\pm$-particles is therefore, using the $\mathrm{\overline{MS}}$-scheme, 
+\end{align}
+We have defined the new constants $a_i$ for brevity of notation.
+This is the divergent part of the integral, so $f(\vv p)$ must match this expansion to and including $\Oh[-3]{|\vv{p}|}$ for $\Ef^{(1)}_{\mathrm{fin}, \pi_\pm }$ to be finite.
+The most obvious choice for $f$ is
 \begin{equation}
-    \Omega^{\mathrm{div}}_{1, \pi_+} + \Omega^{\mathrm{div}}_{1, \pi_-}
+    f(\vv p) 
+    = a_1  \abs{\vv{p}} + a_2 \, {\abs{\vv{p}}}^{-1} + a_3 \, {\abs{\vv{p}}}^{-3}.
+\end{equation}
+(TODO: HVORFOR IKKE BRUKE DETTE; IR DIVERGENS)
+
+We will instead regularize this integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
+$E_1 + E_2$ then has the same UV-behavior as $E_+ + E_-$, as they differ by $\Oh[-5]{|\vv p|}$.
+This results in another integral of the same for as in the case of the free scalar.
+The divergent part of the free energy density of the $\pi_\pm$-particles is therefore, in the $\mathrm{\overline{MS}}$-scheme, 
+\begin{equation}
+    \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
     = 
-    - VT \frac{1}{4}
+    - \frac{1}{4}
     \left\{
         \frac{\tilde m_1^4}{(4\pi)^2} 
         \left[
@@ -201,16 +225,17 @@ The divergent part of the free energy of the $\pi_\pm$-particles is therefore, u
 \end{equation}
 We define
 \begin{equation}
-    \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
     = 
-    V T \, \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 + E_2),
+    \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 - E_2),
 \end{equation}
 which is a finite integral.
-The total free energy is thus
+The total free energy density, to one loop and at next-to-leading order, is thus
 \begin{equation}
-    \Omega = \Omega_0 
-    + \Omega_{1, \pi_0} 
-    + \Omega^{\mathrm{div}}_{1, \pi_+} + \Omega^{\mathrm{div}}_{1, \pi_-}
-    + \Omega^{\mathrm{fin}}_{1, \pi_+} + \Omega^{\mathrm{fin}}_{1, \pi_-}
+    \Ef = 
+    \Ef^{(0)}
+    + \Ef^{(1)}_{\pi_0} 
+    + \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
+    + \Ef^{(1)}_{\mathrm{div}, \pi_\pm}
     + \dots.
 \end{equation}

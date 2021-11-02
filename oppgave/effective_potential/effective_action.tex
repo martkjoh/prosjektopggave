@@ -1,4 +1,4 @@
-\subsection{The 1PI effective action}
+\subsection{The 1PI effective action and the effective potential}
 \label{section: effective action}
 The generating functional for connected diagrams, $W[J]$, is dependent on the external source current $J$.
 Analogously to what is done in thermodynamics and in Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
@@ -9,6 +9,7 @@ The new independent variable is
 The subscript $J$ on the expectation value indicate that it is evaluated in the presence of a source.
 The Legendre transformation of $W$ is then
 \begin{equation}
+    \label{1PI effective action}
     \Gamma[\varphi_J]
     = W[J] - \int \dd^4 x \, J(x) \varphi_J(x).
 \end{equation}
@@ -87,3 +88,74 @@ Assuming this configuration is independent of $x$, we can write
 \end{equation}
 where $\Ve_{\mathrm{eff}}$ is the effective potential.
 $VT$ is the volume of space-time.
+
+To calculate the effective potential, we can expand the action around this ground state to calculate the effective action,
+by changing variables to $\varphi(x) = \varphi_0 + \eta(x)$.
+$\eta(x)$ now parametrizes fluctuations around the ground state, and has by assumption a vanishing expectation value.
+The generating functional becomes
+\begin{align}
+    Z[J] 
+    = \int \D (\varphi_0 + \eta) \, 
+    \exp{i S[\varphi_0 + \eta] + i \int \dd^4 x J (\varphi_0 + \eta) }
+\end{align}
+The notation 
+\begin{equation}
+    \fdiff{S[\varphi_0]}{\varphi(x)}
+\end{equation}
+indicates that the functional $S[\varphi]$ is differentiated with respect to $\varphi(x)$, then evaluated at $\varphi(x) = \varphi_0$.
+The functional version of a Taylor expansion is
+\begin{equation}
+    S[\varphi_0 + \eta] = 
+    S[\varphi_0]
+    + \int \dd x \fdv{S[\varphi_0]}{\varphi(x)} \eta(x)
+    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi_0]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
+    + \dots
+\end{equation}
+Inserting this into $Z[J]$ we get
+\begin{align*}
+    &Z[J] = \\ 
+    &\int \D \eta  
+    \exp{
+        i \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
+        + i \int \dd^4x \left(  \fdv{S[\varphi_0]}{\varphi(x)} + J(x) \right) \eta(x)
+        + i \frac{1}{2} \int \dd^4 x \dd^4 y \,  
+        \frac{\delta^2 S[\varphi_0]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y) 
+        + \dots
+        }
+\end{align*}
+In the first term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
+The second term gives rise to tadpole diagrams, which alter the expectation value of $\eta(x)$.
+For $J=0$, this expectation value should vanish, so this term can be ignored.
+Furthermore, this means that the ground state must minimize the classical potential,
+\begin{equation}
+    \label{minimize classical potential}
+    \diffp{\Ve(\varphi_0)}{\varphi} = 0.
+\end{equation}
+
+The one loop approximation to the effective potential is given by the Taylor-expansion up to second order.
+This term is a Gaussian integral, and may be evaluated as described in \autoref{section:gaussian integrals},
+\begin{equation}
+    \int \D \eta \, 
+    \exp(
+        i \frac{1}{2} \int \dd^4x \dd^4y\,  
+        \frac{\delta^2 S[\varphi_0]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
+        )
+        = C \det\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)^{-1/2}
+\end{equation}
+The generating functional for connected diagrams, as defined in \cref{generating functional of connected diagrams}, is therefore
+\begin{align}
+    \label{generating functional}
+    W[J] 
+    & = 
+    \int\dd^4 x \, \left(\Ell[\varphi_0] + J \varphi_0\right)
+    +i \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}
+    + \dots,
+\end{align}
+where we have used the identity $\ln \det M = \Tr \ln M$.
+Using the definition of the effective action, \cref{1PI effective action}, we get an explicit formula for the effective potential to 1 loop order,
+\begin{equation}
+    \label{effective potential}
+    \Veff(\varphi_0) = \Ve(\varphi_0) - \frac{i}{VT}  \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)} + \dots.
+\end{equation}
+The first term is the classical, or tree-level, contribution to the effective potential.
+Higher order term are the sum of Feynman diagrams with one or more loop.
