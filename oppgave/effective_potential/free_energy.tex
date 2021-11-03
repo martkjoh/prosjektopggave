@@ -194,33 +194,48 @@ We can explore the UV-behavior of $E_+ + E_-$ by expanding it in powers of $1 / 
     + \Oh[-5]{ \abs{\vv{p}}}.
 \end{align}
 We have defined the new constants $a_i$ for brevity of notation.
-This is the divergent part of the integral, so $f(\vv p)$ must match this expansion to and including $\Oh[-3]{|\vv{p}|}$ for $\Ef^{(1)}_{\mathrm{fin}, \pi_\pm }$ to be finite.
+As
+\begin{equation}
+    \int_{\R^3} \frac{\dd^3 p}{(2 \pi)^3} |\vv p|^{n}
+    = C \int_{0}^\infty \dd |\vv p| \, |\vv p|^{2 + n}
+\end{equation}
+diverges for $n \geq -3$, $f$ need to match the expansion of $E_+ + E_-$ up to and including $\Oh[-3]{|\vv{p}|}$ for $\Ef^{(1)}_{\mathrm{fin}, \pi_\pm }$ to be finite.
 The most obvious choice for $f$ is
 \begin{equation}
     f(\vv p) 
     = a_1  \abs{\vv{p}} + a_2 \, {\abs{\vv{p}}}^{-1} + a_3 \, {\abs{\vv{p}}}^{-3}.
 \end{equation}
-(TODO: HVORFOR IKKE BRUKE DETTE; IR DIVERGENS)
+However, this introduces a new problem.
+$f$ has the same UV-behavior as $E_+ + E_-$, but the last term diverges in the IR, that is for low $|\vv p|$.
+This can be amended by introducing a mass term.
+Let
+\begin{equation}
+    |\vv p|^{-3} 
+    = 
+    \left(\frac{1}{\sqrt{|\vv p|^2}}\right)^3 
+    \longrightarrow 
+    \left(\frac{1}{\sqrt{|\vv p|^2 + m^2}}\right)^3.
+\end{equation}
+For $|\vv p|^2 \gg m^2$, this term is asymptotic to $|\vv p|^{-3}$, thus retaining its UV behavior.
+However, for $|\vv p| \rightarrow 0$, it now approaches $m^{-3}$, so the IR-divergence is gone.
+The cost of this technique is that we have introduced an arbitrary mass parameter.
+Any final result must thus be independent of the value of $m$ to be acceptable.
 
-We will instead regularize this integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
-$E_1 + E_2$ then has the same UV-behavior as $E_+ + E_-$, as they differ by $\Oh[-5]{|\vv p|}$.
-This results in another integral of the same for as in the case of the free scalar.
-The divergent part of the free energy density of the $\pi_\pm$-particles is therefore, in the $\mathrm{\overline{MS}}$-scheme, 
+We will instead regularize the integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
+$f(\vv p) = E_1 + E_2$ then differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$, and is well-behaved in the IR.
+The divergent integral then has the same shape as in the case of a free scalar.
+Thus, in the $\mathrm{\overline{MS}}$-scheme, 
 \begin{equation}
     \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
-    = 
-    - \frac{1}{4}
-    \left\{
-        \frac{\tilde m_1^4}{(4\pi)^2} 
-        \left[
-            \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
-        \right]
-        +
-        \frac{\tilde m_2^4}{(4\pi)^2} 
-        \left[
-            \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_2^2})
-        \right] 
-    \right\} 
+    =
+    - \frac{1}{4} \frac{\tilde m_1^4}{(4\pi)^2} 
+    \left[
+        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
+    \right] 
+    - \frac{1}{4} \frac{\tilde m_2^4}{(4\pi)^2} 
+    \left[
+        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_2^2})
+    \right] 
     + \mathcal{O}(\epsilon).
 \end{equation}
 We define
@@ -230,12 +245,52 @@ We define
     \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 - E_2),
 \end{equation}
 which is a finite integral.
-The total free energy density, to one loop and at next-to-leading order, is thus
-\begin{equation}
-    \Ef = 
-    \Ef^{(0)}
-    + \Ef^{(1)}_{\pi_0} 
+The total one-loop contribution to the free energy density is thus
+\begin{align}
+    \Ef^{(1)}
+    & = 
+    \Ef^{(1)}_{\pi_0} 
     + \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
     + \Ef^{(1)}_{\mathrm{div}, \pi_\pm}
-    + \dots.
-\end{equation}
+    = 
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
+    \\
+    & - \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
+    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right]
+    - \frac{1}{4} \frac{\tilde m_1^4}{(4\pi)^2} 
+    \left[
+        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
+    \right] 
+    - \frac{1}{4} \frac{\tilde m_2^4}{(4\pi)^2} 
+    \left[
+        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_2^2})
+    \right].
+\end{align}
+using
+\begin{align}
+    m_3^2 & = (2 B_0 m) \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
+    \tilde m_1^2 
+    & 
+    = m_1^2 + \mu^2 \cos\alpha^2
+    % = (2 B_0 m) \cos \alpha - \mu_i^2(\cos 2 \alpha - \cos^2 \alpha)
+    = (2 B_0 m) \cos \alpha + \mu_I^2 \sin^2 \alpha
+    = m_3^2 \\
+    \tilde m_2^2 
+    & = m_2^2 + \mu^2 \cos\alpha^2
+    = (2 B_0 m) \cos \alpha, 
+\end{align}
+we get
+\begin{align}
+    \Ef
+    & = 
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm} \\
+    & - \frac{1}{2}{(4\pi)^2} 
+    \left[
+        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{m_3^2 } \right)
+        (m_\pi^4 \cos^2 \alpha + m_\pi^2\mu_I^2 \cos\alpha \sin^2\alpha + \mu_I^4 \sin^4\alpha)
+        +
+        \frac{1}{2}
+        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{\tilde m_2^2} \right)
+        m_\pi^4 \cos^2\alpha
+    \right]
+\end{align}
