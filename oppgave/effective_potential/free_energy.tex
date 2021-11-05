@@ -1,13 +1,12 @@
 \subsection{Free energy of the pions}
 The equation of state (EOS) dictates the thermodynamic properties of a system.
-In this section, we will calculate the equation of state of the pions by calculating their free energy.
-We use the effective Lagrangian found in \autoref{serction:effective_pion_lagrangian} to find the leading-order contribution to one loop, and the next-to-leading order contribution at tree level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.
-\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
+In this section, we will obtain the equation of state of the pions by calculating their free energy.
+We use the effective Lagrangian found in \autoref{serction:effective_pion_lagrangian} to find the leading-order contribution to one loop, and the next-to-leading order contribution at tree level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
 The free energy density at zero temperature is given by
 \begin{equation}
     \Ef = \frac{i}{VT} \ln Z,
 \end{equation}
-where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}, and $VT$ is the volume of space-time.
+where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}, and $VT$ is the+ volume of space-time.
 This equals the effective potential in the ground state, which we found an explicit formula for in \autoref{section: effective action}, \cref{effective potential}.
 We write $\Ef = \Ef^{(0)} + \Ef^{(1)} + \dots$, where $\Ef^{(n)}$ refers to the n-loop contributions to the free energy density.
 The tree-level contribution $\Ef^{(0)}$ is the classical potential, which is given by the static ($\pi$-independent) part of the Lagrangian.
@@ -63,20 +62,20 @@ Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autor
     \right] 
 \end{equation}
 The functional determinant in \autoref{one loop free energy} has a matrix part, due to the three pion indices, as well as a functional part.
-In \autoref{section:propagator} we found the matrix part of  the determinant in momentum space, which we can write using the dispersion relations of the pion fields
+In \autoref{section:propagator} we found the matrix part of the determinant in momentum space, (MOTSATT FORTEGN DER; FIKS) which we can write using the dispersion relations of the pion fields
 \begin{equation}
-    \det(- D^{-1}) = \det(p_0^2 - E_0^2) \det(p_0^2 - E_+^2) \det(p_0^2 - E_-^2).
+    \det(- D^{-1}) = \det(-p_0^2 + E_0^2) \det(-p_0^2 + E_+^2) \det(-p_0^2 + E_-^2).
 \end{equation}
 These dispersion relations are functions of the three-momentum $\vec p$, and are given in \cref{dispresion relation pi 0,dispresion relation pi pm}.
 The functional determinant can therefore be evaluated as
 \begin{align}
     \nonumber
     \Tr{\ln\left( -\fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)} \right)}
-    & = \ln \det(p_0^2 - E_0^2) + \ln \det(p_0^2 - E_+^2) + \ln \det(p_0^2 - E_-^2) \\
+    & = \ln \det(-p_0^2 + E_0^2) + \ln \det(-p_0^2 + E_+^2) + \ln \det(-p_0^2 + E_-^2) \\
     \nonumber
-    & = \Tr{ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2)+  \ln(p_0^2 - E_-^2) } \\
+    & = \Tr{ \ln(-p_0^2 + E_0^2) + \ln(-p_0^2 + E_+^2)+  \ln(-p_0^2 + E_-^2) } \\
     & = (VT) \int \frac{\dd^4 p}{(2 \pi)^4} 
-    \left[ \ln(p_0^2 - E_0^2) + \ln(p_0^2 - E_+^2) + \ln(p_0^2 - E_-^2)  \right],
+    \left[ \ln(-p_0^2 + E_0^2) + \ln(-p_0^2 + E_+^2) + \ln(-p_0^2 + E_-^2)  \right],
 \end{align}
 where we have used the identity $\ln\det M = \Tr \ln M $.
 These terms all have the form
@@ -113,7 +112,8 @@ we get
 \begin{equation}
     I = i \int \frac{\dd^3 p}{(2 \pi)^3} E.
 \end{equation}
-We see that the is what we would expect physically, the total energy is the integral of the energy of each mode.
+We see that the result is what we would expect physically, the total energy is the integral of the energy of each mode.
+This also agrees with the result from \autoref{section:thermal field theory} in low temperature limit $\beta \rightarrow \infty$.
 This results in 
 \begin{equation}
     \Ef^{(1)} = 
@@ -197,7 +197,7 @@ We have defined the new constants $a_i$ for brevity of notation.
 As
 \begin{equation}
     \int_{\R^3} \frac{\dd^3 p}{(2 \pi)^3} |\vv p|^{n}
-    = C \int_{0}^\infty \dd |\vv p| \, |\vv p|^{2 + n}
+    = C \int_{0}^\infty \dd p \, p^{2 + n}
 \end{equation}
 diverges for $n \geq -3$, $f$ need to match the expansion of $E_+ + E_-$ up to and including $\Oh[-3]{|\vv{p}|}$ for $\Ef^{(1)}_{\mathrm{fin}, \pi_\pm }$ to be finite.
 The most obvious choice for $f$ is
@@ -222,7 +222,20 @@ The cost of this technique is that we have introduced an arbitrary mass paramete
 Any final result must thus be independent of the value of $m$ to be acceptable.
 
 We will instead regularize the integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
-$f(\vv p) = E_1 + E_2$ then differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$, and is well-behaved in the IR.
+Using the definition of the mass parameters, \cref{m1,m2,m3,m12}, we get
+\begin{align}
+    m_3^2 & = (2 B_0 m) \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
+    \tilde m_1^2 
+    & 
+    = m_1^2 + \mu^2 \cos\alpha^2
+    % = (2 B_0 m) \cos \alpha - \mu_i^2(\cos 2 \alpha - \cos^2 \alpha)
+    = (2 B_0 m) \cos \alpha + \mu_I^2 \sin^2 \alpha
+    = m_3^2 \\
+    \tilde m_2^2 
+    & = m_2^2 + \mu^2 \cos\alpha^2
+    = (2 B_0 m) \cos \alpha.
+\end{align}
+Finally, we define $f(\vv p) = E_1 + E_2$ which differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$, and is well-behaved in the IR.
 The divergent integral then has the same shape as in the case of a free scalar.
 Thus, in the $\mathrm{\overline{MS}}$-scheme, 
 \begin{equation}
@@ -245,52 +258,18 @@ We define
     \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_- - E_1 - E_2),
 \end{equation}
 which is a finite integral.
-The total one-loop contribution to the free energy density is thus
+The total one-loop contribution is then, using the form of the mass parameters,
 \begin{align}
-    \Ef^{(1)}
+    \Ef^{(2)}
     & = 
-    \Ef^{(1)}_{\pi_0} 
-    + \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
-    + \Ef^{(1)}_{\mathrm{div}, \pi_\pm}
-    = 
-    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
-    \\
-    & - \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
-    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right]
-    - \frac{1}{4} \frac{\tilde m_1^4}{(4\pi)^2} 
-    \left[
-        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
-    \right] 
-    - \frac{1}{4} \frac{\tilde m_2^4}{(4\pi)^2} 
-    \left[
-        \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_2^2})
-    \right].
-\end{align}
-using
-\begin{align}
-    m_3^2 & = (2 B_0 m) \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
-    \tilde m_1^2 
-    & 
-    = m_1^2 + \mu^2 \cos\alpha^2
-    % = (2 B_0 m) \cos \alpha - \mu_i^2(\cos 2 \alpha - \cos^2 \alpha)
-    = (2 B_0 m) \cos \alpha + \mu_I^2 \sin^2 \alpha
-    = m_3^2 \\
-    \tilde m_2^2 
-    & = m_2^2 + \mu^2 \cos\alpha^2
-    = (2 B_0 m) \cos \alpha, 
-\end{align}
-we get
-\begin{align}
-    \Ef
-    & = 
-    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm} \\
-    & - \frac{1}{2}{(4\pi)^2} 
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm} 
+    - \frac{1}{2}\frac{1}{(4\pi)^2}
     \left[
         \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{m_3^2 } \right)
-        (m_\pi^4 \cos^2 \alpha + m_\pi^2\mu_I^2 \cos\alpha \sin^2\alpha + \mu_I^4 \sin^4\alpha)
+        m_3^4
         +
         \frac{1}{2}
         \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{\tilde m_2^2} \right)
-        m_\pi^4 \cos^2\alpha
+        \tilde m_2^4
     \right]
 \end{align}
