@@ -73,10 +73,14 @@ dF_fin = lambda p, mu, alpha: 4 / (4 * pi)**2 * p**2 * func(p, mu, alpha)
 
 # F_fin = lambda mu, alpha: quad(dF_fin, 0, np.inf, args=(mu, alpha))[0]
 # F_fin = lambda mu, alpha: quadrature(dF_fin, 0, 10, args=(mu, alpha), maxiter=200)[0]
-def F_fin(mu, alpha):
-    f = lambda x: dF_fin(x, mu, alpha)
-    F = mpquad(f, [0, np.inf])
-    return np.float(F.real) + 1j * np.float(F.imag)
+
+# def F_fin(mu, alpha):
+#     f = lambda x: dF_fin(x, mu, alpha)
+#     F = mpquad(f, [0, np.inf])
+#     if 1j * np.float(F.imag) != 0:
+#         return np.NaN
+#     return np.float(F.real)
+
 
 # first approx to alpha as a function of mu_I, analytical result
 def alpha_0(mu):

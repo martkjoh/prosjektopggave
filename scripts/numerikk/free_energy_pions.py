@@ -29,7 +29,7 @@ np.save("data/alpha_lo_numerical", a0_list)
 #! FREE ENERGY #
 ################
 
-def gen_F1():
+def gen_F1_surf():
     F1 = np.zeros_like(MU)
     for i, mu in enumerate(mu_list):
         for j, a in enumerate(a_list):
@@ -37,7 +37,7 @@ def gen_F1():
 
     np.save("data/F_0_2", F1)
 
-def gen_F2():
+def gen_F2_surf():
     F2 = np.zeros_like(MU)
     for i, mu in enumerate(mu_list):
         for j, a in enumerate(a_list):
@@ -45,13 +45,19 @@ def gen_F2():
 
     np.save("data/F_0_4", F2)
 
-def gen_F3():
+def gen_F3_surf():
     F3 = np.zeros_like(MU)
     for i, mu in enumerate(mu_list):
         for j, a in enumerate(a_list):
             F3[j, i] = F_fin(mu, a)
 
     np.save("data/F_fin", F3)
+
+def gen_F_afo_mu_lo():
+    """ generates F_0_2 using the lowest order approximation of alpha """
+    a_list = np.load("data/alpha_lo_numerical.npy")
+    F1 = F_0_2(mu_list, a_list)
+    np.save("data/F_0_2_lo_a", F1)
 
 
 ###########################
@@ -73,6 +79,8 @@ for i, mu in enumerate(mu_list):
 
 
 if __name__ == "__main__":
-    # gen_F1()
-    # gen_F2()
-    gen_F3()
+    pass
+    # gen_F1_surf()
+    # gen_F2_surf()
+    # gen_F3_surf()
+    gen_F_afo_mu_lo()
