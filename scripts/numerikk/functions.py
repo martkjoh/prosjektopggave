@@ -1,7 +1,9 @@
 import numpy as np
 from scipy.integrate import quad, quadrature
-from mpmath import quad as mpquad
-from numpy import sin, cos, sqrt, arccos, pi, log
+from sympy import sin, cos, sqrt, pi, log
+from numpy import arccos
+import sympy as sp
+
 from parameters import *
 
 # Mass-parameters
@@ -18,14 +20,14 @@ def Ep_sq(p, mu, alpha):
     M2sq = m2_sq(mu, alpha)
     M12sq = m12(mu, alpha)**2
     M_sq = (M1sq + M2sq + M12sq)
-    return p**2 + 1 / 2 * M_sq + 1/2 * sqrt(4 * p**2 * M12sq + M_sq**2 - 4*M1sq*M2sq)
+    return p**2 + 1 / 2 * M_sq + 1/2 * sqrt((4 * p**2 * M12sq + M_sq**2 - 4*M1sq*M2sq))
     
 def Em_sq(p, mu, alpha):
     M1sq = m1_sq(mu, alpha)
     M2sq = m2_sq(mu, alpha)
     M12sq = m12(mu, alpha)**2
     M_sq = (M1sq + M2sq + M12sq)
-    return p**2 + 1 / 2 * M_sq - 1/2 * sqrt(4 * p**2 * M12sq + M_sq**2 - 4*M1sq*M2sq)
+    return p**2 + 1 / 2 * M_sq - 1/2 * sqrt((4 * p**2 * M12sq + M_sq**2 - 4*M1sq*M2sq))
 
 
 # Tree-level masses. Should equal E(p=0)
@@ -72,19 +74,72 @@ F_0_4 = lambda mu, alpha: - 1/2 * 1 / (4 * pi)**2 * (
 dF_fin = lambda p, mu, alpha: 4 / (4 * pi)**2 * p**2 * func(p, mu, alpha)
 
 # F_fin = lambda mu, alpha: quad(dF_fin, 0, np.inf, args=(mu, alpha))[0]
-# F_fin = lambda mu, alpha: quadrature(dF_fin, 0, 10, args=(mu, alpha), maxiter=200)[0]
-
-# def F_fin(mu, alpha):
-#     f = lambda x: dF_fin(x, mu, alpha)
-#     F = mpquad(f, [0, np.inf])
-#     if 1j * np.float(F.imag) != 0:
-#         return np.NaN
-#     return np.float(F.real)
+F_fin = lambda mu, alpha: quadrature(dF_fin, 0, 10, args=(mu, alpha), maxiter=200)[0]
 
 
 # first approx to alpha as a function of mu_I, analytical result
+
 def alpha_0(mu):
     morethan_mpi = mu**2 > np.ones_like(mu)
     a = np.zeros_like(mu)
     a[morethan_mpi] = arccos((1/mu[morethan_mpi]**2))
     return a
+
+
+# Load physcial quantities + derived quantities
+
+def get_free_energy_surface():
+    FLO = np.load("data/F_0_2.npy")
+    FNLOa = np.load("data/F_0_4.npy")
+    Ffin = np.load("data/F_fin.npy")
+
+    FNLO = FLO + FNLOa + Ffin
+    return FLO, FNLO
+
+def get_alpha_lo():
+    return np.load("data/alpha_lo.npy")
+
+def get_alpha_nlo():
+    return np.load("data/alpha_nlo.npy")
+
+
+def get_free_energy():
+    FLO = np.load("data/F_0_2_lo_a.npy")
+    FNLOa = np.load("data/F_0_4_lo_a.npy")
+    Ffin = np.load("data/F_fin_lo_a.npy")
+    
+    FNLO = FLO + FNLOa + Ffin
+    return FLO, FNLO
+
+
+def get_pressure():
+    FLO, FNLO = get_free_energy()
+    PLO = -(FLO - FLO[0])
+    PNLO = -(FNLO - FNLO[0])
+
+    return PLO, PNLO
+
+
+def get_isospin_density():
+    FLO, FNLO = get_free_energy()
+    d = lambda x: x[2::] - x[:-2:]
+
+    nILO = - d(FLO) / d(mu_list)
+    nINLO = - d(FNLO) / d(mu_list)
+
+    return nILO, nINLO, mu_list[1:-1:]
+
+def get_energy_density():
+    PLO, PNLO = get_pressure()
+    nILO, nINLO, mu = get_isospin_density()
+    ELO = -PLO[1:-1] + nILO * mu
+    ENLO = -PNLO[1:-1] + nINLO * mu
+
+    return ELO, ENLO, mu
+    
+
+
+a = sp.Symbol("a")
+mu = sp.Symbol("mu")
+p = sp.Symbol("p")
+print(func(p, mu, a))
