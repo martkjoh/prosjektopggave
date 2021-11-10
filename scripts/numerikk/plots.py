@@ -4,7 +4,7 @@ from matplotlib import cm
 
 from parameters import *
 from functions import *
-
+from free_energy_pions import *
 
 # Makes the plots pretty
 
@@ -14,7 +14,7 @@ font = {
     'size': 16
 }
 plt.rc('font', **font)
-plt.rc('lines', lw=2)
+plt.rc('lines', lw=1)
 
 
 
@@ -23,9 +23,11 @@ plt.rc('lines', lw=2)
 def plot_alpha():
     a_lo_list = get_alpha_lo()
     a_nlo_list = get_alpha_nlo()
-    print(a_lo_list - a_nlo_list)
-    plt.plot(mu_list, a_lo_list, "k--")
-    plt.plot(mu_list, a_lo_list, "r-.")
+    i = np.where(mu_list>=1)
+    print(mu_list)
+    plt.plot(mu_list[i], a_lo_list[i], "r-")
+    plt.plot(mu_list[i], a_nlo_list[i], "k-.")
+
     plt.savefig("plots/alpha.pdf")
 
 
@@ -33,11 +35,17 @@ def plot_masses():
     fig, ax = plt.subplots()
     mu_list = np.linspace(0, 2.5, 100)
     alpha_list = alpha_0(mu_list)
+    m0 = lambda x, y : sqrt(lambdify((mu, a), m0_sq, "numpy")(x, y))
+    mp = lambda x, y : sqrt(lambdify((mu, a), mp_sq, "numpy")(x, y))
+    mm = lambda x, y : sqrt(lambdify((mu, a), mm_sq, "numpy")(x+0j, y+0j))
 
-    plt.plot(mu_list, sqrt(m0sq(mu_list, alpha_list)))
-    plt.plot(mu_list, sqrt(mp_sq(mu_list, alpha_list)))
-    plt.plot(mu_list, sqrt(mm_sq(mu_list, alpha_list)))
+    assert not np.sum(np.abs(mm(mu_list, alpha_list).imag) > 1e-6)
+    
+    plt.plot(mu_list, m0(mu_list, alpha_list), label=r"$\pi_0$")
+    plt.plot(mu_list, mp(mu_list, alpha_list), label=r"$\pi_+$")
+    plt.plot(mu_list, mm(mu_list, alpha_list).real, label=r"$\pi_-$")
 
+    plt.legend()
     plt.savefig("plots/masses.pdf")
 
 
@@ -46,19 +54,30 @@ def plot_free_energy_surface():
 
     FLO, FNLO = get_free_energy_surface()
     a_lo_list = get_alpha_lo()
-    plt.plot(mu_list, a_lo_list, np.min(FLO), "k--")
 
+    plt.plot(mu_list, a_lo_list, np.min(FLO), "k--")
+    # I = np.argmin(np.abs(A[:, :] - a_lo_list[None, :]), axis=0)
+    plt.plot(mu_list, a_lo_list, F_0_2(mu_list, a_lo_list), "k--")
     ax.plot_surface(MU, A, FLO, cmap=cm.viridis, alpha=0.7)
-    # ax.scatter3D(MU, A, F2)
-    # ax.scatter3D(MU, A, F3)
+
+    ax.azim=-55
+    ax.elev=30
+
+    plt.savefig("plots/free_energy_surface.pdf")
+    
+
+def plot_free_energy_surface_NLO():
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+
+    FLO, FNLO = get_free_energy_surface()
+
+    ax.plot_surface(MU[0:50], A[0:50], FNLO[0:50], cmap=cm.viridis, alpha=0.7)
 
     ax.azim=-60
     ax.elev=30
 
-    plt.savefig("plots/free_energy_surface.pdf")
+    plt.savefig("plots/free_energy_surface_NLO.pdf")
 
-
-# TODO: add NLO contribution, must fix evaluation first
 
 def plot_free_energy():
     fig, ax = plt.subplots()
@@ -120,10 +139,11 @@ def plot_energy_density():
 
 
 
-plot_alpha()
-plot_masses()
+# plot_alpha()
+# plot_masses()
 plot_free_energy_surface()
-plot_free_energy()
-plot_pressure()
-plot_isospin_density()
-plot_energy_density()
+# plot_free_energy_surface_NLO()
+# plot_free_energy()
+# plot_pressure()
+# plot_isospin_density()
+# plot_energy_density()
