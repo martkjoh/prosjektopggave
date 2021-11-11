@@ -79,10 +79,64 @@ This shows that the second functional derivative of the effective action is $iD^
 The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams, with two external vertices.
 More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
-% The expectation value of the ground state field configuration, that is at $J=0$, $\ex{\varphi(x)}_{J=0} = \varphi_0(x)$ obeys the equation of motion
-% \begin{equation}
-%     \frac{\delta \Gamma[\varphi_0]}{\delta \varphi(x)} = 0.
-% \end{equation}
+\subsection*{The effective action and symmetries}
+When we talk about symmetries of a theory, we mean that there is some sort of transformation of the physical state of the system that leaves it unchanged.
+If we take the system of the earth rotating around the sun as an example.
+If we consider two versions of this system, which at time $t$ is related by a rotation, then at all times these two systems will continue to evolve in the same manner, only distinguished by the rotational transformation.
+This is due to the underlying rotational symmetry of the physical system, which is an external symmetry.
+An external symmetry is an active coordinate transformation, such as rotations or translations.
+While an internal symmetry relates degrees of freedom at different space-time points, internal symmetries are from transformations of degrees of freedom at each space-time point independently of what happens at other points.
+
+In classical field theory, the symmetries of the theory is encoded in how the Lagrangian changes due to a transformation of the fields.
+We will consider continuous transformations, which are can in general be written as
+\begin{equation}
+    \varphi(x) \longrightarrow \varphi'(x) = f_t[\varphi](x), \quad t \in [0, 1].
+\end{equation}
+Here, $f_t[\varphi]$ is a functional in $\varphi$, and a smooth function of $t$, with the constraint that $f_0[\varphi] = \varphi$.
+This allows us to look at ``infinitesimal'' transformations,
+\begin{equation}
+    \label{infinitesimal transformation}
+    \varphi'(x) \sim \varphi(x) + \epsilon g[\varphi](x), \quad \epsilon \rightarrow 0.
+\end{equation}
+Here, $g$ is a functional of $\varphi$.
+We will consider global transformation, that is transformations in which the transformation is independent of space and time, in which $g$ is linear in $\varphi$.
+If we consider $N$ fields, $\varphi_i$, we may write
+\begin{equation}
+    \varphi_i'(x) = \varphi_i(x) + \epsilon \, t_{ij} \varphi_j(x).
+\end{equation}
+$t_{ij}$ is called the generator of the transformation.
+A symmetry of the system is then one in which the Lagrangian is unchanged by the transformation, or at most is different by a divergence-term.
+That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
+\begin{equation}
+    \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K[\varphi]^\mu,
+\end{equation}
+where $K[\varphi]^\mu$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ which gives the equations of motion do not vary the fields at infinity.}
+This is a requirement for a symmetry in quantum field theory too.
+However, as physical quantities is given by not just the action of a single state, but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
+If a classical symmetry fails due to the integration measure, it is called an anomaly.
+
+We want to investigate what constraints a symmetry lies on the effective action.
+To that end, assume 
+\begin{equation}
+    \D \varphi'(x) = \D \varphi(x)\,
+    S[\varphi'] = S[\varphi].
+\end{equation}
+In generating functional, such a transformation corresponds to a change of integration variable.
+Using the infinitesimal version of the transformation, we may write
+\begin{align}
+    Z[J] 
+    = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
+    = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
+    \\
+    = Z[J] + i  \epsilon \int \dd^4 x J_i(x) \int \D \varphi \, e^{i S[\varphi]} g_i[\varphi](x),
+\end{align}
+Using \cref{effective equation of motion}, we can write this as
+\begin{equation}
+    \label{effective action symmetry requirement}
+    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \ex{g_i[\varphi]}_J = 0,
+\end{equation}
+
+\subsection*{Effective potental}
 For a constant field configuration $\varphi(x) = \varphi_0$, the effective action, which is a functional, becomes a regular function.
 We define the effective action $\Veff$ by
 \begin{equation}
