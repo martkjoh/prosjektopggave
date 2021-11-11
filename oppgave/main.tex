@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 
 \input{import.tex}
 \input{newcommands.tex}
@@ -41,10 +41,21 @@
 \begin{document}
 \maketitle 
 
+\tableofcontents
+
+\chapter{Theory}
+
+\input{effective_potential/path_integral.tex}
+\input{effective_potential/effective_action.tex}
+\section{Goldstone's theorem}
+\input{CCSW_construction.tex}
+\input{effective_theories.tex}
+
 % % Effective Lagrangian
-\section{Effective Pion Lagrangian}
+\chapter{Effective Pion Lagrangian}
 \label{serction:effective_pion_lagrangian}
-\input{effective_lagrangian/effective_lagrangian.tex}
+\input{effective_lagrangian/QCD.tex}
+\input{chiral_pertubation_theory.tex}
 % Veldig uferdig. Trenger teori om Goldstones theorem
 \input{effective_lagrangian/leading_order_lagrangian.tex}
 % For det meste ferdig
@@ -52,18 +63,16 @@
 % Ikke ferdig. Se på mer senere
 \input{effective_lagrangian/nlo_lagrangian.tex}
 % For det meste ferdig, kanskje skrive eneldige Lagrangian
+\input{effective_potential/propagator.tex}
+
 
 % Effective potential
-\section{Effective Action}
-\input{effective_potential/path_integral.tex}
-\input{effective_potential/effective_action.tex}
-\input{effective_potential/minimizing_energy.tex}
-\input{effective_potential/propagator.tex}
+\chapter{Equation of state for pions}
 \input{effective_potential/free_energy.tex}
 \input{effective_potential/renormalization.tex}
 
 % Thermal field theory
-\section{Thermal Field Theory}
+\chapter{Thermal Field Theory}
 \label{section:thermal field theory}
 \input{thermal_field_theory/imaginary_time.tex}
 \input{thermal_field_theory/free_scalar.tex}
@@ -73,6 +82,8 @@
 \input{thermal_field_theory/fermions.tex}
 % Ha bedre overgang til fermionic path integral
 
+\appendix
+\chapter{Appendices}
 \input{appendix.tex}
 
 \bibliographystyle{unsrt}
