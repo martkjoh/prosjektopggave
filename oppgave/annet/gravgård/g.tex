@@ -1059,6 +1059,94 @@ Calculating the free energy density:
     \bigg].
 \end{align}
 
+\section{Forsøk på CCWZ}
+
+
+Goldstone's theorem tells us that if a theory is invariant under the actions of a group $G$, while the ground state of that theory i.e. the symmetry is broken, then there will appear massless modes.
+The low energy dynamics of the theory will be dominated by these modes, as they can be exited by arbitrarily small perturbation to the ground state.
+If we want to treat the theory perturbatively, then, the original degrees of freedom might not be the best way to treat the theory.
+For example, in QCD, the approximate chiral symmetries are apparent when describing the theory using the quark spinors, $\psi_{i, \alpha}$.
+However, low energy QCD is notoriously non-perturbative, due to the strong coupling of the strong force.
+Thus, we seek a way to be able to expand the theory in powers of the momenta of the Goldstone modes.
+
+For concreteness, consider a theory consisting of $N$ real fields $\varphi_i(x)$.
+The underlying fields of the theory might be complex, or Grassmann-number valued.
+However, in the case of $N$ complex fields, they can be described as $2N$ real fields, and the transformation of real Grassmann-numbers, for our purposes, follows the same rules as real numbers.
+We can then assume that $G$ is a real, compact Lie Group. 
+The action of $g\in G$ can then be represented as a matrix $M_{ij}(g)$ acting on $\varphi_j$, and infinitesimal transformations has the form $M_{ij} = \delta_{ij} + i \epsilon n_{\alpha} t^\alpha_{ij}$.
+Here, $t_{ij}^\alpha$ is the generators of $g$, and a basis for the Lie Group corresponding to $G$, and $n^{\alpha}$ is a normal vector.
+
+Our goal is to remove the Goldstone-modes from the original degrees of freedom, $\varphi_i(x)$, by transforming them into a restricted set $\tilde \varphi_i(x)$.
+The condition that $\tilde \varphi_i$ is 
+\begin{equation}
+    \tilde \varphi_i(x) t^\alpha_{ij} \varphi^*_{j} = 0,
+\end{equation}
+where $\varphi^*$ is the vacuum.
+If $t^\alpha$ is not a broken generator, then this is trivially fulfilled, as $t^\alpha _{ij}\varphi_{j} = 0$.
+Thus, this is one constraint per broken generator. 
+
+Consider now the quantity
+\begin{equation}
+    V_{\varphi}(g) = \varphi_i g_{ij} \varphi^*_j.
+\end{equation}
+This is a continuous bounded function of $g$, as $G$ is compact.
+This means that it has a maximum.
+Given an arbitrary function $\varphi(x)$, there is a function $g(x)$ that maximizes $V$ for each $x$.
+At this maximum, $V$ is stationary, and thus invariant under a small change in $g(x)$, 
+$\delta g(x) = i \epsilon n_\alpha g(x) t^\alpha$.
+Thus,
+\begin{equation}
+    \delta V_{\varphi(x)}(g(x)) = i n_\alpha \epsilon \varphi_i(x) g_{ij}(x) t^\alpha_{jk} \varphi_k = 0.
+\end{equation}
+As $n_\alpha$ is arbitrary, this gives us our transformed field,
+\begin{equation}
+    \tilde \varphi_i(x) = \varphi_j(x) g_{ij}(x)
+\end{equation}
+
+Let $H \subset G$ be the non-broken group left after the broken symmetry.
+If this set is non-empty, then the choice of $g_{ij}(x)$ is highly non-unique.
+This is becuse $h \in H$, $h_{ij} \varphi^*_j = \varphi^*_i$, by definition. 
+Thus, $V_\varphi(gh) = V_\varphi(g)$, and if $g(x)$ maximizes $V_{\varphi(x)}$, so does $g(x)h$.
+We therefore consider $g$ and $gh$ equivalent.
+This is an equivalence relation, in the sens that it is reflective, symmetric and transiative.
+This partitions $G$ into equivalence classes, where all the elements of the right coset,
+\begin{equation}
+    gH = \{g h| \forall h \in H  \}
+\end{equation}
+are equivalent to $g$.
+The set of cosets, called the quotient group $G / H$, is a new group.
+We only need one representative element for each coset, i.e. we have a bijective function from the equivalence classes of $g$ and $G / H$.
+
+% The symmetry transformations $g \in G$ is then represented by a matrix $M(x)$ acting on $\varphi_i$, so a transformed field $\varphi'_i$ is related to the original field $\varphi_i$ through $\varphi_i(x) = M_{ij}(g)\varphi_{j}(x)$, where the summation is implied.
+% An infinitesimal transformation matrix is represented by $M_{ij}(g) = \delta_{ij} + i \epsilon t_{ij}(g) $.
+% $t_{ij}(g)$ is the generators of the transformation $M$.
+% The generators of all elements $g \in G$ form a vector space, called a Lie Algebra.
+
+We now insert $\varphi_i(x)$ into the Lagrangian.
+The original theory was invariant under global transformations $g \in G$.
+This means that any terms in the Lagrangian $f(\varphi)$ that does not depend on derivatives of $\varphi(x)$ only depend on $\tilde \varphi(x)$, as $f(\varphi(x)) = f(\tilde \varphi(x))$.
+The derivative of $\varphi(x)$ is
+\begin{equation}
+    \partial_\mu \varphi(x) = [\partial_\mu \tilde \varphi_i(x) + \tilde \varphi(x) (\partial_\mu g^{-1}(x)) g(x) ]g^{-1}(x),
+\end{equation}
+As terms that depend on the derivatives of $\varphi(x)$ also are invariant under a global transformation, all terms that depend on $g$ will be proportional to at least one derivative of $g(x)$.
+Thus, there will be no mass terms, and all terms can be ordered in terms of powers of the momenta of the Goldstone bosons.
+The field $g(x)$ takes on values in $G / H$, and can therefore be parametrized as 
+\begin{equation}
+    g(x) = \exp{i \xi_a(x) t^a},
+\end{equation}
+where $t^a$ are the generators of $G / H$. 
+These new fields $\xi_a$ are identified with the Goldstone bosons.
+We see that there are one field per broken generator, as $|G/H| = |G| - |H|$.
+These fields might in general transform non-linearly under G.
+We may deduce heir new transformation rule by the fact that we might write any transformation $g' g(\xi(x))$ as an element in $G/H$, which we can write as $g(\xi'(x))$ for some $\xi$, and an element in $H$.
+Thus, a transformation $\varphi(x) \rightarrow g' \varphi(x)$ induces a transfomration $\xi \rightarrow \xi'$ defined by 
+\begin{equation}
+    g' g(\xi) = g(\xi') h(\xi, g)
+\end{equation}
+
+
+
 
 
 \end{document}

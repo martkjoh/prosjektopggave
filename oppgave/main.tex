@@ -37,6 +37,10 @@
 % Referere til integration-appendix for gaussiske integral
 % Alltid bruke cleverref
 
+% Write about and explain the difference between my parameters, l_i, and thos
+% used by Jens. Make sure L_4 is correct.
+% Use only delta m
+
 
 \begin{document}
 \maketitle 
@@ -68,8 +72,11 @@
 
 % Effective potential
 \chapter{Equation of state for pions}
-\input{eos/free_energy.tex}
+\input{eos/free_energy_lo.tex}
 \input{eos/renormalization.tex}
+\input{eos/eos.tex}
+
+\appendix
 
 % Thermal field theory
 \chapter{Thermal Field Theory}
@@ -82,7 +89,6 @@
 \input{thermal_field_theory/fermions.tex}
 % Ha bedre overgang til fermionic path integral
 
-\appendix
 \chapter{Appendices}
 \input{appendix.tex}
 

@@ -66,6 +66,7 @@ For a free theory, the classical action $S$ equals the effective action, as ther
 The propagator $D(x, y)$, which is the connected 2 point function $\ex{\varphi(x)\varphi(y)}_J$, is given by the second functional derivative of $W[J]$, times $-i$.
 Using the chain rule, together with \autoref{effective equation of motion}, we get
 \begin{align}
+    \label{Effective action inverse propagator}
     (-i)\int \dd^4 z \frac{\delta^2 W[J]}{\delta J(x) \delta J(z)} 
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
     =
@@ -80,14 +81,19 @@ The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams
 More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
 \subsection*{The effective action and symmetries}
-When we talk about symmetries of a theory, we mean that there is some sort of transformation of the physical state of the system that leaves it unchanged.
-If we take the system of the earth rotating around the sun as an example.
-If we consider two versions of this system, which at time $t$ is related by a rotation, then at all times these two systems will continue to evolve in the same manner, only distinguished by the rotational transformation.
-This is due to the underlying rotational symmetry of the physical system, which is an external symmetry.
+The symmetries of a theory are transformations of the physical state that leaves the governing equations unchanged.
+A lot of physics is contained in the symmetries of a theory, such as the presence of conserved quantities and the systems low energy behavior.
+% When we talk about symmetries of a theory, we mean that there is some sort of transformation of the physical state of the system that leaves it unchanged.
+% If we take the system of the earth rotating around the sun as an example.
+% If we consider two versions of this system, which at time $t$ is related by a rotation, then at all times these two systems will continue to evolve in the same manner, only distinguished by the rotational transformation.
+% This is due to the underlying rotational symmetry of the physical system, which is an external symmetry.
+We distinguish between internal and external symmetries.
 An external symmetry is an active coordinate transformation, such as rotations or translations.
-While an internal symmetry relates degrees of freedom at different space-time points, internal symmetries are from transformations of degrees of freedom at each space-time point independently of what happens at other points.
+They relate degrees of freedom at different space-time points, while internal symmetry transforms degrees of freedom at each space-time point independently of what happens at other points.
+A further distinction is between local and global symmetry transformations.
+Local transformations have one rule for how to transform degrees of freedom at each point, which is applied everywhere, while local transformations might themselves be functions of space-time.
 
-In classical field theory, the symmetries of the theory is encoded in how the Lagrangian changes due to a transformation of the fields.
+In classical field theory, symmetries are encoded in how the Lagrangian changes due to a transformation of the fields.
 We will consider continuous transformations, which are can in general be written as
 \begin{equation}
     \varphi(x) \longrightarrow \varphi'(x) = f_t[\varphi](x), \quad t \in [0, 1].
@@ -96,49 +102,50 @@ Here, $f_t[\varphi]$ is a functional in $\varphi$, and a smooth function of $t$,
 This allows us to look at ``infinitesimal'' transformations,
 \begin{equation}
     \label{infinitesimal transformation}
-    \varphi'(x) \sim \varphi(x) + \epsilon g[\varphi](x), \quad \epsilon \rightarrow 0.
+    \varphi'(x) = f_\epsilon[\varphi] \sim \varphi(x) + \epsilon g[\varphi](x), \quad \epsilon \rightarrow 0.
 \end{equation}
 Here, $g$ is a functional of $\varphi$.
-We will consider global transformation, that is transformations in which the transformation is independent of space and time, in which $g$ is linear in $\varphi$.
-If we consider $N$ fields, $\varphi_i$, we may write
+We will consider internal, global transformations in which $g$ is linear in $\varphi$.
+For $N$ fields, $\varphi_i$, this can be written
 \begin{equation}
-    \varphi_i'(x) = \varphi_i(x) + \epsilon \, t_{ij} \varphi_j(x).
+    \label{linear field transformation}
+    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x), \quad \epsilon \rightarrow 0.
 \end{equation}
 $t_{ij}$ is called the generator of the transformation.
 A symmetry of the system is then one in which the Lagrangian is unchanged by the transformation, or at most is different by a divergence-term.
 That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
 \begin{equation}
-    \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K[\varphi]^\mu,
+    \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K^\mu[\varphi],
 \end{equation}
-where $K[\varphi]^\mu$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ which gives the equations of motion do not vary the fields at infinity.}
+where $K^\mu[\varphi]$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ which gives the equations of motion do not vary the fields at infinity.}
 This is a requirement for a symmetry in quantum field theory too.
-However, as physical quantities is given by not just the action of a single state, but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
+However, as physical quantities are given by not just the action of a single state, but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
 If a classical symmetry fails due to the integration measure, it is called an anomaly.
 
 We want to investigate what constraints a symmetry lies on the effective action.
 To that end, assume 
 \begin{equation}
-    \D \varphi'(x) = \D \varphi(x)\,
+    \D \varphi'(x) = \D \varphi(x), \quad
     S[\varphi'] = S[\varphi].
 \end{equation}
-In generating functional, such a transformation corresponds to a change of integration variable.
+In the generating functional, such a transformation corresponds to a change of integration variable.
 Using the infinitesimal version of the transformation, we may write
 \begin{align}
     Z[J] 
     = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
     = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
     \\
-    = Z[J] + i  \epsilon \int \dd^4 x J_i(x) \int \D \varphi \, e^{i S[\varphi]} g_i[\varphi](x),
+    = Z[J] -  \epsilon \int \dd^4 x J_i(x) \int \D \varphi \, e^{i S[\varphi]} [t_{ij} \varphi_j(x)],
 \end{align}
 Using \cref{effective equation of motion}, we can write this as
 \begin{equation}
     \label{effective action symmetry requirement}
-    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \ex{g_i[\varphi]}_J = 0,
+    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \, t_{ij}\ex{\varphi_j(x)}_J = 0.
 \end{equation}
 
-\subsection*{Effective potental}
+\subsection*{Effective potential}
 For a constant field configuration $\varphi(x) = \varphi_0$, the effective action, which is a functional, becomes a regular function.
-We define the effective action $\Veff$ by
+We define the effective potential $\Veff$ by
 \begin{equation}
     \label{definition effective potential}
     \Gamma[\varphi_0] = - V T \, \Ve_{\mathrm{eff}}(\varphi_0),

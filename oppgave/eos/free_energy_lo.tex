@@ -1,15 +1,23 @@
-\section{Free energy of the pions}
+\section{Free energy at lowest order}
 
 The equation of state (EOS) dictates the thermodynamic properties of a system.
 In this section, we will obtain the equation of state of the pions by calculating their free energy.
 We use the effective Lagrangian found in \autoref{serction:effective_pion_lagrangian} to find the leading-order contribution to one loop, and the next-to-leading order contribution at tree level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
-The free energy density at zero temperature is given by
+In imaginary time formalism for thermal field theory, which is described in \autoref{section:thermal field theory}, we find that the free energy density is given by 
 \begin{equation}
-    \Ef = \frac{i}{VT} \ln Z,
+    \Ef = - \frac{1}{V \beta} \ln Z.
 \end{equation}
-where $Z = Z[J=0]$ is the vacuum transition amplitude, as described in \autoref{section:path integral}, and $VT$ is the+ volume of space-time.
+Here, $Z$ is the partition function, and $V$ the volume of space.
+In the low temperature limit $\beta \rightarrow \infty$, the partition function is related to vacuum transition amplitude $Z_0 = Z[J=0]$, as described in \autoref{section:path integral}, by a Wick rotation.
+The free energy density at zero temperature is therefore 
+\begin{equation}
+    \Ef = \frac{i}{VT} \ln Z_0,
+\end{equation}
+where $VT$ is the volume of space-time.
 This equals the effective potential in the ground state, which we found an explicit formula for in \autoref{section: effective action}, \cref{effective potential}.
 We write $\Ef = \Ef^{(0)} + \Ef^{(1)} + \dots$, where $\Ef^{(n)}$ refers to the n-loop contributions to the free energy density.
+
+\subsection*{Tree level contribution}
 The tree-level contribution $\Ef^{(0)}$ is the classical potential, which is given by the static ($\pi$-independent) part of the Lagrangian.
 From \cref{L0} we have the leading order contribution,
 \begin{equation}
@@ -22,12 +30,14 @@ From \cref{L0} we have the leading order contribution,
         + \frac{1}{2} \mu^2 \sin^2{\alpha}
     \right).
 \end{equation}
-$\alpha$ parameterize the ground state, which means that it's value must minimize the free energy,
+$\alpha$ parameterize the ground state, which means that it's value must minimize the free energy.
 \begin{align*}
     &\dv{\alpha} \Ef_2^{(0)} 
     = f^2\left(2B_0m - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
     = 0.
 \end{align*}
+This equation defines the relationship between the chemical potential $\mu_I$, and the ground state parameter $\alpha$.
+This is illustrated in 
 This gives the criterion
 \begin{align}
     \label{leading order minization}
@@ -38,7 +48,15 @@ This gives the criterion
 In our discussion of the effective potential we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
 This means that the linear part of the classical potential should vanish.
 The linear part of the classical potential is given by \autoref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - 2B_0m)\sin{\alpha} \, \pi_1 $, which vanishes given \cref{leading order minization}.
+\begin{figure}[ht]
+    \centering
+    % \vspace{-1cm}
+    \includegraphics{figurer/numerics/free_energy_surface_crop.pdf}
+    \caption{The surface gives free energy as a function of $\mu_I$ and $\alpha$. $\alpha$ is the found by minimizing $\Ef$ for a given $\mu_I$. This leads to a curve across the free energy surface, as show in the plot.}
+    \label{fig:free energy surface}
+\end{figure}
 
+\subsection*{One loop contribution}
 The one loop contribution to the free energy density is
 \begin{equation}
     \label{one loop free energy}
@@ -63,7 +81,7 @@ Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autor
     \right] 
 \end{equation}
 The functional determinant in \autoref{one loop free energy} has a matrix part, due to the three pion indices, as well as a functional part.
-In \autoref{section:propagator} we found the matrix part of the determinant in momentum space, (MOTSATT FORTEGN DER; FIKS) which we can write using the dispersion relations of the pion fields
+In \autoref{section:propagator} we found the matrix part of the determinant in momentum space, which we can write using the dispersion relations of the pion fields
 \begin{equation}
     \det(- D^{-1}) = \det(-p_0^2 + E_0^2) \det(-p_0^2 + E_+^2) \det(-p_0^2 + E_-^2).
 \end{equation}
@@ -169,7 +187,7 @@ This results in a finite integral,
 \begin{equation}
     \Ef^{(1)}_{\mathrm{fin}, \pi_\pm } = \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} [E_+ + E_- - f(\vv p)],
 \end{equation}
-and isolate the divergence to
+which we can evaluate numerically, and isolate the divergence to
 \begin{equation}
     \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
     = 
@@ -217,7 +235,7 @@ Let
     \longrightarrow 
     \left(\frac{1}{\sqrt{|\vv p|^2 + m^2}}\right)^3.
 \end{equation}
-For $|\vv p|^2 \gg m^2$, this term is asymptotic to $|\vv p|^{-3}$, thus retaining its UV behavior.
+For $|\vv p|^2 \gg m^2$, this term is asymptotic to $|\vv p|^{-3}$, so it retains its UV behavior.
 However, for $|\vv p| \rightarrow 0$, it now approaches $m^{-3}$, so the IR-divergence is gone.
 The cost of this technique is that we have introduced an arbitrary mass parameter.
 Any final result must thus be independent of the value of $m$ to be acceptable.

@@ -75,7 +75,7 @@ If $n$ is odd, the expression is equal to $0$.
 This is Wick's theorem, and it can more simply be stated as \emph{a correlation function is the sum of all possible pairings of 2-point functions},
 \begin{equation}
     \ex{{\prod}_{i=1}^{n} \varphi(x_i)  }_0
-    = \sum_{\{(a, b)\}}  \prod_{i=1}^n  \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0.
+    = \sum_{\{(a, b)\}}  \prod_{i=1}^{n/2}  \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0.
 \end{equation}
 The subscript on the expectation value indicates that it is evaluated in the free theory.
 
@@ -118,7 +118,7 @@ As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
 \end{align}
 If sub-diagram $i$ as a stand-alone diagram equals $V_i$, then each copy of that subdiagram contribute a factor $V_i$ to the total diagram.
 However, due to the symmetry of permuting identical subdiagrams, one must divide by the extra symmetry factor $s = n_i !$, which is the total number of permutation of all the copies of diagram $i$.
-The value of the total diagram is therefore
+The full diagram therefore equals
 \begin{align}
     \label{Feynman diagrams}
     V

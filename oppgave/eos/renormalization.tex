@@ -1,4 +1,4 @@
-\section{Renormalization}
+\section{Next-to-leading order and renormalization}
 We have now regularized the divergences, so they can be handled in a well-defined way.
 However, they are still there.
 To get rid of them, we need to use renormalization.
@@ -9,7 +9,7 @@ Our one-loop calculation using $\Ell_2$ therefore contains divergences of order 
 Since $\Ell_4$ is, by construction, the most general possible Lagrangian at order $p^4$, it contains coupling constants which can be renormalized to absorb all these divergences.
 
 The renormalized coupling constants in $\Ell_2$ have been calculated for $\mu_I = 0$~\cite{Gasser-Leutwyler:chiral}.
-These are independent of $\mu_I$, and we can therefore use them in this calculation.
+They are independent of $\mu_I$, and we can therefore use them in this calculation.
 The renormalized coupling constants in the $\overline{\mathrm{MS}}$-scheme are related to the bare couplings through
 \begin{align}
     l_i 
@@ -78,8 +78,7 @@ The free energy at tree-level, at next-to-leading order is, according to \cref{N
     - l_4 (2 B_0 \bar m ) \mu_I{}^2 \cos{\alpha} \sin^2{\alpha}
     \\
     & 
-    \quad + l_4 (2B_0 \bar m )^2
-    - h_1 (2B_0 \bar m)^2
+    \quad -(h_1- l_4) (2B_0 \bar m )^2
     - h_3 (2B_0 \Delta m)^2
     % \\
     % & = 
@@ -118,6 +117,8 @@ The free energy at tree-level, at next-to-leading order is, according to \cref{N
         & \quad \quad \quad \quad \quad
         + 2 \left(\bar l_4 - 1\right)
         (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
+        + 2 (\bar l_4 - \bar h_1) (2B_0 \bar m )^2
+        + \bar h_3 (2B_0 \Delta m)^2
         \\
         & \quad \quad \quad \quad \quad
         - 
@@ -126,15 +127,14 @@ The free energy at tree-level, at next-to-leading order is, according to \cref{N
             \mu_I^4\sin^4\alpha + \frac{3}{2} (2 B_0 m)^4 \cos^2 \alpha
             + 2 (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
         \right) 
-        \\
-        & \quad \quad \quad \quad \quad
-        + 2 (\bar l_4 - \bar h_1) (2B_0 \bar m )^2
-        + \bar h_3 (2B_0 \Delta m)^2
+        % \\
+        % & \quad \quad \quad \quad \quad
     \bigg] 
 \end{align*}
-Adding all the contribution to the free energy density, we get
-\begin{align*}
-    \Ef &=
+Adding all the contribution to the free energy density, we get the next-to-leading order free energy,
+\begin{align}
+    \nonumber
+    \Ef_{\mathrm{NLO}} &=
     - f^2 \left((2 B_0 m)^2 \cos \alpha + \frac{1}{2}\mu_I^2 \sin^2 \alpha\right)
     + \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
     - \frac{1}{2}\frac{1}{(4 \pi)^2}
@@ -143,7 +143,7 @@ Adding all the contribution to the free energy density, we get
         \left( 
             \bar l_1 + 2 \bar l_2 + \frac{3}{2} + 3 \ln \frac{M^2}{m_3^2}
         \right) \mu_I^4 \sin^4 \alpha
-        \\ 
+        \\ \nonumber
         &
         +
         \frac{1}{2}
@@ -153,9 +153,23 @@ Adding all the contribution to the free energy density, we get
         \right) (2 B_0 m)^4 \cos^2\alpha 
         + 2 \left(\bar l_4 - \frac{1}{2} + \ln \frac{M^2}{m_3^2}\right)
         (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
-        \\
+        \\ \label{NLO free energy}
         & 
         + 2 (\bar l_4 - \bar h_1) (2B_0 \bar m )^2
         + \bar h_3 (2B_0 \Delta m)^2
     \bigg].
-\end{align*}
+\end{align}
+The next-to-leading order result for $\alpha$ as a function of $\mu_I$ is given by 
+\begin{eqnarray}
+    \diff{\Ef}{\alpha} = 0,
+\end{eqnarray}
+using the result \cref{NLO free energy}.
+In \autoref{fig:alpha}, the NLO result is compared with the LO result, \cref{leading order minization}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figurer/numerics/alpha.pdf}
+    \caption{The leading order and next-to-leading order results for $\alpha$ as a function of $\mu_I$.}
+    \label{fig:alpha}
+\end{figure}
+
