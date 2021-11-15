@@ -1145,6 +1145,42 @@ Thus, a transformation $\varphi(x) \rightarrow g' \varphi(x)$ induces a transfom
     g' g(\xi) = g(\xi') h(\xi, g)
 \end{equation}
 
+\subsection*{More from CCWZ}
+where $\Sigma$ is a function is a function from space-time, $\mathcal{M}_4$ to the symmetry group $G$,
+\begin{equation}
+    \Sigma : \mathcal{M}_4 \longrightarrow G.
+\end{equation}
+$G$ is a connected Lie group, which means we can connect it to the identity by a continuous map $\Sigma_t$, such that $\Sigma_0 = \mathrm{id}$, $\Sigma_1 = \Sigma$.
+$G$ is a $n$ dimensional manifold, which can be parametrized by $n$ real coordinates, $\xi_a$.
+Furthermore, close to the identity we have
+\begin{equation}
+    \Sigma_\epsilon \sim \id + i \epsilon \eta_\alpha T_\alpha, \quad \epsilon \rightarrow 0.
+\end{equation}
+$T_\alpha = \diff{\Sigma}{\xi_\alpha}|_0$ are the generators of the Lie group, and form a Lie algebra $\mathfrak{g}$, with the Lie bracket
+\begin{equation}
+    [T_\alpha, T_\beta] = iC_{\alpha\beta}^\gamma T_\gamma.
+\end{equation}
+$C_{ab}^c$ are called the structure constants of the Lie algebra.
+The generators get their name as any part of a connected Lie group can be written as 
+\begin{equation}
+    g(\eta) = \exp{i\eta_\alpha T_\alpha}.
+\end{equation}
+For matrix groups, the lie bracket is the commutator, and the exponential is defined through the series expansion.
+As $H$ form a subgroup of $G$, it has its own set of $m = \dim H$ generators, $ x_{i}$.
+The remaining set of commutators, $t_{a}$ are the broken generators.
+We can write the commutator as
+\begin{align}
+    [T_\alpha, T_\beta] = i C_{\alpha \beta }^{k} \hat x_k + i C_{\alpha \beta }^c t_c
+\end{align}
+As $H$ is a subgroup, its commutator must form a closed algebra, thus
+\begin{align}
+    [x_i, x_j] &= i C_{i j}^{k} x_k,\\
+    [x_i, t_a] &= i C_{i a}^b t_b, \\
+    [t_a, t_b] &= i C_{ab}^k x_k + i C_{ab}^c t_c.
+\end{align}
+The second line comes from the Jacobi-identity,(DERIVE?) which means that the structure constants $C_{\alpha \beta \gamma}$ are total antisymmetric.
+As $C_{ija} = 0$, we also have that $C_{iaj} = 0$.
+
 
 
 
