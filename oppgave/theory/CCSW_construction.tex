@@ -1,69 +1,151 @@
-\section{CCSW construction}
+\section{CCWZ construction}
 
 As Goldstone bosons are massless, they play a crucial role in the low energy dynamics.
 To best describe this limit, we seek a parametrization of the fields in which they are the degrees of freedom.
+This can be done using the CCWZ construction, named after Callan, Coleman, Wess and Zumino.
+As well as the original papers~\cite{Structure_of_phen_1,Structure_of_phen_2}, this section is based on~\cite{weinberg_1996_vol2,The_composite_NG_Higgs,effective_FT_with_NG_modes} and\footnote{\url{http://scipp.ucsc.edu/~haber/archives/physics251_17/PHYS251_Presentation_L_Morrison}}. (HVORDAN SITERE EN BEAMER?)
+
+
 We saw that the Goldstone bosons corresponds to excitations within the vacuum manifold.
-The vacuum manifold corresponds to points in field space $\varphi$ that can be reach from the vacuum $\varphi_0$ from a transformation $g \in G$.
+The vacuum manifold corresponds to points in field space $\varphi$ that can be reach from the vacuum $\varphi_0$ with a transformation $g \in G$.
 This means that we can write such excitations as
 \begin{equation}
-    \varphi(x) = \tilde\Sigma(x) \varphi_0, \quad \tilde \Sigma(x) = \exp{i \eta_\alpha T_\alpha}
+    \varphi = \tilde\Sigma \varphi_0, \quad \tilde \Sigma = \tilde \Sigma(\eta) = \exp{i \eta_\alpha T_\alpha}
 \end{equation}
-The real functions $\eta_\alpha(x)$ thus parametrizes fluctuations away from the ground state $\varphi_0$ in to the ground state manifold.
+$\tilde \Sigma$ is thus a function from the parameter space, $\eta_\alpha \in \R^n$ to $G$,
+\begin{align}
+    \tilde \Sigma: \R^n \longmapsto G.
+\end{align}
+We then get space-time dependent field configurations by making the parameters dependent on spacetime.
+We will for now assume $\eta_\alpha$ is constant.
 %TODO: Forklar hvorfor vi ikke bryr oss
 % $\varphi(x)$ is not a completely generic field configurations, as it does not account for fluctuations in directions other than those in $G$, but we don't care. (?)
-This parametrization, however, is highly redundant.
+This parametrization is highly redundant.
+There are $n = \dim G$ parameters $\eta$, but Goldstone's theorem says that there is one massless mode per broken generator.
 % We may write any $\Sigma$ as
 % \begin{equation}
 %     \Sigma = \exp{i \xi_a t_a} = \exp{i \tilde \xi_a(\xi) \tilde t_a} \exp{i \hat \xi_a(\xi) \hat t_a}
 % \end{equation}
-Two elements $\tilde\Sigma$ and $\tilde\Sigma'$, related by 
+Two elements $\tilde\Sigma$ and $\tilde\Sigma'$, related by
 \begin{equation}
     \tilde \Sigma' = \tilde\Sigma e^{i \theta_a t_a}
 \end{equation}
 results in the same $\varphi(x)$.
 This is because  $e^{i \theta_a t_a} = h \in H$, and $h \varphi_0 = \varphi_0$, by assumption.
 The set of all equivalent $\Sigma$'s is exactly the left coset, $gH = \setbuilder{gh}{ h \in H}$.
-The set of cosets forms a new manifold, $G / H$, called the Goldstone manifold, and has dimension $\dim(G/H) = \dim(G) - \dim(H)$.
-The cosets $gH$ form a partition of $G$, as it is an equivalence relation. ($g \sim g'$ if $g' = gh$.)
-This means that each element of $G$ belongs to one, and only one, coset.
+The set of cosets forms a new manifold, $G / H$, called the Goldstone manifold, and has dimension $\dim(G/H) = \dim(G) - \dim(H)$, which is exactly the number of broken generators, and thus also the number of Goldstone modes.
+Membership of a certain coset from an equivalence relation, $g \sim g'$ if $g' = gh$.
+This means that the cosets $gH$ form a partition of $G$, and that each element $g \in G$ belongs to one, and only one, coset.
 To remove the redundancy in the parametrization, we need to choose one representative element from each coset.
-A general element, $g \in G$ can be written uniquely as
+
+By the inverse function theorem, any mapping between manifolds $f: \Em \mapsto \mathcal{N}$ that has a non-degenerate differential, that is an invertible Jacobian,  at a point $p \in \Em$, is invertible in a neighborhood of $p$.
+The map
 \begin{equation}
-    g = \exp{i \xi_i x_i} \exp{i \theta_a t_a}.
+    \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a}
 \end{equation}
-(HVORFOR? FORKLAR!)
-We therefore define a map
-\begin{align}
-    f: G/H & \longrightarrow G, \\
-    gH & \longrightarrow \Sigma_g, \\
-    & g = \exp{i \xi_i x_i} \exp{i \theta_a t_a}, \quad \Sigma_g = \exp{i \xi_i x_i}.
-\end{align}
-
-This means that the generic point in field space, $\varphi$, can be written
-\begin{equation*}
-    \varphi = \Sigma \varphi_0, \quad \Sigma \in G/H.
-\end{equation*}
-% The coset is itself a Lie group, and thus also a set of generators $\{\tau_a\}$, which span the corresponding Lie algebra. %! NO!!!
-
+is invertible at $p = (\xi_i = 0, \theta_a = 0)$, which is mapped to the identity, as the Jacobian is the identity matrix.
+This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \Sigma$.~\cite{smooth_manifolds}
+Furthermore, two elements $\Sigma'$ and $\Sigma$ related by $\Sigma' = \Sigma h$, $h \in H$ have the same $\xi$-arguments.
+We see that $\xi_i$ parametrize $G/H$, in the neighborhood of the identity.
+We therefore demand that $\Sigma$ always appear in the standard form
+\begin{equation}
+    \Sigma(\xi) = \exp{i \xi_i x_i}.
+\end{equation}
+The field $\varphi(x)$ can therefore be written as
+\begin{equation}
+    \varphi(x) = \Sigma(x) \varphi_0 = \exp{i \xi_i(x) x_i} \varphi_0,
+\end{equation}
+and $\xi_i(x)$ can be associated with the Goldstone bosons.
 
 In the linear sigma model, the original $O(N)$ symmetry is broken down to $O(N-1)$, which transforms the remaining $N-1$ fields with vanishing expectation value into each other.
 However, $O(N)$ consists of two disconnected subsets, those matrices with determinant 1 and those with determinant -1.
-There is no continuous path that takes an element of $O(N)$ with determinant of $-1$.\footnote{A simple proof of this is the fact that the determinant is a continuous function, while any path $\det A(t)$ such that $\det A(1) = -1,\, \det A(0) = 1$ must make a discontinuous jump.}
+There is no continuous path that takes an element of $O(N)$ with determinant of $-1$ to an element with determinant 1.\footnote{A simple proof of this is the fact that the determinant is a continuous function, while any path $\det M(t)$ such that $\det M(1) = -1,\, \det m(0) = 1$ must make a discontinuous jump.}
 The set of symmetries that are connected to the identity is
 \begin{eqnarray}
-    G = SO(N) = \setbuilder{M \in O(N)}{ \det M = 1},
+    G = SO(N) = \setbuilder{M \in O(N)}{ \det M = 1}.
 \end{eqnarray}
-which is broken down to $SO(N-1)$.
-The Goldstone manifold is thus $G/H = SO(N) / SO(N-1)$.
+If we choose $\varphi_0 = (0, 0, ..., v)$, then it is apparent that the ground state is invariant under the rotations of the $N-1$ first fields, so the unbroken symmetry is  $H = SO(N-1)$.
+The Goldstone manifold is $G/H = SO(N) / SO(N-1)$.
+
+Consider the case of $N = 3$, which is illustrated in \autoref{fig:ground state manifold}.
+$G$ is the rotations of the sphere, while $H$ is rotations around $\varphi_0$, $SO(2)$.
+The Goldstone manifold consists of the rotations of $\varphi_0$ to other points of the sphere, i.e. $G/H = SO(3)/S(2) = S^2$, the 2-sphere.
+This is not a Lie group, as translating $\varphi$ in a closed path around the sphere may result in a rotation around the z-axis.
+
+
+To check that $\xi_i$ in fact are the Goldstone modes, we study the way they appear in the Lagrangian.
+As they are massless, no mass term of the form $\xi_i \xi_i$ should appear in the Lagrangian.
+The original Lagrangian $\Ell[\varphi]$ was invariant under global transformations $\varphi(x) \mapsto g \varphi(x)$.
+However, any terms that only depend on $\varphi(x)$, and not its derivatives, will also be invariant under a \emph{local} transformation, $\varphi(x) \mapsto g(x)\varphi(x)$.
+Our parametrization of the fields, $\varphi(x) = \Sigma(x)\varphi_0$ is exactly such a transformation, which means that any such terms are independent of the Goldstone bosons.
+We can therefore write
+\begin{equation}
+    \Ell[\varphi] = \Ell_{\mathrm{kin}}[\varphi] + V(\varphi_0),
+\end{equation}
+where all terms in $\Ell_{\mathrm{kin}}$ are proportional to at least one derivative term, $\partial_\mu \varphi(x)$.
+Inserting the parametrization into this derivative term, we get
+\begin{equation}
+    \partial_\mu \varphi(x) = \partial_\mu [\Sigma(x) \varphi_0]
+    = \Sigma(x) [\Sigma(x)^{-1} \partial_{\mu} \Sigma(x)] \varphi_0.
+\end{equation}
+The dependence of the Lagrangian on $\xi_i$ only appears through terms of the form $\Sigma(x)^{-1}\partial_\mu \Sigma(x)$.
+These can always be written on the form
+\begin{align*}
+    i\Sigma(x)^{-1}\partial_\mu \Sigma(x) = D_{\mu}(x) + E_{\mu}(x), \\
+    D_{\mu} = i x_i D_{ij}(\xi) \partial_\mu \xi_j, \quad
+    E_{\mu} = i t_a E_{ai}(\xi)\partial_\mu \xi_i.
+\end{align*}
+This is called the Maurer-Cartan form, and $D_{ij}$ and $E_{ai}$ are as-of-yet unknown real valued functions of $\xi$. (HVORFOR??)
+
 
 \subsection*{Transformation properties of Goldstone bosons}
 We can deduce how the Goldstone bosons transforms under $G$ from how $\varphi$ transforms.
 In general, 
 \begin{equation}
-    \varphi'(x) = g \varphi(x) = (g \Sigma(x)) \varphi_0 = \Sigma'(x) \varphi_0 \quad g \in G.
+    \varphi' = g \varphi = (g \Sigma(\xi)) \varphi_0 = \Sigma(\xi') \varphi_0 \quad g \in G.
 \end{equation}
-Now, in general $g \Sigma(x)$ is not in the standard form $\Sigma'(x) = \exp{i \pi'_a(x)\tau^a}$, as they can differ by an element of the remaining symmetry group, $g\Sigma(x) = \Sigma'(x) h[g](x)$, $h[g](x) \in H$.
-Therefore, we get the transformation rule
+While $\Sigma(\xi')$ has the standard form by assumption,
 \begin{equation}
-    \Sigma' = g \Sigma (h[g])^{-1}.
+    \Sigma(\xi') = \exp{i \xi'_i x_i},
 \end{equation}
+$g\Sigma(\xi)$ does not, in general.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figurer/parallel_transport_kladd.pdf}
+    \caption{(KLADD) The top figure illustrates the transformation of $\varphi_0$ to $\varphi$ and then $\varphi$, and the alternative transformation $\varphi_0 \rightarrow \varphi'$. The bottom figure illustrates how this can rotate a neighborhood of $\varphi_0$ differently.}
+    \label{fig:Curvature of SO(3)}
+\end{figure}
+\autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = O(3)$.
+$\Sigma(\xi)$ transforms $\varphi_0$ to $\varphi$, then $g$ transforms $\Sigma(\xi) \varphi_0$ to $\varphi(\xi')$.
+Assuming $\varphi$ and $\varphi'$ are close enough to $\varphi_0$, we can write $\Sigma(\xi)$ and $\Sigma(\xi')$ on the standard form.
+However, if we follow a small neighborhood around $\varphi_0$ as it is acted on by $\Sigma(\xi)$, then $g$, it will be rotated by the time it arrives at $\varphi'$, when compared to the same neighborhood if it was acted on by $\Sigma(\xi')$
+
+$g\Sigma(\xi)$ and $\Sigma(\xi')$ are in the same coset, as they by assumption corresponds to the same physical state.
+This means that we can write $g\Sigma(\xi) = \Sigma(\xi') h(g, \xi)$, where $h(g, \xi) \in H$.
+The transformation rule of $\xi$ under $G$ is therefore implicitly defined by
+\begin{equation}
+    \Sigma(\xi') = g \Sigma(\xi) [h(g, \xi)]^{-1}.
+\end{equation}
+This is in general not a linear representation, which is why this construction also is called a \emph{non-linear realization}.
+Using the transformation rule, we can obtain the transformation rule of the Maurer-Cartan form.
+We use the shorthand $\Sigma = \Sigma(\xi),\, \Sigma' = \Sigma(\xi')$, and $h = h(g, \xi)$.
+This gives
+\begin{align}
+    \Sigma^{-1} \partial_\mu \Sigma
+    \rightarrow 
+    & \Sigma'^{-1} \partial_\mu \Sigma' \\
+    & = (g \Sigma h^{-1})^{-1} \partial_\mu (g \Sigma h^{-1}) \\
+    & = (h \Sigma^{-1} g^{-1}) g [(\partial_\mu \Sigma)h^{-1} + \Sigma \partial_\mu h^{-1}] \\
+    & = h \Sigma^{-1} (\partial_\mu \Sigma) h^{-1}
+    + h \partial_\mu h^{-1} \\
+    & = h (\Sigma^{-1} \partial_\mu \Sigma + \partial_\mu) h^{-1}.
+\end{align}
+In terms of $D_\mu$ and $E_\mu$,
+\begin{align}
+    D_\mu & \rightarrow h D_\mu h^{-1} \\
+    E_\mu & \rightarrow h (E_\mu + i\partial_\mu )h^{-1}.
+\end{align}
+We see that $E_\mu$ transforms like a gauge field, with the gauge group $H$.
+These are the peicees we need to construct a Lagrangian in terms of the Goldstone bosons.
+(MANGLER: Inkluder massiver partikler, med $\varphi(x) = \Sigma(x)\tilde \varphi(x)$, og hvordan det transfoormerer. Skriver om representasjoner? (adj, r pi))
