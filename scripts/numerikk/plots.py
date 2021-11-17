@@ -61,14 +61,21 @@ def plot_masses():
 def plot_free_energy_surface():
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"}, figsize=(6, 6))
 
-    FLO, FNLO = get_free_energy_surface()
-    a_lo_list = get_alpha_lo()
+    N = 30
+    d = 0.6
+    a = np.linspace(-d, np.pi + d, N)
+    mu = np.linspace(0, 2.5, N)
+    MU, A = np.meshgrid(mu, a)
+    FLO =  F_0_2(MU, A)
+
+    a_lo_list = alpha_0(mu)
 
     X, Y, Z = MU, A, FLO
 
-    surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.8, zorder=2, lw=0.4)
-    surf.set_edgecolors(surf.to_rgba(surf._A))
-    surf.set_facecolors("white")
+    ax.plot(mu, a_lo_list, F_0_2(mu, a_lo_list) + 0.01, "-k", lw=2, alpha=1, zorder=10)
+
+    surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7)
+    surf = ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
 
     ax.azim=-35
     ax.elev=25
@@ -80,11 +87,10 @@ def plot_free_energy_surface():
     ax.xaxis.set_tick_params(labelsize=10)
     ax.yaxis.set_tick_params(labelsize=10)
 
-    plt.plot(mu_list, a_lo_list, np.min(FLO), "k--")
-    plt.plot(mu_list, a_lo_list, F_0_2(mu_list, a_lo_list), "k", lw=2, zorder=1)
 
-
-    plt.savefig("plots/free_energy_surface.pdf")
+    ax.plot(mu, a_lo_list, np.min(FLO), "k--")
+    plt.subplots_adjust(top = 1, bottom = 0, right = 0.8, left=0, hspace=0, wspace=1)
+    plt.savefig("plots/free_energy_surface.pdf", bbox_inches='tight',pad_inches = 0)
     
 
 def plot_free_energy_surface_NLO():
@@ -173,11 +179,11 @@ def plot_energy_density():
 
 
 
-plot_alpha()
-plot_masses()
+# plot_alpha()
+# plot_masses()
 plot_free_energy_surface()
-plot_free_energy_surface_NLO()
-plot_free_energy()
-plot_pressure()
-plot_isospin_density()
-plot_energy_density()
+# plot_free_energy_surface_NLO()
+# plot_free_energy()
+# plot_pressure()
+# plot_isospin_density()
+# plot_energy_density()
