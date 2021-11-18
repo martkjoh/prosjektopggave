@@ -1,4 +1,5 @@
 \section{Free energy at lowest order}
+\label{section: free energy at lowest order}
 
 The equation of state (EOS) relates the thermodynamic variables of as system.
 In this section, we will obtain the equation of state of the pions by calculating their free energy.
@@ -245,18 +246,17 @@ Any final result must thus be independent of the value of $m$ to be acceptable.
 We will instead regularize the integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
 Using the definition of the mass parameters, \cref{m1,m2,m3,m12}, we get
 \begin{align}
-    m_3^2 & = (2 B_0 m) \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
+    m_3^2 & = \bar m^2 \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
     \label{tilde m1}
     \tilde m_1^2 
     & 
     = m_1^2 + \mu^2 \cos\alpha^2
-    % = (2 B_0 m) \cos \alpha - \mu_i^2(\cos 2 \alpha - \cos^2 \alpha)
-    = (2 B_0 m) \cos \alpha + \mu_I^2 \sin^2 \alpha
+    = \bar m^2 \cos \alpha + \mu_I^2 \sin^2 \alpha
     = m_3^2 \\
     \label{tilde m2}
     \tilde m_2^2 
     & = m_2^2 + \mu^2 \cos\alpha^2
-    = (2 B_0 m) \cos \alpha.
+    = \bar m^2 \cos \alpha.
 \end{align}
 Finally, we define $f(|\vv p|) = E_1 + E_2$ which differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$, and is well-behaved in the IR.
 This leads to a divergent integral the same form as in the case of a free scalar.

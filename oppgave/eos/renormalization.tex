@@ -2,7 +2,7 @@
 We have now regularized the divergences, so they can be handled in a well-defined way.
 However, they are still there.
 To get rid of them, we need to use renormalization.
-The power counting scheme used when constructing the Effective Lagrangians ensures that all terms in $\Ell_{2n}$ is of order $p^{2n}$ in the pion momenta.\footnote{Remember that the bare pion mass $m = 2B_0 \bar m$ is considered to be of order $p^2$.}
+The power counting scheme used when constructing the Effective Lagrangians ensures that all terms in $\Ell_{2n}$ is of order $p^{2n}$ in the pion momenta.\footnote{Remember that the bare pion mass $\bar m = B_0(m_u + m_d)$ is considered to be of order $p^2$.}
 The tree level free energy from $\Ell_{2n}$ is thus of order $p^{2n}$.
 The n-loop correction to the tree level result is then suppressed by $p^{2n}$~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom}.
 Our one-loop calculation using $\Ell_2$ therefore contains divergences of order $p^{4}$. 
@@ -29,7 +29,7 @@ The renormalized coupling constants in the $\overline{\mathrm{MS}}$-scheme are r
     i \in \{1, ... 3\}.
 \end{align}
 Here, $\gamma_i$ and $\delta_i$ are numerical constants that are used to match the divergences.
-The relevant terms are
+The relevant terms are\footnote{Some authors~\cite{Andersen:two-flavor-chpt,GERBER1989387} instead use $h_1' = h_1 - l_4$, with a corresponding $\delta_1' = \delta_1 - \gamma_1 = 0$.}
 \begin{gather}
     \gamma_1 = \frac{1}{3}, \quad
     \gamma_2 = \frac{2}{3}, \quad
@@ -77,26 +77,6 @@ The free energy at tree-level, at next-to-leading order is, according to \cref{N
     - l_4 \bar m^2 \mu_I{}^2 \cos{\alpha} \sin^2{\alpha}
     -(h_1- l_4) \bar m^2
     - h_3 \Delta m^2
-    % \\
-    % & = 
-    % - \frac{1}{2} \frac{1}{(4 \pi)^2}
-    % \bigg[
-    %     \frac{1}{3}
-    %     \left( 
-    %         \bar l_1 + 2 \bar l_2 - 3 - \frac{3}{\epsilon} - 3\ln \frac{\mu^2}{M^2}
-    %     \right) \mu_I^4 \sin^4 \alpha
-    %     +
-    %     \frac{1}{2}
-    %     \left(
-    %         - \bar l_3 + 4 \bar l_4 - 3 - \frac{3}{\epsilon} - 3\ln \frac{\mu^2}{M^2}
-    %     \right) (2 B_0 m)^4 \cos^2\alpha 
-    %     \\
-    %     &
-    %     + 2 \left(\bar l_4 - 1 - \frac{1}{\epsilon} - \ln \frac{\mu^2}{M^2} \right)
-    %     (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
-    %     + 2 (\bar l_4 - \bar h_1) (2B_0 \bar m )^2
-    %     + \bar h_3 (2B_0 \Delta m)^2    
-    % \bigg]
     \\
     & = 
     - \frac{1}{2} \frac{1}{(4 \pi)^2}
@@ -121,18 +101,16 @@ The free energy at tree-level, at next-to-leading order is, according to \cref{N
         - 
         \left(\frac{1}{\epsilon} + \ln \frac{\mu^2}{M^2}\right) 
         \left(
-            \mu_I^4\sin^4\alpha + \frac{3}{2} (2 B_0 m)^4 \cos^2 \alpha
-            + 2 (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
+            \mu_I^4\sin^4\alpha + \frac{3}{2} \bar m^4 \cos^2 \alpha
+            + 2 \bar m^2 \mu_I^2 \cos\alpha \sin^2 \alpha
         \right) 
-        % \\
-        % & \quad \quad \quad \quad \quad
     \bigg] 
 \end{align*}
 Adding all the contribution to the free energy density, we get the next-to-leading order free energy,
 \begin{align}
     \nonumber
     \Ef_{\mathrm{NLO}} &=
-    - f^2 \left((2 B_0 m)^2 \cos \alpha + \frac{1}{2}\mu_I^2 \sin^2 \alpha\right)
+    - f^2 \left(\bar m^2 \cos \alpha + \frac{1}{2}\mu_I^2 \sin^2 \alpha\right)
     + \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
     - \frac{1}{2}\frac{1}{(4 \pi)^2}
     \bigg[
@@ -140,33 +118,85 @@ Adding all the contribution to the free energy density, we get the next-to-leadi
         \left( 
             \bar l_1 + 2 \bar l_2 + \frac{3}{2} + 3 \ln \frac{M^2}{m_3^2}
         \right) \mu_I^4 \sin^4 \alpha
-        \\ \nonumber
+        \\ %\nonumber
         &
         +
         \frac{1}{2}
         \left(
             - \bar l_3 + 4 \bar l_4 + \frac{3}{2} + 2\ln \frac{M^2}{m_3^2}
             + \ln \frac{M^2}{\tilde m^2_2}
-        \right) (2 B_0 m)^4 \cos^2\alpha 
+        \right) \bar m^4 \cos^2\alpha 
         + 2 \left(\bar l_4 - \frac{1}{2} + \ln \frac{M^2}{m_3^2}\right)
-        (2 B_0 m)^2 \mu_I^2 \cos\alpha \sin^2 \alpha
-        \\ \label{NLO free energy}
-        & 
-        + 2 (\bar l_4 - \bar h_1) (2B_0 \bar m )^2
-        + \bar h_3 (2B_0 \Delta m)^2
+        \bar m^2 \mu_I^2 \cos\alpha \sin^2 \alpha
+        \label{NLO free energy}
+        % \\
+        % & 
+        % + 2 (\bar l_4 - \bar h_1) \bar m^2
+        % + \bar h_3 \Delta m^2
     \bigg].
 \end{align}
-The next-to-leading order result for $\alpha$ as a function of $\mu_I$ is given by 
+We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, as they only add an unobservable constant value to the free energy.
+
+\subsection*{Parameters, and keeping the expansion consistent}
+The coupling constants are free parameters, and can therefore not be calculated from first principles, but must be measured.
+The values for the pion mass and pion decay constants are (HVORFOR?)
+\begin{equation}
+    m_\pi = 131 \, \mathrm{MeV}, \quad f_\pi = \frac{1}{\sqrt 2} 128 \, \mathrm{MeV}.
+\end{equation}
+This is the physical mass, $m_\pi$, is defined as the pole of the propagator and thus the zero of the inverse propagator,
+\begin{equation}
+    D^{-1}(p^2 = m_\pi^2) = 0.
+\end{equation}
+This relates it to the which relates it to the bare mass $\bar m$.
+We found, in \cref{m1}, that $m_\pi = m_3^2(\mu_I = 0) = \bar m^2$ to leading order.
+Similarly, $f_\pi = f$ to leading order. (HVORFOR)
+However, in any NLO results we need $\bar m^2$ and $f$ to NLO.
+This is given by~\cite{Andersen:two-flavor-chpt} (UTLEDE?)
+\begin{align}
+    \label{equation bare mass}
+    m_\pi^2 & = \bar m^2 + \frac{\bar l_3}{2 (4\pi)^2} \frac{\bar m^4}{f^2}, \\
+    \label{equation bare decay constant}
+    f_\pi^2 & = f^2 + \frac{2\bar l_4}{(4\pi)^2} \frac{\bar m^2}{f^2}
+\end{align}
+All results in this text are given in units of $m_\pi$.
+
+\begin{table}[h]
+    \centering
+    \caption{The measured values and corresponding uncertainties of the relevant coupling constants.}
+    \begin{tabular}{c c c c}
+        \hline \hline
+        & value & uncertainty & source \\
+        \hline \\[-1em]
+        $\bar l_1$ & -0.4   & \pm 0.6   & \cite{pipi_scattering}    \\
+        $\bar l_2$ & 4.3    & \pm 0.1   & \cite{pipi_scattering}    \\
+        $\bar l_3$ & 2.9    & \pm 2.4   & \cite{Gasser-Leutwyler:chiral} \\    
+        $\bar l_4$ & 4.4    & \pm 0.2   & \cite{pipi_scattering}    \\
+        \hline
+    \end{tabular}
+    \label{table:coupling constants}
+\end{table}
+The values for the coupling constants used in this text are given in \autoref{table:coupling constants}.
+The constants $\bar l_1$, $\bar l_2$ and $\bar l_3$ are estimated using data from $\pi \pi$-scattering~\cite{pipi_scattering}, while $\bar l_3$ is estimated using three flavor chiral perturbation theory~\cite{Gasser-Leutwyler:chiral}.
+These are the same values as those used in~\cite{Andersen:two-flavor-chpt}.
+Together with \cref{equation bare mass,equation bare decay constant}, the NLO results for the bare mass and decay constant are
+\begin{align}
+    \label{NLO m}
+    \bar m / m_\pi = 1.01136, \\
+    \label{NLO f}
+    f / m_\pi = 0.64835.
+\end{align}
+
+In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_i$, using the lowest order estimate of $\Ef$, given in \cref{leading order minization}.
+To calculate any thermodynamic quantities to leading order, we must thus use this result.
+If we are to calculate any other quantities to next-to-leading order, we also have to use the next-to-leading order criterion for $\alpha$ as a function of $\mu_I$, which is given by
 \begin{eqnarray}
-    \diff{\Ef}{\alpha} = 0,
+    \diffp{\Ef_{\mathrm{NLO}}}{\alpha} = 0,
 \end{eqnarray}
 using the result \cref{NLO free energy}.
 In \autoref{fig:alpha}, the NLO result is compared with the LO result, \cref{leading order minization}.
-
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{figurer/numerics/alpha.pdf}
     \caption{The leading order and next-to-leading order results for $\alpha$ as a function of $\mu_I$.}
     \label{fig:alpha}
 \end{figure}
-
