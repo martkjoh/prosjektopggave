@@ -14,14 +14,16 @@ font = {
     'size': 16
 }
 plt.rc('font', **font)
-plt.rc('lines', lw=1.5)
+plt.rc('lines', lw=2)
 
 
 
 # Make plots
+fs = (6.5, 4)
+adj = dict(top=0.96, bottom=0.15, right=0.99, left=0.13, hspace=0, wspace=0)
 
 def plot_alpha():
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=fs)
     a_lo_list = get_alpha_lo()
     a_nlo_list = get_alpha_nlo()
     i = np.where(mu_list>=0)
@@ -30,14 +32,15 @@ def plot_alpha():
     ax.plot(mu_list[i], a_lo_list[i], "r--", label=r"$\mathrm{LO}$")
     plt.xlabel(r"$\mu_I/m_\pi$")
     plt.ylabel(r"$\alpha$")
-
+    ax.set_ylim(ax.set_ylim()[0], 1.5)
+    
+    fig.subplots_adjust(**adj)
     plt.legend()
-    plt.tight_layout()
     plt.savefig("plots/alpha.pdf")
 
 
 def plot_masses():
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=fs)
     mu_list = np.linspace(0, 2.5, 100)
     alpha_list = alpha_0(mu_list)
     m0 = lambda x, y : sqrt(lambdify((mu, a), lo(m0_sq), "numpy")(x, y))
@@ -54,7 +57,7 @@ def plot_masses():
     plt.ylabel(r"$m/m_\pi$")
 
     plt.legend()
-    plt.tight_layout()
+    fig.subplots_adjust(**adj)
     plt.savefig("plots/masses.pdf")
 
 
@@ -97,7 +100,7 @@ def plot_free_energy_surface():
 
 
 def plot_free_energy():
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=fs)
     FLO, FNLO = get_free_energy()
 
     FLO_label = r"$\mathcal{F}^{\mathrm{LO}}$"
@@ -110,7 +113,7 @@ def plot_free_energy():
 
 
 def plot_pressure():
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=fs)
     PLO, PNLO = get_pressure()
 
     i =  np.where(mu_list>=1)[0][0]
@@ -124,13 +127,12 @@ def plot_pressure():
     ax.set_ylabel(r"$P/m_\pi^4$")
 
     plt.legend()
-    plt.tight_layout()
-
+    fig.subplots_adjust(**adj)
     plt.savefig("plots/pressure.pdf")
 
 
 def plot_isospin_density():
-    fig, ax = plt.subplots()    
+    fig, ax = plt.subplots(figsize=fs)
     nILO_label = r"${\mathrm{LO}}$"
     nINLO_label = r"${\mathrm{NLO}}$"
 
@@ -144,12 +146,11 @@ def plot_isospin_density():
     ax.set_ylabel(r"$n_I/m_\pi^3$")
 
     plt.legend()
-    plt.tight_layout()
-
+    fig.subplots_adjust(**adj)
     plt.savefig("plots/isospin_density.pdf")
 
 def plot_energy_density():
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=fs)
     
     ELO, ENLO = get_energy_density()
     PLO, PNLO = get_pressure()
@@ -164,9 +165,25 @@ def plot_energy_density():
     ax.plot(PNLO, ENLO, "r-.", label=ENLO_label)
 
     plt.legend()
-    plt.tight_layout()
+    fig.subplots_adjust(**adj)
     plt.savefig("plots/energy_density.pdf")
 
+def plot_free_energy_pt():
+    N = 30
+    a = np.linspace(-0.05, 1.2, N)
+    
+    fig, ax = plt.subplots(figsize=fs)
+
+    F0 = F_0_2_lo(0, 0)
+    ax.plot(a, F_0_2_lo(0.9, a) - F0, "royalblue", label=r"$\mu_I<m_\pi$")
+    ax.plot(a, F_0_2_lo(1.2, a) - F0, "k", label=r"$\mu_I>m_\pi$")
+    ax.scatter((0, 0.8), (0.005, -0.027), s=200)
+    ax.set_xlabel(r"$\alpha$")
+    ax.set_ylabel(r"$\mathcal{F} - \mathcal{F_0}$")
+
+    fig.subplots_adjust()
+    plt.legend()
+    plt.savefig("plots/phase_transition.pdf")
 
 
 plot_alpha()
@@ -176,6 +193,7 @@ plot_free_energy()
 plot_pressure()
 plot_isospin_density()
 plot_energy_density()
+plot_free_energy_pt()
 
 # FLO, FNLO = get_free_energy()
 # # plt.plot(mu_list, FLO - FNLO)

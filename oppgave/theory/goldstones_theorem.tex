@@ -1,90 +1,135 @@
-\section{Goldstone's theorem}
+\section{Symmetry and Goldstone's theorem}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[]{figurer/mexican_hat.pdf}
-    \caption{The Mexican hat potential.}
-    \label{fig:Mexican hat}
-\end{figure}
+The symmetries of a theory are transformations of the physical state that leaves the governing equations unchanged.
+A lot of physics is contained in the symmetries of a theory, such as the presence of conserved quantities and the systems low energy behavior.
+% When we talk about symmetries of a theory, we mean that there is some sort of transformation of the physical state of the system that leaves it unchanged.
+% If we take the system of the earth rotating around the sun as an example.
+% If we consider two versions of this system, which at time $t$ is related by a rotation, then at all times these two systems will continue to evolve in the same manner, only distinguished by the rotational transformation.
+% This is due to the underlying rotational symmetry of the physical system, which is an external symmetry.
+We distinguish between internal and external symmetries.
+An external symmetry is an active coordinate transformation, such as rotations or translations.
+They relate degrees of freedom at different space-time points, while internal symmetry transforms degrees of freedom at each space-time point independently of what happens at other points.
+A further distinction is between local and global symmetry transformations.
+Local transformations have one rule for how to transform degrees of freedom at each point, which is applied everywhere, while local transformations might themselves be functions of space-time.
 
-
-The ground state of a theory is not necessarily invariant under the symmetry transformations of the theory.
-This is exemplified by the linear sigma model,
+In classical field theory, symmetries are encoded in how the Lagrangian changes due to a transformation of the fields.
+We will consider continuous transformations, which are can in general be written as
+\begin{equation}
+    \varphi(x) \longrightarrow \varphi'(x) = f_t[\varphi](x), \quad t \in [0, 1].
+\end{equation}
+Here, $f_t[\varphi]$ is a functional in $\varphi$, and a smooth function of $t$, with the constraint that $f_0[\varphi] = \varphi$.
+This allows us to look at ``infinitesimal'' transformations,
+\begin{equation}
+    \label{infinitesimal transformation}
+    \varphi'(x) = f_\epsilon[\varphi] \sim \varphi(x) + \epsilon\diff{f[\varphi]}{t}\bigg |_{t=0}, \quad \epsilon \rightarrow 0.
+\end{equation}
+We will consider internal, global transformations which act as linearly on $\varphi$.
+For $N$ fields, $\varphi_i$, this can be written
+\begin{equation}
+    \label{linear field transformation}
+    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x), \quad \epsilon \rightarrow 0.
+\end{equation}
+$t_{ij}$ is called the generator of the transformation.
+A symmetry of the system is then one in which the Lagrangian is unchanged by the transformation, or at most is different by a divergence-term.
+That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
+\begin{equation}
+    \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K^\mu[\varphi],
+\end{equation}
+where $K^\mu[\varphi]$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ do not vary the fields at infinity.}
+This is a requirement for a symmetry in quantum field theory too.
+However, as physical quantities in quantum field theory are given not just by the action of a single state but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
+If a classical symmetry fails due to the integration measure, it is called an anomaly.
+The arch typical example of an internal, global and continuous symmetry is the linear sigma model, which we will use as an example throughout this section.
+The linear sigma model has $N$ real scalar $\varphi_i$ fields which are governed by the Lagrangian
 \begin{equation}
     \Ell[\varphi] 
     = \frac{1}{2} \partial_\mu \varphi_i(x) \partial^\mu \varphi_i(x) - \Ve(\varphi),
     \quad \Ve(\varphi) = - \frac{1}{2} \mu^2 \varphi_i(x)\varphi_i(x)
     + \frac{1}{4} \lambda [\varphi_i(x) \varphi_i(x)]^2.
 \end{equation}
-The linear sigma model Lagrangian is invariant under the rotation of the $N$ fields,
+This system is invariant under the rotation of the $N$ fields into each other,
 \begin{equation}
     \varphi_i \longrightarrow \varphi_i' = O_{ij} \varphi_j,
     \quad O^{-1} = O^{T}.
 \end{equation}
-This is a global, internal and continuous set of transformations, with the infinitesimal form
+This is a global, internal and continuous set of transformations, with the infinitesimal form, exactly as discussed earlier.
+The set of all such transformations form the Lie group $O(N)$, which we will define later.
+For $N = 2$, $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figurer/mexican_hat.pdf}
+    \caption{The Mexican hat potential.}
+    \label{fig:Mexican hat}
+\end{figure}
+
+To investigate the symmetry properties of a quantum theory, we explore what constraints a symmetry lies on the effective action.
+To that end, assume 
 \begin{equation}
-    \varphi_i(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x)
+    \D \varphi'(x) = \D \varphi(x), \quad
+    S[\varphi'] = S[\varphi].
 \end{equation}
-The group of all such transformations form the Lie group $O(N)$. (SKRIVE APPENDIX OM LIE GRUPPER?)
-If we assume the ground state $\varphi_{0}$ is translationally invariant, then it is given by minimizing the effective potential.
-The first approximation of this is given by the classical potential, $\Ve$.
-For $N=2$, this is the famous ``Mexican hat''-potential, as illustrated by \autoref{fig:Mexican hat}.
-The ground state is therefore given by any of the values along the brim of the potential.
-If we, without loss of generality, choose $\varphi = (0, v)$ as the ground state, then any symmetry transformation will change this state.
-We say that the symmetry has been \emph{spontaneously broken}.
-We can express this mathematically as
+In the generating functional, such a transformation corresponds to a change of integration variable.
+Using the infinitesimal version of the transformation, we may write
+\begin{align}
+    Z[J] 
+    = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
+    = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
+    \\
+    = Z[J] -  \epsilon \int \dd^4 x J_i(x) \int \D \varphi \, e^{i S[\varphi]} [t_{ij} \varphi_j(x)],
+\end{align}
+Using \cref{effective equation of motion}, we can write this as
 \begin{equation}
-    t_{ij} \ex{ \varphi_i}_0 \neq 0.
+    \label{effective action symmetry requirement}
+    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \, t_{ij}\ex{\varphi_j(x)}_J = 0.
 \end{equation}
 
-If we take the constraint \cref{effective equation of motion}, differentiate with respect to $\varphi_j(y)$ and evaluate in the vacuum, we get
-\begin{equation}
-    \int \dd^4 x \, \fdiff{\Gamma[\varphi_0]}{\varphi_j(y), \varphi_i(x)}
-    t_{ik} \ex{\varphi_k}_0 = 0.
-\end{equation}
-In \autoref{Effective action inverse propagator}, we found that the second derivative of the effective action is the inverse propagator.
-The momentum space propagator is therefore
-\begin{equation}
-    i \delta(0) \tilde D_{ji}^{-1}(p) 
-    = \int \dd^4 x \, e^{-i p x}  
-    \fdiff{\Gamma[\varphi_0]}{\varphi_j(0), \varphi_i(x)}.
-\end{equation}
-(CHECK THAT)
-If we assume the ground state is independent of space-time, we get
-\begin{equation}
-    \tilde D^{-1}_{i j}(p=0) \, t_{j k} \ex{\varphi_k}_0 
-    = \diffp{\Veff}{\varphi_i, \varphi_j} \, t_{j k} \ex{\varphi_k}_0  
-    = 0.
-\end{equation}
-If the symmetry transformation $\varphi_i \rightarrow \varphi_i + i \epsilon t_{ij} \varphi_j$ remains unbroken, then this is trivial, as $t_{ij} \ex{\varphi_j }_0= 0$.
-However, if it is a broken symmetry, then by definition $t_{ij} \ex{\varphi_j }_0 \neq 0$.
-In that case, $t_{ij} \ex{\varphi_j}_0$ has a zero eigenvalue of the inverse propagator, at $p = 0$.
-In other words, the system contains a zero-mass particle, a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called a goldstinos, are fermions.}
-
+\subsection*{Lie groups}
 The set of continuous symmetry transformations, 
 \begin{equation}
     G = \setbuilder{g}{g \varphi = \varphi', \, S[\varphi'] = S[\varphi], \D \varphi' = \D \varphi },
 \end{equation}
 form a Lie group.
-This is a manifold, i.e. a space that is local homeomorphic to $\R^N$, and thus can be parametrized by $N$ real numbers $\eta_\alpha$, while also having a group structure, composition of transformations.
-We will focus on connected Lie groups, in which we all elements $g \in G$ is in the same connected piece as the identity map $\id(\varphi) = \varphi$.
-This means that for each $g\in G$, one can find a continuous path $\gamma(t)$ in the manifold, such that $\gamma(0) = \id$ and $\gamma(1) = g$.
+A Lie group is a smooth manifold, i.e. a space that is locally diffeomorphic to $\R^N$.
+This means that we can locally parametrize the space by $N$ real numbers $\eta_\alpha$, using smooth invertible functions.
+A Lie group is also equipped with group structure.
+A group is a set, $G$, together with a map
+\begin{align}
+    (\cdot, \cdot):  G \times G &\longmapsto G ,\\
+    (g_1, g_2) &\longmapsto g_3,
+\end{align} 
+called group multiplication. This map obeys the group axioms, which are the existence of an identity element $\one$, associativity and the existence of an inverse element $g^{-1}$ for all $g\in G$.
+These can be written as
+\begin{align*}
+    (g, \one) &= g, \\
+    (g_1, (g_2, g_3)) &= ((g_1, g_2), g_3), \\
+    (g, g^{-1}) &= \one.
+\end{align*}
+In addition, we require that both the multiplication map and the inverse map, $g \mapsto g^{-1}$ are smooth.
+For symmetry transformations, the group multiplication is composition.
+This map is closed, as two symmetry transformations are another transformation, and the identity map is a symmetry transformation.
+
+We will focus on connected Lie groups, in which we all elements $g \in G$ is in the same connected piece as the identity map $\one \varphi = \varphi$.
+This means that for each $g\in G$, one can find a continuous path $\gamma(t)$ in the manifold, such that $\gamma(0) = \one$ and $\gamma(1) = g$.
 Given such a path, we can study transformations close to the identity.
-As the Lie group is a smooth manifold, we can write
+As the Lie group is a smooth manifold, we can write\footnote{The factor $i$ is a physics convention, and differs from how mathematicians define generators of a lie group.}
 \begin{equation}
-    \gamma(\epsilon) = \id + i \epsilon V + \Oh{\epsilon}.
+    \gamma(\epsilon) = \one + i \epsilon V + \Oh{\epsilon}
 \end{equation}
-$V$ is a generator, and is a part of the tangent space of the identity element, $T_\id$.\footnote{The factor $i$ is a physics convention, and differs from how mathematicians define generators of a lie group.}
-The set of generators such $T_\id$, thus forms a vector space, and the coordinates $\eta_a$ induce a coordinate basis.
-This can be written as a path through parameter space, $\gamma(t) = g(\eta(t))$, which gives
+$V$ is a generator, and can be defined as
 \begin{equation}
-    V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_a}{t}\Big|_{t=0} \diffp{g}{\eta_a}\Big|_{\eta=0}.
+    iV = \diff{\gamma}{t}\Big|_{t=0}.
 \end{equation}
-The parameters therefore gives a basis for $T_\id$, and we can write
+We can define a path $\gamma$ by its path through parameter space, $\gamma(t) = g(\eta(t))$.
 \begin{equation}
-    \gamma(\epsilon) = \id + i \epsilon v_\alpha T_\alpha + \Oh{\epsilon}, 
-    \quad 
+    V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_a}{t}\Big|_{t=0} \diffp{g}{\eta_a}\Big|_{\eta=0}
+    = \diffp{g}{\eta_a}\Big|_{\eta=0} T_\alpha, \quad 
     T_\alpha = \diffp{g}{\eta_\alpha}.
+\end{equation}
+The set of generators thus form a vector space, called the tangent space of the identity element, $T_\one G$, and the coordinates $\eta_a$ induce a coordinate basis.
+Infinitesimal transformations can therefore be written as
+\begin{equation}
+    \gamma(\epsilon) = \one + i \epsilon v_\alpha T_\alpha + \Oh{\epsilon}.
 \end{equation}
 % TODO:?? Skrive om structure constants
 % \end{equation}
@@ -92,7 +137,7 @@ The parameters therefore gives a basis for $T_\id$, and we can write
 % \begin{equation}
 %     g(\eta) g(\eta') = g(f(\eta, \eta')).
 % \end{equation}
-% If we assume $g(\eta=0) = \id$, then we must have $f_a(\eta, 0) = f_a(0, \eta) = \eta_a$.
+% If we assume $g(\eta=0) = \one$, then we must have $f_a(\eta, 0) = f_a(0, \eta) = \eta_a$.
 % This allows us to write
 % \begin{equation}
 %     f_a(\eta, \eta') = \eta_a
@@ -105,16 +150,16 @@ The tangent space, together with the additional operation
 \begin{align}
     [T_\alpha, T_\beta] = iC_{\alpha\beta}^\gamma T_\gamma,
 \end{align}
-called the Lie bracket, forms a Lie algebra.
+called the Lie bracket, forms a Lie algebra denoted $\mathfrak{g}$.
 For matrix groups, which are what we deal with in this text, the Lie bracket is the commutator.
 $C_{\alpha \beta}^\gamma$ are called the structure constants, and are totally antisymmetric.
 This is equivalent with them obeying the Jacobi identity,
 \begin{equation}
     \label{jacobi identity}
-    C_{\alpha \beta\gamma} + C_{\beta\gamma\alpha} +  C_{\gamma\alpha\beta} = 0.
+    C_{\alpha \beta}^\gamma + C_{\beta\gamma}^\alpha +  C_{\gamma\alpha}^\beta = 0.
 \end{equation}
 The exponential maps elements of the Lie algebra to the Lie group.
-In fact, every element of the Lie group can be written
+For connected and compact Lie groups, all elements can be written on the form
 \begin{equation}
     g(\eta) = \exp{i \eta_\alpha T_\alpha}.
 \end{equation}
@@ -124,33 +169,89 @@ For matrix group, the exponential is defined by its series expansion,
 \end{equation}
 
 A subset of the original Lie group, $H \subset G$, which is closed under the group action is called a subgroup.
-In the case of symmetry breaking, a subset of the original generators, $x_i$, where $i \in \{1,... m\}$ may correspond to a symmetry of the ground state.
-That is,
-\begin{equation}
-    x_i \varphi_0 = 0.
-\end{equation}
-The group elements of $G$ that has the form $h = \exp{i \xi_i x_i}$ form a subgroup $H$, with dimension $m = \dim H$.
-The set of generators $t_a$, on the other hand, do not form a subgroup, as the identity transformation $\id$ is a part of $H$.
-These are called \emph{Broken generators}.
-As the union of $x_i$ and $t_a$ make up the total set of original generators, $T_\alpha$, the number of broken generators are $n_G = \dim G - \dim H$
-In Lorentz invariant systems this corresponds to one massless mode per broken generator, so there are a total of $n_G$ Goldstone bosons.
-As a subgroup $H$ of a Lie group $G$ is a Lie group in its own right, the generators of the subgroup forms a closed algebra.
-We can write the commutators as 
+$H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$
+We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
+The commutators of $x_i$ must be closed, which means that we can write
 \begin{align}
     [x_i, x_j] &= i C_{i j}^{k} x_k,\\
     [x_i, t_a] &= i C_{i a}^b t_b, \\
     [t_a, t_b] &= i C_{ab}^k x_k + i C_{ab}^c t_c,
 \end{align}
-where $ijk$ runs over the unbroken generators, and $abc$ runs over the broken.
+where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the rest.
 The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
+This is called a Cartan decomposition.
 
+\subsection*{Goldstone's theorem}
+
+The fact that a theory is left invariant under some symmetry transformation does not imply that the ground state is invariant under this transformation.
+The $N = 2$ linear sigma model illustrates this.
+If we assume the ground state $\varphi_{0}$ is translationally invariant, then it is given by minimizing the effective potential, of which the classical potential, $\Ve$, is the leading order approximation.
+This is illustrated in \autoref{fig:Mexican hat}.
+The ground state is therefore given by any of the values along the brim of the potential.
+If we, without loss of generality, choose $\varphi_0 = (0, v)$ as the ground state, then any symmetry transformation will change this state.
+We say that the symmetry has been \emph{spontaneously broken}.
+
+To explore this in a general context, assume a theory of $\varphi_i$ real scalar fields are invariant under the actions of some Lie group, $G$.
+A symmetry $g \in G$ is broken if the vacuum expectation value of the original fields and the transformed fields differ.
+That is, if
+\begin{equation}
+    \ex{\varphi}_0 \neq \ex{\varphi'}_0 = \ex{g \varphi}_0
+\end{equation}
+We can now exploit what we learned about Lie groups to write
+\begin{equation}
+    \ex{\varphi'}_0 = \ex{\varphi}_0 + i \epsilon \eta_\alpha T_\alpha \ex{\varphi}_0.
+\end{equation}
+Let $t_a$ be the set of generators corresponding to broken symmetries, i.e.
+\begin{equation}
+    t_\alpha \ex{\varphi}_0 \neq 0.
+\end{equation}
+These are called the \emph{broken generators}.
+The remaining set of generators $x_i$, which obey
+\begin{equation}
+    x_i \ex{\varphi}_0 = 0
+\end{equation}
+are called unbroken, and generate a subgroup $H \subset G$ as the set of symmetry transformations of the vacuum is a group.
+
+In \cref{effective equation of motion} we found that the effective action obeys
+\begin{equation}
+    \int \dd^4 x \fdiff{\Gamma[\varphi_J]}{\varphi_i} t_{ij} \ex{\varphi_j}_0 = 0.
+\end{equation}
+We now differentiate this expression with respect to $\varphi_k(y)$ and evaluate it in the vacuum, which gives
+\begin{equation}
+    \int \dd^4 x \, \fdiff{\Gamma[\varphi_0]}{\varphi_k(y), \varphi_i(x)}
+    t_{ij} \ex{\varphi_j}_0 = 0.
+\end{equation}
+With the assumption that the groudnstate is constant, we get 
+\begin{equation}
+    \diffp{\Veff}{\varphi_k, \varphi_i} \, t_{i j} \ex{\varphi_j}_0 = 0.
+\end{equation}
+This is trival for unbroken symmetries, as $t_{ik}\ex{\varphi}_0 = 0$ by definition.
+However, in the case of a broken symmetry, the second derivative of the effective potentail has an eigenvector $t^\alpha_{ij} \ex{\varphi_j}$ with as zero eigenvalue for each broken generator.
+In \autoref{Effective action inverse propagator}, we found that the second derivative of the effective action is the inverse propagator,
+\begin{equation}
+    D^{-1}_{ij}(x,y) 
+    = -i \fdiff{\Gamma[\varphi_0]}{\varphi_i(y), \varphi_j(x)}
+    = \int \frac{\dd^4 p}{(2 \pi)^4} e^{-ip(x - y)} \, \tilde D^{-1}_{ij}(p).
+\end{equation}
+Using this, we can write
+\begin{equation}
+    \tilde D^{-1}_{i j}(p=0) \, t^\alpha_{j k} \ex{\varphi_k}_0 
+    = 0.
+\end{equation}
+Zeros of the inverse propagator corresponds to the physical mass of particles.
+In Lorentz-invariant systems, each zero-mas vector corresponds to a masses particles, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called a goldstinos, are fermions.}
+This means there are $n_G = \dim G -\dim H$ zero mass modes.
+In general, counting of massless modes is more complicated, and depends on the dispersion relation of the particles at low momenta.
+Systems with Goldstone bosons with quadratic dispersion relation, that is $E = |\vv p|^2$ when $\vv p \rightarrow 0$, often exhibit a lower number of massless modes.
+An example is ferromagnets, where the $\mathrm{SU}(2)$ rotational symmetry is broken down to $\mathrm{U}(1)$ when they align along one axis. 
+This corresponds to two broken generators, yet the system only exhibits one massless mode~\cite{brauner_spont_sym}.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}{0.54\textwidth}
         \centering
         \includegraphics[]{figurer/mexican_hat_zoom.pdf}
-        \caption{Excitations along the brim does not cost any energy.}
+        \caption{Excitations along the brim does not cost any energy, as the potential is flat, unlike excitations in the radial direction.}
         \label{fig:Mexican hat zoom}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
@@ -161,15 +262,17 @@ The second formula can be derived using the Jacobi identity \cref{jacobi identit
     \end{subfigure}
 \end{figure}
 
-The Mexican hat potential gives an intuition for the Goldstone mode.
-In the case of the two-dimensional sigma model, the symmetry of the Lagrangian are rotations in the plane.
-As the ground stat is along the ``brim'' of the hat, this rotational symmetry is broken.
-Any excitations in this direction, however, does not cost any energy, which is indicative of a massless mode.
+The linear sigma model gives an intuition for the Goldstone mode.
+In the case of $N = 2$, the symmetry of the Lagrangian are rotations in the plane.
+As the ground state is a point along the ``brim'' of the hat, this rotational symmetry is broken.
+Any excitations in the rational direction, however, does not cost any energy, which is indicative of a massless mode.
 This is illustrated in \autoref{fig:Mexican hat zoom}.
-In this example, the original symmetry group is one dimensional, so there is no unbroken symmetries.
-If we instead consider the three-dimensional linear sigma model, which has a three-dimensional symmetry group, rotations of the sphere.
-The ground state manifold, the set of all the degenerate ground states, is then a sphere.
+In this example, the original symmetry group is one dimensional, so there are no unbroken symmetries.
+If we instead consider the $N=3$ linear sigma model, which has a three-dimensional symmetry group, rotations of the sphere, we see that the ground state invariant is left invariant under subgroup of the original symmetry transformations.
+The ground state manifold of this system, the set of all the degenerate ground states, is then a sphere.
 When the system chooses one single ground state, this symmetry is broken, but only for two of the generators. 
 The generator for rotations around the ground state leaves the that point unchanged, and is thus an unbroken symmetry.
+Any excitations in the direction of the broken symmetries does not cost energy, as it is in the ground state manifold.
+The unbroken symmetry, on the other hand, does not correspond to an excitation.
 This is illustrated in \autoref{fig:ground state manifold}.
 
