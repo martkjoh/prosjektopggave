@@ -1182,6 +1182,116 @@ The second line comes from the Jacobi-identity,(DERIVE?) which means that the st
 As $C_{ija} = 0$, we also have that $C_{iaj} = 0$.
 
 
+\section{Old dim-reg}
+
+Returning to the temperature-independent part, we use dimensional regularization to see its singular behavior.
+To that end, we define
+\begin{equation}
+    \label{def dimreg integral}
+    \Phi_n(m, d, \alpha) 
+    = \mu^{n - d}\int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-\alpha},
+\end{equation}
+so that $\Ef_0 = \Phi_3(m, 3, 1/2) / 2$.
+The parameter $\mu$ has the dimensions of $k$, and is inserted to ensure that $\Phi_n$ does not change physical dimension for $d \neq n$.
+Furthermore, as non-rational exponents are defined through the exponential functions, this parameter is needed to make the expression well-defined.
+Dimensional regularization takes uses the formula for integration of spherically symmetric function in $d$-dimensions,
+\begin{equation}
+    \int_{\R^d} \dd^d x \, f(r) 
+    = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd r \, r^{d-1}f(r),
+\end{equation}
+where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the Gamma function.
+The factor in the front of the integral comes from the solid angle.
+By extending this formula from integer-valued $d$ to real numbers, the function we defined becomes
+\begin{equation}
+    \Phi_n
+    = \frac{2 \pi^{d/2} \mu^{n - d} }{\Gamma(d/2)} \int_\R \dd k \, 
+    \frac{k^{d-1}}{(k^2 + m^2)^\alpha}
+    = \frac{m^{n-2\alpha}}{(4 \pi)^{d / 2}\Gamma(d/2)} 
+    \left(\frac{m}{\mu}\right)^{d-n} 
+    2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}, 
+\end{equation}
+where we have made the change of variables $m z = k$.
+We make one more change of variable to the integral,
+\begin{equation}
+    I = 2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}
+\end{equation}
+Let
+\begin{equation}
+    z^2 = \frac{1}{s} - 1 \implies 2 z \dd z = - \frac{\dd s}{s^2}
+\end{equation}
+Thus,
+\begin{equation}
+    I = \int_0^a \dd s \, s^{\alpha - d/2 - 1} (1 - z)^{d/2 - 1}.
+\end{equation}
+This is the beta function, which can be written in terms of Gamma functions~\cite{Peskin:IntroQFT}
+\begin{equation}
+    I = B\left(\alpha - \frac{d}{2}, \frac{d}{2}\right) 
+    = \frac{\Gamma\left(\alpha - \frac{d}{2}\right) \Gamma\left(\frac{d}{2}\right)}{\Gamma(\alpha)}.
+\end{equation}
+Combining this gives
+\begin{equation}
+    \label{result dimreg}
+    \Phi_n(m, d, \alpha) = \frac{m^{n - 2\alpha}}{(4 \pi)^{d / 2}}
+    \frac{
+        \Gamma \left(\alpha - \frac{d}{2} \right) 
+    }
+    {\Gamma(\alpha)}
+    \left(\frac{m^2}{\mu^2}\right)^{\flatfrac{(d-n)}{2}} 
+    .
+\end{equation}
+Inserting $n=3$, $d = 3 - 2\epsilon$ and $\alpha = -1/2$, we get
+\begin{equation}
+    \Phi_3(m, 3 - 2\epsilon, -1/2)
+    =
+    \frac{m^4}{(4 \pi)^{d/2}\Gamma(-1/2)} \Gamma(-2 + \epsilon) \left(\frac{m^2}{\mu^2}\right)^{-\epsilon}
+    =
+    - \frac{m^4}{(4 \pi)^{2}}
+    \left(\frac{m^2}{4 \pi \mu^2}\right)^{- \epsilon}
+    \frac{\Gamma(\epsilon)}{(\epsilon - 2)(\epsilon - 1)},
+\end{equation}
+where we have used the defining property $\Gamma(z + 1) = z\Gamma(z)$ and $\Gamma(1/2) = \sqrt \pi$.
+Expanding around $\epsilon = 0$ gives
+\begin{align}
+    \left(\frac{m^2}{4 \pi \mu^2}\right)^{- \epsilon}
+    &\sim 1 + \epsilon \ln\left(4 \pi \frac{\mu^2}{m^2}\right),\\
+    \Gamma(\epsilon) 
+    & \sim \frac{1}{\epsilon} - \gamma, \\
+    \frac{1}{(\epsilon - 2)(\epsilon - 1)}
+    &\sim \frac{1}{2}\left(1 + \frac{3}{2} \epsilon\right).
+\end{align}
+The singular behavior of the time-independent term is therefore
+\begin{align}
+    J_0 \sim
+    - \frac{1}{4}\frac{m^4}{(4 \pi)^2}
+    \left[
+        \frac{1}{\epsilon} 
+        - \gamma + \frac{3}{2}
+        + \ln\left(4 \pi \frac{\mu^2}{m^2}\right)
+    \right].
+\end{align}
+
+With this regulator, one can then add counter-terms to cancel the $\frac{1}{\epsilon}$-divergence.
+The exact form of the counter-term is convention.
+One may also cancel the finite contribution due to the regulator.
+The minimal subtraction, or $\mathrm{MS}$, scheme, is to only subtract the divergent term, as the name suggest.
+We will use the modified minimal subtraction, or $\overline{ \mathrm{MS}}$, scheme.
+In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term,
+which can be interpreted as changing the parameter $\mu$
+\begin{equation}
+    -\gamma + \ln(4\pi \frac{\mu^2}{m^2}) \rightarrow \ln(\frac{\mu^2}{m^2}),
+\end{equation}
+which leads to the expression
+\begin{equation}
+    \label{free field regularized energy}
+    J_0 \sim
+    - \frac{1}{4}\frac{m^4}{(4 \pi)^2}
+    \left[
+        \frac{1}{\epsilon} 
+        + \frac{3}{2}
+        + \ln\left(\frac{\mu^2}{m^2}\right)
+    \right].
+\end{equation}
+
 
 
 

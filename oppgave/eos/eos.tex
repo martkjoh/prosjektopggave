@@ -8,11 +8,11 @@ is defined as
 where $Q_I$ is the isospin charge, and $U$ is the energy.
 As we have seen earlier, our system is homogenous.
 This means that the free energy density is independent of volume, and thus $F = V \Ef$.
-From 
+From  \cref{thermodynamic free energy} we see that the pressure is given by
 \begin{equation}
-    P = - \left(\diffp{F}{V}\right)_{T, \mu_I}
+    P = - \left(\diffp{F}{V}\right)_{T, \mu_I} = - \Ef.
 \end{equation}
-We are interested in the pressure relative to $\mu_I$, 
+We are interested in the pressure relative to the state in which $\mu_I$ = 0. We therefore normalize $P(\mu_I=0) = 0$, which gives  
 \begin{equation}
     P(\mu_I) = -(\Ef(\mu_I) - \Ef(\mu_I = 0))
 \end{equation}
@@ -33,28 +33,16 @@ Likewise, the total isospin is proportional to volume, which means that the isos
 This gives 
 \begin{align}
     \nonumber
-    &n_I = \\ & \,\, f \mu_I \sin^2 \alpha
-    + \frac{1}{(4 \pi)^2}
+    n_I & = 
+    f^2 \mu_I \sin^2 \alpha
+    - \diffp{\Ef_\mathrm{fin}}{\mu_I} \\
+    & + \frac{1}{(4 \pi)^2}
     \left[
             \left(2\bar l_4+\ln\frac{M^2}{m_3^2}\right)\bar m^2 \mu_I \cos\alpha \sin^2 \alpha
             +\frac{1}{3}\left(2\bar l_1 + 4 \bar l_2 + 3\ln\frac{M^2}{m_3^2}\right)\mu_I^3 \sin^4 \alpha
     \right]
-    - \diffp{\Ef_\mathrm{fin}}{\mu_I}
 \end{align}
 The isospin density, as a function of $\mu_I$, is shown in \autoref{fig:isospin_density}.
-
-Finally, from \cref{thermodynamic free energy}, we get the energy density, $u = U/V$ is given by
-\begin{equation}
-    u(\mu_I) = -P(\mu_I) + \mu_I n_I(\mu_I).
-\end{equation}
-The isospin chemical potential $\mu_I$ parametrizes a line through the energy density-pressure plane, the relationship between the energy density and the pressure, which is shown in \autoref{fig:equation of state}.
-This relationship has the form
-\begin{equation}
-    f(p, u) = 0,
-\end{equation}
-and is the equation of state of the pion system.
-
-
 \begin{figure}[!h]
     \centering
     \vspace{-0.2cm}
@@ -62,6 +50,15 @@ and is the equation of state of the pion system.
     \caption{The NLO and LO result for the isosopin densisty, as a function of $\mu_I$.}
     \label{fig:isospin_density}
 \end{figure}
+
+From \cref{thermodynamic free energy} we get the energy density, $u = U/V$ is given by
+\begin{equation}
+    u(\mu_I) = -P(\mu_I) + \mu_I n_I(\mu_I),
+\end{equation}
+where we again have normalized so that $u(\mu_I = 0) = 0$.
+Now that we have both the dependence of pressure and energy density on the isospin chemical potential, we can trace out the line in the pressure-energy density plane, parametrized by $\mu_I$.
+This is shown in \autoref{fig:equation of state}.
+This line is the equation of state of the system.
 
 \begin{figure}[!h]
     \centering
@@ -103,3 +100,21 @@ so the solution to \cref{landau ginsburg lo} for $\mu_I>\bar m$
 \begin{equation}
     \alpha(\mu_I) = \frac{a_0}{b_0} (\mu_I - \bar m)^{1/2}.
 \end{equation}
+
+In the vacuum phase, $\alpha = 0$, the ground state is given by 
+\begin{equation}
+    \Sigma(\pi = 0) = \one,
+\end{equation}
+where we have use \cref{sigma}.
+$\Sigma$ transforms as (FORKLAR)
+\begin{equation}
+    \Sigma(x) \rightarrow \Sigma'(x) = V \Sigma(x) V^\dagger,
+    \quad
+    V = \exp{i \theta_a \tau_a}.
+\end{equation}
+which means that the vacuum phase ground state is invariant under $H$.
+However, for $\alpha = 0$, the ground state is shifted to
+\begin{equation}
+    \Sigma(\pi=0) = \exp{i \alpha \tau_1}.
+\end{equation}
+The generators $\tau_2$ and $\tau_3$ are broken

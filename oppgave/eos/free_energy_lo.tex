@@ -151,10 +151,11 @@ Using the result for a free field \cref{free field regularized energy}, we get
 \begin{equation}
     \Ef^{(1)}_{\pi_0} 
     = 
-    - \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
-    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{m_3^2}) \right] + \mathcal{O}(\epsilon),
+    - \mu^{-2 \epsilon}  \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
+    \left[ \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\tilde \mu^2}{m_3^2}) \right],
 \end{equation}
-where $\mu$ is the renormalization scale, which is introduced ensure that the integral has the same engineering dimension for $d \neq 3$.
+where $\mu$ is the renormalization scale, a parameter with mass-dimension 1 which is introduced to ensure the action integral remains dimensionless during dimensional regularization.
+$\tilde \mu$ is a related to $\mu$ as described in \cref{definition mu tilde MS bar}.
 
 The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is more complicated, as the dispersion relation is given by
 \begin{equation}
@@ -265,7 +266,7 @@ Thus, in the $\mathrm{\overline{MS}}$-scheme,
 \begin{equation}
     \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
     =
-    - \frac{1}{4} \frac{\tilde m_1^4}{(4\pi)^2} 
+    - \mu^{-2 \epsilon} \frac{1}{4} \frac{\tilde m_1^4}{(4\pi)^2} 
     \left[
         \frac{1}{\epsilon} + \frac{3}{2} + \ln(\frac{\mu^2}{\tilde m_1^2}) 
     \right] 
@@ -287,13 +288,13 @@ The total one-loop contribution is then, using \cref{tilde m1,tilde m2},
     \Ef^{(2)}
     & = 
     \Ef^{(1)}_{\mathrm{fin}, \pi_\pm} 
-    - \frac{1}{2}\frac{1}{(4\pi)^2}
+    - \mu^{-2 \epsilon} \frac{1}{2}\frac{1}{(4\pi)^2}
     \left[
-        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{m_3^2 } \right)
+        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2 } \right)
         m_3^4
         +
         \frac{1}{2}
-        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\mu^2}{\tilde m_2^2} \right)
+        \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{\tilde m_2^2} \right)
         \tilde m_2^4
     \right]
 \end{align}

@@ -30,26 +30,27 @@ Two elements $\tilde\Sigma$ and $\tilde\Sigma'$, related by
 \begin{equation}
     \tilde \Sigma' = \tilde\Sigma e^{i \theta_a t_a}
 \end{equation}
-results in the same $\varphi(x)$.
+results in the same $\varphi$.
 This is because  $e^{i \theta_a t_a} = h \in H$, and $h \varphi_0 = \varphi_0$, by assumption.
-The set of all equivalent $\Sigma$'s is exactly the left coset, $gH = \setbuilder{gh}{ h \in H}$.
-The set of cosets forms a new manifold, $G / H$, called the Goldstone manifold, and has dimension $\dim(G/H) = \dim(G) - \dim(H)$, which is exactly the number of broken generators, and thus also the number of Goldstone modes.
+The set of all equivalent $\tilde \Sigma$'s is exactly the left coset, $gH = \setbuilder{gh}{ h \in H}$.
+The set of cosets forms a new manifold, $G / H$, called the Goldstone manifold.
+This is a manifold of dimension $\dim(G/H) = \dim(G) - \dim(H)$, which is exactly the number of broken generators, and thus also the number of Goldstone modes.
 Membership of a certain coset from an equivalence relation, $g \sim g'$ if $g' = gh$.
 This means that the cosets $gH$ form a partition of $G$, and that each element $g \in G$ belongs to one, and only one, coset.
 To remove the redundancy in the parametrization, we need to choose one representative element from each coset.
 
-By the inverse function theorem, any mapping between manifolds $f: \Em \mapsto \mathcal{N}$ that has a non-degenerate differential, that is an invertible Jacobian,  at a point $p \in \Em$, is invertible in a neighborhood of $p$.
+By the inverse function theorem, any mapping between manifolds $f: \Em \mapsto \mathcal{N}$ that has a non-degenerate differential, that is an invertible Jacobian, at a point $p \in \Em$, is invertible in a neighborhood of $p$.
 The map
 \begin{equation}
-    \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a}
+    \tilde \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a}
 \end{equation}
 is invertible at $p = (\xi_i = 0, \theta_a = 0)$, which is mapped to the identity, as the Jacobian is the identity matrix.
-This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \Sigma$.~\cite{smooth_manifolds}
-Furthermore, two elements $\Sigma'$ and $\Sigma$ related by $\Sigma' = \Sigma h$, $h \in H$ have the same $\xi$-arguments.
+This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \Sigma$~\cite{smooth_manifolds}.
+Furthermore, two elements $\tilde \Sigma'$ and $\tilde \Sigma$ related by $\tilde \Sigma' = \tilde \Sigma h$, $h \in H$ have the same $\xi$-arguments.
 We see that $\xi_i$ parametrize $G/H$, in the neighborhood of the identity.
-We therefore demand that $\Sigma$ always appear in the standard form
+We therefore demand that $\tilde \Sigma$ always appear in the standard form
 \begin{equation}
-    \Sigma(\xi) = \exp{i \xi_i x_i}.
+    \Sigma(\xi) = \tilde \Sigma(\xi, 0) = \exp{i \xi_i x_i}.
 \end{equation}
 The field $\varphi(x)$ can therefore be written as
 \begin{equation}
@@ -74,7 +75,7 @@ This is not a Lie group, as translating $\varphi$ in a closed path around the sp
 
 
 To check that $\xi_i$ in fact are the Goldstone modes, we study the way they appear in the Lagrangian.
-As they are massless, no mass term of the form $\xi_i \xi_i$ should appear in the Lagrangian.
+As they are massless, no mass term of the form $M_{ij} \xi_i \xi_j$ should appear in the Lagrangian.
 The original Lagrangian $\Ell[\varphi]$ was invariant under global transformations $\varphi(x) \mapsto g \varphi(x)$.
 However, any terms that only depend on $\varphi(x)$, and not its derivatives, will also be invariant under a \emph{local} transformation, $\varphi(x) \mapsto g(x)\varphi(x)$.
 Our parametrization of the fields, $\varphi(x) = \Sigma(x)\varphi_0$ is exactly such a transformation, which means that any such terms are independent of the Goldstone bosons.
@@ -91,9 +92,9 @@ Inserting the parametrization into this derivative term, we get
 The dependence of the Lagrangian on $\xi_i$ only appears through terms of the form $\Sigma(x)^{-1}\partial_\mu \Sigma(x)$.
 These can always be written on the form
 \begin{align*}
-    i\Sigma(x)^{-1}\partial_\mu \Sigma(x) = D_{\mu}(x) + E_{\mu}(x), \\
-    D_{\mu} = i x_i D_{ij}(\xi) \partial_\mu \xi_j, \quad
-    E_{\mu} = i t_a E_{ai}(\xi)\partial_\mu \xi_i.
+    & i\Sigma(x)^{-1}\partial_\mu \Sigma(x) = D_{\mu}(x) + E_{\mu}(x), \\
+    & D_{\mu}  = i x_i D_{ij}(\xi) \partial_\mu \xi_j, \\
+    & E_{\mu}  = i t_a E_{ai}(\xi)\partial_\mu \xi_i.
 \end{align*}
 This is called the Maurer-Cartan form, and $D_{ij}$ and $E_{ai}$ are as-of-yet unknown real valued functions of $\xi$. (HVORFOR??)
 
@@ -116,10 +117,10 @@ $g\Sigma(\xi)$ does not, in general.
     \caption{(KLADD) The top figure illustrates the transformation of $\varphi_0$ to $\varphi$ and then $\varphi$, and the alternative transformation $\varphi_0 \rightarrow \varphi'$. The bottom figure illustrates how this can rotate a neighborhood of $\varphi_0$ differently.}
     \label{fig:Curvature of SO(3)}
 \end{figure}
-\autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = O(3)$.
-$\Sigma(\xi)$ transforms $\varphi_0$ to $\varphi$, then $g$ transforms $\Sigma(\xi) \varphi_0$ to $\varphi(\xi')$.
+\autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = SO(3)$.
+$\Sigma(\xi)$ transforms $\varphi_0$ to $\varphi$, then $g$ transforms $\varphi$ to $\varphi' = \Sigma(\xi') \varphi_0$.
 Assuming $\varphi$ and $\varphi'$ are close enough to $\varphi_0$, we can write $\Sigma(\xi)$ and $\Sigma(\xi')$ on the standard form.
-However, if we follow a small neighborhood around $\varphi_0$ as it is acted on by $\Sigma(\xi)$, then $g$, it will be rotated by the time it arrives at $\varphi'$, when compared to the same neighborhood if it was acted on by $\Sigma(\xi')$
+However, if we follow a small neighborhood around $\varphi_0$ as it is acted on by $\Sigma(\xi)$, then $g$, it will be rotated by the time it arrives at $\varphi'$, when compared to the same neighborhood if it was acted on by $\Sigma(\xi')$.
 
 $g\Sigma(\xi)$ and $\Sigma(\xi')$ are in the same coset, as they by assumption corresponds to the same physical state.
 This means that we can write $g\Sigma(\xi) = \Sigma(\xi') h(g, \xi)$, where $h(g, \xi) \in H$.
@@ -131,7 +132,7 @@ This is in general not a linear representation, which is why this construction a
 Using the transformation rule, we can obtain the transformation rule of the Maurer-Cartan form.
 We use the shorthand $\Sigma = \Sigma(\xi),\, \Sigma' = \Sigma(\xi')$, and $h = h(g, \xi)$.
 This gives
-\begin{align}
+\begin{align*}
     \Sigma^{-1} \partial_\mu \Sigma
     \rightarrow 
     & \Sigma'^{-1} \partial_\mu \Sigma' \\
@@ -140,7 +141,7 @@ This gives
     & = h \Sigma^{-1} (\partial_\mu \Sigma) h^{-1}
     + h \partial_\mu h^{-1} \\
     & = h (\Sigma^{-1} \partial_\mu \Sigma + \partial_\mu) h^{-1}.
-\end{align}
+\end{align*}
 In terms of $D_\mu$ and $E_\mu$,
 \begin{align}
     D_\mu & \rightarrow h D_\mu h^{-1} \\
@@ -148,4 +149,4 @@ In terms of $D_\mu$ and $E_\mu$,
 \end{align}
 We see that $E_\mu$ transforms like a gauge field, with the gauge group $H$.
 These are the peicees we need to construct a Lagrangian in terms of the Goldstone bosons.
-(MANGLER: Inkluder massiver partikler, med $\varphi(x) = \Sigma(x)\tilde \varphi(x)$, og hvordan det transfoormerer. Skriver om representasjoner? (adj, r pi))
+(MANGLER: Inkluder massiver partikler, med $\varphi(x) = \Sigma(x)\tilde \varphi(x)$, og hvordan det transformerer. Skriver om representasjoner? (adj, r pi))
