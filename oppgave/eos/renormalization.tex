@@ -141,6 +141,141 @@ Adding all the contribution to the free energy density, and taking the limit $\e
 \end{align}
 We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, as they only add an unobservable constant value to the free energy.
 
+\subsection*{Loop expansion}
+(TODO: Move to \autoref{effective potential})
+
+In \autoref{1PI effective action}, we showed that the 1PI effective action had the property that it describes the whole quantum theory of the original action at the tree-level.
+This was done by inspecting a theory with the action proportional to $g^{-1}$, and argued that Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
+We can use the same argument to expand the effective potential in loops.
+Consider
+\begin{equation}
+    Z = \int \D \varphi \, e^{i g^{-1}S[\varphi]}.
+\end{equation}
+As we have done earlier, we can expand the action in a Taylor-series around the ground-state $\varphi_0$
+\begin{equation}
+    S[\varphi] = S[\varphi_0] 
+    + \int \dd^4 x \,\varphi(x)\, \fdiff{S[\varphi_0]}{\varphi(x)}
+    + \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}
+    + \dots
+\end{equation}
+As the expectation value of $\varphi$ by assumption is $\varphi_0$, then we can ignore all tadpole diagrams, which only serves to change this expectation value.
+Denote 
+\begin{align}
+    S_0[\varphi] &:= \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, 
+    \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}, \\
+    S_i[\varphi] &:=
+    \int \dd^4 x \dd^4 y \dd^4 z \,\varphi(x)\varphi(y)\varphi(z)\, 
+    \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y), \varphi(z)} + \dots,
+\end{align}
+where the dots indicate higher derivatives.
+We may then write
+\begin{align}
+    \ln Z & 
+    = i g^{-1} S[\varphi_0]
+    + \ln
+    \left[
+        \int \D \varphi \, 
+        e^{ig^{-1}(S_0 + S_i)}
+    \right] \\
+    & = 
+    i g^{-1} S[\varphi_0]
+    + 
+    \ln    
+    \left[
+        \int \D \varphi \, 
+        e^{ig^{-1}S_0}
+    \right]
+    +
+    \ln
+    \left[
+        \frac{
+            \int \D \varphi \, 
+            e^{ig^{-1}S_i}e^{ig^{-1}S_0}
+        }{
+            \int \D \varphi \, 
+            e^{ig^{-1}S_0}
+        }
+    \right]
+    = Z_0 + Z_1 + Z_i.
+\end{align}
+The first term is quadratic in $\varphi$, and may therefore be evaluated as a gaussian integral, as discussed in \autoref{section:gaussian integrals},
+\begin{equation}
+    \int \D \varphi \, \exp{ ig^{-1}
+        \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, 
+        \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)},
+    }
+    = \det(- ig^{-1}\fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)})^{-1/2}
+\end{equation}
+This means that we can write
+\begin{equation}
+    Z_1 = -\frac{1}{2}\Tr{\ln\left(-g^{-1} \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)}
+    = -\frac{1}{2} \Tr{\ln\left(- \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)}
+    + C.
+\end{equation}
+This shows that $Z_1$ is made up of 1-loop terms.
+
+$Z_i$ can be evaluated by first expanding the exponential containing the $S_i$ term, then using $\ln(1 + x) = \sum_n \frac{1}{n}x^n$.
+Notice that
+\begin{equation}
+    \ex{A}_i =  \frac{
+        \int \D \varphi \, 
+        A \, e^{ig^{-1}S_0}
+    }{
+        \int \D \varphi \, 
+        e^{ig^{-1}S_0}
+    }
+\end{equation}
+with this, we can write
+\begin{align}
+    & \ln
+    \left[
+        \frac{
+            \int \D \varphi \, 
+            e^{ig^{-1}S_i}e^{ig^{-1}S_0}
+        }{
+            \int \D \varphi \, 
+            e^{ig^{-1}S_0}
+        }
+    \right]
+    = 
+    \ln 
+    \left(
+        \sum_n \frac{1}{n!}
+        \ex{(ig^{-1}S_i)^n}
+    \right) 
+    % \\
+    % =
+    % &\left(
+    %     i g^{-1} \ex{S_i}
+    %     -
+    %     \frac{1}{2}g^{-2}
+    %     \ex{-S_i^2}
+    %     + \dots
+    % \right)
+    % + 
+    % \frac{1}{2}
+    % \left(
+    %     i g^{-1} \ex{S_i}
+    %     -
+    %     \frac{1}{2}g^{-2}
+    %     \ex{S_i^2}
+    %     + \dots
+    % \right)^2
+    % + \dots
+\end{align}
+Expectation values of functionals of the field can be written as
+\begin{equation}
+    \ex{f[\varphi]} = f\left[\fdiff{}{J}\right] Z[J] \big|_{J=0},
+\end{equation}
+where the functional of a functional derivative is evaluated by its series expansion.
+From Wick's theorem, each term in this series is given by a product of functional derivatives of $W$.
+As argued earlier, the propagator of the interacting theory is proportional to $g$, and thus so is $W$.
+We know that $S_i$ is made up of terms that is third power or higher in the fields.
+Furthermore, as the expectation value of an \emph{odd} number of fields are proportional to tadpole-diagrams, those can be ignore.
+This means that $\ex{S_i^n} \propto g^{k}$, where $k$ is more or equal to $3n$, if $n$ is even, $3n+1$, if $n$ is odd.
+This shows that $Z_i = \Oh{g}$, and thus that $Z_1$ contains \emph{all} one loop contributions to $\ln Z$.
+
+
 \subsection*{Parameters, and keeping the expansion consistent}
 The coupling constants are free parameters, and can therefore not be calculated from first principles, but must be measured.
 The values for the pion mass and pion decay constants are (HVORFOR?)
@@ -191,13 +326,116 @@ Together with \cref{equation bare mass,equation bare decay constant}, the NLO re
 \end{align}
 
 In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_i$, using the lowest order estimate of $\Ef$, given in \cref{leading order minization}.
-To calculate any thermodynamic quantities to leading order, we must thus use this result.
-If we are to calculate any other quantities to next-to-leading order, we also have to use the next-to-leading order criterion for $\alpha$ as a function of $\mu_I$, which is given by
-\begin{eqnarray}
-    \diffp{\Ef_{\mathrm{NLO}}}{\alpha} = 0,
-\end{eqnarray}
-using the result \cref{NLO free energy}.
-In \autoref{fig:alpha}, the NLO result is compared with the LO result, \cref{leading order minization}.
+To calculate any thermodynamic quantities to leading order, at the tree-level, we must use this result.
+When calculating higher order corrections to the free energy, we must make sure to calculate this and other relationship to the same order, consistently.
+As we have seen earlier, when replacing the action by $S[\varphi] \rightarrow g^{-1}S[\varphi]$, the $L$-loop contribution is proportional to $g^{L-1}$.
+The Weinberg's power counting scheme, when replace $p \rightarrow t p$, and $m \rightarrow t^2 m$, the n'th therm in the expansion is proportional to $t^{2n}$.
+We can therefore expand the free energy as
+\begin{equation}
+    \Ef = t^2 g^{-1} \Ef_2^{(0)} + t^2 \Ef_2^{(1)} + t^4 g^{-1} \Ef_4^{(0)}
+    + ...
+\end{equation}
+We consider terms where $m = L + n$ are the same to be of the same order.
+This expansion can be written as
+\begin{equation}
+    \Ef = \sum_{m=0}^\infty \sum_{n+L=m} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
+\end{equation}
+If we now define
+\begin{equation}
+    \tilde \Ef_m = \sum_{n+L=m} t^{2n} g^{L-1} \Ef_{2n}^{(L)},
+\end{equation}
+then scale $t \rightarrow \sqrt{s} \, t$ and $g \rightarrow s g$, where $s$ is some real number, then $t^{2n}g^{L-1}$ scales as $s^{n+L-1} = s^{m-1}$.
+We can therefore expand the free energy as
+\begin{equation}
+    s \Ef = \sum_{m= 0}^\infty \tilde \Ef_m \, s^{m}.
+\end{equation}
+The same expansion holds for all quantities we calculate from this theory.
+Let $\alpha'$ be the solution to
+\begin{equation}
+    \diffp{\Ef}{\alpha} \bigg|_{\alpha=\alpha'} = 0
+\end{equation}
+to all orders.
+We expand this solution in $s$,
+\begin{equation}
+    \alpha' = \alpha_0 + \alpha_1 s + \dots.
+\end{equation}
+Combining this, we get
+\begin{align*}
+    0 &
+    = 
+    \diffp{}{\alpha}
+    \left[
+        s^{-1}\tilde \Ef_0
+        + 
+        \tilde \Ef_1
+        +
+        \Oh[1]{s}
+    \right]
+    \bigg|_{\alpha=\alpha_0 + \alpha_1 s + \Oh{s}} 
+    \\
+    & = 
+    s^{-1 }
+    \left[
+        \tilde \Ef_0'(\alpha_0)
+        +
+        (\alpha' - \alpha_0)
+        \tilde \Ef_0''(\alpha_0)
+        +
+        \Oh[2]{s}
+    \right]
+    +
+    \tilde\Ef_1'(\alpha_0)
+    +
+    \Oh[1]{s} \\
+    &
+    =
+    s^{-1} \tilde\Ef_1'(\alpha_0)
+    + s^{0}
+    \left[
+        \alpha_1
+        \tilde \Ef_0''(\alpha_0)
+        +
+    \tilde\Ef_1'(\alpha_0)
+    \right]
+    +
+    \Oh[1]{s}
+\end{align*}
+Here, the prime indicates partial derivatives with respect to $\alpha$.
+This equality has to hold term for term.
+After setting $s = g = t = 1$, we get
+\begin{align*}
+    \diffp{\tilde \Ef_0}{\alpha}\bigg|_{\alpha=\alpha_0} = 0, \quad
+    \tilde \Ef_0 = \Ef_2^{(0)},
+\end{align*}
+which is what we have used as the leading-order result. 
+The next to leading order result is
+\begin{equation}
+    \alpha_1 = - \frac{\tilde \Ef_1'(\alpha_0)}{{\tilde \Ef_0''(\alpha_0)}},
+    \quad 
+    \tilde \Ef_1 = \Ef_{4}^{(0)} + \Ef_{2}^{(1)}.
+\end{equation}
+
+The next to leading order results for the free energy and $\alpha'$ are
+\begin{equation}
+    \Ef_\mathrm{NLO} = \tilde \Ef_0 + \tilde \Ef_1, \quad
+    \alpha_\mathrm{NLO} = \alpha_0 + \alpha_1.
+\end{equation}
+If we use this to result to obtain an NLO-version of the equation for $\alpha$, we get
+\begin{equation}
+    \Ef_\mathrm{NLO}'(\alpha_\mathrm{NLO})
+    = \tilde \Ef_0'(\alpha_0) + \alpha_1 \tilde \Ef_0''(\alpha_0) + \dots
+    + \tilde \Ef_1'(\alpha_0) + \dots,
+\end{equation}
+where the terms that are not included are beyond next-to-leading order.
+Thus,
+\begin{equation}
+    \label{alpha nlo method 2}
+    \diffp{\Ef_\mathrm{NLO}}{\alpha} \bigg|_{\alpha=\alpha'} = 0
+\end{equation}
+will give the correct answer to $\alpha'$ to next-to-leading order.
+
+In \autoref{fig:alpha}, the leading order and next-to-leading order results for $\alpha'$ is shown.
+The NLO result was calculated numerically using \cref{alpha nlo method 2}.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{figurer/numerics/alpha.pdf}

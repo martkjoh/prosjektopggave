@@ -76,45 +76,203 @@ This is the hallmark of a phase transition, where $\alpha$ is the order paramete
 The transition is continuous in alpha, which means this is a second order phase transition.
 Using \cref{leading order contribution free energy}, we can expand the leading-order free energy in $\alpha$,
 \begin{align}
-    \Ef_0^{(2)} 
+    \Ef
     & = -f^2 \bar m^2 + f^2 \frac{1}{2}(\bar m^2 - \mu_I^2)\alpha^2
-    +\frac{1}{24} f^2 (\bar m^2 - 4 \mu_I^2) \alpha^4 + \Oh[5]{\alpha} \\
-    & = \Ef_0^{(2)}(\alpha=0) + a(\mu_I)\alpha^2 - \frac{1}{2} b(\mu_I)\alpha^4 + \Oh[5]{\alpha}.
+    - \frac{1}{24} f^2 (\bar m^2 - 4 \mu_I^2) \alpha^4 + \Oh[5]{\alpha} \\
+    & = \Ef(\alpha=0) + a(\mu_I)\alpha^2 + \frac{1}{2} b(\mu_I)\alpha^4 + \Oh[5]{\alpha},
 \end{align}
+to leading order.
 Notice that near $\mu_I = \bar m$, $b > 0$.
-As earlier, the equation that governs $\alpha$ is
+As earlier, the equation that governs $\alpha'$ is
 \begin{equation}
     \label{landau ginsburg lo}
-    \diffp{\Ef_0^{(2)}}{\alpha} = 2 [a(\mu_I) - b(\mu_I) \alpha^2] \alpha = 0.
+    \diffp{\Ef}{\alpha} \bigg|_{\alpha=\alpha'} = 2 [a(\mu_I) + b(\mu_I) \alpha^2] \alpha = 0.
 \end{equation}
-If $a<0$, then $\alpha = 0$ will be the only solution, which gives us the criterion for a phase transition 
+If $a>0$, then $\alpha' = 0$ will be the only solution, which gives us the criterion for a phase transition 
 \begin{equation}
     a(\mu_I) = 0,
 \end{equation}
 which again gives $\mu_I = \bar m$.
 Near $\mu_I = \bar m$, we can write
 \begin{equation}
-    a = a_0 (\bar m - \mu_I), \quad b = b_0,
+    a = - a_0 (\mu_I - \bar m), \quad b = b_0,
 \end{equation}
-so the solution to \cref{landau ginsburg lo} for $\mu_I>\bar m$
+where $a_0$ and $b_0$ are positive constants, so the solution to \cref{landau ginsburg lo} for $\mu_I>\bar m$
 \begin{equation}
-    \alpha(\mu_I) = \frac{a_0}{b_0} (\mu_I - \bar m)^{1/2}.
+    \alpha(\mu_I) = \sqrt{\frac{a_0}{b_0}} (\mu_I - \bar m)^{1/2}.
 \end{equation}
+The order parameter $\alpha$ changes continuously as the system undergoes phase-transition.
+This means we have a \emph{second order} phase transition.
+However, if $b < 1$ near $\mu_I = \bar m$, this is not a valid solution, so we must expand $\Ef$ further to show if the phase transition is continuous or not.
+The difference is illustrated in \autoref{fig:phase transition}.
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{figurer/numerics/phase_transition.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{figurer/numerics/phase_transition2.pdf}
+    \end{subfigure}
+    \caption{The plot on the left shows normalized free energy density as a function of $\alpha$, in the two different phases. The plot on the right shows the same, but with a free energy $\Ef'$ that have been modified so that $b(\mu_I=\bar m)<0$.
+    In the first case, the minima transitions continuous, while in the second it jumps.}
+    \label{fig:phase transition}
+\end{figure}
 
-In the vacuum phase, $\alpha = 0$, the ground state is given by 
+% Due to symmetry of the system under $\alpha \rightarrow -\alpha$, the expansion of $\Ef$ should only contain even powers.
+% This can be certified to leading order by explicit calculation.
+% We therefore write,
+% \begin{equation}
+%     \Ef = \Ef(\alpha = 0) + a \alpha^2 - \frac{1}{2} b \alpha^4 + \frac{1}{3} c \alpha^6
+%     + \Oh[8]{\alpha}.
+% \end{equation}
+% We assume that near $\bar m = \mu_I$, we can write $a = -a_0(\mu_I - \bar m), \, b = -b0 ,½$ and $c = c_0$, where all the constants are positive.
+% The equation for $\alpha'$ is now
+% \begin{equation}
+%     2\alpha [a - \alpha^3 (b - c \alpha^3 )] = 0
+% \end{equation}
+% We still have the $\alpha' = 0$ for $\mu_I < \bar m$.
+% For $\mu_I> \bar m$, we get the solutions
+% \begin{equation}
+%     \alpha^3 = \frac{1}{2} \left( \frac{b}{c} \pm \sqrt{\left(\frac{b}{c} \right)^2- 4 \frac{a}{c}} \right)
+%     = \frac{b_0}{2c_0} \left(1 \pm \sqrt{1- 4 (\mu_I - \bar m) \frac{a_0c_0}{b_0^2}} \right).
+% \end{equation}
+% Taking the second derivative, 
+% \begin{equation}
+%     \Ef' = a - (3 b - 5c \alpha^2)\alpha^2,
+% \end{equation}
+
+
+
+In the vacuum phase, $\alpha' = 0$, the ground state is given by 
 \begin{equation}
-    \Sigma(\pi = 0) = \one,
+    \Sigma(\pi = 0) = \Sigma_0 = \one,
 \end{equation}
 where we have use \cref{sigma}.
-$\Sigma$ transforms as (FORKLAR)
+$\Sigma$ transforms as
 \begin{equation}
     \Sigma(x) \rightarrow \Sigma'(x) = V \Sigma(x) V^\dagger,
     \quad
-    V = \exp{i \theta_a \tau_a}.
+    V = \exp{i \theta_a \tau_a},
 \end{equation}
 which means that the vacuum phase ground state is invariant under $H$.
 However, for $\alpha = 0$, the ground state is shifted to
 \begin{equation}
-    \Sigma(\pi=0) = \exp{i \alpha \tau_1}.
+    \Sigma(\pi=0) = A_\alpha \Sigma_0 A_\alpha = \exp{i \alpha \tau_1}.
 \end{equation}
-The generators $\tau_2$ and $\tau_3$ are broken
+The generators $\tau_2$ and $\tau_3$ are broken.
+The new ground state corresponds to a condensate of the $\pi_1$-particle, as it is defined in the vacuum state.
+In \autoref{fig:masses}, we saw that the mass of the $m_-$ particle, which we identify with the corresponding Goldstone mode.
+There is only one Goldstone mode, however this is not a Lorentz invariant system, in which case we cannot guarantee one massless mode per broken generator.
+
+To find the value of $\mu_I$ to next-to-leading order, we must expand the NLO free energy in powers of $\alpha$
+We have
+\begin{align}
+    \Ef_4^{(0)}
+    &= [(l_3 + l_4)\bar m^4 -l_4 \bar m^2\mu_I^2]\alpha^2 + \Oh[3]{\alpha} 
+    % \\
+    % &
+    % = \mu^{-2\epsilon} \frac{1}{(4\pi)^2}
+    % \left[
+    %     (
+    %         -\frac{1}{2}(\bar l_4 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2})
+    %         + 2(\bar l_3 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2})
+    %     )\bar m^4
+    %     -2(\bar l_4 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}) \bar m^2\mu_I^2]\alpha^2
+    % \right]
+    \\
+    &
+    = \mu^{-2\epsilon} \frac{1}{(4\pi)^2}
+    \left[
+        \frac{3}{2}
+        (
+            \frac{4}{3}\bar l_4 - \frac{1}{3}\bar l_3 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}
+        )\bar m^4
+        -2(\bar l_4 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}) \bar m^2\mu_I^2]\alpha^2
+    \right]
+    + \Oh[3]{\alpha}.
+\end{align}
+From the one-loop correction, we have
+\begin{equation}
+    \Ef_2^{(1)} = i \frac{1}{2}\int \frac{\dd^4 p}{(2\pi)^2} \ln(-p^2 + m_3^2)
+    +  i \frac{1}{2} \int \frac{\dd^4 p}{(2\pi)^2} \ln[(-p^2 + m_1^2)(-p^2 + m_2^2) - p_0^2 m_{12}^2]
+\end{equation}
+We have already evaluated the first integral,
+\begin{equation}
+    \Ef_{\pi_0} 
+    = i \frac{1}{2}\int \frac{\dd^4 p}{(2\pi)^2} \ln(p^2 - m_3^2)
+    = - \mu^{-2\epsilon}\frac{1}{4} \frac{m_3^2}{(4 \pi)^2}
+    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2}\right).
+\end{equation}
+(EXPAND IN ALPHA)
+We have
+\begin{align*}
+    m_3^2 
+    &= \bar m^2 + \frac{1}{2}(2\mu_I^2 - \bar m^2)\alpha^2+ \Oh[3]{\alpha}, \\
+    \ln \frac{\mu^2}{m_3^2}
+    &=
+    \ln \frac{\mu^2}{\bar m_3^2} - \frac{1}{2} \frac{(2\mu_I^2 - \bar m^2)}{\bar m^2}+ \Oh[3]{\alpha}.
+\end{align*}
+In the second integral, we rewrite the argument of the logarithm as
+\begin{equation}
+    (-p^2 + m_1^2)(-p^2 + m_2^2) - p_0^2 m_{12}^2
+    =  \left[-p^2 + \frac{1}{2}(m_1^2 + m_2^2)\right]^2 - p_0^2 m_{12}^2 - \frac{1}{4}(m_1^2 - m_2^2)^2.
+\end{equation}
+The difference of the masses turn out to $m_1^2 - m_2^2 = \mu^2 \sin^2\alpha = \Oh[2]{\alpha}$, and can therefore be dropped.
+We further rewrite
+\begin{equation}
+    \left[-p^2 + \frac{1}{2}(m_1^2 + m_2^2)\right]^2 - p_0^2 m_{12}^2
+    = \left[-p^2 + \frac{1}{2}(m_1^2 + m_2^2) - p_0 m_{12} \right]
+    \left[-p^2 + \frac{1}{2}(m_1^2 + m_2^2) + p_0 m_{12} \right]
+\end{equation}
+Each of these can be brought into a form so that we can perform the integral after a change of variables, through
+\begin{equation}
+    p^2 + \frac{1}{2}(m_1^2 + m_2^2) \pm p_0 m_{12}
+    = \left(p_0 \pm \frac{1}{2}m_{12}\right)^2 + |\vv p|^2 + M^2,
+\end{equation}
+where
+\begin{equation}
+    M^2 = \frac{1}{2}\left(m_1^2 +m_2^2 +\frac{1}{2}m_{12}\right)
+    = \bar m^2 \cos\alpha - \frac{1}{2} \mu_I^2 (\cos 2\alpha + \cos^2 \alpha - 2\cos^2\alpha)
+    = \bar m^2 \cos\alpha - \frac{1}{2} \mu_I^2 \sin^2 \alpha.
+\end{equation}
+After a shift of variables,
+\begin{equation}
+    \Ef_{\pi_\pm}
+    = i \int \frac{\dd^4}{(2\pi)^4}
+    \ln(-p^2 + M^2)
+    = 
+    - \mu^{-2\epsilon}\frac{1}{2} \frac{M^2}{(4 \pi)^2}
+    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{M^2}\right)
+\end{equation}
+When we expand the mass parameter we introduced, we get (CHECK!)
+\begin{align}
+    M^2 
+    &= \bar m^2 -\frac{1}{2}(m^2 + \mu_I^2) \alpha^2 + \Oh[3]{\alpha}, \\
+    \ln \frac{\mu^2}{M^2} 
+    &= \ln \frac{\mu_I^2}{\bar m^2} + \frac{1}{2}\frac{\bar m^2 + \mu_I^2}{\bar m^2}\alpha^2
+    + \Oh[3]{\alpha}.
+\end{align}
+In total, (FIX)
+\begin{align}
+    \tilde \Ef_1
+    & = 
+    \mu^{-2\epsilon} \frac{1}{(4\pi)^2}
+    \bigg[
+        \left(
+            \frac{1}{\epsilon} + \frac{3}{2} +\ln \frac{\mu^2}{\bar m_3^2} - \frac{1}{2} \frac{(2\mu_I^2 - \bar m^2)}{\bar m^2}\alpha^2
+        \right)(\bar m^2 + \frac{1}{2}(2\mu_I^2 - \bar m^2)\alpha^2)
+        \\
+        & +
+        \left(
+            \frac{1}{\epsilon} + \frac{3}{2} +\ln \frac{\mu_I^2}{\bar m^2} + \frac{1}{2}\frac{\bar m^2 + \mu_I^2}{\bar m^2}
+        \right)(\bar m^2 -\frac{1}{2}(m^2 + \mu_I^2) \alpha^2)
+        \\
+        &
+        +
+        \frac{3}{2}
+        (
+            \frac{4}{3}\bar l_4 - \frac{1}{3}\bar l_3 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}
+        )\bar m^4
+        -2(\bar l_4 - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}) \bar m^2\mu_I^2]\alpha^2
+    \bigg].
+\end{align}
