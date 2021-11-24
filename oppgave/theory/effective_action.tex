@@ -104,8 +104,9 @@ The functional version of a Taylor expansion, as described in \autoref{section:F
 \begin{equation}
     S[\varphi_0 + \eta] = 
     S[\varphi_0]
-    + \int \dd x \fdv{S[\varphi_0]}{\varphi(x)} \eta(x)
-    + \frac{1}{2} \int \dd x \dd y\,  \frac{\delta^2 S[\varphi_0]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
+    + \int \dd x \, \eta(x) \, \fdv{S[\varphi_0]}{\varphi(x)}
+    + \frac{1}{2} \int \dd x \dd y\,  \eta(x) \eta(y) \,
+    \frac{\delta^2 S[\varphi_0]}{\delta\varphi(x)\delta\varphi(y)}
     + \dots
 \end{equation}
 The notation 
@@ -113,16 +114,24 @@ The notation
     \fdiff{S[\varphi_0]}{\varphi(x)}
 \end{equation}
 indicates that the functional $S[\varphi]$ is differentiated with respect to $\varphi(x)$, then evaluated at $\varphi(x) = \varphi_0$.
-We will only consider this expansion up to second order in derivatives for now.
-Inserting this into $Z[J]$ we get
+Denote 
+\begin{align}
+    S_0[\eta] &:= 
+    \int \dd^4 x \dd^4 y \,\eta(x)\eta(y)\, 
+    \fdiff{S[\varphi_0]}{\eta(x), \eta(y)}, \\
+    S_i[\eta] &:=
+    \int \dd^4 x \dd^4 y \dd^4 z \,\eta(x)\eta(y)\eta(z)\, 
+    \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y), \varphi(z)} + \dots,
+\end{align}
+where the dots indicate higher derivatives.
+When we insert this expansion into the generating functional $Z[J]$ we get
 \begin{align*}
-    &Z[J] = \\ 
-    &\int \D \eta  
+    &Z[J] = \int \D \eta
     \exp{
         i \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
-        + i \int \dd^4x \left(  \fdv{S[\varphi_0]}{\varphi(x)} + J(x) \right) \eta(x)
-        + i \frac{1}{2} \int \dd^4 x \dd^4 y \,  
-        \frac{\delta^2 S[\varphi_0]}{\delta\varphi(x)\delta\varphi(y)} \eta(x) \eta(y)
+        +i \int \dd^4x \, \eta(x) \, 
+        \left(  \fdv{S[\varphi_0]}{\varphi(x)} + J(x) \right)
+        + i S_0[\eta] + i S_i[\eta]
         }
 \end{align*}
 The first term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
@@ -133,29 +142,223 @@ Furthermore, this means that the ground state must minimize the classical potent
     \label{minimize classical potential}
     \diffp{\Ve(\varphi_0)}{\varphi} = 0.
 \end{equation}
-
-The one loop approximation to the effective potential is given by the Taylor-expansion up to second order.
-This term is a Gaussian integral, and may be evaluated as described in \autoref{section:gaussian integrals},
+This leaves us with 
 \begin{equation}
-    \int \D \eta \, 
-    \exp(
-        i \frac{1}{2} \int \dd^4x \dd^4y\,  
-        \frac{\delta^2 S[\varphi_0]}{\varphi(x)\varphi(y)} \eta(x) \eta(y)
-        )
-        = C \det\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)^{-1/2}
+    -i \ln Z[J] = W[J]
+    =
+    \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
+    -i \ln
+    \left(
+        \int \D \eta\exp{i S_0[\eta] + i S_i[\eta]}
+    \right)
 \end{equation}
-The generating functional for connected diagrams, as defined in \cref{generating functional of connected diagrams}, is therefore
+We can now use the definition of the 1PI effective action to obtain a formula for the effective potential,
+\begin{equation}
+    \Veff(\varphi_0)
+    =- \frac{1}{VT}
+    \left( 
+        W[J] - \int \dd^4 x J \varphi_0
+    \right)
+    = \Ve(\varphi_0) 
+    -i \ln
+    \left(
+        \int \D \eta\exp{i S_0[\eta] + i S_i[\eta]}
+    \right).
+\end{equation}
+
+In \autoref{1PI effective action}, we showed that the 1PI effective action had the property that it describes the whole quantum theory of the original action at the tree-level.
+This was done by inspecting a theory with the action proportional to $g^{-1}$, and argued that Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
+We can use the same argument to expand the effective potential in loops.
+This is done by modifying the action $S[\varphi] \rightarrow g^{-1}S[\varphi]$, and then expand in power of $g$.
+The first term in the effective potential is simply modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level, i.e. zero loop terms.
+This is as expected, since the tree-level result corresponds to the classical result without any quantum corrections.
+The second term becomes
+\begin{align*}
+    \ln
+    \left(
+        \int \D \eta e^{i S_0 + i S_i}
+    \right)
+    \longrightarrow
+    &
+    \ln
+    \left(
+        \int \D \eta e^{i g^{-1}S_0 + i g^{-1} S_i}
+    \right)
+    = 
+    \ln\left(
+        \int \D \eta \, e^{i g^{-1}S_0}
+    \right)
+    +
+    \ln
+    \left(
+        \frac{
+            \int \D \eta\, e^{i g^{-1} S_i} \, e^{i g^{-1}S_0}
+        }{
+            \int \D \eta\,e^{i g^{-1}S_0}
+        }
+    \right)
+\end{align*}
+The first term is quadratic in $\eta$, and can therefore be evaluated as a generalized Gaussian integral, as described in \autoref{section:gaussian integrals},
+\begin{align*}
+    & 
+    \ln\Bigg\{
+        \int \D \eta \, 
+    \exp(
+            i g^{-1} \frac{1}{2} \int \dd^4x \dd^4y\,  \eta(x) \eta(y) \, 
+            \frac{\delta^2 S[\varphi_0]}{\varphi(x)\varphi(y)} 
+        )
+    \Bigg\}
+    \\
+    & 
+    = 
+    \ln\Bigg\{
+        \det\left( - g^{-1} \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)^{-1/2}
+    \Bigg\}
+    = -\frac{1}{2}
+    \Tr\left\{
+        \ln(
+        - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}
+        )
+    \right\}
+    % + \const
+\end{align*}
+We then use the identity $\ln \det M = \Tr \ln M$.
+After we remove the constant term, this term proportional to $g^0$, i.e. it is made up of one-loop terms.
+% The generating functional for connected diagrams, as defined in \cref{generating functional of connected diagrams}, is therefore
+% \begin{align}
+%     \label{generating functional}
+%     W[J] 
+%     & = 
+%     \int\dd^4 x \, \left(\Ell[\varphi_0] + J \varphi_0\right)
+%     +i \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}
+%     + \dots,
+% \end{align}
+% where we have used the identity $\ln \det M = \Tr \ln M$.
+
+% Consider
+% \begin{equation}
+%     Z = \int \D \varphi \, e^{i g^{-1}S[\varphi]}.
+% \end{equation}
+% As we have done earlier, we can expand the action in a Taylor-series around the ground-state $\varphi_0$
+% \begin{equation}
+%     S[\varphi] = S[\varphi_0] 
+%     + \int \dd^4 x \,\varphi(x)\, \fdiff{S[\varphi_0]}{\varphi(x)}
+%     + \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}
+%     + \dots
+% \end{equation}
+% As the expectation value of $\varphi$ by assumption is $\varphi_0$, then we can ignore all tadpole diagrams, which only serves to change this expectation value.
+
+The last term can be evaluated by first expanding the exponential containing the $S_i$ term, then using $\ln(1 + x) = \sum_n \frac{1}{n}x^n$.
+Notice that
+\begin{equation}
+    \ex{A}_i =  \frac{
+        \int \D \varphi \, 
+        A \, e^{ig^{-1}S_0}
+    }{
+        \int \D \varphi \, 
+        e^{ig^{-1}S_0}
+    }
+\end{equation}
+with this, we can write
 \begin{align}
-    \label{generating functional}
-    W[J] 
-    & = 
-    \int\dd^4 x \, \left(\Ell[\varphi_0] + J \varphi_0\right)
-    +i \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}
-    + \dots,
+    & \ln
+    \left[
+        \frac{
+            \int \D \eta \, 
+            e^{ig^{-1}S_i}e^{ig^{-1}S_0}
+        }{
+            \int \D \varphi \, 
+            e^{ig^{-1}S_0}
+        }
+    \right]
+    = 
+    \ln 
+    \left(
+        \sum_n \frac{1}{n!}
+        \ex{(ig^{-1}S_i)^n}
+    \right) 
+    % \\
+    % =
+    % &\left(
+    %     i g^{-1} \ex{S_i}
+    %     -
+    %     \frac{1}{2}g^{-2}
+    %     \ex{-S_i^2}
+    %     + \dots
+    % \right)
+    % + 
+    % \frac{1}{2}
+    % \left(
+    %     i g^{-1} \ex{S_i}
+    %     -
+    %     \frac{1}{2}g^{-2}
+    %     \ex{S_i^2}
+    %     + \dots
+    % \right)^2
+    % + \dots
 \end{align}
-where we have used the identity $\ln \det M = \Tr \ln M$.
-Using the definition of the effective action, \cref{1PI effective action}, and \cref{definition effective potential} we get an explicit formula for the effective potential to 1 loop order,
+Expectation values of functionals of the field can be written as
+\begin{equation}
+    \ex{f[\varphi]} = f\left[\fdiff{}{J}\right] Z[J] \big|_{J=0},
+\end{equation}
+where the functional of a functional derivative is evaluated by its series expansion.
+From Wick's theorem, each term in this series is given by a product of functional derivatives of $W$.
+As argued earlier, the propagator of the interacting theory is proportional to $g$, and thus so is $W$.
+We know that $S_i$ is made up of terms that is third power or higher in the fields.
+Furthermore, as the expectation value of an \emph{odd} number of fields are proportional to tadpole-diagrams, those can be ignore.
+This means that $\ex{S_i^n} \propto g^{k}$, where $k$ is more or equal to $3n$, if $n$ is even, $3n+1$, if $n$ is odd.
+This shows that $Z_i = \Oh{g}$, and thus that $Z_1$ contains \emph{all} one loop contributions to $\ln Z$.
+The effective potential to 1 loop order is thus
 \begin{equation}
     \label{effective potential}
     \Veff(\varphi_0) = \Ve(\varphi_0) - \frac{i}{VT}  \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}.
 \end{equation}
+
+
+
+% We may then write
+% \begin{align}
+%     \ln Z & 
+%     = i g^{-1} S[\varphi_0]
+%     + \ln
+%     \left[
+%         \int \D \varphi \, 
+%         e^{ig^{-1}(S_0 + S_i)}
+%     \right] \\
+%     & = 
+%     i g^{-1} S[\varphi_0]
+%     + 
+%     \ln    
+%     \left[
+%         \int \D \varphi \, 
+%         e^{ig^{-1}S_0}
+%     \right]
+%     +
+%     \ln
+%     \left[
+%         \frac{
+%             \int \D \varphi \, 
+%             e^{ig^{-1}S_i}e^{ig^{-1}S_0}
+%         }{
+%             \int \D \varphi \, 
+%             e^{ig^{-1}S_0}
+%         }
+%     \right]
+%     = Z_0 + Z_1 + Z_i.
+% \end{align}
+% The first term is quadratic in $\varphi$, and may therefore be evaluated as a gaussian integral, as discussed in \autoref{section:gaussian integrals},
+% \begin{equation}
+%     \int \D \varphi \, \exp{ ig^{-1}
+%         \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, 
+%         \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)},
+%     }
+%     = \det(- ig^{-1}\fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)})^{-1/2}
+% \end{equation}
+% This means that we can write
+% \begin{equation}
+%     Z_1 = -\frac{1}{2}\Tr{\ln\left(-g^{-1} \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)}
+%     = -\frac{1}{2} \Tr{\ln\left(- \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)} \right)}
+%     + C.
+% \end{equation}
+% This shows that $Z_1$ is made up of 1-loop terms.
+
