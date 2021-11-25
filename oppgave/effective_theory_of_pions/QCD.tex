@@ -21,7 +21,7 @@ i.e. the transformation
 where $U_{cc'}$ is an $N_c \times N_c$ unitary matrix.
 The set of all $N_c\times N_c$ unitary matrices form the Lie group $U(N_c)$.
 All unitary matrices $U$ can be written as $e^{i\theta} U'$, where $\theta$ is a real number, and $U'$ is a matrix with determinant, which means we can decompose the Lie group into $U(1)\times SU(N_c)_c$.
-We recognize $U(1)$ as the gauge group of the electromagnetic field, which we will ignore for the time being.
+We recognize $U(1)$ as the gauge group of the electromagnetic field, which we will ignore for the time being. (ER DETTE SANT? HVORDAN FUNGERER DETTE?)
 $SU(N_c)$ is the group of all complex $N_c\times N_c$ matrices with determinant 1, and the subscript $c$ specifies that this is the set of color transformation, and not just some abstract group.
 
 \subsection*{The Yang-Mills Lagrangian}
@@ -127,14 +127,70 @@ In the limit $m \rightarrow 0$, called the \emph{chiral limit}, we gain two new 
     q_R \rightarrow U_R q_R, \quad q_L \rightarrow U_L q_L,
 \end{equation}
 where $U_L$ and $U_R$ are unitary matrices which act on the flavor indices.
-The total set of such transformations form the Lie group $U(N_f)_L \times U(N_f)_R$.
-
-
+The total set of such transformations form the Lie group $U(N_f)_L \times U(N_f)_R=U_V(1)$.
+We can write
 \begin{equation}
-    \label{Mass matrix}
-    M =
-    \begin{pmatrix}
-        m_u & 0 \\
-        0 & m_d
-    \end{pmatrix}.
+    U_R = \exp{i \eta_\alpha^R T_\alpha^R} e^{i\theta_R}, 
+    \quad
+    U_L = \exp{i \eta_\alpha^L T_\alpha^L} e^{i\theta_L},
 \end{equation}
+by again decomposing $U(N_f) = U(1)\times SU(N_f)$.
+The conserved currents corresponding to these symmetries are
+\begin{align}
+    L^{\mu}_\alpha & = 
+    \diffp{\Ell}{\partial_\mu q} (iT_\alpha^Lq_L)
+    = \bar q \gamma^\mu T_\alpha^L q_L = \bar q_L \gamma^\mu T_\alpha^L q_L, \\
+    R^{\mu}_\alpha
+    & = \bar q_R \gamma^\mu T_\alpha^R q_R, \\
+    J_R^\mu &= \diffp{\Ell}{\partial_\mu q} (iq_L) = - \bar q_R \gamma^\mu q_R \\
+    J_L^\mu &= - \bar q_L \gamma^\mu q_L
+\end{align}
+We expect when we introduce a non-zero mass, the symmetry is broken.
+However, we see that when right and left-handed quarks are transformed in the same way, i.e. $\eta_R = \eta_L$, then the Lagrangian remain invariant.
+We can write a general transformation in $U_R(N_f)\times U_L(N_f)$ as a matrix
+\begin{equation}
+    U = 
+    \begin{pmatrix}
+        U_L & 0 \\
+        0 & U_R 
+    \end{pmatrix},
+\end{equation}
+which act on spinors $q = (q_L, q_R)^T$.
+The subspace of transformations that remains unbroken for non-zero masses are
+\begin{equation}
+    U_V = 
+    \begin{pmatrix}
+        U & 0 \\
+        0 & U 
+    \end{pmatrix}
+    = \exp{i \eta_\alpha^V T_\alpha^V\one} e^{i \theta_V\one}
+\end{equation}
+while the remaining set of transformation are of the form
+\begin{equation}
+    U_A = 
+    \begin{pmatrix}
+        U^\dagger & 0 \\
+        0         & U 
+    \end{pmatrix}
+    = \exp{i \eta_\alpha^V T_\alpha^V \gamma^5} e^{i \theta_A\gamma^5}.
+\end{equation}
+These sets of transformations form the Lie groups $U(1)_V\times SU(N_f)_V$ and $U(1)_A\times SU(N_f)_A$.
+The corresponding conserved currents are
+\begin{align}
+    V^\mu_\alpha &= R^{\mu}_\alpha + L^{\mu}_\alpha = \bar q \gamma^\mu T^V_\alpha q, \\
+    A^\mu_\alpha &= R^{\mu}_\alpha - L^{\mu}_\alpha = \bar q \gamma^\mu \gamma^5T^A_\alpha q, \\
+    J_V^\mu & = \bar R^{\mu} + L^{\mu} = \bar q \gamma^\mu q, \\
+    J_A^\mu & = \bar R^{\mu} - L^{\mu} = \bar q \gamma^\mu \gamma^5 q.
+\end{align}
+
+The currents corresponding to $U(1)_V$ and $U(1)_A$ are called the vector and axial currents, as they transform as vectors and axial-vectors under space-time transformations.
+The conserved charge corresponding to the vector current,
+\begin{equation}
+    Q = \int \dd^3 x \, \bar q \gamma^0 q,
+\end{equation}
+is $1/3$ times the \emph{baryon number}. (HVORFOR?)
+We have up to now only made classical considerations.
+In the full quantum theory, the baryon number remains conserved.
+The axial current $J^\mu_A$ however is the subject to an anomaly.
+As the integration measure $\D\bar q \D q$ is not invariant under transformations in $U(1)_A$, as we saw earlier is required, the quantum correction to $\partial_\mu J^\mu_A$ are non-zero.
+The remaining symmetry, $G = SU(N_f)_L \times SU(N_f)_R = SU(N_f)_V \times SU(N_f)_A$ and how it is broken is the foundation for chiral perturbation theory, which we will consider int the next section.

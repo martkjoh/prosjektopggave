@@ -1,17 +1,40 @@
 \section{Chiral perturbation theory}
 
-The $\lieg{SU}{2}_L \times \lieg{SU}{2}_R$ symmetry of QCD is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
-The Goldstone manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstone bosons, the pions.
-There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstone-fields
-\begin{equation*}
-    M_1 = \curly{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
-\end{equation*}
-close to the ground state, into fields taking values in the Goldstone manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
-The \chpt effective Lagrangian will be constructed using this map, through the parametrization
+In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$.
+These are not massless, but have a non-zero mass matrix
+\begin{equation}
+    \label{Mass matrix}
+    m =
+    \begin{pmatrix}
+        m_u & 0 \\
+        0 & m_d
+    \end{pmatrix}.
+\end{equation}
+These masses are estimated to be (FINN TALL).
+This means that the $SU(2)_V \times SU(2)_A$ symmetry is \emph{explicitly} broken.
+In what is called the isospin limit, $m_u = m_d$, the subgroup $SU(2)_V$ remains intact.
+The difference between these masses is small, which is why isospin is a good quantum number.
+However, even the underlying symmetry is only approximate, we can still apply the formalism from Gold stones theorem CCWZ construction, with the only change that wee need to include small mass terms in for the Goldstone bosons, no called \emph{Pseudo Goldstone bosons}.
+
+The (approximate) $G = SU(2)_V\times SU(2)_A$ symmetry of the two-flavor QCD-Lagrangian is spontaneously broken by the ground state.
+As quarks $q$ are spinors, a non-zero expectation value of the quark field would break Lorentz-invariance.
+Instead, the spontaneous symmetry breaking is characterized by the \emph{scalar quark condensate}, $\ex{\bar q q}$.
+In the isospin-limit, one can show that $\ex{\bar u u } = \ex{\bar d d} = \ex{\bar q q} / 2$.
+The scalar quantity $\bar q q$ is invariant under isospin transformation $SU(2)_V$, but not under $SU(2)_A$.
+The Goldstone boson is therefore $G/H = SU(2)_L\times\SU(2)_R/SU(2)_V = SU(2)_A$.
+
+% The $\lieg{SU}{2}_L \times \lieg{SU}{2}_R$ symmetry of QCD is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
+% The Goldstone manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstone bosons, the pions.
+% There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstone-fields
+% \begin{equation*}
+%     M_1 = \curly{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
+% \end{equation*}
+% close to the ground state, into fields taking values in the Goldstone manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
+
+The \chpt effective Lagrangian will be constructed using the parametrization
 \begin{align}
 \label{sigma}
-    \Sigma : \Em_4 & \longrightarrow \lieg{SU}{2},\\ \notag
-    x & \longrightarrow \Sigma(x) = A_\alpha (U(x) \Sigma_0 U(x)) A_\alpha,
+    \Sigma(x) = A_\alpha (U(x) \Sigma_0 U(x)) A_\alpha,
 \end{align}
 where
 \begin{align*}
@@ -21,3 +44,4 @@ where
 \end{align*}
 $\tau_a$ are the $\SU(2)$ generators, i.e. Pauli matrices, as described in \autoref{Conventions and notation}.
 $\pi_a$, where $ \, a \in \curly{1, 2, 3}$, are the pion fields. These are real fields, meaning $\pi_a^\dagger = \pi_a$.
+
