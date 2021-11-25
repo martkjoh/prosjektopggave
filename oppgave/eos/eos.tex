@@ -1,4 +1,6 @@
 \section{Thermodynamics}
+(KIILDER)
+
 The free energy\footnote{As we are in the grand canonical ensemble, this is the \emph{grand canonical} free energy, and not Helmholtz' free energy.}
 is defined as
 \begin{equation}
@@ -51,29 +53,32 @@ The isospin density, as a function of $\mu_I$, is shown in \autoref{fig:isospin_
     \label{fig:isospin_density}
 \end{figure}
 
-From \cref{thermodynamic free energy} we get the energy density, $u = U/V$ is given by
+From \cref{thermodynamic free energy} we get the energy density, $u = U/V$, at $T = 0$ is given by
 \begin{equation}
     u(\mu_I) = -P(\mu_I) + \mu_I n_I(\mu_I),
 \end{equation}
 where we again have normalized so that $u(\mu_I = 0) = 0$.
 Now that we have both the dependence of pressure and energy density on the isospin chemical potential, we can trace out the line in the pressure-energy density plane, parametrized by $\mu_I$.
 This is shown in \autoref{fig:equation of state}.
-This line is the equation of state of the system.
+This is the equation of state of the system.
 
 \begin{figure}[!h]
     \centering
     \vspace{-0.2cm}
     \includegraphics[width=0.7\textwidth]{figurer/numerics/energy_density.pdf}
-    \caption{The equation of state of the pions.}
+    \caption{The equation of state of the system.}
     \label{fig:equation of state}
 \end{figure}
 
 \FloatBarrier
 
 \subsection*{Phase transition}
-In our leading-order analysis, we saw that $\alpha$ was zero for $\mu_I \leq m_\pi$, before it starts to increase for $\mu_I>\alpha$, as shown in \autoref{fig:alpha}.
+(KILDER)
+
+In our leading-order analysis, we saw that $\alpha$ was zero for $\mu_I \leq \bar m$, before it starts to increase for $\mu_I>\bar m$, and that $\bar = m_\pi$.
+The behavior of $\alpha$ is illustrated in \autoref{fig:alpha}.
 This is the hallmark of a phase transition, where $\alpha$ is the order parameter.
-The transition is continuous in alpha, which means this is a second order phase transition.
+The behavior systems near points of phase transition is described by Landau theory.
 Using \cref{leading order contribution free energy}, we can expand the leading-order free energy in $\alpha$,
 \begin{align}
     \Ef
@@ -148,7 +153,7 @@ In the vacuum phase, $\alpha' = 0$, the ground state is given by
     \Sigma(\pi = 0) = \Sigma_0 = \one,
 \end{equation}
 where we have use \cref{sigma}.
-$\Sigma$ transforms as
+Under $H = SU(2)_V$, $\Sigma$ transforms as
 \begin{equation}
     \Sigma(x) \rightarrow \Sigma'(x) = V \Sigma(x) V^\dagger,
     \quad
@@ -161,8 +166,8 @@ However, for $\alpha = 0$, the ground state is shifted to
 \end{equation}
 The generators $\tau_2$ and $\tau_3$ are broken.
 The new ground state corresponds to a condensate of the $\pi_1$-particle, as it is defined in the vacuum state.
-In \autoref{fig:masses}, we saw that the mass of the $m_-$ particle, which we identify with the corresponding Goldstone mode.
-There is only one Goldstone mode, however this is not a Lorentz invariant system, in which case we cannot guarantee one massless mode per broken generator.
+In \autoref{fig:masses}, we saw that the mass of the $m_-$ particle vanishes, so we identify this particle with the corresponding Goldstone mode.
+There is only one Goldstone mode, however this is not a Lorentz invariant system, in which case we cannot guarantee one massless mode per broken generator. (ER DETTE RIKTIG?)
 
 To find the value of $\mu_I$ to next-to-leading order, we must expand the NLO free energy in powers of $\alpha$
 When we expand the static, second order Lagrangian to $\alpha^2$, we get
@@ -251,18 +256,18 @@ We further rewrite the remaining expression by factoring it,
 We then complete the square in each of the factors,
 \begin{equation}
     - p^2 + \frac{1}{2}(m_1^2 + m_2^2) \pm p_0 m_{12}
-    = - \left(p_0 \mp \frac{1}{2}m_{12}\right)^2 + |\vv p|^2 + M^2,
+    = - \left(p_0 \mp \frac{1}{2}m_{12}\right)^2 + |\vv p|^2 + m_4^2,
 \end{equation}
 where
 \begin{align}
-    M^2 &= \frac{1}{2}\left(m_1^2 +m_2^2 +\frac{1}{2}m_{12}\right)
+    m_4^2 &= \frac{1}{2}\left(m_1^2 +m_2^2 +\frac{1}{2}m_{12}\right)
     % = \bar m^2 \cos\alpha - \frac{1}{2} \mu_I^2 (\cos 2\alpha + \cos^2 \alpha - 2\cos^2\alpha)
     = \bar m^2 \cos\alpha + \frac{1}{2} \mu_I^2 \sin^2 \alpha, \\
     % M^2
     % &= \bar m^2 -\frac{1}{2}(m^2 + \mu_I^2) \alpha^2 + \Oh[3]{\alpha}, \\
-    M^4
+    m_4^4
     &= \bar m^4 - \bar m^2(m^2 + \mu_I^2) \alpha^2 + \Oh[3]{\alpha}, \\
-    \ln \frac{\mu^2}{M^2} 
+    \ln \frac{\mu^2}{m_4^2} 
     &= \ln \frac{\mu_I^2}{\bar m^2} + \frac{1}{2}\frac{\bar m^2 + \mu_I^2}{\bar m^2}\alpha^2
     + \Oh[3]{\alpha}.
 \end{align}
@@ -282,7 +287,7 @@ Combining these two contributions to the one-loop correction of the free energy 
     \mathrm{const.}
     +
     \frac{\mu^{-2 \epsilon } }{(4 \pi)^2} 
-    \left(1 + \frac{1}{\epsilon} + \ln \frac{\mu^2}{m^2}\right)
+    \left(1 + \frac{1}{\epsilon} + \ln \frac{\tilde \mu^2}{m^2}\right)
     \left(\frac{3}{4}m^2 - \mu_I^2\right)
     \bar m^2 \alpha^2
 \end{align*}
@@ -303,6 +308,7 @@ We see that again, the $\epsilon^{-1}$ will cancel when we combine the NLO-terms
     + \Oh[3]{\alpha}.
 \end{align}
 The total NLO free energy, up to second order in $\alpha$, is
+(HVOR BLE DET AV LOG? TROR DET ER 1 + HØYERE ORDEN. SJEKK!)
 \begin{equation}
     \Ef_{\mathrm{NLO}}
     =

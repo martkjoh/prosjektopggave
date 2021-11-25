@@ -4,11 +4,11 @@ However, they are still there.
 To get rid of them, we need to use renormalization.
 The power counting scheme used when constructing the Effective Lagrangians ensures that all terms in $\Ell_{2n}$ is of order $p^{2n}$ in the pion momenta.\footnote{Remember that the bare pion mass $\bar m = B_0(m_u + m_d)$ is considered to be of order $p^2$.}
 The tree level free energy from $\Ell_{2n}$ is thus of order $p^{2n}$.
-The n-loop correction to the tree level result is then suppressed by $p^{2n}$~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom}.
+The $m$-loop correction to the tree level result is then suppressed by $p^{2m}$~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom}.
 Our one-loop calculation using $\Ell_2$ therefore contains divergences of order $p^{4}$. 
 Since $\Ell_4$ is, by construction, the most general possible Lagrangian at order $p^4$, it contains coupling constants which can be renormalized to absorb all these divergences.
 
-The renormalized coupling constants in $\Ell_2$ have been calculated for $\mu_I = 0$~\cite{Gasser-Leutwyler:chiral}.
+The renormalized coupling constants in $\Ell_4$ have been calculated for $\mu_I = 0$~\cite{Gasser-Leutwyler:chiral}.
 They are independent of $\mu_I$, and we can therefore use them in this calculation.
 The renormalized coupling constants in the $\overline{\mathrm{MS}}$-scheme are related to the bare couplings through
 \begin{align}
@@ -48,11 +48,11 @@ These have the general solutions
 \begin{equation}
     l_i^r 
     = \frac{1}{2} \mu^{-2\epsilon} \frac{\gamma_i}{(4 \pi)^2} 
-    \left( \bar l_i - \ln{\frac{\mu^2}{M^2}} \right),
+    \left( \bar l_i - \ln{\frac{\tilde \mu^2}{M^2}} \right),
     \quad
     h_i^r 
     = \frac{1}{2} \mu^{-2\epsilon} \frac{\gamma_i}{(4 \pi)^2} 
-    \left( \bar h_i - \ln{\frac{\mu^2}{M^2}} \right),
+    \left( \bar h_i - \ln{\frac{\tilde \mu^2}{M^2}} \right),
 \end{equation}
 where $\bar l_i$ and $\bar h_i$ are the values of the coupling constants (times a constant) measured at the energy $M$.
 This only applies if the numerical constants $\gamma_i$/$\delta_i$ are non-zero.
@@ -62,12 +62,12 @@ The bare couplings are thus given by
     \label{bare couplings as functions of measured values}
     l_i = \mu^{-2\epsilon} \frac{1}{2} \frac{\gamma_i}{(4 \pi)^2}
     \left(
-        \bar l_i -1- \frac{1}{\epsilon} - \ln\frac{\mu^2}{M^2}
+        \bar l_i -1- \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}
     \right), 
     \quad
     h_i = \mu^{-2\epsilon} \frac{1}{2} \frac{\delta_i}{(4 \pi)^2}
     \left(
-        \bar h_i - 1 - \frac{1}{\epsilon} - \ln\frac{\mu^2}{M^2}
+        \bar h_i - 1 - \frac{1}{\epsilon} - \ln\frac{\tilde \mu^2}{M^2}
     \right)
 \end{equation}
 The next-to-leading contribution to the free energy at tree-level is $\Ef_4^{0} = - \Ell_4^{(0)}$, which is given by \cref{NLO-L0}.
@@ -94,15 +94,15 @@ When substituting \autoref{bare couplings as functions of measured values} into 
             - \bar l_3 + 4 \bar l_4 - 3
         \right) \bar m^4 \cos^2\alpha
         \\
-        & \quad \quad \quad \quad \quad
+        & \quad \quad \quad \quad \quad \quad \quad
         + 2 \left(\bar l_4 - 1\right)
         \bar m^2 \mu_I^2 \cos\alpha \sin^2 \alpha
         + 2 (\bar l_4 - \bar h_1) \bar m^4
         + \bar h_3 \Delta m^4
         \\
-        & \quad \quad \quad \quad \quad
+        & \quad \quad \quad \quad \quad \quad \quad
         - 
-        \left(\frac{1}{\epsilon} + \ln \frac{\mu^2}{M^2}\right) 
+        \left(\frac{1}{\epsilon} + \ln \frac{\tilde \mu^2}{M^2}\right) 
         \left(
             \mu_I^4\sin^4\alpha + \frac{3}{2} \bar m^4 \cos^2 \alpha
             + 2 \bar m^2 \mu_I^2 \cos\alpha \sin^2 \alpha
@@ -110,7 +110,7 @@ When substituting \autoref{bare couplings as functions of measured values} into 
     \bigg] 
 \end{align*}
 Notice that the term proportional to $\epsilon^{-1}$ cancel exactly with the divergent term from $\Ef^{(2)}$, as we expected.
-Adding all the contribution to the free energy density, and taking the limit $\epsilon \rightarrow 0$, we get the next-to-leading order free energy,
+Adding all the contribution to the free energy density, and taking the limit $\epsilon \rightarrow 0$, we get the next-to-leading order free energy density,
 \begin{align}
     \nonumber
     \Ef_{\mathrm{NLO}} &=
@@ -143,7 +143,7 @@ We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, 
 
 
 
-\subsection*{Parameters, and keeping the expansion consistent}
+\subsection*{Parameters, and consistent expansion}
 The coupling constants are free parameters, and can therefore not be calculated from first principles, but must be measured.
 The values for the pion mass and pion decay constants are (HVORFOR?)
 \begin{equation}
@@ -168,7 +168,7 @@ All results in this text are given in units of $m_\pi$.
 
 \begin{table}[h]
     \centering
-    \caption{The measured values and corresponding uncertainties of the relevant coupling constants.}
+    \caption{The measured values and corresponding uncertainties of the relevant coupling constants, measured at $M = m_\pi$. (ELLER $M=\bar m$??)}
     \begin{tabular}{c c c c}
         \hline \hline
         & value & uncertainty & source \\
@@ -196,13 +196,13 @@ In \autoref{section: free energy at lowest order}, we found a relationship betwe
 To calculate any thermodynamic quantities to leading order, at the tree-level, we must use this result.
 When calculating higher order corrections to the free energy, we must make sure to calculate this and other relationship to the same order, consistently.
 As we have seen earlier, when replacing the action by $S[\varphi] \rightarrow g^{-1}S[\varphi]$, the $L$-loop contribution is proportional to $g^{L-1}$.
-The Weinberg's power counting scheme, when replace $p \rightarrow t p$, and $m \rightarrow t^2 m$, the n'th therm in the expansion is proportional to $t^{2n}$.
+In Weinberg's power counting scheme, when replace $p \rightarrow t p$, and $m \rightarrow t^2 m$, the $n$th term in the expansion is proportional to $t^{2n}$.
 We can therefore expand the free energy as
 \begin{equation}
     \Ef = t^2 g^{-1} \Ef_2^{(0)} + t^2 \Ef_2^{(1)} + t^4 g^{-1} \Ef_4^{(0)}
     + ...
 \end{equation}
-We consider terms where $m = L + n$ are the same to be of the same order.
+We consider terms where $m = L + n$ to be of the same order.
 This expansion can be written as
 \begin{equation}
     \Ef = \sum_{m=0}^\infty \sum_{n+L=m} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
