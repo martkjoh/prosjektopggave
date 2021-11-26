@@ -1,20 +1,21 @@
 \section{Chiral perturbation theory}
 
-In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$.
-These are not massless, but have a non-zero mass matrix
+In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$, i.e. $N_f = 2$.
+In this case, the approximate symmetry of the Lagrangian is $G = SU(2)_L \times SU(2)_R$, with the generators $T_\alpha = \tau_\alpha / 2$, where $\tau_\alpha$ are the Dirac matrices, as described in \autoref{Conventions and notation}.
+The quarks not massless, but have a non-zero mass matrix
 \begin{equation}
     \label{Mass matrix}
     m =
     \begin{pmatrix}
         m_u & 0 \\
         0 & m_d
-    \end{pmatrix}.
+    \end{pmatrix}
+    = \frac{1}{2} (m_u + m_d) \one + \frac{1}{2}(m_u - m_d) \tau_3. 
 \end{equation}
-These masses are estimated to be (FINN TALL).
-This means that the $SU(2)_V \times SU(2)_A$ symmetry is \emph{explicitly} broken.
+These masses are estimated to be (FINN TALL), so the $G$ symmetry is \emph{explicitly} broken.
 In what is called the isospin limit, $m_u = m_d$, the subgroup $SU(2)_V$ remains intact.
 The difference between these masses is small, which is why isospin is a good quantum number.
-However, even the underlying symmetry is only approximate, we can still apply the formalism from Gold stones theorem CCWZ construction, with the only change that wee need to include small mass terms in for the Goldstone bosons, no called \emph{Pseudo Goldstone bosons}.
+However, even the underlying symmetry is only approximate, we can still apply the formalism from Goldstone's theorem CCWZ construction, with the only change that wee need to include small mass terms in for the Goldstone bosons, no called \emph{Pseudo Goldstone bosons}.
 
 The (approximate) $G = SU(2)_V\times SU(2)_A$ symmetry of the two-flavor QCD-Lagrangian is spontaneously broken by the ground state.
 As quarks $q$ are spinors, a non-zero expectation value of the quark field would break Lorentz-invariance.
@@ -22,14 +23,101 @@ Instead, the spontaneous symmetry breaking is characterized by the \emph{scalar 
 In the isospin-limit, one can show that $\ex{\bar u u } = \ex{\bar d d} = \ex{\bar q q} / 2$.
 The scalar quantity $\bar q q$ is invariant under isospin transformation $SU(2)_V$, but not under $SU(2)_A$.
 The Goldstone boson is therefore $G/H = SU(2)_L\times\SU(2)_R/SU(2)_V = SU(2)_A$.
+To model the low energy dynamics of QCD, we start with the massless Lagrangian,
+\begin{equation}
+    \Ell^0_\mathrm{QCD}[q, A_\mu] = i \bar q \slashed{D} q - \frac{1}{4}G_{\mu \nu}^\alpha G^{\mu \nu}_\alpha.
+\end{equation}
+We then couple it to external currents, which can be used to either model external fields, or to capture the symmetry breaking mass term.
+The conserved currents are
+\begin{equation}
+    V_a^\mu \frac{1}{2} \bar q \gamma^\mu \tau_a q, \quad
+    A_a^\mu \frac{1}{2} \bar q \gamma^\mu \gamma^5 \tau_a q, \quad
+    J^\mu = \bar q \gamma^\mu q.
+\end{equation}
+In addition, external currents can couple to the scalar and pseudo-scalar quark bilinears
+\begin{equation}
+    \bar q q, \quad \bar q \gamma^5 q, 
+    \quad \bar q \tau_a q, \quad \bar q \gamma^5 \tau_a q.
+\end{equation}
+The external Lagrangian is thus
+\begin{equation}
+    \Ell_\text{ext} 
+    = 
+    - (\bar q q )\, s_0 + (i \bar q \gamma^5 q) \, p_0
+    - (\bar q \tau_a q)\, s_a + (i \bar q \gamma^5 \tau_a q) \, p_a
+    + \frac{1}{3} J_\mu v^\mu 
+    + V_\mu^a s_a^\mu + A_\mu^a a_a^\mu.
+\end{equation}
+Here, $v, a, s$ and $p$ are the external currents. 
+If we evaluate quantities in $v = a = s = p = 0$, we recover the chiral limit, while changing $s = m$ gives the exact values.
+The generating functional is then
+\begin{equation}
+    Z[v, a, s, p] 
+    = 
+    \int \D \bar q \D q \D A_\mu \, 
+    \exp{
+        i \int \dd^4 x 
+        \left( 
+            \Ell^0_\text{QCD}[q, \bar q, A_\mu] + \Ell_\text{ext}[q, \bar q, s, p, v, a]
+        \right)
+    }
+\end{equation}
+As with the quark current, we define
+\begin{equation}
+    v_\mu = \frac{1}{2}(r_\mu + l_\mu),
+    \quad
+    a_\mu = \frac{1}{2}(r_\mu - l_\mu).
+\end{equation}
 
-% The $\lieg{SU}{2}_L \times \lieg{SU}{2}_R$ symmetry of QCD is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
-% The Goldstone manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstone bosons, the pions.
-% There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstone-fields
-% \begin{equation*}
-%     M_1 = \curly{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
-% \end{equation*}
-% close to the ground state, into fields taking values in the Goldstone manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
+\subsection*{Non-linear realization}
+We now use the formalism we developed in \autoref{section:symmetry}.
+The full symmetry is $G = SU(2)_V\times SU(2)_A$, and the subgroup of the vacuum is $H = SU(2)_V$.
+The Goldstone manifold is $SU(2)_a$, which means that we parametrize the Goldstone modes as
+\begin{equation}
+    \Sigma(x) = \exp{i \frac{\pi_a(x) \tau_a}{f} }.
+\end{equation}
+Here, $f$ is the bare pion decay constant.
+Let $g\in G$, we write $g = (L, R)$, $R \in SU(2)_R$, $L \in SU(2)_L$.
+Elements $h \in H$ are then of the form $h = (V, V)$.
+% A general element of the coset $\tilde g H$ can then be written
+A general element g can be written as
+\begin{equation}
+    g = (L, R) = (1, R L^\dagger) (L, L).
+\end{equation}
+Since $(L, L) \in H$, this means that we can write the coset $g H$ as $(1, R L^\dagger)H$, which gives a way to choose a representative element for each coset, and we can identify
+\begin{equation}
+    \Sigma = R L^\dagger. 
+\end{equation}
+This is our standard form, and therefore makes it possible to obtain the transformation properties, which is given by the function $h(g, \xi)$.
+We have 
+\begin{equation}
+    \tilde g (1, \Sigma)
+    = (\tilde L, \tilde R) (1, R L^\dagger)
+    = (1, \tilde R (R L^\dagger) \tilde L^\dagger) (\tilde L, \tilde L)
+    = (1, \tilde R \Sigma \tilde L) h.
+\end{equation}
+Under transformations by $h = (V, V^\dagger) \in H$, we have
+\begin{equation}
+    \Sigma \rightarrow \Sigma' = V \Sigma V^\dagger.
+\end{equation}
+As $\partial_\mu  (1, \Sigma(x)) = (0, i \Sigma(x) \partial_\mu \pi_a\tau_a/f )$, 
+The Maurer-Cartan form is
+\begin{equation}
+    d_\mu = i \Sigma(x)^\dagger \partial_\mu \Sigma(x),\quad
+    e_\mu = 0.
+\end{equation}
+Since $\partial_\mu [\Sigma(x)^\dagger\Sigma(x)] = 0 $, we can write
+\begin{equation}
+    d_\mu d^\mu = 
+    - \Sigma(x)^\dagger [\partial_\mu \Sigma(x)] \Sigma(x)^\dagger [\partial^\mu \Sigma(x)]
+    =\Sigma(x)^\dagger [\partial_\mu \Sigma(x)] [\partial^\mu \Sigma(x)^\dagger] \Sigma(x).
+\end{equation}
+The lowest order Lagrangian in the chiral limit is therefore
+\begin{equation}
+    \Ell = \frac{1}{4} f^2 \Tr{d_\mu d^\mu} = \frac{1}{4}f^2 \Tr{\partial_\mu \Sigma (\partial^\mu \Sigma)}.
+\end{equation}
+
+\subsection*{External currents and explicit symmetry breaking}
 
 The \chpt effective Lagrangian will be constructed using the parametrization
 \begin{align}

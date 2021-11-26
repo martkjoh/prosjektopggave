@@ -143,11 +143,12 @@ We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, 
 
 
 
-\subsection*{Parameters, and consistent expansion}
+\subsection*{Parameters and consistent expansion}
 The coupling constants are free parameters, and can therefore not be calculated from first principles, but must be measured.
 The values for the pion mass and pion decay constants are (HVORFOR?)
 \begin{equation}
-    m_\pi = 131 \, \mathrm{MeV}, \quad f_\pi = \frac{1}{\sqrt 2} 128 \, \mathrm{MeV}.
+    m_\pi = 131 \, \mathrm{MeV}, \quad 
+    f_\pi = \frac{1}{\sqrt 2} 128 \, \mathrm{MeV} = 90.5 \, \mathrm{MeV}.
 \end{equation}
 This is the physical mass, $m_\pi$, which is defined as the pole of the propagator and thus the zero of the inverse propagator,
 \begin{equation}
@@ -187,14 +188,14 @@ These are the same values as those used in~\cite{Andersen:two-flavor-chpt}.
 Together with \cref{equation bare mass,equation bare decay constant}, the NLO results for the bare mass and decay constant are
 \begin{align}
     \label{NLO m}
-    \bar m / m_\pi = 1.01136, \\
+    \bar m  &= 1.01136\, m_\pi = 132.5 \, \mathrm{MeV}, \\
     \label{NLO f}
-    f / m_\pi = 0.64835.
+    f  &= 0.64835\, m_\pi = 85.9 \, \mathrm{MeV}.
 \end{align}
 
-In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_i$, using the lowest order estimate of $\Ef$, given in \cref{leading order minization}.
+In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_I$, using the lowest order estimate of $\Ef$, given in \cref{leading order minization}.
 To calculate any thermodynamic quantities to leading order, at the tree-level, we must use this result.
-When calculating higher order corrections to the free energy, we must make sure to calculate this and other relationship to the same order, consistently.
+When using higher order corrections to the free energy, we must make sure to calculate this and other relationship to the same order, consistently.
 As we have seen earlier, when replacing the action by $S[\varphi] \rightarrow g^{-1}S[\varphi]$, the $L$-loop contribution is proportional to $g^{L-1}$.
 In Weinberg's power counting scheme, when replace $p \rightarrow t p$, and $m \rightarrow t^2 m$, the $n$th term in the expansion is proportional to $t^{2n}$.
 We can therefore expand the free energy as
@@ -202,29 +203,30 @@ We can therefore expand the free energy as
     \Ef = t^2 g^{-1} \Ef_2^{(0)} + t^2 \Ef_2^{(1)} + t^4 g^{-1} \Ef_4^{(0)}
     + ...
 \end{equation}
-We consider terms where $m = L + n$ to be of the same order.
+We consider terms where $k = L + n$ to be of the same order.
 This expansion can be written as
 \begin{equation}
-    \Ef = \sum_{m=0}^\infty \sum_{n+L=m} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
+    \Ef = \sum_{k=0}^\infty \sum_{n+L=k} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
 \end{equation}
 If we now define
 \begin{equation}
-    \tilde \Ef_m = \sum_{n+L=m} t^{2n} g^{L-1} \Ef_{2n}^{(L)},
+    \tilde \Ef_k = \sum_{n+L=k} t^{2n} g^{L-1} \Ef_{2n}^{(L)},
 \end{equation}
 then scale $t \rightarrow \sqrt{s} \, t$ and $g \rightarrow s g$, where $s$ is some real number, then $t^{2n}g^{L-1}$ scales as $s^{n+L-1} = s^{m-1}$.
-We can therefore expand the free energy as
+All expansions are now done in this new parameter $s$.
+The free energy expansion is
 \begin{equation}
-    s \Ef = \sum_{m= 0}^\infty \tilde \Ef_m \, s^{m}.
+    \Ef = s^{-1}\sum_{k = 0}^\infty \tilde \Ef_k \, s^{k}.
 \end{equation}
 The same expansion holds for all quantities we calculate from this theory.
-Let $\alpha'$ be the solution to
+As argued earlier, $\alpha$ must minimize the free energy, and therefore satisfy
 \begin{equation}
-    \diffp{\Ef}{\alpha} \bigg|_{\alpha=\alpha'} = 0
+    \diffp{\Ef}{\alpha} = 0
 \end{equation}
 to all orders.
 We expand this solution in $s$,
 \begin{equation}
-    \alpha' = \alpha_0 + \alpha_1 s + \dots.
+    \alpha = \alpha_0 + \alpha_1 s + \dots.
 \end{equation}
 Combining this, we get
 \begin{align*}
@@ -275,14 +277,14 @@ After setting $s = g = t = 1$, we get
     \tilde \Ef_0 = \Ef_2^{(0)},
 \end{align*}
 which is what we have used as the leading-order result. 
-The next to leading order result is
+The first correction is on this result is
 \begin{equation}
     \alpha_1 = - \frac{\tilde \Ef_1'(\alpha_0)}{{\tilde \Ef_0''(\alpha_0)}},
     \quad 
     \tilde \Ef_1 = \Ef_{4}^{(0)} + \Ef_{2}^{(1)}.
 \end{equation}
 
-The next to leading order results for the free energy and $\alpha'$ are
+The next to leading order results for the free energy and $\alpha$ are
 \begin{equation}
     \Ef_\mathrm{NLO} = \tilde \Ef_0 + \tilde \Ef_1, \quad
     \alpha_\mathrm{NLO} = \alpha_0 + \alpha_1.
@@ -293,19 +295,18 @@ If we use this to result to obtain an NLO-version of the equation for $\alpha$, 
     = \tilde \Ef_0'(\alpha_0) + \alpha_1 \tilde \Ef_0''(\alpha_0) + \dots
     + \tilde \Ef_1'(\alpha_0) + \dots,
 \end{equation}
-where the terms that are not included are beyond next-to-leading order.
+where the excluded terms are beyond next-to-leading order.
 Thus,
 \begin{equation}
     \label{alpha nlo method 2}
-    \diffp{\Ef_\mathrm{NLO}}{\alpha} \bigg|_{\alpha=\alpha'} = 0
+    \diffp{\Ef_\mathrm{NLO}}{\alpha} \bigg|_{\alpha=\alpha_{\mathrm{NLO}}} = 0
 \end{equation}
-will give the correct answer to $\alpha'$ to next-to-leading order.
-
-In \autoref{fig:alpha}, the leading order and next-to-leading order results for $\alpha'$ is shown.
+holds up to and including next-to-leading order. \autoref{fig:alpha}, compares the leading order and next-to-leading order results for $\alpha$.
 The NLO result was calculated numerically using \cref{alpha nlo method 2}.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{figurer/numerics/alpha.pdf}
-    \caption{The leading order and next-to-leading order results for $\alpha$ as a function of $\mu_I$.}
+    \caption{The leading order and next-to-leading order results for $\alpha$ as a function of $\mu_I$, which is given in units of $m_\pi$. }
     \label{fig:alpha}
 \end{figure}

@@ -155,7 +155,7 @@ def plot_energy_density():
     ELO, ENLO = get_energy_density()
     PLO, PNLO = get_pressure()
 
-    ax.set_xlabel(r"$\mathcal{E}/m_\pi^4$")
+    ax.set_xlabel(r"$u/m_\pi^4$")
     ax.set_ylabel(r"$P/m_\pi^4$")
 
     ELO_label = r"${\mathrm{LO}}$"
@@ -172,30 +172,29 @@ def plot_free_energy_pt():
     N = 30
     a = np.linspace(-0.05, 0.8, N)
     
-    fig, ax = plt.subplots(figsize=fs)
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     F0 = F_0_2_lo(0, 0)
     ax.plot(a, F_0_2_lo(0.9, a) - F0, "royalblue", label=r"$\mu_I<m_\pi$")
     ax.plot(a, F_0_2_lo(1, a) - F0, "k--", label=r"$\mu_I=m_\pi$")
     ax.plot(a, F_0_2_lo(1.1, a) - F0, "k", label=r"$\mu_I>m_\pi$")
-    ax.scatter((0, 0.6), (0.0025, -0.0065), s=200)
+    ax.scatter((0, 0.59), (0.0012, -0.0075), s=400)
     ax.set_xlabel(r"$\alpha$")
     ax.set_ylabel(r"$(\mathcal{F} - \mathcal{F}_0)/m_\pi$")
 
-    # fig.subplots_adjust(**adj)
     plt.tight_layout()
     plt.legend()
     plt.savefig("plots/phase_transition.pdf")
 
 
-F = F_0_2_symb - 2/(24) * F_0_2_symb.diff(a, 4) * a**4
+F = F_0_2_symb - 4/(24) * F_0_2_symb.diff(a, 4) * a**4
 F = lambdify((mu, a), F.subs(m, 1.).subs(f, fpi), "numpy")
 
 def plot_free_energy_pt2():
     N = 30
     a = np.linspace(-0.05, 0.8, N)
     
-    fig, ax = plt.subplots(figsize=fs)
+    fig, ax = plt.subplots(figsize=(10, 16))
 
     F0 = F(0, 0)
     ax.plot(a, F(0.8, a) - F0, "royalblue", label=r"$\mu_I<m_\pi$")
@@ -205,14 +204,13 @@ def plot_free_energy_pt2():
     ax.set_xlabel(r"$\alpha$")
     ax.set_ylabel(r"$(\mathcal{F}' - \mathcal{F}_0')/m_\pi$")
 
-    # fig.subplots_adjust(**adj)
     plt.tight_layout()
     plt.legend()
     plt.savefig("plots/phase_transition2.pdf")
 
 
 def plot_free_energy_surface2():
-    fig, ax = plt.subplots(subplot_kw={"projection": "3d"}, figsize=fs)
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"}, figsize=(10, 6))
 
     N = 500
     a = np.linspace(-0.1, 0.8, N)
@@ -223,31 +221,30 @@ def plot_free_energy_surface2():
     X, Y, Z = MU, A, FLO
 
     mx = np.argmin(Z, axis=0)
-    print(Y[1])
 
-    # ax.plot(mu, a_lo_list, F_0_2_lo(mu, a_lo_list) + 0.01, "-k", lw=2, alpha=1, zorder=10)
-    # ax.plot(mu, a_lo_list, np.min(FLO), "k--")
-
-    surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7)
-    surf = ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
+    skip = 20
+    surf = ax.plot_surface(X[::skip, ::skip], Y[::skip, ::skip], Z[::skip, ::skip], cmap="viridis", alpha=0.7)
+    surf = ax.plot_wireframe(X[::skip, ::skip], Y[::skip, ::skip], Z[::skip, ::skip], color="black", lw=0.2)
     zmin = [Z[m, i] for i, m in enumerate(mx)]
-    ax.plot(X[0, :], Y[mx, 0], zmin, "k,", zorder=3)
-    # ax.azim=-35
-    # ax.elev=25
+    ax.plot(X[0, :-skip], Y[mx[:-skip], 0], zmin[:-skip], "k.",  zorder=3, markersize=2)
 
-    # plt.xlabel(r"$\mu_I/m_\pi$")
-    # ax.set_ylabel(r"$\alpha$")
-    # ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$")
-    # ax.zaxis.set_tick_params(labelsize=10)
-    # ax.xaxis.set_tick_params(labelsize=10)
-    # ax.yaxis.set_tick_params(labelsize=10)
+    plt.xlabel(r"$\mu_I/m_\pi$")
+    ax.set_ylabel(r"$\alpha$")
+    ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$")
+    ax.zaxis.set_tick_params(labelsize=8)
+    ax.xaxis.set_tick_params(labelsize=8)
+    ax.yaxis.set_tick_params(labelsize=8)
+    # ax.xaxis.set_ticklabels([])
+    # ax.yaxis.set_ticklabels([])
+    # ax.zaxis.set_ticklabels([])
 
-    plt.subplots_adjust(top=1, bottom=0, right=0.8, left=0, hspace=0, wspace=1)
+    # plt.tight_layout()
+    plt.subplots_adjust(top=1, bottom=0, right=0.9, left=0, hspace=0, wspace=1)
     save_opt = dict(
         bbox_inches='tight',
         pad_inches = 0, 
         transparent=True, 
-        dpi=300
+        dpi=300,
     )
     plt.savefig("plots/free_energy_surface2.pdf", **save_opt)
     # plt.show()
@@ -259,17 +256,7 @@ def plot_free_energy_surface2():
 # plot_pressure()
 # plot_isospin_density()
 # plot_energy_density()
-plot_free_energy_pt()
-plot_free_energy_pt2()
+# plot_free_energy_pt()
+# plot_free_energy_pt2()
 plot_free_energy_surface2()
 
-# FLO, FNLO = get_free_energy()
-# # plt.plot(mu_list, FLO - FNLO)
-# n = 89
-# # plt.plot(mu_list[n+1:], FNLO[n:-1], ".")
-# # plt.plot(mu_list[n+1:], FNLO[n+1:], ".")
-
-# plt.plot(mu_list[n:-1], FNLO[n] +  FNLO[n:-1] - FNLO[n+1:], ".")
-# # plt.plot(mu_list[:-1], np.diff(FLO))
-# # plt.plot(mu_list[:-1], np.diff(FNLO))
-# plt.show()

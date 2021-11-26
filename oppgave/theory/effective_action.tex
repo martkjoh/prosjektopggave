@@ -114,7 +114,7 @@ The notation
     \fdiff{S[\varphi_0]}{\varphi(x)}
 \end{equation}
 indicates that the functional $S[\varphi]$ is differentiated with respect to $\varphi(x)$, then evaluated at $\varphi(x) = \varphi_0$.
-Denote 
+We use the notation
 \begin{align}
     S_0[\eta] &:= 
     \int \dd^4 x \dd^4 y \,\eta(x)\eta(y)\, 
@@ -167,7 +167,7 @@ We can now use the definition of the 1PI effective action to obtain a formula fo
 \end{equation}
 
 In \autoref{1PI effective action}, we showed that the 1PI effective action had the property that it describes the whole quantum theory of the original action at the tree-level.
-This was done by inspecting a theory with the action proportional to $g^{-1}$, and argued that Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
+This was done by inspecting a theory with the action proportional to $g^{-1}$, where Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
 We can use the same argument to expand the effective potential in loops.
 This is done by modifying the action $S[\varphi] \rightarrow g^{-1}S[\varphi]$, and then expand in power of $g$.
 The first term in the effective potential is simply modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level, i.e. zero loop terms.
@@ -220,38 +220,15 @@ The first term is quadratic in $\eta$, and can therefore be evaluated as a gener
         - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}
         )
     \right\}
-    % + \const
+    + \const
 \end{align*}
 We then use the identity $\ln \det M = \Tr \ln M$.
 After we remove the constant term, this term proportional to $g^0$, i.e. it is made up of one-loop terms.
-% The generating functional for connected diagrams, as defined in \cref{generating functional of connected diagrams}, is therefore
-% \begin{align}
-%     \label{generating functional}
-%     W[J] 
-%     & = 
-%     \int\dd^4 x \, \left(\Ell[\varphi_0] + J \varphi_0\right)
-%     +i \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}
-%     + \dots,
-% \end{align}
-% where we have used the identity $\ln \det M = \Tr \ln M$.
-
-% Consider
-% \begin{equation}
-%     Z = \int \D \varphi \, e^{i g^{-1}S[\varphi]}.
-% \end{equation}
-% As we have done earlier, we can expand the action in a Taylor-series around the ground-state $\varphi_0$
-% \begin{equation}
-%     S[\varphi] = S[\varphi_0] 
-%     + \int \dd^4 x \,\varphi(x)\, \fdiff{S[\varphi_0]}{\varphi(x)}
-%     + \int \dd^4 x \dd^4 y \,\varphi(x)\varphi(y)\, \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}
-%     + \dots
-% \end{equation}
-% As the expectation value of $\varphi$ by assumption is $\varphi_0$, then we can ignore all tadpole diagrams, which only serves to change this expectation value.
 
 The last term can be evaluated by first expanding the exponential containing the $S_i$ term, then using $\ln(1 + x) = \sum_n \frac{1}{n}x^n$.
 Notice that
 \begin{equation}
-    \ex{A}_i =  \frac{
+    \ex{A} =  \frac{
         \int \D \varphi \, 
         A \, e^{ig^{-1}S_0}
     }{
@@ -277,33 +254,14 @@ with this, we can write
         \sum_n \frac{1}{n!}
         \ex{(ig^{-1}S_i)^n}
     \right) 
-    % \\
-    % =
-    % &\left(
-    %     i g^{-1} \ex{S_i}
-    %     -
-    %     \frac{1}{2}g^{-2}
-    %     \ex{-S_i^2}
-    %     + \dots
-    % \right)
-    % + 
-    % \frac{1}{2}
-    % \left(
-    %     i g^{-1} \ex{S_i}
-    %     -
-    %     \frac{1}{2}g^{-2}
-    %     \ex{S_i^2}
-    %     + \dots
-    % \right)^2
-    % + \dots
 \end{align}
 Expectation values of functionals of the field can be written as
 \begin{equation}
     \ex{f[\varphi]} = f\left[-i\fdiff{}{J}\right] Z[J] \big|_{J=0},
 \end{equation}
 where the functional of a functional derivative is evaluated by its series expansion.
-From Wick's theorem, each term in this series is given by a product of functional derivatives of $W$.
-As argued earlier, the propagator of the interacting theory is proportional to $g$, and thus so is $W$.
+From Wick's theorem, each term in this series is given by a product of second functional derivatives $W_0$, i.e. propagators.
+As argued earlier, the propagator of the interacting theory is proportional to $g$.
 We know that $S_i$ is made up of terms that is third power or higher in the fields.
 Furthermore, as the expectation value of an \emph{odd} number of fields are proportional to tadpole-diagrams, those can be ignored.
 This means that $\ex{S_i^n} \propto g^{k}$, where $k$ is more or equal to $3n$, if $n$ is even, $3n+1$, if $n$ is odd.
@@ -314,7 +272,7 @@ The effective potential to 1 loop order is thus
     \Veff(\varphi_0) = \Ve(\varphi_0) - \frac{i}{VT}  \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}.
 \end{equation}
 
-
+TODO: Utled lowest order lagrangian for en generell CCWZ-construksjon.
 
 % We may then write
 % \begin{align}

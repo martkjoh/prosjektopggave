@@ -35,3 +35,7 @@ sol = [s for s in sol if (np.abs(s[0]) == s[0]) and (np.abs(s[1]) == s[1])]
 mbar_nlo = sol[0][0]
 f_nlo = sol[0][1]
 
+# print(MPI*mbar_nlo)
+
+# print(fpi*MPI)
+# print(MPI*f_nlo)

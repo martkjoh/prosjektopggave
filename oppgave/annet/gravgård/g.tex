@@ -1335,4 +1335,39 @@ which leads to the expression
 \end{align}
 
 
+\subsection*{Landau ting}
+
+Due to symmetry of the system under $\alpha \rightarrow -\alpha$, the expansion of $\Ef$ should only contain even powers.
+This can be certified to leading order by explicit calculation.
+We therefore write,
+\begin{equation}
+    \Ef = \Ef(\alpha = 0) + a \alpha^2 - \frac{1}{2} b \alpha^4 + \frac{1}{3} c \alpha^6
+    + \Oh[8]{\alpha}.
+\end{equation}
+We assume that near $\bar m = \mu_I$, we can write $a = -a_0(\mu_I - \bar m), \, b = -b0 ,½$ and $c = c_0$, where all the constants are positive.
+The equation for $\alpha'$ is now
+\begin{equation}
+    2\alpha [a - \alpha^3 (b - c \alpha^3 )] = 0
+\end{equation}
+We still have the $\alpha' = 0$ for $\mu_I < \bar m$.
+For $\mu_I> \bar m$, we get the solutions
+\begin{equation}
+    \alpha^3 = \frac{1}{2} \left( \frac{b}{c} \pm \sqrt{\left(\frac{b}{c} \right)^2- 4 \frac{a}{c}} \right)
+    = \frac{b_0}{2c_0} \left(1 \pm \sqrt{1- 4 (\mu_I - \bar m) \frac{a_0c_0}{b_0^2}} \right).
+\end{equation}
+Taking the second derivative, 
+\begin{equation}
+    \Ef' = a - (3 b - 5c \alpha^2)\alpha^2,
+\end{equation}
+
+\subsection*{Gammel intro}
+The $\lieg{SU}{2}_L \times \lieg{SU}{2}_R$ symmetry of QCD is spontaneously broken if the quark field has a non-zero ground state expectation value $\ex{\bar q q}$, leaving only a subgroup $H = \lieg{SU}{2}_V \subseteq G$ of symmetry transformations of the vacuum state.
+The Goldstone manifold $G/H = \lieg{SU}{2}_A$ is a three-dimensional Lie group, and therefore results in three (pseudo) Goldstone bosons, the pions.
+There exists an isomorphism from a subset $S \subseteq M_1$ of the set of all Goldstone-fields
+\begin{equation*}
+    M_1 = \curly{ \pi_a: \Em_4 \longrightarrow \R^3 | \pi_a \, \mathrm{smooth} }
+\end{equation*}
+close to the ground state, into fields taking values in the Goldstone manifold $G/H$. (BEVISE?)(HVA ER ISOMORFISME HER?).
+
+
 \end{document}
