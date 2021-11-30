@@ -25,9 +25,10 @@ Instead, the spontaneous symmetry breaking is characterized by the \emph{scalar 
 The scalar quantity $\bar q q$ is invariant under isospin transformations $H = SU(2)_V$, but not under $SU(2)_A$.
 The Goldstone manifold is therefore $G/H = SU(2)_L\times\SU(2)_R/SU(2)_V = SU(2)_A$.
 To model the low energy dynamics of QCD, we start with the massless QCD Lagrangian,
-\begin{equation}
-    \Ell^0_\mathrm{QCD}[q, \bar q, A_\mu] = i \bar q \slashed{D} q - \frac{1}{4}G_{\mu \nu}^\alpha G^{\mu \nu}_\alpha.
-\end{equation}
+\begin{align*}
+    \Ell^0_\mathrm{QCD}[q, \bar q, A_\mu] 
+    = i \bar q \slashed{D} q - \frac{1}{4}G_{\mu \nu}^\alpha G^{\mu \nu}_\alpha
+\end{align*}
 Following~\cite{Gasser-Leutwyler:chiral,Scherer2002IntroductionTC}, we couple quarks to external currents.
 These can be used to model external fields, or to capture the symmetry breaking mass term.
 As found in \autoref{section:QCD}, the conserved currents are
@@ -42,18 +43,23 @@ In addition, external currents can couple to the scalar and pseudo-scalar quark 
     \quad \bar q \tau_a q, \quad \bar q \gamma^5 \tau_a q.
 \end{equation}
 The external Lagrangian is thus
-\begin{equation}
+\begin{align}
     \Ell_\text{ext} 
-    = 
+    & = 
     - (\bar q q )\, s_0 + (i \bar q \gamma^5 q) \, p_0
     - (\bar q \tau_a q)\, s_a + (i \bar q \gamma^5 \tau_a q) \, p_a
     + \frac{1}{3} J_\mu v_{(s)}^\mu 
-    + V_\mu^a v_a^\mu + A_\mu^a a_a^\mu.
-\end{equation}
+    + V_\mu^a v_a^\mu + A_\mu^a a_a^\mu \\
+    & = 
+    - \bar q \left(s + i \gamma^5 p \right) q
+    + \bar q \left(\frac{1}{3} v^\mu_{(s)} + v^\mu + a^\mu \gamma^5\right) \gamma_\mu q.
+\end{align}
 Here, $v, v_{(s)}, a, s$ and $p$ are the external currents, where we denote
 \begin{equation}
     s = s_0 \one + s_a \tau_a, \quad
-    p = p_0 \one + p_a \tau_a.
+    p = p_0 \one + p_a \tau_a, \quad
+    v^\mu = \frac{1}{2} v_a^\mu \tau_a, \quad
+    a^\mu = \frac{1}{2} a_a^\mu \tau_a.
 \end{equation}
 Setting $v = v_{(s)} = a = s = p = 0$ recover the chiral limit.
 To include the effect of the quark masses, we set $s = m$.
@@ -281,21 +287,50 @@ These can be combined to give more gauge-invariant terms, such as
 
 In the grand canonical ensemble, we modify the Lagrangian as
 \begin{equation}
-    \Ell \rightarrow \Ell + \mu_I Q.
+    \Ell \rightarrow \Ell + \mu Q,
 \end{equation}
-In this text, we study the effects of the isospin chemical potential $\mu_I$, whose corresponding conserved current is the ...
+where $Q$ is a conserved charge, and $\mu$ is the corresponding chemical component.
+We are interested systems with non-zero isospin, 
+\begin{equation}
+    Q_I = \int \dd^3 x \, V^0_3 = \int \dd^3 x \, \frac{1}{2}  \bar q \gamma^0 \tau_3 q,
+\end{equation}
+and the corresponding isospin chemical potential $\mu_I$.
+We do this by considering the system with a external current
+\begin{equation}
+    v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3.
+\end{equation}
 
-The \chpt effective Lagrangian will be constructed using the parametrization
+The most straight forward parametrization of the Goldstone manifold is 
+\begin{equation}
+    U(x) = \exp{i \frac{\pi_a\tau_a}{2 f}},
+\end{equation}
+where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons.
+They are real functions, and are related to the pions $\pi_0, \pi_+$ and $\pi_-$ by
+\begin{equation}
+    \pi_a\tau_a
+    = 
+    \begin{pmatrix}
+        \pi_3 & \pi_1 - i \pi_2 \\
+        \pi_1 + i \pi_2 & - \pi_3
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+        \pi_0 & \sqrt{2} \pi_+ \\
+        \sqrt 2 \pi_- & - \pi_0
+    \end{pmatrix}.
+\end{equation}
+For $\mu_I = 0$, the ground state of the system will be the vacuum, i.e. at $\pi_a = 0$.
+For non-zero isospin chemical potential, however, we expect that the ground state may be rotated away from the vacuum.
+Following~\cite{Andersen:two-flavor-chpt}, we parametrize the Goldstone manifold as
 \begin{align}
 \label{sigma}
     \Sigma(x) = A_\alpha [U(x) \Sigma_0 U(x)] A_\alpha,
 \end{align}
 where
-\begin{align*}
+\begin{align}
     \Sigma_0 = \one,\, 
     A_\alpha = \exp{\frac{i \alpha}{2} \tau_1},\, 
     U(x) = \exp{i \frac{\tau_a\pi_a(x)}{2f}}.
-\end{align*}
-$\tau_a$ are the $\SU(2)$ generators, i.e. Pauli matrices, as described in \autoref{Conventions and notation}.
-$\pi_a$, where $ \, a \in \curly{1, 2, 3}$, are the pion fields. These are real fields, meaning $\pi_a^\dagger = \pi_a$.
+\end{align}
+Here, $\alpha$ is a real number between $0$ and $2 \pi$, that parametrizes the ground state of the system.
 

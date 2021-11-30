@@ -1,21 +1,22 @@
 \section{Leading order Lagrangian}
 
-The leading order Lagrangian in \chpt is \cite{Scherer2002IntroductionTC, mojahed}
+When taking into account the discreete symmetries of the QCD Lagrangian, the most general first order Lagrangian is~\cite{Scherer2002IntroductionTC, mojahed}
 \begin{equation}
     \label{chpt lagrangian}
     \Ell_2 = 
-    \frac{f^2}{4} \Tr\left[\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger \right] 
-    + \frac{f^2}{4} \Tr \left[\chi^\dagger \Sigma + \Sigma^\dagger \chi \right].
+    \frac{1}{4} f^2 \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
+    + \frac{1}{4} f^2 \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}.
 \end{equation}
-$\chi$ and $f$ are the free parameters of the theory. $f$ is the pion decay constant, while $\chi = 2B_0 M$. 
-Here, $M$ is the mass matrix \autoref{Mass matrix}, and $B_0$ is related to the quark condensate through $f^2 B_0 = - \ex{\bar u u}$. The covariant derivative is defined by
-\begin{equation*}
-    \nabla_\mu \Sigma = \partial_\mu \Sigma - i\com{v_\mu}{\Sigma}, \quad 
-    (\nabla_\mu \Sigma)^\dagger 
-    = \partial_\mu \Sigma^\dagger - i\com{v_\mu}{\Sigma^\dagger}, \quad
-    v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
-\end{equation*}
-where $\mu_I$ is the isospin chemical potential.
+% $\chi$ and $f$ are the free parameters of the theory. $f$ is the pion decay constant, while $\chi = 2B_0 M$. 
+% Here, $M$ is the mass matrix \autoref{Mass matrix}, and $B_0$ is related to the quark condensate through $f^2 B_0 = - \ex{\bar u u}$. The covariant derivative is defined by
+% \begin{equation*}
+%     \nabla_\mu \Sigma = \partial_\mu \Sigma - i\com{v_\mu}{\Sigma}, \quad 
+%     (\nabla_\mu \Sigma)^\dagger 
+%     = \partial_\mu \Sigma^\dagger - i\com{v_\mu}{\Sigma^\dagger}, \quad
+%     v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
+% \end{equation*}
+% where $\mu_I$ is the isospin chemical potential.
+In this section, we will expand this Lagrangian in $\pi/f$, which we will use to calculate the free energy density.
 To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using the fact that $\tau_a^2 = \one$ to write
 \begin{equation}
     \label{A}
