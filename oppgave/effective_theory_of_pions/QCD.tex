@@ -1,75 +1,84 @@
 \section{QCD}
+\label{section:QCD}
+(Inkluder alle kilder) This section is based on~\cite{Peskin:IntroQFT,Schwartz:QFT}
 
-Quantum chromodynamics, or QCD, is the theory of how quarks interact using the strong force.
-It has its name due to the fact that the charges of QCD are called red, green and blue, which of course is only an analogy to colors.
-The two main quantities are the quark spinors, $q_f$
-if we have $N_f$ free quarks, with $N_c$ colors, then the Lagrangian is given by (HUSK i!)
+Quantum chromodynamics, or QCD, is the theory of how quarks interact via the strong force.
+There are six flavors of quarks, labeled by the index $f$, called up, down, charm, strange, top and bottom.
+The up, charm and top quark, collectively called up-type quarks, have electrical charge $+\frac{2}{3}$, while the down-type quarks---down, strange and bottom---have an electrical charge of $-\frac{1}{3}$.
+Quarks have one additional degree of freedom called color and indexed by $c$, which takes on the value of red, green and blue for quarks, and anti-red, -green and -blue for anti-quarks.
+The analogy to colors is meant to capture the empirical fact that quarks are only ever observed in \emph{colorless} configurations, that is either an equal amount of each color and its anti-color, or equal amounts of red, green and blue.
+% This is achieved with the configurations
+% \begin{eqnarray}
+%     \bar q_c q_c, \quad \varepsilon^{c_1 c_2 c_3} q_{c_1} q_{c_2} q_{c_3},
+%     \quad
+%     \varepsilon^{c_1 c_2 c_3} \bar q_{c_1} \bar q_{c_2} \bar q_{c_3},
+% \end{eqnarray}
+% which are the mesons, baryons and anti-baryons.
+Quarks are spin-$\frac{1}{2}$ particles, so each quark $q_{fc}$ is a spinor.
+% if we have $N_f$ free quarks, with $N_c$ colors, then the Lagrangian is given by (HUSK i!)
+Free quarks obey the Dirac-equation,
 \begin{equation}
-    \Ell[q] = \sum_{f=1}^{N_f} \sum_{c = 1}^{N_c} i \bar q_{fc} (\gamma^\mu \partial_\mu - m_f )q_{fc}
-    = i  \bar q (\slashed{\partial } - m)q.
+    \Ell[q, \bar q] = \sum_{f=1}^{N_f} \sum_{c = 1}^{N_c} \bar q_{fc} (i\gamma^\mu \partial_\mu - m_f )q_{fc}
+    = \bar q (i\slashed{\partial } - m)q,
 \end{equation}
+where $N_f$ is the number of flavors, and $N_c$ the number of colors.
 In the last equality, we have hidden the indices to reduce clutter.
-Each element $q_{fc}$ is a spinor, and $\gamma^\mu$ are the gamma matrices, as described in \autoref{Conventions and notation}.
+The gamma matrices, $\gamma^\mu$ are described in \autoref{Conventions and notation}, and we have employed the Feynman slash notation $\gamma^\mu A_\mu = \slashed A$.
 Furthermore, $\bar q = q^\dagger \gamma^0$.
-This Lagrangian is invariant under rations of the quarks in the color indices,
-i.e. the transformation
+This Lagrangian is invariant under rations of the quarks in the color indices, i.e. the transformation
 \begin{equation}
     q_c \rightarrow q'_c = U_{cc'} q_{c'},
     \quad 
-    \bar q_c = \bar U_{cc'}^\dagger q_c'
+    \bar q_c' = \bar U_{cc'}^\dagger q_c
 \end{equation}
 where $U_{cc'}$ is an $N_c \times N_c$ unitary matrix.
-The set of all $N_c\times N_c$ unitary matrices form the Lie group $U(N_c)$.
-All unitary matrices $U$ can be written as $e^{i\theta} U'$, where $\theta$ is a real number, and $U'$ is a matrix with determinant, which means we can decompose the Lie group into $U(1)\times SU(N_c)_c$.
-We recognize $U(1)$ as the gauge group of the electromagnetic field, which we will ignore for the time being. (ER DETTE SANT? HVORDAN FUNGERER DETTE?)
-$SU(N_c)$ is the group of all complex $N_c\times N_c$ matrices with determinant 1, and the subscript $c$ specifies that this is the set of color transformation, and not just some abstract group.
+The set of all $N_c\times N_c$ unitary matrices form the Lie group $U(N_c) = U(1)\times SU(N_c)_c$.
+$SU(N_c)_c$ is the group of all complex $N_c\times N_c$ matrices with determinant 1, and is the gauge group of the strong force. (HVORFOR IKKE U(N)?)
+A theory with a $SU(N)$ gauge group is called a Yang-Mills theory.
+% All unitary matrices $U$ can be written as $e^{i\theta} U'$, where $\theta$ is a real number, and $U'$ is a matrix with determinant 1, which means we can decompose the Lie group into .
+% We recognize $U(1)$ as the gauge group of the electromagnetic field, which we will ignore for the time being. (ER DETTE SANT? HVORDAN FUNGERER DETTE?)
 
-\subsection*{The Yang-Mills Lagrangian}
-$SU(N_c)$ is the gauge group for the strong force.
+
+
+\subsection*{Yang-Mills theory}
+
 Given an element $U \in SU(N_c)$, we can write
 \begin{equation}
     U = \exp{i \chi_\alpha \lambda_\alpha}, \quad
-    \chi_\alpha \lambda_\alpha \in \liea{su}{N_c}_c,
+    \chi_\alpha \lambda_\alpha \in \liea{su}{N_c},
 \end{equation}
-where $\liea{su}{N_c}_c$ is the Lie algebra of $SU(N_c)_c$.
-We derive the full, interacting Lagrangian of QCD by demanding that it remain invariant under a \emph{local} $SU(N_c)_c$ transformation, i.e.
+where $\liea{su}{N_c}$ is the Lie algebra of $SU(N_c)$.
+We derive the Yang-Mills Lagrangian by including all normalizable and Gauge-invariant terms. 
+A term is gauge invariant if it remains unchanged after a \emph{local} $SU(N_c)$ transformation, i.e.
 \begin{equation}
     q \rightarrow \exp{i \chi_\alpha(x) \lambda_\alpha} q, \quad
     \bar q \rightarrow \exp{-i \chi_\alpha(x) \lambda_\alpha} q'.
 \end{equation}
-This is no problem for the mass term, however, we need to modify the kinetic derivative term.
-For the Lagrangian to be gauge-invariant, this has to obey
+The mass term $m_f \bar q_f q_f$ is gauge invariant, while the kinetic derivative term needs to be modified.
+For this term to be gauge-invariant, we have to introduce a covariant derivative, which transforms as
 \begin{equation}
-    D_\mu q \rightarrow (D_\mu q)' = U D_\mu q.
+    D_\mu q \rightarrow (D_\mu q)' = U (D_\mu q) = D_\mu' (U q).
 \end{equation}
-As $q' = Uq$, this implies that
+If we posit $D_\mu = \one \partial_\mu - i g A_\mu^\alpha \lambda_\alpha $ where $A_\mu^\alpha$ is a set of vector fields, and $g$ a constant, then
 \begin{equation}
-    D'_\mu = U D_\mu U^\dagger.
-\end{equation}
-If we posit $D_\mu = \one \partial_\mu + A_\mu^\alpha \lambda_\alpha$, then
-\begin{equation}
-    D_\mu' 
-    =U D_\mu U^\dagger 
-    = U(U^\dagger \partial_\mu +  i\partial_\mu \chi_\alpha(x)\lambda_\alpha U^\dagger)
-    + U A_\mu U^\dagger
-    = \partial_\mu + U(A_\mu + i\partial_\mu \chi_\alpha(x))U^\dagger,
+    (\one \partial_\mu - i g A_\mu') U
+    = U (\one \partial_\mu - i g A_\mu^\alpha \lambda_\alpha)
 \end{equation}
 where $A_\mu = A_\mu^\alpha \lambda_\alpha$.
 This means that if we demand that $A_\mu$ transforms as
 \begin{equation}
-    A_\mu \rightarrow U(A_\mu - i \partial_\mu \chi) U^\dagger,
+    A_\mu \rightarrow U \left(A_\mu + \frac{i}{g} \partial_\mu\right) U^\dagger ,
 \end{equation}
-then our new derivative operator, called the \emph{covariant derivative}, follows the desired transformation rule.
 The second derivative operator,
 \begin{equation}
-    D_\mu D_\nu = [\partial_\mu \partial_\nu - i(\partial_\mu A_\nu + A_\mu\partial_\nu + A_\nu\partial_\mu) - A_\mu A_\nu],
+    D_\mu D_\nu = \partial_\mu \partial_\nu - ig(\partial_\mu A_\nu + A_\mu\partial_\nu + A_\nu\partial_\mu) - g^2A_\mu A_\nu,
 \end{equation}
 transforms in the same way as the first derivative.
 We see that the ``operator-part'' of this derivative is symmetric in the space-time indices, which means that the commutator will just a tensor, and not an operator.
 We define
 \begin{equation}
-    F_{\mu\nu} := i[D_\mu, D_\nu] = (\partial_\mu A_\nu - \partial_\mu A_\nu) - i[A_\mu, A_\nu]
-    = (\partial_\mu A_\nu^\alpha - \partial_\nu A_\mu^\alpha + C_{\beta \gamma }^\alpha A_{\mu}^\beta A_{\nu}^\gamma ) \lambda_\alpha.
+    F_{\mu\nu} := \frac{i}{g}[D_\mu, D_\nu] = (\partial_\mu A_\nu - \partial_\mu A_\nu) - ig[A_\mu, A_\nu]
+    = (\partial_\mu A_\nu^\alpha - \partial_\nu A_\mu^\alpha + g C_{\beta \gamma }^\alpha A_{\mu}^\beta A_{\nu}^\gamma ) \lambda_\alpha.
 \end{equation}
 This transforms as
 \begin{equation}
@@ -84,19 +93,21 @@ The tensor $F_{\mu\nu}$ allows construct all gauge invariant terms to dimension 
     \varepsilon^{\mu\nu\rho\sigma} F_{\mu \nu}^a F_{\rho \sigma}^a.
 \end{equation}
 Here, $\varepsilon$ is the Levi-Civita symbol.
-This allows us to write down the most general gauge-invariant Lagrangian for a $SU(N_c)$ gauge theory, the Yang-Mills Lagrangian
+This allows us to write down the most general gauge-invariant and renormalizable Lagrangian for a $SU(N_c)$ gauge theory, the Yang-Mills Lagrangian
 \begin{equation}
     \Ell = i  \bar q (\slashed{D} - m)q 
     + \frac{1}{4} F_{\mu \nu}^a F_a^{\mu \nu}
-    + c \varepsilon^{\mu\nu\rho\sigma} F_{\mu \nu}^a F_{\rho \sigma}^a.
+    + \theta \varepsilon^{\mu\nu\rho\sigma} F_{\mu \nu}^a F_{\rho \sigma}^a,
 \end{equation}
+where $\theta$ is a coupling constant. 
+In the case of QCD, $N_c = 3$, and the generators $\lambda_\alpha, \, \alpha \in \{1, ... 8\}$ are the $3\times3$ Gell-Mann matrices, and $\theta = 0$, or at least close enough that it does not matter.
 
 \subsection*{Chiral symmetry}
 
 In addition to the color and flavor indices $s$ and $f$, the quarks also have spinor indices, $i$, which are what the $\gamma$-matrices act on.
 We can define the projection operators,
 \begin{equation}
-    P_\pm = \frac{1}{2}(1 \pm \gamma^5),
+    P_\pm = \frac{1}{2}(\one \pm \gamma^5),
 \end{equation}
 which obey $P_\pm^2 = P_\pm$, $P_+P_- = P_-P_+ = 0$ and $P_+ + P_- = 1$, as good projection operators should.
 Furthermore, $P^\dagger_\pm = P_\pm$.
@@ -112,7 +123,7 @@ which means that
 \begin{equation}
     \bar q P_\pm = (P_{\mp}q)^\dagger \gamma^0.
 \end{equation}
-This means that we can write the quark part of the Lagrangian as
+Using the chiral projection operators, we can write the QCD Lagrangian as
 \begin{align*}
     \bar q (i\slashed D - m) q
     & = 
@@ -121,66 +132,55 @@ This means that we can write the quark part of the Lagrangian as
     & = \bar q_L (i\slashed D) q_L + \bar q_R (i\slashed D) q_R
     - \bar q_L m q_R - \bar q_R m q_L.
 \end{align*}
-We see that the mass-term mixes the two chiral components.
-In the limit $m \rightarrow 0$, called the \emph{chiral limit}, we gain two new symmetries,
+The mass-term mixes the two chiral components.
+In the case that $m_f = 0$, called the \emph{chiral limit}, the QCD Lagrangian is invariant under the transformations
 \begin{equation}
-    q_R \rightarrow U_R q_R, \quad q_L \rightarrow U_L q_L,
+    q_R \rightarrow e^{i\theta_R} U_R q_R, \quad q_L \rightarrow e^{i\theta_L} U_L q_L,
 \end{equation}
-where $U_L$ and $U_R$ are unitary matrices which act on the flavor indices.
-The total set of such transformations form the Lie group $U(N_f)_L \times U(N_f)_R=U_V(1)$.
+where $U_L$ and $U_R$ are complex $N_f \times N_f$ matrices with determinant 1 that act on the flavor indices, and $\theta_L$ and $\theta_R$ real numbers.
+The total set of such transformations form the Lie group $U(N_f)_L \times U(N_f)_R = U(1)_L \times U(1)_R \times SU(N_f)_L \times SU(N_f)_R$.
 We can write
 \begin{equation}
-    U_R = \exp{i \eta_\alpha^R T_\alpha^R} e^{i\theta_R}, 
+    U_R = P_- + \exp{i \eta_\alpha^R T_\alpha^R}P_+, 
     \quad
-    U_L = \exp{i \eta_\alpha^L T_\alpha^L} e^{i\theta_L},
+    U_L = P_+ + \exp{i \eta_\alpha^L T_\alpha^L}P_-,
 \end{equation}
-by again decomposing $U(N_f) = U(1)\times SU(N_f)$.
+where $T_\alpha^L$ and $T_\alpha^R$ are the generator for $SU(N_f)_L$ and $SU(N_f)_R$.
 The conserved currents corresponding to these symmetries are
 \begin{align}
     L^{\mu}_\alpha & = 
-    \diffp{\Ell}{\partial_\mu q} (iT_\alpha^Lq_L)
+    \diffp{\Ell}{(\partial_\mu q)} (-iT_\alpha^Lq_L)
     = \bar q \gamma^\mu T_\alpha^L q_L = \bar q_L \gamma^\mu T_\alpha^L q_L, \\
     R^{\mu}_\alpha
     & = \bar q_R \gamma^\mu T_\alpha^R q_R, \\
-    J_R^\mu &= \diffp{\Ell}{\partial_\mu q} (iq_L) = - \bar q_R \gamma^\mu q_R \\
-    J_L^\mu &= - \bar q_L \gamma^\mu q_L
+    J_R^\mu &= \diffp{\Ell}{(\partial_\mu q)} (- iq_L) = \bar q_R \gamma^\mu q_R \\
+    J_L^\mu &= \bar q_L \gamma^\mu q_L
 \end{align}
-We expect when we introduce a non-zero mass, the symmetry is broken.
+We have defined the currents with a positive sign to conform to common convention.
+We expect when we introduce a non-zero mass, the symmetry of the Lagrangian is explicitly broken.
 However, we see that when right and left-handed quarks are transformed in the same way, i.e. $\eta_R = \eta_L$, then the Lagrangian remain invariant.
-We can write a general transformation in $U_R(N_f)\times U_L(N_f)$ as a matrix
+The diagonal subgroup of $SU(N_f)_L\times SU(N_f)_R$, $SU(N_f)_V$, remains unbroken.
+% We can write a general transformation in $U_R(N_f)\times U_L(N_f)$ as a matrix
+Elements of this group have the form
 \begin{equation}
-    U = 
-    \begin{pmatrix}
-        U_L & 0 \\
-        0 & U_R 
-    \end{pmatrix},
+    U_V 
+    % =\exp{i \eta_\alpha^V T_\alpha^L} \exp{i \eta_\alpha^V T_\alpha^R}
+    = \exp{i \eta_\alpha^V T_\alpha^V \one}.
 \end{equation}
-which act on spinors $q = (q_L, q_R)^T$.
-The subspace of transformations that remains unbroken for non-zero masses are
+% The remaining set of transformations,
+As one can check easily, this is a normal subgroup of $SU(N_f)_L\times SU(N_f)_R$, and the quotient $SU(N_f)_L\times SU(N_f)_R/ SU(N_f)_V = SU(N_f)_A$ therefore forms a Lie group, with elements fo the form
 \begin{equation}
-    U_V = 
-    \begin{pmatrix}
-        U & 0 \\
-        0 & U 
-    \end{pmatrix}
-    = \exp{i \eta_\alpha^V T_\alpha^V\one} e^{i \theta_V\one}
+    U_A
+    % = \exp{-i \eta_\alpha^V T_\alpha^L} \exp{i \eta_\alpha^V T_\alpha^R}
+    = \exp{i \eta_\alpha^A T_\alpha^A \gamma^5},
 \end{equation}
-while the remaining set of transformation are of the form
-\begin{equation}
-    U_A = 
-    \begin{pmatrix}
-        U^\dagger & 0 \\
-        0         & U 
-    \end{pmatrix}
-    = \exp{i \eta_\alpha^V T_\alpha^V \gamma^5} e^{i \theta_A\gamma^5}.
-\end{equation}
-These sets of transformations form the Lie groups $U(1)_V\times SU(N_f)_V$ and $U(1)_A\times SU(N_f)_A$.
-The corresponding conserved currents are
+Similarly, the diagonal subgroup of $U(1)_L\times U(1)_R$ have a unbroken, normal subgroup $U(1)_V$, with elements of the form $e^{i\theta_A\one}$, and a quotient group, $U(1)_A$, with elements of the form $e^{i \theta_V \gamma^5}$.
+In the chiral limit, these groups are all symmetries of the Lagrangian, and the corresponding conserved currents are
 \begin{align}
     V^\mu_\alpha &= R^{\mu}_\alpha + L^{\mu}_\alpha = \bar q \gamma^\mu T^V_\alpha q, \\
     A^\mu_\alpha &= R^{\mu}_\alpha - L^{\mu}_\alpha = \bar q \gamma^\mu \gamma^5T^A_\alpha q, \\
-    J_V^\mu & = \bar R^{\mu} + L^{\mu} = \bar q \gamma^\mu q, \\
-    J_A^\mu & = \bar R^{\mu} - L^{\mu} = \bar q \gamma^\mu \gamma^5 q.
+    J_V^\mu & = J_R^{\mu} + L^{\mu} = \bar q \gamma^\mu q, \\
+    J_A^\mu & = J_L^{\mu} - L^{\mu} = \bar q \gamma^\mu \gamma^5 q.
 \end{align}
 
 The currents corresponding to $U(1)_V$ and $U(1)_A$ are called the vector and axial currents, as they transform as vectors and axial-vectors under space-time transformations.
@@ -188,9 +188,9 @@ The conserved charge corresponding to the vector current,
 \begin{equation}
     Q = \int \dd^3 x \, \bar q \gamma^0 q,
 \end{equation}
-is $1/3$ times the \emph{baryon number}. (HVORFOR?)
-We have up to now only made classical considerations.
+is $3$ times the \emph{baryon number}. (HVORFOR?)
+Up until now, we have only made classical considerations.
 In the full quantum theory, the baryon number remains conserved.
 The axial current $J^\mu_A$ however is the subject to an anomaly.
 As the integration measure $\D\bar q \D q$ is not invariant under transformations in $U(1)_A$, as we saw earlier is required, the quantum correction to $\partial_\mu J^\mu_A$ are non-zero.
-The remaining symmetry, $G = SU(N_f)_L \times SU(N_f)_R = SU(N_f)_V \times SU(N_f)_A$ and how it is broken is the foundation for chiral perturbation theory, which we will consider int the next section.
+The remaining symmetries, $G = SU(N_f)_L \times SU(N_f)_R = SU(N_f)_V \times SU(N_f)_A$ and how they are broken is the foundation for chiral perturbation theory, which we will consider int the next section.
