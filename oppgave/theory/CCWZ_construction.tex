@@ -89,17 +89,15 @@ Inserting the parametrization into this derivative term, we get
     \partial_\mu \varphi(x) = \partial_\mu [\Sigma(x) \varphi_0]
     = \Sigma(x) [\Sigma(x)^{-1} \partial_{\mu} \Sigma(x)] \varphi_0.
 \end{equation}
-The dependence of the Lagrangian on $\xi_i$ only appears through terms of the form $\Sigma(x)^{-1}\partial_\mu \Sigma(x)$.
-These can always be written on the form
+The Lagrangian will therefore depend on $\xi_i$ via terms of the term $\Sigma(x)^{-1}\partial_\mu \Sigma(x)$, which is called the Mauer-Cartan form.
+This is a $\mathfrak g$-valued function, which means that it can be written on the for
 \begin{align*}
-    & i\Sigma(x)^{-1}\partial_\mu \Sigma(x) = D_{\mu}(x) + E_{\mu}(x), \\
-    & D_{\mu}  = i x_i D_{ij}(\xi) \partial_\mu \xi_j, \\
-    & E_{\mu}  = i t_a E_{ai}(\xi)\partial_\mu \xi_i.
+    i\Sigma(x)^{-1}\partial_\mu \Sigma(x) & 
+    = d_{\mu}(x) + e_{\mu}(x), \\
+    d_{\mu} & = i x_i d_{ij}(\xi) \partial_\mu \xi_j, \\
+    e_{\mu} & = i t_a e_{ai}(\xi)\partial_\mu \xi_i.
 \end{align*}
-This is called the Maurer-Cartan form, and $D_{ij}$ and $E_{ai}$ are as-of-yet unknown real valued functions of $\xi$. (HVORFOR??)
-
-(TODO: BYTT TIL LITEN d, e.)
-
+where $d_{ij}$ and $d_{ai}$ are as-of-yet unknown real valued functions of $\xi$~\cite{weinberg_1996_vol2,Watanabe:effective_lagrangian}.
 
 \subsection*{Transformation properties of Goldstone bosons}
 We can deduce how the Goldstone bosons transforms under $G$ from how $\varphi$ transforms.
@@ -137,18 +135,38 @@ This gives
 \begin{align*}
     \Sigma^{-1} \partial_\mu \Sigma
     \rightarrow 
-    & \Sigma'^{-1} \partial_\mu \Sigma' \\
+    & \, \Sigma'^{-1} \partial_\mu \Sigma' \\
     & = (g \Sigma h^{-1})^{-1} \partial_\mu (g \Sigma h^{-1}) \\
     & = (h \Sigma^{-1} g^{-1}) g [(\partial_\mu \Sigma)h^{-1} + \Sigma \partial_\mu h^{-1}] \\
     & = h \Sigma^{-1} (\partial_\mu \Sigma) h^{-1}
     + h \partial_\mu h^{-1} \\
     & = h (\Sigma^{-1} \partial_\mu \Sigma + \partial_\mu) h^{-1}.
 \end{align*}
-In terms of $D_\mu$ and $E_\mu$,
+In terms of $d_\mu$ and $e_\mu$,
 \begin{align}
-    D_\mu & \rightarrow h D_\mu h^{-1} \\
-    E_\mu & \rightarrow h (E_\mu + i\partial_\mu )h^{-1}.
+    d_\mu & \rightarrow h d_\mu h^{-1} \\
+    e_\mu & \rightarrow h (e_\mu + i\partial_\mu )h^{-1}.
 \end{align}
-We see that $E_\mu$ transforms like a gauge field, with the gauge group $H$.
-These are the peicees we need to construct a Lagrangian in terms of the Goldstone bosons.
-(KANSKJE?: Inkluder massiver partikler, med $\varphi(x) = \Sigma(x)\tilde \varphi(x)$, og hvordan det transformerer. Skriver om representasjoner? (adj, r pi))
+These are our building blocks for constructing a general, $G$-invariant effective Lagrangian.
+The trace of a product of $d_\mu$'s are invariant under $G$,
+\begin{equation}
+    \Tr{d_\mu d_\nu \dots d_\rho} 
+    \rightarrow
+    \Tr{h d_\mu h^{-1} h d_\nu h^{-1} h \dots d_\rho h^{-1} h}
+    = \Tr{d_\mu d_\nu \dots d_\rho},
+\end{equation}
+where we have used the cyclic property of trace.
+However, the terms must also obey the other symmetries of the Lagrangian, such as C or P-parity and Lorentz invariance.
+The last criterion excludes any terms with free spacetime indices.
+The lowest order terms are therefore (REFFERER TIL POWERCOUNTING)
+\begin{equation}
+    \Tr{d_\mu} \Tr{d^\mu}, 
+    \quad 
+    \Tr{d_\mu d^\mu}.
+\end{equation}
+We see that $e_\mu$ transforms like a gauge field, with the gauge group $H$.
+If we include massive degrees of freedom, and not only the boson modes, $e_\mu$ is used to create a covariant derivative of the massive modes.
+We are only interested in the Goldstone, and will therefore be satisfied with $d_\mu$.
+With these tools, we can create an effective theory of quantum chromodynamics at low energies.
+
+% (KANSKJE?: Inkluder massiver partikler, med $\varphi(x) = \Sigma(x)\tilde \varphi(x)$, og hvordan det transformerer. Skriver om representasjoner? (adj, r pi))
