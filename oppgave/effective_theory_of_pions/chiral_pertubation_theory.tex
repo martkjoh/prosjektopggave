@@ -100,6 +100,29 @@ We will now use the CCWZ construction and effective field theory to construct th
 \end{equation}
 where $\pi$ are the Goldstone bosons.
 
+\subsection*{Weinberg's power counting scheme}
+(TODO: FIX; )
+
+The effective action can not in general be written as a single integral over a power series in the field, it might for example be non-local~\cite{Schwartz:QFT}.
+To construct the effective a effective theory of Goldstone bosons, such as chiral pertubation theory, we rely on a ``theorem'', as formulated by Weinberg:
+\begin{quote}
+    [I]f one writes down the most general possible Lagrangian, including all terms consistent with assumed symmetry principles, and then calculates matrix elements with this Lagrangian to any given order of perturbation theory, the result will simply be the most general possible S-matrix consistent with analyticity, perturbative unitary, cluster decomposition and the assumed symmetry principles. \cite{WeinbergPhenom}
+\end{quote}
+In other words, if we write down the most general Lagrange density consistent with symmetries of the underlying theory, it will result in the most general S-matrix consistent with that theory, and important physical assumptions.
+In last section, we found a parametrization that guarantees for a simple way the fields must appear in the Lagrangian.
+Thus, any combination of these building blocks $\mathcal{O}_i(\xi)$ that must appear in the Lagrangian.
+The effective Lagrangian is therefore
+\begin{equation}
+    \Ell[\xi] = \sum_i c_i \mathcal{O}_i(\xi),
+\end{equation}
+where $c_i$ are free parameters.
+
+This leaves a Lagrange density with infinitely many terms, and infinitely many free parameters.
+To be able to use this theory for anything one must have a method for ordering the terms in order of importance.
+As described in \cite{Scherer2002IntroductionTC}, by rescaling the external momenta $p_\mu \rightarrow t p_\mu$ and quark masses $m_i \rightarrow t^2 m_i$, each term in the Lagrangian obtains a factor $t^D$.
+The Lagrangian is then expanded as $\Ell = \sum_D \Ell_D$, where $\Ell_D$ contains all terms with a factor $t^D$.
+
+
 \subsection*{Non-linear realization}
 % We now use the formalism we developed in \autoref{section:symmetry}.
 % The full symmetry is $G = SU(2)_V\times SU(2)_A$, and the subgroup of the vacuum is $H = SU(2)_V$.

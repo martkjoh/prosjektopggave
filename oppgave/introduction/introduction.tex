@@ -6,8 +6,42 @@ Quantum electrodynamics, or QED, is the description of electromagnetic interacti
 It gives some of the most accurate predictions in science (EKSEMPEL).
 This is calculated using the techniques of Feynman diagrams, which describes how quantum fields interact as the sum of all possible ways patterns of interaction.
 When the interaction is weak, as is the case for QED, we get a sum that converges quickly, and can get highly accurate estimates by calculating a few orders of the sum.
+The weakness of QED is quantified in the fine structure constant $\alpha \approx 0.00 7297$.(CITE PDG)
+A Feynman diagram in QED is proportional to $\alpha^n$, where $n$ is the number of vertices in the diagram, which means the contributions from more complex diagrams with many vertices rapidly becomes insignificant
 
-Quantum chromodynamics, or QCD is the part of the standard model that describes quarks, the constituents of protons and neutrons, and how they interact via the strong nuclear force.
-As the name suggests, the strong force is not weak, at least not for low energies, and thus do not allow for an approach using Feynman diagrams.
-Instead, one can use the approach of \emph{effective field theory}.
+
+Quantum chromodynamics, or QCD, is the part of the standard model that describes quarks, the constituents of protons and neutrons, and how they interact via the strong nuclear force.
+When dealing with the strong force, the fact that the strength of interaction depend on the energy scale of the interaction becomes apparent.
+In high energy interactions, around $100\, \text{MeV}$ or more, the strong force equivalent to the fine structure constant is $\alpha_s \approx 0.1$. 
+This makes it possible to do persuasive calculations using QCD.
+However, the strong force has its name for a reason.
+For scales around $1 \text{GeV}$ and below, the perturbation method breaks down, and we are no longer able to extract predictions of the theory using perturbation theory, at least not directly.
+
+OUTLINE: 
+
+- Standard model, QCD
+
+- Pion stars: calculation of neutron star, not from first principle. Sign problem. Pion stars recently suggested. Equation of state
+
+- Effective Lagrangians,  Weinberg's theorem, symmetry, chiral perturbation theory.
+
+- Outline of text
+
+\subsection*{Effective field theories}
+
+In \autoref{section: effective action}, we studied the effective action, and found that it gave the equation of motion for the expectation value of the field in the full quantum theory.
+Let $\varphi^*(x) = \ex{\varphi(x)}$, and $\varphi(x) = \varphi^*(x) + \eta(x)$.
+We can write this as
+\begin{equation}
+    \exp{i \Gamma[\varphi^*]} = \int \D \eta \, \exp{i S[\varphi^* + \eta]}.
+\end{equation}
+As, by assumption, $\ex{\eta} = 0$, this only includes 1PI diagrams.
+We say that the degree of freedom $\eta$ has been \emph{integrated out}.
+More generally, we can integrate out some of the degrees of freedom of a system, to get an effective theory for what is left.
+If we have two sets of fields, $\varphi$ and $\psi$, and a Lagrangian $\Ell[\varphi, \psi]$, then the effective theory of the $\varphi$ fields are defined by
+\begin{equation}
+    \int \D\varphi \D \psi \, \exp{i\int \dd x\, \Ell[\varphi, \psi]}
+    = \int \D \varphi \exp{i S_\mathrm{eff}[\varphi]}.
+\end{equation}
+(EKSEMPLER? WILSON RENORMALISERING; FERMI TEORI)
 
