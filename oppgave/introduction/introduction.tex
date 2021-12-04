@@ -1,5 +1,15 @@
 (KLADD, INNTRODUKSJON)
 
+% OUTLINE: 
+
+% - Standard model, QCD
+
+% - Effective Lagrangians,  Weinberg's theorem, symmetry, chiral perturbation theory.
+
+% - Pion stars: calculation of neutron star, not from first principle. Sign problem. Pion stars recently suggested. Equation of state
+
+% - Outline of text
+
 The standard model describes, together with Einstein's general theory of relativity, all experiments we as humans are able to perform.
 It uses the language of quantum field theory to describe (X) particles, and their interactions.
 Quantum electrodynamics, or QED, is the description of electromagnetic interactions.
@@ -15,33 +25,142 @@ When dealing with the strong force, the fact that the strength of interaction de
 In high energy interactions, around $100\, \text{MeV}$ or more, the strong force equivalent to the fine structure constant is $\alpha_s \approx 0.1$. 
 This makes it possible to do persuasive calculations using QCD.
 However, the strong force has its name for a reason.
-For scales around $1 \text{GeV}$ and below, the perturbation method breaks down, and we are no longer able to extract predictions of the theory using perturbation theory, at least not directly.
-
-OUTLINE: 
-
-- Standard model, QCD
-
-- Pion stars: calculation of neutron star, not from first principle. Sign problem. Pion stars recently suggested. Equation of state
-
-- Effective Lagrangians,  Weinberg's theorem, symmetry, chiral perturbation theory.
-
-- Outline of text
+For scales around $1 \text{GeV}$ and below, the perturbation method breaks down.
+In this case, the quark fields form \emph{hadrons}.
+Hadrons are again subdivided in to \emph{mesons} and \emph{baryons}.
+Mesons are bosons, and none are stable. 
+They do however play an important role in effective theories, which we will come back to.
+The most familiar of the baryons are the proton and neutrons.
+In this regime, we can not extract predictions of the theory using perturbation theory, at least not directly, and we are forced to come up with other techniques.
 
 \subsection*{Effective field theories}
 
-In \autoref{section: effective action}, we studied the effective action, and found that it gave the equation of motion for the expectation value of the field in the full quantum theory.
-Let $\varphi^*(x) = \ex{\varphi(x)}$, and $\varphi(x) = \varphi^*(x) + \eta(x)$.
-We can write this as
+A profound feature of physics is the possibility of describing a system by isolating the degrees of freedom of interest, and ignoring the rest.
+We can describe the motion of the plants in the solar system, massive and complex systems, by only their mass, velocity and position.
+In quantum field theory, this property manifests in the power of \emph{effective field theory}.
+An effective field theory describes a system not by the fundamental, underlying particles, whatever that may mean, but by effective fields.
+A theory of two, interacting fields $\varphi$ and $\psi$ will be described by an action which depends on both fields, $S[\varphi, \psi]$.
+In the path integral formalism, predictions can be then be made by integrating over all possible states for these fields, such as for the vacuum transition amplitude,
 \begin{equation}
-    \exp{i \Gamma[\varphi^*]} = \int \D \eta \, \exp{i S[\varphi^* + \eta]}.
+    Z = \int \D \varphi \D \psi \, \exp{i S[\varphi, \psi]}.
 \end{equation}
-As, by assumption, $\ex{\eta} = 0$, this only includes 1PI diagrams.
-We say that the degree of freedom $\eta$ has been \emph{integrated out}.
-More generally, we can integrate out some of the degrees of freedom of a system, to get an effective theory for what is left.
-If we have two sets of fields, $\varphi$ and $\psi$, and a Lagrangian $\Ell[\varphi, \psi]$, then the effective theory of the $\varphi$ fields are defined by
+The effective description of only the $\varphi$-degrees of freedom by \emph{integrating out} the $\psi$-degrees of freedom, which results in an effective action $S_\text{eff}[\varphi]$, defined by~\cite{Schwartz:QFT}
 \begin{equation}
-    \int \D\varphi \D \psi \, \exp{i\int \dd x\, \Ell[\varphi, \psi]}
-    = \int \D \varphi \exp{i S_\mathrm{eff}[\varphi]}.
+    \label{integrating out degrees of freedom}
+    \int D \varphi \, \exp{i S_\text{eff}[\varphi]} 
+    =
+    \int \D \varphi \D \psi \, \exp{i S[\varphi, \psi]}.
 \end{equation}
-(EKSEMPLER? WILSON RENORMALISERING; FERMI TEORI)
+This gives us hope for describing low energy QCD as an effective theory of the particles we know from experiments appear.
+In this text, we will derive and explore an effective theory of the pionic degrees of freedom of low-energy QCD, called chiral perturbation theory of \chpt.
+
+Mesons, of which pions are the lightest, were first proposed by Hideki Yukawa as the mechanism to hold nucleons together to form the nucleus of atoms.
+Though first believed to appear in the showers of particles that comes from cosmic rays, they were decisively discovered in 1947, by Cecil F. Powell \emph{et. al.}~\cite{griffiths:introduction}
+Pions do not show up in the standard model, as quarks do, but rather as an effective degree of freedom at low temperature.
+The action of the standard model has a very particular, nice form.
+It is the integral over a local Lagrangian, that is
+\begin{equation}
+    S[\varphi] = \int \dd^4 x \, \Ell[\varphi].
+\end{equation}
+Here, we denote all particles by $\varphi$.
+That the Lagrangian $\Ell$ is local means that it is made up of terms like $\varphi(x) \varphi(x)$, all interactions happens at one point in space-time, as opposed to a term such as $f(x, y)\varphi(x) \varphi(y)$.
+We can not a priori expect an effective action to take this form~\cite{Schwartz:QFT}.
+However, we have general principles we expect particles to obey, such Lorentz invariance and cluster decomposition.
+Cluster decomposition concerns a system of $N$ sets of particles, $\alpha_i$, that evolve into the sets $\beta_i$.
+That is,
+\begin{equation}
+    \ket{\alpha_1, \alpha_2, ... \alpha_N}_\text{in}
+    \longrightarrow
+    \ket{\beta_1, \beta_2, ... \beta_N}_\text{out}.
+\end{equation}
+It says that if the sets of particles $\alpha_i$, $\beta_i$ are located far enough apart, then the $S$-matrix factors as
+\begin{equation}
+    {\braket{\beta_1, \beta_2, ... \beta_N}{\alpha_1, \alpha_2, ... \alpha_N}}
+    =
+    \braket{\beta_1}{\alpha_1}\braket{\beta_2}{\alpha_2}... \braket{\beta_N}{\alpha_N}.
+\end{equation}
+This is a familiar property, as it essentially says that wildly separated experiments do not interfere, and one that we expect all good effective description to have~\cite{weinberg_1995,weinberg_1996_vol2}.
+
+The method we use to construct the effective action of \chpt is one formulated by Weinberg.
+This method relies on, as Weinberg himself called it, a ``theorem'':
+\begin{quote}
+    [I]f one writes down the most general possible Lagrangian, including all terms consistent with assumed symmetry principles, and then calculates matrix elements with this Lagrangian to any given order of perturbation theory, the result will simply be the most general possible S-matrix consistent with analyticity, perturbative unitary, cluster decomposition and the assumed symmetry principles. \cite{WeinbergPhenom}
+\end{quote}
+In other words, if we write down the most general Lagrange density consistent with symmetries of the underlying theory, then we have not made any restrictions on the theory, other than some foundational assumptions.
+This Lagrangian will be on the form
+\begin{equation}
+    \Ell_\text{eff}[\varphi] = \sum_i \lambda_i \mathcal O_i,
+\end{equation}
+where $\mathcal O_i$ are local functions of the fields and its derivatives, and $\lambda_i$ are coupling constants.
+The coupling constants are free parameters, which parametrizes the most general $S$-matrix consistent with fundational assumptions and the underlying theory.
+A Lagrangian with an infinite amount of free parameters might seem useless, however if we are able to find a consistent series expansion, then only a finite number of terms are needed to calculate to any given order in perturbation theory.
+In the case of \chpt, the expansion is in the energy of the pions.
+We will detail this later in the text.
+
+
+\subsection*{Stars}
+
+Although it might seem counterintuitive, stars are one of the objects we might hope to describe using QCD at low energies.
+Neutron stars, one of the most extreme objects in the universe, quickly cools down to temperatures below $10^{10} \, \text{K}$.
+This might be hot by almost all standards, however it corresponds to an energy of $0.862 \, \text{MeV}$.
+This is well into the strong interaction regime of QCD, and the stars must therefore be described by an effective theory of interacting nuclear matter~\cite{glendenning:compcat_stars,from_hadrons_to_quarks}.
+Stars are modeled using the Tolman-Oppenheimer-Volkoff, or TOV, equation.
+The TOV equation is based on Einstein's general theory of relativity, and its solution gives the pressure of the star as a function of its radius.
+The only input needed is the \emph{equation of state}, or EOS, of the material that makes up the star~\cite{Carroll:spacetime}.
+The equation of state of a material is the relationship between its energy density, $u$, and pressure $P$, i.e. a relationship of the form
+\begin{equation}
+    f(P, u) = 0.
+\end{equation}
+This is where QCD comes in.
+One way to compute the equation of state of QCD systems is using the lattice QCD, a numerical method.
+Here, space-time is approximated as finite and discrete, and Monte-Carlo importance sampling is used to perform the path integral.
+This method, however, fails for non-zero baryon densities in what is known as the fermion sign problem.
+Non-zero baryon density, or equivalently non-zero baryon chemical potential $\mu_B$, corresponds to systems with a matter-antimatter asymmetry, such as neutron stars, or more generally all observed stars.
+Recently, it has been proposed that pions may condense and form a new type of compact, gravitationally bound object, i.e. a star.
+Pions have baryon chemical potential of zero, and pion condensates are thus amenable to lattice QCD simulations.
+This offer a way to model stellar objects from first principles, as well as by analytical methods using \chpt~\cite{new_clas_of_compact_stars,andersen:bose_einstein}.
+
+\subsection*{Pion condensate and the QCD phase diagram}
+(ILLUSTRASJON)
+A pioncondensate is a state with a non-zero expectation value of pions, $\ex{\pi} \neq 0$.
+The condensation happens when the pion chemical potential equals the pion mass, $\mu_I = m_\pi$.
+This is just one part of the rich phase structure of QCD.
+The full phase diagram is not yet known, due to the many difficulties, only some of which is mentioned in this text.
+Some, however, we do know.
+At low temperatures and chemical potentials, in the normal or vacumm phase, we get a hadronic gas.
+For high temperature or chemical potentials, we get a quark gluon plasma.
+In this phase, quarks are no longer tightly bound in hadrons, but together with gluons form as soup conjectured to be at the center of neutron stars.(SIKKER? KILDE)
+For high (HOW) baryon chemical potential, we expect that there forms a color super conductor (KILDE).
+Better understanding of the phase diagram of QCD is a large part of understanding the standard model and its consequences better.
+To be able to validate the techniques used, it is important to employ all possible, sound approaches.
+This makes it possible to crosscheck techniques, such as when comparing \chpt with lattice QCD.
+
+
+\subsection*{Outline of thesis}
+The goal of this thesis is to calculate the next-to-leading order equation of state of a system at finite isospin chemical potential, using two-flavor chiral perturbation theory.
+We will also investigate the phase transition from the vacuum phase into a pion condensate phase.
+In \cref{chapter:theory}, we take a survey of some general theory needed for \chpt.
+We start by introducing the generating functional in the path integral formalism, and use this to define the one-praticle-irreducible effective action, and the effective potential.
+This allows us to prove Goldstone theorem, an important result which provides the connection between the symmetries of a theory, and its low energy dynamics.
+The theorem states that a system which undergoes spontaneous symmetry breaking gives rise to massless particles.
+We then present the CCWZ construction, which provides a procedure to constructs an effective Lagrangian of Goldstone bosons.
+We also present some mathematical prerequisite, such as Lie groups and Lie algebras, and discuss the role and mathematical implementation of symmetry in physics in general and quantum field theory in particular.
+In \autoref{chapter:effective theory of pions}, we take the general theory of the last chapter, and apply it to QCD to get \chpt.
+We start the chapter by discussing QCD, its constituent parts and their symmetries and the corresponding conserved currents.
+We then use the theory from last chapter to find the terms with makes up the Lagrangian of \chpt, as well as how to incorporate explicit breaking of symmetry and external source currents, as well as a finite isospin chemical potential.
+This section also contains a discussion about how to order these terms in a well-defined series expansion, and avoid the need to include infinity many terms.
+With this, we construct the leading order and next-to-leading order Lagrangian, which is expanded in powers of the pion fields.
+We discuss how to identify possible redundant terms in the Lagrangian, and use our result to find properties of the pion such as their tree-level mass and propagator.
+In \autoref{chapter:thermodynamics}, we use our result to calculate the free energy density, to one loop using the leading order Lagrangian, and then use the tree level result at next-to-leading order to renormalize the result.
+We discuss the low energy parameters we use, and how to evaluate observable to the same order in perturbation theory consistently.
+With the free energy density, we explore the thermodynamics of pions at finite isospin chemical potential, and derive the equation of state.
+We also discuss the phase transition to the pion condensate phase using the Landau theory of phase transition.
+In \autoref{chpater:conclusion and outlook}, we (SKRIV KAPITTEL!!!!)
+
+The appendix is referenced throughout the text, to keep the thesis as self-contained as possible.
+In \autoref{appendix:thermal field theory}, we review thermal field theory and the imaginary time formalism.
+This chapter contains calculations needed in the main part of the thesis, where they are referenced, and lays out the path integral approach as well as its connection to thermodynamics in more detail.
+We also discuss dimensional regularization, derive the Feynman rules for and interacting scalar and generalize thermal field theory to fermions.
+\autoref{appendix:conventions and notaition} summarize the convention and notation used in this thesis, as well as discussing some of the used in the thesis mathematics in more detail.
+
 

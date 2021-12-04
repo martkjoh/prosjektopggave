@@ -1,5 +1,21 @@
 \section{Integrals}
 \label{section:gaussian integrals}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \draw (-2, 0) -- (2, 0) node[right] {$\mathrm{Re}(x)$};
+        \draw (0, -2) -- (0, 2) node[above] {$\mathrm{Im}(x)$};
+        \draw[->, thick] (-1.75, 0.1) -- (1.8, 0.1);
+        \draw[->, thick] (1.8, 0.15) arc (10:45:1.8);
+        \draw[->, thick] ({1.8/sqrt(2)}, {1.8/sqrt(2)}) -- ({-1.8/sqrt(2)}, {-1.8/sqrt(2)});
+        \draw[->, thick] ({-1.8/sqrt(2)}, {-1.8/sqrt(2)}) arc (225:180:1.8);
+    \end{tikzpicture}
+    \caption{Wick rotation}
+    \label{Wick rotation}
+\end{figure}
+
+
 A useful integral is the Gaussian integral,
 \begin{equation}
     \int_\R \dd z \, \exp(- \frac{1}{2} a z^2) = \sqrt{\frac{2 \pi}{a}},
@@ -38,19 +54,6 @@ then the integrand is exponentially suppressed.
     % \exp(i \frac{1}{2}a z(t)^2) = \exp(i\frac{1}{2}a t^2(1 + i \epsilon)^2) \sim \exp(-\frac{1}{2}a \epsilon t^2 + i \frac{1}{2}at^2).
 \end{equation}
 As the integrand falls of exponentially for $x\rightarrow \infty$, and contains no poles in the upper right nor lower left quarter of the complex plane, we may perform a wick rotation by closing the contour as shown in \autoref{Wick rotation}.
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-        \draw (-2, 0) -- (2, 0) node[right] {$\mathrm{Re}(x)$};
-        \draw (0, -2) -- (0, 2) node[above] {$\mathrm{Im}(x)$};
-        \draw[->, thick] (-1.75, 0.1) -- (1.8, 0.1);
-        \draw[->, thick] (1.8, 0.15) arc (10:45:1.8);
-        \draw[->, thick] ({1.8/sqrt(2)}, {1.8/sqrt(2)}) -- ({-1.8/sqrt(2)}, {-1.8/sqrt(2)});
-        \draw[->, thick] ({-1.8/sqrt(2)}, {-1.8/sqrt(2)}) arc (225:180:1.8);
-    \end{tikzpicture}
-    \caption{Wick rotation}
-    \label{Wick rotation}
-\end{figure}
 This gives the result
 \begin{equation}
     \label{complex gauss 1D}

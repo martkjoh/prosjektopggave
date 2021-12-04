@@ -5,7 +5,10 @@ Throughout this text, natural units are employed, in which
     \hbar = c = k_B = 1,
 \end{equation}
 where $\hbar$ is the Planck reduced constant, $k_B$ is the Boltzmann constant and $c$ is the speed of light.
-The Minkowski metric convention used is the ``mostly minus'', $g_{\mu \nu} = \mathrm{diag}(1, -1, -1, -1)$.
+The Minkowski metric convention used is the ``mostly minus'',
+\begin{equation}
+    g_{\mu \nu} = \mathrm{diag}(1, -1, -1, -1).
+\end{equation}
 
 The $\liea{su}{2}$ basis used is the Pauli matrices,
 \begin{align*}
@@ -69,14 +72,14 @@ The Euclidean $\tilde \gamma_5$ is defined as
 It thus also anti-commutes with the Euclidean $\gamma$-matrices.
 
 
-\subsection{Fourier transform}
+% \subsection{Fourier transform}
 The Fourier transform used in this text is defined by
 \begin{align*}
     \F{f(x)}(p) = \tilde f(p) = \int \dd x\, e^{i p x}f(x), \quad 
     \FInv{\tilde f(p)}(x) = f(x) = \int \frac{\dd p}{2 \pi}\, e^{- i p x} \tilde f(p).
 \end{align*}
 
-\subsection{Fourier series}
+\subsection*{Fourier series}
 Imaginary-time formalism is set in a Euclidean space $\Omega = [0, \beta] \times V$,
 where  $V = L_xL_yL_z$ is a space-like volume. The possible momenta in this space are
 \begin{equation*}
@@ -136,7 +139,7 @@ A often used identity is
     := \beta \delta(X - X').
 \end{align}
 
-\subsection{Particle distributions}
+\subsection*{Particle distributions}
 The Bose distribution is defined as 
 \begin{equation}
     n_B(\omega) = \frac{1}{e^{\beta \omega} - 1}.
@@ -170,7 +173,7 @@ The two distributions are related by
     = - n_F(i \omega; \beta ).
 \end{equation}
 
-\subsection{Propagators}
+\subsection*{Propagators}
 If $D^{-1}[f(x)] = 0$ is the equation of motion for some field $f$, where $D^{-1}$ in general is a differential operator, then the propagator $D(x, x')$ for this field is defined by
 \begin{align*}
     D^{-1}[D(x, x')] = - i \delta(x - x') \one.

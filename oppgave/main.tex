@@ -17,15 +17,14 @@
 % Hvor kommer EOM inn i bildet? Det ser ut som det bare er et navn...
 % Hvorfor kan vi bruke EOM fra en annen parametrisering?
 
-% Hvorfor er goldstone teorem ikke gyldig for lorentz-variante teorier?
 
 %%%%% INTRO
-% Skrive intro/abstrakt
-% Ha med motivasjon
+% Skrive abstrakt
+
 
 %%%%% Teori
-% Forklare effektiv Lagrangian/Weinbergs theorem
-% Rydd opp effective potential
+% Flytt opp diskusjon om Nöthers theorme fra appendix
+% Fiks figur
 
 %%%%% Pions
 % QCD: rydd, forklar baryontall/ladning (Hvorfor er det ikke det samme?)
@@ -72,6 +71,7 @@
 
 
 \chapter{Theory}
+\label{chapter:theory}
 
 \input{theory/path_integral.tex}
 \input{theory/effective_action.tex}
@@ -80,48 +80,48 @@
 
 % % Effective Lagrangian
 \chapter{The effective theory of pions}
-\label{serction:effective_pion_lagrangian}
+\label{chapter:effective theory of pions}
+
 \input{effective_theory_of_pions/QCD.tex}
 \input{effective_theory_of_pions/chiral_pertubation_theory.tex}
-% Veldig uferdig. Trenger teori om Goldstones theorem
 \input{effective_theory_of_pions/leading_order_lagrangian.tex}
-% For det meste ferdig
 \input{effective_theory_of_pions/redundant_terms.tex}
-% Ikke ferdig. Se på mer senere
 \input{effective_theory_of_pions/nlo_lagrangian.tex}
-% For det meste ferdig, kanskje skrive eneldige Lagrangian
 \input{effective_theory_of_pions/propagator.tex}
 
 
 % Effective potential
-\chapter{Equation of state for pions}
+\chapter{Thermodynamics}
+\label{chapter:thermodynamics}
+
 \input{eos/free_energy_lo.tex}
 \input{eos/renormalization.tex}
 \input{eos/eos.tex}
+\input{eos/phase_transition.tex}
 
 \chapter{Conclusion and outlook}
+\label{chpater:conclusion and outlook}
 \input{introduction/conclusion_outlouk.tex}
 
 \appendix
 
 % Thermal field theory
 \chapter{Thermal Field Theory}
-\label{section:thermal field theory}
+\label{appendix:thermal field theory}
 \input{thermal_field_theory/imaginary_time.tex}
 \input{thermal_field_theory/free_scalar.tex}
 \input{thermal_field_theory/thermal_sum.tex}
 \input{thermal_field_theory/regulate_free_energy.tex}
 \input{thermal_field_theory/interacting_scalar.tex}
 \input{thermal_field_theory/fermions.tex}
-% Ha bedre overgang til fermionic path integral
 
 \chapter{Appendices}
+\label{appendix:conventions and notaition}
+
 \input{appendix.tex}
 
 \bibliographystyle{unsrt}
 \bibliography{referanser}
 
-% \clearpage
-% \printnoidxglossaries
 
 \end{document}

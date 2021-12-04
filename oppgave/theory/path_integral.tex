@@ -1,7 +1,6 @@
-\label{Free energy and the effective action}
 In this section we will survey some general properties of quantum field theory that is necessary for chiral perturbation theory.
 First, we will introduce the path integral and the 1-particle irreducible effective action, as well as the effective action.
-We will derive Goldstone's theorem and effective field theories, which are the basis for \chpt.
+We will derive Goldstone's theorem and present the CCWZ construction, which are the basis for \chpt.
 
 \section{QFT via path integrals}
 \label{section:path integral}
@@ -9,8 +8,10 @@ We will derive Goldstone's theorem and effective field theories, which are the b
 The theory in this section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 Feynman diagrams are drawn using JaxoDraw~\cite{JaxoDraw}.
 
-
-The vacuum transition amplitude is given by the path integral
+In the path integral formalism, one evaluates quantum observable by summing or integrating over all possible configuration in space and time.
+If the system has specified initial and final configurations, this amounts to all possible paths the system might evolve between these, hence the name.
+We assume the reader has some familiarity with this formalism, however if a refresher is needed, \autoref{section:imaginary-time formalism} contains a derivation of the closely related imaginary-time formalism, and compares it with the path integral approach.
+In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. the probability that that vacuum at $t = -\infty$ evolves to the vacuum at time $t = \infty$, is given by
 \begin{equation}
     Z = \lim_{T\rightarrow \infty} \braket{\Omega, T/2}{-T/2, \Omega}
     = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-iHT} }{\Omega}
@@ -97,11 +98,6 @@ The source terms gives rise to an additional vertex
     \includegraphics[width=0.25\textwidth, valign=c]{figurer/feynman-diagram/cnt_vertex.eps}.
 \end{equation}
 The generating functional $Z[J]$ equals $Z_0[0]$ times \emph{the sum of all diagrams with external sources $J(x)$}.
-% The expectation value
-% \begin{equation}
-%     \ex{(iS_I)^n (\varphi(x)J(x))^m}_0
-% \end{equation}
-% are all diagrams with $n$ vertices given by the Feynman rules from the interacting action $S_I$, as well as $m$ m source vertices.
 
 Consider a general diagram without external legs, built up of $N$ different connected subdiagrams, where subdiagram $i$ appears $n_i$ times.
 As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
