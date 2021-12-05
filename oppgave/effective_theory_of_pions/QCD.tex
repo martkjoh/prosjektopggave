@@ -77,27 +77,30 @@ transforms in the same way as the first derivative.
 We see that the ``operator-part'' of this derivative is symmetric in the space-time indices, which means that the commutator will just a tensor, and not an operator.
 We define
 \begin{equation}
-    F_{\mu\nu} := \frac{i}{g}[D_\mu, D_\nu] = (\partial_\mu A_\nu - \partial_\mu A_\nu) - ig[A_\mu, A_\nu]
-    = (\partial_\mu A_\nu^\alpha - \partial_\nu A_\mu^\alpha + g C_{\beta \gamma }^\alpha A_{\mu}^\beta A_{\nu}^\gamma ) \lambda_\alpha.
+    \label{gluon field strength tensor}
+    G_{\mu\nu} 
+    := \frac{i}{g}[D_\mu, D_\nu] = (\partial_\mu A_\nu - \partial_\mu A_\nu) - ig[A_\mu, A_\nu]
+    = (\partial_\mu A_\nu^\alpha - \partial_\nu A_\mu^\alpha + g C_{\beta \gamma }^\alpha A_{\mu}^\beta A_{\nu}^\gamma ) \lambda_\alpha,
 \end{equation}
+which is the gluon field strength tensor.
 This transforms as
 \begin{equation}
-    F_{\mu\nu} \rightarrow U F_{\mu \nu} U^\dagger.
+    G_{\mu\nu} \rightarrow U G_{\mu \nu} U^\dagger.
 \end{equation}
 
 We now need to include terms governing the gauge field $A_\mu$ in the Lagrangian.
 The tensor $F_{\mu\nu}$ allows construct all gauge invariant terms to dimension 4, which are
 \begin{equation}
-    F_{\mu \nu}^a F_a^{\mu \nu}, 
+    G_{\mu \nu}^a G_a^{\mu \nu}, 
     \quad 
-    \varepsilon^{\mu\nu\rho\sigma} F_{\mu \nu}^a F_{\rho \sigma}^a.
+    \varepsilon^{\mu\nu\rho\sigma} G_{\mu \nu}^a G_{\rho \sigma}^a.
 \end{equation}
 Here, $\varepsilon$ is the Levi-Civita symbol.
 This allows us to write down the most general gauge-invariant and renormalizable Lagrangian for a $SU(N_c)$ gauge theory, the Yang-Mills Lagrangian
 \begin{equation}
     \Ell = i  \bar q (\slashed{D} - m)q 
-    + \frac{1}{4} F_{\mu \nu}^a F_a^{\mu \nu}
-    + \theta \varepsilon^{\mu\nu\rho\sigma} F_{\mu \nu}^a F_{\rho \sigma}^a,
+    + \frac{1}{4} G_{\mu \nu}^a G_a^{\mu \nu}
+    + \theta \varepsilon^{\mu\nu\rho\sigma} G_{\mu \nu}^a G_{\rho \sigma}^a,
 \end{equation}
 where $\theta$ is a coupling constant. 
 In the case of QCD, $N_c = 3$, and the generators $\lambda_\alpha, \, \alpha \in \{1, ... 8\}$ are the $3\times3$ Gell-Mann matrices, and $\theta = 0$, or at least close enough that it does not matter.

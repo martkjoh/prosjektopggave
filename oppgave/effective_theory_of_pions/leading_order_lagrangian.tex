@@ -1,21 +1,20 @@
 \section{Leading order Lagrangian}
 
-When taking into account the discreete symmetries of the QCD Lagrangian, the most general first order Lagrangian is~\cite{Scherer2002IntroductionTC, mojahed}
+The leading order \chpt Lagrangian is made up of the terms \cref{leading order chi sigma term} and \cref{leading order term sigma}, and reads
 \begin{equation}
     \label{chpt lagrangian}
     \Ell_2 = 
     \frac{1}{4} f^2 \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
     + \frac{1}{4} f^2 \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}.
 \end{equation}
-% $\chi$ and $f$ are the free parameters of the theory. $f$ is the pion decay constant, while $\chi = 2B_0 M$. 
-% Here, $M$ is the mass matrix \autoref{Mass matrix}, and $B_0$ is related to the quark condensate through $f^2 B_0 = - \ex{\bar u u}$. The covariant derivative is defined by
-% \begin{equation*}
-%     \nabla_\mu \Sigma = \partial_\mu \Sigma - i\com{v_\mu}{\Sigma}, \quad 
-%     (\nabla_\mu \Sigma)^\dagger 
-%     = \partial_\mu \Sigma^\dagger - i\com{v_\mu}{\Sigma^\dagger}, \quad
-%     v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3 ,
-% \end{equation*}
-% where $\mu_I$ is the isospin chemical potential.
+In the ground state, we set the external scalar current $s = m$, where $m$ is the mass matrix \autoref{Mass matrix}, so
+\begin{equation}
+    \chi = 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3,
+\end{equation}
+where we have defined
+\begin{equation}
+    \bar m^2 = 2B_0(m_u + m_d), \quad \Delta m^2 = 2 B_0 (m_u - m_d).
+\end{equation}
 In this section, we will expand this Lagrangian in $\pi/f$, which we will use to calculate the free energy density.
 To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using the fact that $\tau_a^2 = \one$ to write
 \begin{equation}
@@ -94,15 +93,17 @@ This gives us the expression
 \end{align*}
 We combine this result with \autoref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
 \begin{align*}
-    \Sigma & =  \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) 
-    \left(
-        1
-        + i \frac{\pi_a \tau_a}{f} 
-        - \frac{\pi_a^2}{2f^2}
-        - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
-        + \frac{\pi_a^2\pi_b^2}{24f^4}    
-    \right)
-    \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) \\
+    \Sigma 
+    % & =   
+    % \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) 
+    % \left(
+    %     1
+    %     + i \frac{\pi_a \tau_a}{f} 
+    %     - \frac{\pi_a^2}{2f^2}
+    %     - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
+    %     + \frac{\pi_a^2\pi_b^2}{24f^4}    
+    % \right)
+    % \Big( \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}} \Big) \\
     & =
     \left(
         1
@@ -169,23 +170,24 @@ The kinetic term in the \chpt Lagrangian is
 Using \autoref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
 \begin{align}
     \notag
-    \partial_\mu \Sigma = &
-    \left(
-        \frac{-1}{f^2}
-        + \frac{\pi_b^2}{6f^4}
-    \right)
-    (\cos{\alpha} + i \tau_1 \sin{\alpha}) (\pi_a \partial_\mu \pi_a)\\\notag
-    +&
-    \left(
-        \frac{\partial_\mu \pi_a}{f} 
-        - \frac{\pi_b^2 \partial_\mu\pi_a 
-        + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
-    \right)
-    \left(
-        i\tau_a - 2i \delta_{a1}\tau_1\sin^2{\frac{\alpha}{2}} - \delta_{1a} \sin{\alpha}
-    \right)
-    \\ \notag
-    =& 
+    \partial_\mu \Sigma 
+    = &
+    % \left(
+    %     \frac{-1}{f^2}
+    %     + \frac{\pi_b^2}{6f^4}
+    % \right)
+    % (\cos{\alpha} + i \tau_1 \sin{\alpha}) (\pi_a \partial_\mu \pi_a)\\\notag
+    % +&
+    % \left(
+    %     \frac{\partial_\mu \pi_a}{f} 
+    %     - \frac{\pi_b^2 \partial_\mu\pi_a 
+    %     + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
+    % \right)
+    % \left(
+    %     i\tau_a - 2i \delta_{a1}\tau_1\sin^2{\frac{\alpha}{2}} - \delta_{1a} \sin{\alpha}
+    % \right)
+    % \\ \notag
+    % =& 
     \left[
         \left(
             \frac{-1}{f^2}
@@ -228,46 +230,47 @@ Using \autoref{expansion of sigma} we find the expansion of the constitutive par
 \end{align}
 and
 \begin{align}
-    \notag
-    \com{v_\mu}{\Sigma} & = 
-    \frac{1}{2} \mu_I \delta^0_\mu
-    \left[
-        \left(
-            1 
-            - \frac{\pi_a^2}{2f^2}
-            + \frac{\pi_a^2\pi_b^2}{24f^4}
-        \right)
-        i \sin{\alpha} \com{\tau_3}{\tau_1}
-        + 
-        \left(
-            \frac{\pi_a}{f} 
-            - \frac{\pi_b^2\pi_a}{6f^3} 
-        \right)
-        \left(
-            i\com{\tau_a}{\tau_3} 
-            - 2i\delta_{a1}\sin^2{\frac{\alpha}{2}}\com{\tau_3}{\tau_1}
-        \right)
-    \right] \\
-    \notag
-    & =
-    -\mu_I \delta^0_\mu
-    \left\{
-        \left(
-            1 
-            - \frac{\pi_a^2}{2f^2}
-            + \frac{\pi_a^2\pi_b^2}{24f^4}
-        \right)
-        \tau_2 \sin{\alpha}
-        + 
-        \left(
-            \frac{\pi_a}{f} 
-            - \frac{\pi_b^2\pi_a}{6f^3} 
-        \right)
-        \left[
-            (\delta_{a1} \tau_2 - \delta_{a2} \tau_1)
-            - 2\delta_{a1} \tau_2 \sin^2{\frac{\alpha}{2}}
-        \right]
-    \right\} \\
+    % \notag
+    \com{v_\mu}{\Sigma} 
+    % & = 
+    % \frac{1}{2} \mu_I \delta^0_\mu
+    % \left[
+    %     \left(
+    %         1 
+    %         - \frac{\pi_a^2}{2f^2}
+    %         + \frac{\pi_a^2\pi_b^2}{24f^4}
+    %     \right)
+    %     i \sin{\alpha} \com{\tau_3}{\tau_1}
+    %     + 
+    %     \left(
+    %         \frac{\pi_a}{f} 
+    %         - \frac{\pi_b^2\pi_a}{6f^3} 
+    %     \right)
+    %     \left(
+    %         i\com{\tau_a}{\tau_3} 
+    %         - 2i\delta_{a1}\sin^2{\frac{\alpha}{2}}\com{\tau_3}{\tau_1}
+    %     \right)
+    % \right] \\
+    % \notag
+    % & =
+    % -\mu_I \delta^0_\mu
+    % \left\{
+    %     \left(
+    %         1 
+    %         - \frac{\pi_a^2}{2f^2}
+    %         + \frac{\pi_a^2\pi_b^2}{24f^4}
+    %     \right)
+    %     \tau_2 \sin{\alpha}
+    %     + 
+    %     \left(
+    %         \frac{\pi_a}{f} 
+    %         - \frac{\pi_b^2\pi_a}{6f^3} 
+    %     \right)
+    %     \left[
+    %         (\delta_{a1} \tau_2 - \delta_{a2} \tau_1)
+    %         - 2\delta_{a1} \tau_2 \sin^2{\frac{\alpha}{2}}
+    %     \right]
+    % \right\} \\
     & =
     -\mu_I \delta^0_\mu
     \left\{
@@ -339,14 +342,19 @@ Combining \autoref{Sigma derivative} and \autoref{sigma commutator} gives the fo
     \bigg], 
     \\
     % Mass Term
-    & \Tr{\Sigma + \Sigma^\dagger}
-    = 4 \cos{\alpha} 
-    - \frac{4 \pi_1}{f} \sin{\alpha} 
-    - \frac{2 \pi_a \pi_a}{f^2} \cos{\alpha}
-    + \frac{2 \pi_1 \pi_a \pi_a}{3 f^3} \sin{\alpha}
-    + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos{\alpha}, 
+    & \Tr{\chi^\dagger \Sigma + \Sigma^\dagger\chi}
+    = 
+    \bar m^2 
+    \left(
+        4 \cos{\alpha} 
+        - \frac{4 \pi_1}{f} \sin{\alpha} 
+        - \frac{2 \pi_a \pi_a}{f^2} \cos{\alpha}
+        + \frac{2 \pi_1 \pi_a \pi_a}{3 f^3} \sin{\alpha}
+        + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos{\alpha}
+    \right), 
     \end{align*}
 where $k_{ab} =\delta_{a1} \delta_{b1} \cos{2\alpha}  + \delta_{a2}\delta_{b2}\cos^2{\alpha} - \delta_{a3}\delta_{b3} \sin^2{\alpha}$.
+Notice that the mass term is independent of the difference in quark masses, $\Delta m$.
 If we write the Lagrangian as show in \autoref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
 \begin{align}
 %%%%%%%%%%%%%%%%%%
@@ -428,4 +436,3 @@ If we write the Lagrangian as show in \autoref{chpt lagrangian} as $\Ell_2 = \El
 \right].
 \label{L4}
 \end{align}
-We have introduced $\bar m^2 = B_0 (m_u + m_d)$, the bare pion mass, and assumed $2\delta m^2 = m_u - m_d = 0$.

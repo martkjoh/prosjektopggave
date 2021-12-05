@@ -1,7 +1,7 @@
 \section{Next to leading order Lagrangian}
 
-The next to leading order Lagrangian density is, assuming no external fields
-From \cite{Scherer2002IntroductionTC}, we have the next-to-leading order Lagrangian
+Constructing the next-to-leading order, NLO for short, Lagrangian is now a buisniess of combining the building block we found in \autoref{section:chiral pertubation theory} to terms that obey all symmetries and that are fourth order in Weinberg's power counting scheme, and remove possible redundant terms.
+We will quote the result from \cite{Scherer2002IntroductionTC},
 \begin{align}
     \notag
     \Ell_4 
@@ -10,83 +10,24 @@ From \cite{Scherer2002IntroductionTC}, we have the next-to-leading order Lagrang
     + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
     \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
     +
-    \frac{l_3 + h_1 - h_3 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \frac{l_3 + l_4}{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
     \\ \notag
     &
     + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
-    + \frac{h_1 - h_3 - l_4-l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
     + \frac{h_1 + h_3 - l_4}{4} \Tr{\chi \chi^\dagger} \\
     & -
     \frac{h_1 - h_3 - l_4}{8} 
-        \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
-    \label{NLO Lagrangian}
-\end{align}
-The parameters $l_i$ and $h_i$ are called low energy constants, or LEO.
-We can rewirte
-\begin{align}
-    \frac{h_1 - h_3 - l_4}{16}
-    \left(
-        \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
-        - 2 \Tr{(\chi \Sigma^\dagger)^2 + (\Sigma \chi^\dagger)^2}
-    \right) \\
-    = 
-    \frac{h_1 - h_3 - l_4}{16}
-    \left(
-        \Tr{\chi \Sigma^\dagger}^2 - 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
-        + \Tr{\Sigma \chi^\dagger}^2
-        - 2 \Tr{(\chi \Sigma^\dagger)^2} -2 \Tr{(\Sigma \chi^\dagger)^2}
-    \right)
-\end{align}
-Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
-\begin{align}
-    &= - \frac{h_1 - h_3 - l_4}{16}
-    \left(
-        \Tr{\chi \Sigma^\dagger}^2 + 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
-        + \Tr{\Sigma \chi^\dagger}^2
-        - 4 \det(\chi \Sigma^\dagger)
-        - 4 \det(\Sigma\chi^\dagger)
-    \right) \\
-    &= - \frac{h_1 - h_3 - l_4}{16}
-    \left(
+    \left[
         \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
-        - 4 \det(\chi \Sigma^\dagger)
-        - 4 \det(\Sigma\chi^\dagger)
-    \right)
+        + \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+        -2 \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+    \right]
+    \label{NLO Lagrangian}.
 \end{align}
-Furthermore, as $\det(\Sigma)= 1$, 
-% and $\chi = a_i \tau_i$, we have $\Tr{\chi \chi^\dagger} = a_i a_i^*$, $\det(\chi) + \det(\chi^\dagger) = a_i a_i + a_i^* a_i^*$
-\begin{align}
-    \notag
-    \Ell_4 
-    & = 
-    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
-    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
-    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
-    +
-    \frac{l_3 + l_4 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
-    \\\notag
-    &
-    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
-    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
-    + \frac{h_1 + h_3 -l_4}{4} \Tr{\chi \chi^\dagger} \\
-    & +\frac{h_1 - h_3 - l_4}{4} (\det{\chi} + \det{\chi^\dagger})
-\end{align}
-For real $\chi$, we have $\Tr{\chi \chi^\dagger} = \det(\chi) + \det(\chi^\dagger)$, so
-\begin{align}
-    \notag
-    \Ell_4 
-    & = 
-    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
-    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
-    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
-    +
-    \frac{l_3 + l_4 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
-    \\\notag
-    &
-    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
-    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
-    + \frac{h_1 - l_4}{2} \Tr{\chi \chi^\dagger} \\
-\end{align}
+We have ignored terms containing the field strength tensors for external fields, as they in our case vanish.
+The parameters $l_i$ and $h_i$ are called low energy constants, or LEO.
+In \autoref{subsection:rewriting NLO Lagrangian}, we show how to rewrite the Lagrangian to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}.
  
 To $\Ell_4$ to $\Oh[3]{(\pi/f)}$, we use the result from \autoref{Sigma derivative} and \autoref{sigma commutator},
 % \begin{align*}
@@ -152,7 +93,7 @@ up to and including $\Oh{(\pi/f)}$, which gives
         k_{ab}
     \right].
 \end{align*}
-Using the form of the Pauli matrices, we can write $\chi$ as 
+We write $\chi$ as (FÅ DETTE TIL Å STEMME OVERENS!! FINN FAKTOR 2)
 \begin{align*}
     \chi = 2 B_0 M = \bar m^2 \one + \Delta m^2 \tau_3,
 \end{align*}
