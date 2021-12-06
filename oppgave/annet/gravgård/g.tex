@@ -1402,4 +1402,150 @@ where $n_\mu$ is the normal vector of $\partial \Omega$.\cite{Carroll:spacetime}
 This makes it possible to do partial integration and discard surface terms in the \chpt Lagrangian, given the assumption of no variation on the boundary.
 
 
+\section{Inverse propagator}
+If $D^{-1}[f(x)] = 0$ is the equation of motion for some field $f$, where $D^{-1}$ in general is a differential operator, then the propagator $D(x, x')$ for this field is defined by
+\begin{align*}
+    D^{-1}[D(x, x')] = i \delta(x - x') \one.
+\end{align*}
+Assuming $A$ is linear and independent of space, we may redefine $D(x - x', 0) \rightarrow D(x - x')$, and the Fourier transform with respect to both $x$ and $x'$ to obtain
+\begin{align*}
+    \F{D^{-1}[D(x, x')]}(p, p') 
+    = \tilde D^{-1}(p) \, \tilde D(p) \, \delta(p + p')
+    = i \delta(p + p'),
+\end{align*}
+meaning the momentum space propagator $\tilde D(p) = \F{D(x)}(p)$ is given by $\tilde D =  ( - i \tilde  D^{-1})^{-1}$.
+In this case, the $-1$ in the inverse propagator does not actually mean inverse, as it is of by a factor $i$.
+
+\begin{equation}
+    -i \fdiff{W[J]}{J(x),J(y)} = D(x - y).
+\end{equation}
+
+\begin{align}
+    \label{Effective action inverse propagator}
+    (-i)\int \dd^4 z \frac{\delta^2 W[J]}{\delta J(x) \delta J(z)} 
+    \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
+    =
+    (-i)\int \dd^4 z \frac{\delta \varphi_J[z]}{\delta J(x)}
+    \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
+    =
+    \fdiff{}{J(x)}  \fdiff{\Gamma[\varphi_J]}{\varphi_J(y)}
+    = i\delta(x - y).
+\end{align}
+This is exactly the definition of the inverse propagator
+\begin{equation}
+    \fdiff{\Gamma[\varphi_J]}{\varphi_J(x),\varphi_J(y)} = D^{-1}(x-y).
+\end{equation}
+
+Free scalar:
+\begin{equation}
+    \Gamma = S = - \frac{1}{2} \int \dd x \varphi(x) (\partial^2 + m^2) \varphi(x)
+\end{equation}
+inverse propagator:
+\begin{equation}
+    \fdiff{S}{\varphi(x),\varphi(y)}
+    =
+    - (\partial^2+m^2)\delta(x - y)
+    ``=''
+    p^2 - m^2.
+\end{equation}
+Propagator.
+\begin{equation}
+    -i \fdiff{W[J]}{J(x),J(y)}
+    = \frac{i}{- \partial^2 - m^2}
+    ``=''
+    \frac{i}{p^2 - m^2}.
+\end{equation}
+
+\begin{equation}
+    \int \dd^4 z \, D_{ac}^{-1}(x-z) D_{cb}(z - y) = i \delta_{ab}\delta(x - y),
+\end{equation}
+
+\subsection{Pion propagator}
+
+The components of the Euler-Lagrange equations of this field are
+\begin{equation*}
+    \pdv{\Ell}{\pi_a} = 
+    \frac{1}{2} m_{12} (\delta_{a1} \partial_0 \pi_2 - \delta_{a2}\partial_0 \pi_1) 
+    - m^2_{a} \pi_a, \quad
+    \pdv{\Ell}{(\partial_\mu \pi_a)} = 
+    \partial^\mu \pi_a - \frac{1}{2} m_{12} \delta^\mu_0 (\delta_{a1}\pi_2  - \delta_{a2}\pi_1).
+\end{equation*}
+This gives the equation of motion for the field
+\begin{equation}
+    \partial^\mu \partial_\mu \pi_a + m_a^2 \pi_a
+    =  m_{12}(\delta_{a1} \partial_0 \pi_2  - \delta_{a2} \partial_0 \pi_1).
+\end{equation}
+The propagator of the pion field is defined by
+\begin{equation}
+    \left[
+        - \delta_{ab}(\partial^\mu\partial_\mu + m^2_a)
+        +  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_0
+    \right] 
+    D_{bc}(x, x') 
+    = i \delta(x - x') \delta_{ac}.
+\end{equation}
+The momentum space propagator, as defined in the \autoref{Conventions and notation}, fulfills
+\begin{equation*}
+    \left[
+        \delta_{ab}(p^2 - m_a^2)
+        +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) 
+    \right] 
+     D_{bc}(p) 
+    := D^{-1}_{ab}  D_{bc}(p) = i \delta_{ac},
+\end{equation*}
+where
+\begin{equation*}
+    D^{-1} =
+    \begin{pmatrix}
+        p^2 - m^2_1             & i p_0 m_{12}     & 0             \\
+        - i p_0 m_{12}            & p^2 - m^2_2       & 0             \\
+        0                       & 0                 & p^2 - m^2_3
+    \end{pmatrix}.
+\end{equation*}
+
+With these energies we can write the determinant of the inverse propagator as
+\begin{equation}
+    \det(D^{-1}) = (p_0^2 - E_0^2) (p_0^2 - E_+^2) (p_0^2 - E_-^2).
+\end{equation}
+
+\begin{align}
+    \notag
+    D & = (- iD^{-1})^{-1} = \frac{i}{\det(D^{-1})}
+    \begin{pmatrix}
+        D^{-1}_{22} D^{-1}_{33}   & D^{-1}_{12}D^{-1}_{33}  & 0 \\
+        -D^{-1}_{12}D^{-1}_{33}   & D^{-1}_{11}D^{-1}_{33}  & 0 \\
+        0               & 0             & D^{-1}_{11}D^{-1}_{22} + (D^{-1}_{12})^2
+    \end{pmatrix} \\
+    \label{free pion propagator}
+    & = i
+    \begin{pmatrix}
+        \frac{
+            p^2 - m_2^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } 
+        & \frac{
+            - ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        \frac{
+            ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        }
+        & \frac{
+            p^2 - m_1^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        0 & 0 & 
+        \frac{1}{p_0^2 - E_0^2}
+    \end{pmatrix}.
+\end{align}
+
 \end{document}

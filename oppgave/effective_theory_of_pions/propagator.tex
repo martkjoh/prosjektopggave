@@ -21,50 +21,28 @@ where
     \label{m12}
     m_{12} &= 2 \mu_I \cos{\alpha}.
 \end{align}
-The components of the Euler-Lagrange equations of this field are
-\begin{equation*}
-    \pdv{\Ell}{\pi_a} = 
-    \frac{1}{2} m_{12} (\delta_{a1} \partial_0 \pi_2 - \delta_{a2}\partial_0 \pi_1) 
-    - m^2_{a} \pi_a, \quad
-    \pdv{\Ell}{(\partial_\mu \pi_a)} = 
-    \partial^\mu \pi_a - \frac{1}{2} m_{12} \delta^\mu_0 (\delta_{a1}\pi_2  - \delta_{a2}\pi_1).
-\end{equation*}
-This gives the equation of motion for the field
+The inverse propagator is given by the functional derivative, 
 \begin{equation}
-    \partial^\mu \partial_\mu \pi_a + m_a^2 \pi_a
-    =  m_{12}(\delta_{a1} \partial_0 \pi_2  - \delta_{a2} \partial_0 \pi_1).
-\end{equation}
-The propagator of the pion field is defined by
-\begin{equation}
+    D_{ab}^{-1}(x - y)
+    = 
+    \fdiff{S[\pi]}{\pi_a(x)\pi_b(y)}
+    =
     \left[
-        \delta_{ab}(\partial^\mu\partial_\mu + m^2_a)
-        -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_0
-    \right] 
-    D_{bc}(x, x') 
-    = -i \delta(x - x') \delta_{ac}.
+        - \delta_{ab}\frac{1}{2}(\partial^2_x + m_a^2) 
+        +  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x,0}    
+    \right]\delta(x - y).
 \end{equation}
-The momentum space propagator, as defined in the \autoref{Conventions and notation}, fulfills (MOTSATT FORTEGN FRA FRI ENERGI; FIKS!!!)
-\begin{equation*}
-    -\left[
-        \delta_{ab}(p^2 - m_a^2)
-        +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) 
-    \right] 
-     D_{bc}(p) 
-    := D^{-1}_{ab}  D_{bc}(p) = -i \delta_{ac},
-\end{equation*}
-where
-\begin{equation*}
-    D^{-1} = -
-    \begin{pmatrix}
-        p^2 - m^2_1             & i p_0 m_{12}     & 0             \\
-        - i p_0 m_{12}            & p^2 - m^2_2       & 0             \\
-        0                       & 0                 & p^2 - m^2_3
-    \end{pmatrix}.
-\end{equation*}
+The momentum space inverse propagator is
+\begin{equation}
+    D_{ab}^{-1}(p)
+    =
+    \delta_{ab}(p^2 - m_a^2)
+    +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) .
+\end{equation}
 The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. With $p = (p_0, \vv p)$ as the four momentum, this gives
 \begin{align*}
     \det(D^{-1}) & = D^{-1}_{33} \left(D^{-1}_{11} D^{-1}_{22} + (D^{-1}_{12})^2\right)
-    = - \left(p^2 - m^2_3\right)
+    = \left(p^2 - m^2_3\right)
     \left[
         \left(p^2 - m^2_1\right)
         \left(p^2 - m^2_2\right)
@@ -95,6 +73,22 @@ This equation has the solutions
 \end{align}
 These are the energies of three particles $\pi_0$, $\pi_+$ and $\pi_-$.
 $\pi_0$ is $\pi_3$, while $\pi_\pm$ are linear combinations of $\pi_1$ and $\pi_2$.
+We will show that for $\mu_I < m_\pi$, $\alpha = 0$, before it starts to increas for $\mu_I \geq m_\pi$.
+This result is presented in \autoref{chapter:thermodynamics}.
+For $\alpha = 0$, we get
+\begin{align*}
+    &\frac{1}{2}(m_1^2 + m_2^2 + m_{12}^2) 
+    =
+    \bar m^2 + \mu_I^2, \quad
+    m_1^2 m_2^2 = (\bar m^2 - \mu_I^2)^2, \quad
+    m_3 = \bar m^2, \\
+    &\implies E_\pm^2 = |\vv p|^2 + \bar m^2 + \mu_I^2 \pm 2 \mu_I \sqrt{|\vv p|^2 + \bar m^2}.
+\end{align*}
+This corresponds to a Zeeman-like splitting of the energies,
+\begin{align}
+    E_0 & = \sqrt{|\vv p |^2 + \bar m^2}, \\
+    E_\pm &= \pm \mu_I + \sqrt{|\vv p |^2 + \bar m^2}.
+\end{align}
 The (tree-level) masses of these particles are found by setting $\vv p = 0$, i.e. the rest-frame energy, and are
 \begin{align}
     m_0^2 &= m_3^2, \\
@@ -111,7 +105,7 @@ The (tree-level) masses of these particles are found by setting $\vv p = 0$, i.e
         - 4 m_1^2 m_2^2
     }.
 \end{align}
-\autoref{fig:masses} shows the masses as functions of $\mu_I$.
+Using the result for $\alpha$, \autoref{fig:masses} shows the masses as functions of $\mu_I$.
 
 \begin{figure}[h]
     \centering
@@ -123,12 +117,16 @@ The (tree-level) masses of these particles are found by setting $\vv p = 0$, i.e
 
 With these energies we can write the determinant of the inverse propagator as
 \begin{equation}
-    \det(D^{-1}) = - (p_0^2 - E_0^2) (p_0^2 - E_+^2) (p_0^2 - E_-^2).
+    \det(D^{-1}) = (p_0^2 - E_0^2) (p_0^2 - E_+^2) (p_0^2 - E_-^2).
 \end{equation}
-The propagator may then be obtained as described in \autoref{Conventions and notation},
+The propagator and the inverse propagator in momentum space obey\footnote{One has to be carfull regarding the factor $i$ in the physicist's definition of propagators. It has the consequence that $D^{-1}$ is not strictly the operator inverse of the propagator $D$.}
+\begin{equation}
+    \sum_c D_{ac}(p)D_{cb}^{-1}(p) = i \delta_{ab}
+\end{equation}
+Using this, we can solve for the propagator
 \begin{align}
     \notag
-    D & = i (D^{-1})^{-1} = \frac{i}{\det(D^{-1})}
+    D & = (- iD^{-1})^{-1} = \frac{i}{\det(D^{-1})}
     \begin{pmatrix}
         D^{-1}_{22} D^{-1}_{33}   & D^{-1}_{12}D^{-1}_{33}  & 0 \\
         -D^{-1}_{12}D^{-1}_{33}   & D^{-1}_{11}D^{-1}_{33}  & 0 \\

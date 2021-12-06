@@ -63,7 +63,7 @@ which is exactly the Legendre transformation we started out with, modulo the fac
 $\Gamma$ is therefore the action which describes the full theory at the tree level.
 For a free theory, the classical action $S$ equals the effective action, as there are no loop diagrams.
 
-The propagator $D(x, y)$, which is the connected 2 point function $\ex{\varphi(x)\varphi(y)}_J$, is given by the second functional derivative of $W[J]$, times $-i$.
+The propagator $D(x, y)$, which is the connected 2 point function $\ex{\varphi(x)\varphi(y)}_J$, is given by the $-i$ times the second functional derivative of $W[J]$.
 Using the chain rule, together with \autoref{effective equation of motion}, we get
 \begin{align}
     \label{Effective action inverse propagator}
@@ -74,9 +74,12 @@ Using the chain rule, together with \autoref{effective equation of motion}, we g
     \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi_J(z) \varphi_J(y)}
     =
     \fdiff{}{J(x)}  \fdiff{\Gamma[\varphi_J]}{\varphi_J(y)}
-    = \delta(x - y).
+    = i\delta(x - y).
 \end{align}
-This shows that the second functional derivative of the effective action is $iD^{-1}$, where $D^{-1}$ is the inverse propagator.
+This is exactly the definition of the inverse propagator
+\begin{equation}
+    \fdiff{\Gamma[\varphi_J]}{\varphi_J(x),\varphi_J(y)} = D^{-1}(x-y).
+\end{equation}
 The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams, with two external vertices.
 More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
