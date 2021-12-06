@@ -186,6 +186,45 @@ where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the r
 The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
 This is called a Cartan decomposition.
 
+\subsection*{Nöther's theorem}
+
+One of the most profound consequences of symmetry in physics is the appearance of conserved quantities.
+Assume we have a set of fields $\varphi_i$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_i]$ has a ontinuous symmetry, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
+Consider a infinitesimal transformation,
+\begin{equation*}
+    \varphi_i(x) \longrightarrow \varphi_i'(x)
+    \sim \varphi_i(x) + \delta \varphi_i(x),.
+\end{equation*}
+Applying this transformation to the Lagrangian will in general change its form,
+\begin{equation*}
+    \Ell[\varphi_i] \rightarrow \Ell[\varphi_i']
+    \sim \Ell[\varphi_i] + \delta \Ell.
+\end{equation*}
+If the change in the Lagrangian can be written as a total derivative, i.e.
+\begin{equation*}
+    \delta \Ell = \partial_\mu K^\mu(x),
+\end{equation*}
+we say that the Lagrangian has a continuous symmetry.
+This is because a term of this form will result in a boundary term in the action integral, which does not contribute to the variation of the action.
+Nöther's theorem states more precisely that the current
+\begin{equation}
+    j^\mu = \pdv{\Ell}{(\partial_\mu \varphi_i)} \delta \varphi_i(x) - K^\mu
+\end{equation}
+obeys the conservation law
+\begin{equation}
+    \partial_\mu j^\mu = 0.
+\end{equation}
+The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
+\begin{equation*}
+    Q = \int_V \dd^3 x \, j^0.
+\end{equation*} 
+Using the divergence theorem again, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
+\begin{equation*}
+    \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
+\end{equation*}
+Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$.
+
+
 \subsection*{Goldstone's theorem}
 
 The fact that a theory is left invariant under some symmetry transformation does not imply that the ground state is invariant under this transformation.

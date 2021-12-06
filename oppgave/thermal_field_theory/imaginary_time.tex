@@ -31,46 +31,7 @@ The partition function $Z$ ensures that the probabilities adds up to 1, and is d
     Z = \Tr{e^{-\beta \hat H}}.
 \end{equation}
 
-(REFFERER TIL THEROY-DELEN OM SYMMETRI; DETTE ER DOBBELT OPP)
-The grand canonical ensemble takes into account the conserved charges of the system.
-Conserved charges are a result of Nöther's theorem.
-Assume we have a set of fields $\varphi_\alpha$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_\alpha]$ has a \emph{continuous symmetry}, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
-To define a continuous symmetry of the Lagrangian, we need a one-parameter family of transformations,
-\begin{equation*}
-    \varphi_\alpha(x) \longrightarrow \varphi_\alpha'(x; \epsilon)
-    \sim \varphi_\alpha(x) + \varepsilon \eta_\alpha(x), \, \varepsilon \rightarrow 0.
-\end{equation*}
-Here, $\eta_\alpha(x)$ is some arbitrary function which define the transformation as $\varepsilon \rightarrow 0$.
-Applying this transformation to the Lagrangian will in general change its form,
-\begin{equation*}
-    \Ell[\varphi_\alpha] \rightarrow \Ell[\varphi_\alpha']
-    \sim \Ell[\varphi_\alpha] + \delta \Ell, \,
-    \varepsilon \rightarrow 0.
-\end{equation*}
-If the change in the Lagrangian can be written as a total derivative, i.e.
-\begin{equation*}
-    \delta \Ell = \varepsilon \partial_\mu K^\mu(x),
-\end{equation*}
-we say that the Lagrangian has a continuous symmetry.
-This is because a term of this form will result in a boundary term in the action integral, which does not contribute to the variation of the action.
-Nöther's theorem states more precisely that the current
-\begin{equation}
-    j^\mu = \pdv{\Ell}{(\partial_\mu \varphi_\alpha)} \eta_\alpha - K^\mu
-\end{equation}
-obeys the conservation law
-\begin{equation}
-    \partial_\mu j^\mu = 0.
-\end{equation}
-The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
-\begin{equation*}
-    Q = \int_V \dd^3 x \, j^0.
-\end{equation*} 
-Using the divergence theorem again, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
-\begin{equation*}
-    \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
-\end{equation*}
-Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$.
-
+The grand canonical ensemble takes into account the conserved charges of the system, which are a result of Nöther's theorem, as discussed in \autoref{section:symmetry}.
 In the grand canonical ensemble, a system with $n$ conserved charges $Q_i$ has probability proportional to $e^{-\beta (H - \mu_i Q_i)}$.
 $\mu_i$ are the chemical potentials corresponding to conserved charge $Q_i$.
 This leads to the partition function
