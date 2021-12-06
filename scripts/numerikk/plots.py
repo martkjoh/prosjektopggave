@@ -116,7 +116,8 @@ def plot_pressure():
     fig, ax = plt.subplots(figsize=fs)
     PLO, PNLO = get_pressure()
 
-    i =  np.where(mu_list>=1)[0][0]
+    # i =  np.where(mu_list>=1)[0][0]
+    i = 0
 
     PLO_label = r"${\mathrm{LO}}$"
     PNLO_label = r"${\mathrm{NLO}}$"
@@ -258,5 +259,19 @@ def plot_free_energy_surface2():
 # plot_energy_density()
 # plot_free_energy_pt()
 # plot_free_energy_pt2()
-plot_free_energy_surface2()
+# plot_free_energy_surface2()
 
+ELO, ENLO = get_energy_density()
+PLO, PNLO = get_pressure()
+i =  np.where(mu_list>1)[0][0]
+
+ELO, ENLO = ELO[i::], ENLO[i::]
+PLO, PNLO = PLO[i::], PNLO[i::]
+
+deltaE = (ELO - ENLO)
+deltaP = (PLO -  PNLO) 
+print(np.argmax(np.abs(deltaE)))
+print(np.argmax(np.abs(deltaP)))
+
+print(ENLO[0])
+print(PNLO[0])

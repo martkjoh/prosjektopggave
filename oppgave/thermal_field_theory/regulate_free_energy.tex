@@ -35,7 +35,7 @@ Where $\zeta$ is the Riemann-zeta function.
 \subsection*{Regularization}
 \label{section: regualting free energy}
 
-Returning to the temperature-independent part, we use dimensional regularization to see its singular behavior.
+Returning to the temperature-independent part, we use dimensional regularization to see its divergent behavior.
 To that end, we define
 \begin{equation}
     \label{def dimreg integral}
@@ -43,7 +43,7 @@ To that end, we define
     = \int_{\tilde \Omega} \frac{\dd^d k}{(2 \pi)^d} (k^2 + m^2)^{-\alpha},
 \end{equation}
 so that $\Ef_0 = \Phi_3(m, 3, -1/2) / 2$.
-Dimensional regularization takes uses the formula for integration of spherically symmetric function in $d$-dimensions,
+We will use the formula for integration of spherically symmetric function in $d$-dimensions,
 \begin{equation}
     \int_{\R^d} \dd^d x \, f(r) 
     = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd r \, r^{d-1}f(r),
@@ -90,7 +90,7 @@ Combining this gives
 \end{equation}
 In the last step, we have introduced a parameter $\mu$ with mass dimension 1, that is $[\mu] = [m]$.
 This is done to be able to series expand around $d - n$ in a dimensionless variable. 
-This parameter is arbitrary, and should therefore not be present in any of the final results.
+This parameter is arbitrary, and all physical quantities should thererfore be independent of it.
 We will shortly justify this parameter further.
 
 
@@ -114,7 +114,7 @@ Expanding around $\epsilon = 0$ gives
     \frac{1}{(\epsilon - 2)(\epsilon - 1)}
     &\sim \frac{1}{2}\left(1 + \frac{3}{2} \epsilon\right).
 \end{align}
-The singular behavior of the time-independent term is therefore
+The divergent behavior of the temperature-independent term is therefore
 \begin{align}
     \Ef_0 \sim
     - \mu^{-2\epsilon} \frac{1}{4}\frac{m^4}{(4 \pi)^2}
@@ -130,7 +130,7 @@ The exact form of the counter-term is convention.
 One may also cancel the finite contribution due to the regulator.
 The minimal subtraction, or $\mathrm{MS}$, scheme, is to only subtract the divergent term, as the name suggest.
 We will use the modified minimal subtraction, or $\overline{ \mathrm{MS}}$, scheme.
-In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term, by defining a new mass parameter $\tilde \mu$ by
+In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term, by defining a new mass scale $\tilde \mu$ by
 \begin{equation}
     \label{definition mu tilde MS bar}
     -\gamma + \ln(4\pi \frac{\mu^2}{m^2}) = \ln(4\pi e^{-\gamma} \frac{\mu^2}{m^2}) = \ln(\frac{\tilde\mu^2}{m^2}),
@@ -150,7 +150,7 @@ which leads to the expression
 \subsection*{Renormalization}
 
 Now that we have applied a regulator, we are able to handle the divergence in a well-defined way.
-When $\epsilon \neq 0$, we can subtract to terms which are proportional to $\epsilon^{-1}$, and be left with a term that is finite in the limit $\epsilon \rightarrow 0$.
+When $\epsilon \neq 0$, we can subtract terms which are proportional to $\epsilon^{-1}$, and be left with a term that is finite in the limit $\epsilon \rightarrow 0$.
 Consider an arbitrary Lagrangian, 
 \begin{equation}
     \Ell[\varphi] = \sum_n \lambda_n \mathcal{O}_n[\varphi].
@@ -160,9 +160,9 @@ In $d$ dimensions, the action integral is
 \begin{equation}
     S[\varphi] = \sum_n \int \dd^d x \, \lambda_n \mathcal{O}_n[\varphi].
 \end{equation}
-The action must have mass dimension $0$.
+The action has mass dimension $0$.
 This means that all terms $\lambda_n \mathcal O_n$ must have mass dimension $d$, as $[\dd^d x] = -d$.
-We are free to choose the coupling constant corresponding $\mathcal O_0 = \partial_\mu \varphi \partial^\mu \varphi$ as $\lambda_0 = 1/2$ to get a canonically normalized field.
+We are free to choose the coupling constant corresponding $\mathcal O_0 = \partial_\mu \varphi \partial^\mu \varphi$ to be of mass dimension 0, and therefore set $\lambda_0 = 1/2$ to get canonicall normalization.
 This allows us to deduce the dimensionality of $\varphi$.
 As $[\partial_\mu] = 1$, we have that $[\varphi] = (d-2)/2$.
 Assume $\mathcal O_n$ consists of $k_n$ factors of $\varphi$, and $l_n$ factors of $\partial_\mu \varphi$.
@@ -171,7 +171,7 @@ We must then have
     [\lambda_n] + [\mathcal{O}_n] - d &= [\lambda_n] + (k_n + l_n)(d - 2) / 2 + l_n - d = 0, \\
     \implies D_n := [\lambda_n] &= d - k_n \frac{d - 2}{2} - l_n \frac{d}{2}.
 \end{align}
-From this formula, we recover that $[\lambda_0] = 0$, and if $\lambda_1 \varphi^2$, then $[\lambda_1] = 2$, which we recognize as the mass squared term.
+From this formula, we recover that $[\lambda_0] = 0$, and if $\lambda_1 \varphi^2$, then $[\lambda_1] = 2$, which we recognize as the mass term squared.
 The mass dimensions of these coupling constants are independent of $d$.
 However, the coupling constant for the interaction term
 \begin{equation}
@@ -179,15 +179,15 @@ However, the coupling constant for the interaction term
 \end{equation}
 has mass dimensions $[\lambda_3] = d -4(d-2)/2 = 4 - 2d$.
 Our goal now is to exchange the bare coupling constants $\lambda_n$ with renormalized ones, $\lambda_n^r$, and remove the divergent terms proportional to $(d - 4)^{-m}$.
-We can always define the renormalized coupling constants as dimensionless, i.e. $[\lambda_n^r] = 0$, by measuring them in units of any mass scale.
+We can always define the renormalized coupling constants as dimensionless, i.e. $[\lambda_n^r] = 0$, by measuring them in units of a mass scale.
 We therefore write 
 \begin{align*}
     \lambda_n = \mu^{4 - D_n}
     \left[
-        \lambda_n^r + \sum_{m=1} \frac{a_m(\lambda_n^r)}{(d - 4)^{m}}.
+        \lambda_n^r + \sum_{m=1} \frac{a_m(\lambda_n^r)}{(d - 4)^{m}}
     \right],
 \end{align*}
-where we have introduced the dimensional parameter $\mu$ to ensure that $\lambda_n$ has the correct mass dimension, so that the action integral stays dimensionless.
+where we have introduced the dimensionfull parameter $\mu$ to ensure that $\lambda_n$ has the correct mass dimension, so that the action integral stays dimensionless.
 The functions $a_m$ are then determined to each order in perturbation theory by calculating Feynman diagrams.
 As $\mu$ again is arbitrary, $\lambda_4'$ should not depend on this parameter.
 In this case, we chose the same renormalization scale as we did when regulating the one-loop integral.
@@ -202,7 +202,7 @@ It is
 \end{equation}
 Using the expansion in terms of renormalized coupling, we have, using $d = 4 - 2\epsilon$
 \begin{equation}
-    \lambda_4' = \mu^{- 2 \epsilon}\left[ \lambda_4^r + \frac{1}{2 \epsilon} a_1(\lambda_r^4) + ... \right]
+    \lambda_4' = \mu^{- 2 \epsilon}\left[ \lambda_4^r + \frac{1}{2 \epsilon} a_1(\lambda_r^4) + ... \right].
 \end{equation}
 
 After adding \cref{scalar field static term} to the Lagrangian of the free scalar, the temperature independent free energy density becomes

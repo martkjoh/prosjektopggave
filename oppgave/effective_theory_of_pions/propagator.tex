@@ -28,7 +28,7 @@ The inverse propagator is given by the functional derivative,
     \fdiff{S[\pi]}{\pi_a(x)\pi_b(y)}
     =
     \left[
-        - \delta_{ab}\frac{1}{2}(\partial^2_x + m_a^2) 
+        - \delta_{ab}(\partial^2_x + m_a^2) 
         +  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x,0}    
     \right]\delta(x - y).
 \end{equation}
@@ -86,7 +86,9 @@ For $\alpha = 0$, we get
 \end{align*}
 This corresponds to a Zeeman-like splitting of the energies,
 \begin{align}
+    \label{zeeman energy}
     E_0 & = \sqrt{|\vv p |^2 + \bar m^2}, \\
+    \label{zeeman energy 2}
     E_\pm &= \pm \mu_I + \sqrt{|\vv p |^2 + \bar m^2}.
 \end{align}
 The (tree-level) masses of these particles are found by setting $\vv p = 0$, i.e. the rest-frame energy, and are

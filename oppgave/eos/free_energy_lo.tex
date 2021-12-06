@@ -1,9 +1,9 @@
+With the leading order and next-to-leading order Lagrangian from \chpt, we can now compute thermodynamic propreties such as the free energy and the equation of state, and investigate the phase transition to the pion condensate phase.
+We will start with the free energy, computing the leading-order contribution to one loop, and the next-to-leading order contribution at tree-level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
+
 \section{Free energy at lowest order}
 \label{section: free energy at lowest order}
 
-The equation of state (EOS) relates the thermodynamic variables of as system.
-In this section, we will obtain the equation of state of the pions by calculating their free energy.
-We use the effective Lagrangian found in \autoref{effective pion lagrangian} to find the leading-order contribution to one loop, and the next-to-leading order contribution at the tree-level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
 The free energy density of a homogenous system is
 \begin{equation}
     \Ef = - \frac{1}{V \beta} \ln Z.
@@ -52,7 +52,7 @@ This means that for all values $\mu_I^2 \leq \bar m^2$, we will have $\alpha = 0
 
 In our discussion of the effective potential we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
 This means that the linear part of the classical potential should vanish.
-The linear part of the classical potential is given by \autoref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - \bar m^2)\sin{\alpha} \, \pi_1 $, which vanishes given \cref{leading order minization}.
+The linear part of the classical potential is given by \cref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - \bar m^2)\sin{\alpha} \, \pi_1 $, which vanishes given the minimizition criterion \cref{leading order minization}.
 \begin{figure}[ht]
     \centering
     \includegraphics{figurer/numerics/free_energy_surface.pdf}
@@ -69,22 +69,22 @@ The one loop contribution to the free energy density is
     \Tr{\ln\left( -\fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)} \right)}.
 \end{equation}
 This can be evaluated using the rules for functional differentiation given in \autoref{section:Functional derivative}.
-To leading order, 
+To leading order,
 \begin{align}
     \fdiff{S[\pi = 0]}{\pi_a(x), \pi_b(y)}
     = \fdiff{}{\pi_a(x), \pi_b(y)}
     \int \dd^4 x \, \Ell^{(2)}_2
-    = D^{-1}_x \delta(x - y).
+    = D_{ab}^{-1}(x - y).
 \end{align}
-Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \autoref{quadratic lagrangian}, and $D^{-1}_x$ is the corresponding inverse propagator of the pion fields,
+Here, $\Ell^{(2)}_2$ is the quadratic part of the Lagrangian, as given in \cref{quadratic lagrangian}, and $D^{-1}$ is the corresponding inverse propagator of the pion fields,
 \begin{equation}
-    D_x^{-1} = 
-    - \left[
-        \delta_{ab}(\partial_x^\mu\partial_{x,\mu} + m^2_a)
-        -  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
-    \right] 
+    D_{ab}^{-1}(x-y) = 
+    \left[
+        - \delta_{ab}(\partial_x^2 + m^2_a)
+        + m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x, 0}
+    \right] \delta(x-y)
 \end{equation}
-The inverse propagator is a matrix, which means that the determinant in \autoref{one loop free energy} is both a matrix determinant, over the three pion indices, and a functional determinant.
+The inverse propagator is a matrix, which means that the determinant in \cref{one loop free energy} is both a matrix determinant, over the three pion indices, and a functional determinant.
 In \autoref{section:propagator} we found the matrix part of the determinant in momentum space, which we can write using the dispersion relations of the pion fields
 \begin{equation}
     \det(- D^{-1}) = \det(-p_0^2 + E_0^2) \det(-p_0^2 + E_+^2) \det(-p_0^2 + E_-^2).
