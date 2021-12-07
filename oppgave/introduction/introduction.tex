@@ -1,5 +1,3 @@
-(KLADD, INNTRODUKSJON)
-
 % OUTLINE: 
 
 % - Standard model, QCD
@@ -10,37 +8,45 @@
 
 % - Outline of text
 
-The standard model describes, together with Einstein's general theory of relativity, all experiments we as humans are able to perform.
-It uses the language of quantum field theory to describe (X) particles, and their interactions.
-Quantum electrodynamics, or QED, is the description of electromagnetic interactions.
-It gives some of the most accurate predictions in science (EKSEMPEL).
-This is calculated using the techniques of Feynman diagrams, which describes how quantum fields interact as the sum of all possible ways patterns of interaction.
-When the interaction is weak, as is the case for QED, we get a sum that converges quickly, and can get highly accurate estimates by calculating a few orders of the sum.
-The weakness of QED is quantified in the fine structure constant $\alpha \approx 0.00 7297$.(CITE PDG)
+% The standard model describes, together with Einstein's general theory of relativity, all experiments we as humans are able to perform.
+The standard model is arguably the most successful theory in all of physics.
+It uses the language of quantum field theory to describe the elementary particles of the universe, and their interactions via the electromagnetic, weak and strong forces.
+\autoref{fig:the standard model} shows a table of the particles that make up the standard model.
+Calculations of the observable quantities using quantum electrodynamics (QED), the quantum theory of electromagnetic interactions, and the theory of weak interactions give highly precise predictions which agrees to an astounding degree with experiments~\cite{Schwartz:QFT}.
+
+These calculations use the techniques of Feynman diagrams, which describes how quantum fields interact as the sum of all possible ways of interaction.
+When the interaction is weak, as is the case for QED, we get a sum that converges quickly, and calculating a few orders of the sum will yield highly accurate estimates of phsyical quantities.
+The weakness of QED is quantified in the fine structure constant $\alpha \approx 0.00 7297$\cite{PDG}.
 A Feynman diagram in QED is proportional to $\alpha^n$, where $n$ is the number of vertices in the diagram, which means the contributions from more complex diagrams with many vertices rapidly becomes insignificant
 
+\begin{figure}
+    \centering
+    \includegraphics[]{figurer/standard_model.pdf}
+    \caption{The particles of the standard model. The fermions are made up of two leptons and two quarks for each generation, for three generations. The photon ($\gamma$) is the particle of the electromagnetic force, the gluon (g) of the strong force, and the $Z$ and $W^\pm$ bosons are responsible for the weak force. The final piece of the puzzle is the Higgs boson (H).}
+    \label{fig:the standard model}
+\end{figure}
 
 Quantum chromodynamics, or QCD, is the part of the standard model that describes quarks, the constituents of protons and neutrons, and how they interact via the strong nuclear force.
 When dealing with the strong force, the fact that the strength of interaction depend on the energy scale of the interaction becomes apparent.
-In high energy interactions, around $100\, \text{MeV}$ or more, the strong force equivalent to the fine structure constant is $\alpha_s \approx 0.1$. 
-This makes it possible to do persuasive calculations using QCD.
+In high energy interactions at the energy scale of the $Z$-boson, $m_z \approx 91.19 \, \text{GeV}$, the strong force equivalent to the fine structure constant is $\alpha_s(m_Z) \approx 0.118$~\cite{PDG}. 
+This makes it possible to do perturbative calculations using QCD.
 However, the strong force has its name for a reason.
 For scales around $1 \text{GeV}$ and below, the perturbation method breaks down.
-In this case, the quark fields form \emph{hadrons}.
-Hadrons are again subdivided in to \emph{mesons} and \emph{baryons}.
-Mesons are bosons, and none are stable. 
-They do however play an important role in effective theories, which we will come back to.
+In this case, quarks bond together and form \emph{hadrons}.
+Hadrons are classified as \emph{mesons} or \emph{baryons}.
 The most familiar of the baryons are the proton and neutrons.
-In this regime, we can not extract predictions of the theory using perturbation theory, at least not directly, and we are forced to come up with other techniques.
+None of the mesons are stable, but they do play an important role in describing the strong force int the non perturbative regime.
+This is done by using \emph{effective field theories}.
 
 \subsection*{Effective field theories}
 
 A profound feature of physics is the possibility of describing a system by isolating the degrees of freedom of interest, and ignoring the rest.
-We can describe the motion of the plants in the solar system, massive and complex systems, by only their mass, velocity and position.
-In quantum field theory, this property manifests in the power of \emph{effective field theory}.
+We can describe the motion of the planets in the solar system, massive and complex systems, by only their mass, velocity and position.
+In quantum field theory, this feature manifests in the power of effective field theory.
 An effective field theory describes a system not by the fundamental, underlying particles, whatever that may mean, but by effective fields.
-A theory of two, interacting fields $\varphi$ and $\psi$ will be described by an action which depends on both fields, $S[\varphi, \psi]$.
-In the path integral formalism, predictions can be then be made by integrating over all possible states for these fields, such as for the vacuum transition amplitude,
+A theory of two interacting fields $\varphi$ and $\psi$ will be described by an action which depends on both fields, $S[\varphi, \psi]$.
+In the path integral formalism, predictions can be then be made by integrating over all possible states for these fields.
+An exmple is the vacuum transition amplitude,
 \begin{equation}
     Z = \int \D \varphi \D \psi \, \exp{i S[\varphi, \psi]}.
 \end{equation}
@@ -52,7 +58,7 @@ The effective description of only the $\varphi$-degrees of freedom by \emph{inte
     \int \D \varphi \D \psi \, \exp{i S[\varphi, \psi]}.
 \end{equation}
 This gives us hope for describing low energy QCD as an effective theory of the particles we know from experiments appear.
-In this text, we will derive and explore an effective theory of the pionic degrees of freedom of low-energy QCD, called chiral perturbation theory of \chpt.
+In this text, we will derive and explore an effective theory of the pionic degrees of freedom of low-energy QCD, called chiral perturbation theory, or \chpt.
 
 Mesons, of which pions are the lightest, were first proposed by Hideki Yukawa as the mechanism to hold nucleons together to form the nucleus of atoms.
 Though first believed to appear in the showers of particles that comes from cosmic rays, they were decisively discovered in 1947, by Cecil F. Powell \emph{et. al.}~\cite{griffiths:introduction}
@@ -86,7 +92,7 @@ This method relies on, as Weinberg himself called it, a ``theorem'':
 \begin{quote}
     [I]f one writes down the most general possible Lagrangian, including all terms consistent with assumed symmetry principles, and then calculates matrix elements with this Lagrangian to any given order of perturbation theory, the result will simply be the most general possible S-matrix consistent with analyticity, perturbative unitary, cluster decomposition and the assumed symmetry principles. \cite{WeinbergPhenom}
 \end{quote}
-In other words, if we write down the most general Lagrange density consistent with symmetries of the underlying theory, then we have not made any restrictions on the theory, other than some foundational assumptions.
+In other words, if we write down the most general Lagrangian consistent with symmetries of the underlying theory, then we have not made any restrictions on the theory, other than some foundational assumptions.
 This Lagrangian will be on the form
 \begin{equation}
     \Ell_\text{eff}[\varphi] = \sum_i \lambda_i \mathcal O_i,
@@ -116,17 +122,18 @@ One way to compute the equation of state of QCD systems is using the lattice QCD
 Here, space-time is approximated as finite and discrete, and Monte-Carlo importance sampling is used to perform the path integral.
 This method, however, fails for non-zero baryon densities in what is known as the fermion sign problem.
 Non-zero baryon density, or equivalently non-zero baryon chemical potential $\mu_B$, corresponds to systems with a matter-antimatter asymmetry, such as neutron stars, or more generally all observed stars.
-Recently, it has been proposed that pions may condense and form a new type of compact, gravitationally bound object, i.e. a star.
-Pions have baryon chemical potential of zero, and pion condensates are thus amenable to lattice QCD simulations.
+Recently, it has been proposed that a condenset of pions can form a new type of compact, gravitationally bound object, i.e. a star.
+States of pion condensates can have zero baryon chemical potential, and are thus amenable to lattice QCD simulations.
 This offer a way to model stellar objects from first principles, as well as by analytical methods using \chpt~\cite{new_clas_of_compact_stars,andersen:bose_einstein}.
 
 \subsection*{Pion condensate and the QCD phase diagram}
-(ILLUSTRASJON)
-A pioncondensate is a state with a non-zero expectation value of pions, $\ex{\pi} \neq 0$.
-The condensation happens when the pion chemical potential equals the pion mass, $\mu_I = m_\pi$.
+(Isospin: \cite{Brandt:QCD_phase_diagram_with_isospin_chemical_potential,PhysRevD.97.054514}
+baryon: \cite{from_hadrons_to_quarks,Fukushima:The_phase_diagram_of_dense_QCD})
+
+A pion condensate is a state with a non-zero expectation value of pions, $\ex{\pi} \neq 0$.
+The condensation happens when the pion chemical potential reaches a chritical value, $\mu_I = \mu_I^c$.
 This is just one part of the rich phase structure of QCD.
-The full phase diagram is not yet known, due to the many difficulties, only some of which is mentioned in this text.
-Some, however, we do know.
+The full phase diagram is not yet known, due to the many difficulties, some of which are mentioned in this text.
 At low temperatures and chemical potentials, in the normal or vacumm phase, we get a hadronic gas.
 For high temperature or chemical potentials, we get a quark gluon plasma.
 In this phase, quarks are no longer tightly bound in hadrons, but together with gluons form as soup conjectured to be at the center of neutron stars.(SIKKER? KILDE)
@@ -135,6 +142,12 @@ Better understanding of the phase diagram of QCD is a large part of understandin
 To be able to validate the techniques used, it is important to employ all possible, sound approaches.
 This makes it possible to crosscheck techniques, such as when comparing \chpt with lattice QCD.
 
+\begin{figure}
+    \centering
+    \includegraphics[]{figurer/phase_diagram.pdf}
+    \caption{(KLADD) The phase diagram of QCD}
+    \label{fig:phase diag qcd}
+\end{figure}
 
 \subsection*{Outline of thesis}
 The goal of this thesis is to calculate the next-to-leading order equation of state of a system at finite isospin chemical potential, using two-flavor chiral perturbation theory.
