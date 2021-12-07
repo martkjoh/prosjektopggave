@@ -188,6 +188,53 @@ def plot_free_energy_pt():
     plt.savefig("plots/phase_transition.pdf")
 
 
+def plot_free_energy_surface_wo_axis():
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"}, figsize=(8, 8))
+
+    N = 30
+    d = 0.6
+    a = np.linspace(-d, np.pi + d, N)
+    mu = np.linspace(0, 2.5, N)
+    a_lo_list = alpha_0(mu)
+    MU, A = np.meshgrid(mu, a)
+    FLO = F_0_2_lo(MU, A)
+    X, Y, Z = MU, A, FLO
+
+    ax.plot(mu, a_lo_list, F_0_2_lo(mu, a_lo_list) + 0.01, "-k", lw=2, alpha=1, zorder=10)
+    ax.plot(mu, a_lo_list, np.min(FLO), "k--")
+
+    surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7)
+    surf = ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
+
+    ax.azim=-35
+    ax.elev=25
+
+    ax.set_xlabel(r"$\mu_I/m_\pi$", fontsize=26)
+    ax.set_ylabel(r"$\alpha$", fontsize=26)
+    ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$", fontsize=26)
+
+
+    # Hide grid lines
+    # ax.grid(False)
+    ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+    ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+    ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+
+    # Hide axes ticks
+    ax.set_xticklabels([])
+    ax.set_yticklabels([])
+    ax.set_zticklabels([])
+
+    plt.subplots_adjust(top=1, bottom=0, right=0.8, left=0, hspace=0, wspace=1)
+    save_opt = dict(
+        bbox_inches='tight',
+        pad_inches = 0, 
+        transparent=True, 
+        dpi=300
+    )
+    plt.savefig("plots/free_energy_surface_wo_axis.pdf", **save_opt)
+
+
 F = F_0_2_symb - 4/(24) * F_0_2_symb.diff(a, 4) * a**4
 F = lambdify((mu, a), F.subs(m, 1.).subs(f, fpi), "numpy")
 
@@ -258,20 +305,21 @@ def plot_free_energy_surface2():
 # plot_isospin_density()
 # plot_energy_density()
 # plot_free_energy_pt()
+plot_free_energy_surface_wo_axis()
 # plot_free_energy_pt2()
 # plot_free_energy_surface2()
 
-ELO, ENLO = get_energy_density()
-PLO, PNLO = get_pressure()
-i =  np.where(mu_list>1)[0][0]
+# ELO, ENLO = get_energy_density()
+# PLO, PNLO = get_pressure()
+# i =  np.where(mu_list>1)[0][0]
 
-ELO, ENLO = ELO[i::], ENLO[i::]
-PLO, PNLO = PLO[i::], PNLO[i::]
+# ELO, ENLO = ELO[i::], ENLO[i::]
+# PLO, PNLO = PLO[i::], PNLO[i::]
 
-deltaE = (ELO - ENLO)
-deltaP = (PLO -  PNLO) 
-print(np.argmax(np.abs(deltaE)))
-print(np.argmax(np.abs(deltaP)))
+# deltaE = (ELO - ENLO)
+# deltaP = (PLO -  PNLO) 
+# print(np.argmax(np.abs(deltaE)))
+# print(np.argmax(np.abs(deltaP)))
 
-print(ENLO[0])
-print(PNLO[0])
+# print(ENLO[0])
+# print(PNLO[0])
