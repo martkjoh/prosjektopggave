@@ -246,38 +246,38 @@ Then, applying the $SU(2)_R$ transformation, we get
 \end{equation}
 This, and the similar expression for $U_L$, gives the gauge transformation rules
 \begin{align}
-    r_\mu^a \tau_a & \rightarrow U_R^\dagger (r_\mu^a\tau_a + i\one \partial_\mu) U_R, \\
-    l_\mu^a \tau_a & \rightarrow U_L^\dagger (l_\mu^a\tau_a + i\one \partial_\mu) U_L, \\
-    s + i p & \rightarrow U_R^\dagger (s + i p) U_L, \\
-    s - i p & \rightarrow U_L^\dagger (s - i p) U_R.
+    r_\mu^a \tau_a & \rightarrow U_R (r_\mu^a\tau_a + i\one \partial_\mu) U_R^\dagger, \\
+    l_\mu^a \tau_a & \rightarrow U_L (l_\mu^a\tau_a + i\one \partial_\mu) U_L^\dagger, \\
+    s + i p & \rightarrow U_R (s + i p) U_L^\dagger, \\
+    s - i p & \rightarrow U_L (s - i p) U_R^\dagger.
 \end{align}
  Goldstone fields now transform as
 \begin{equation}
-    \Sigma(x) \rightarrow U_L(x) \Sigma(x) U_R(x)^\dagger,
+    \Sigma(x) \rightarrow U_R(x) \Sigma(x) U_L(x)^\dagger,
 \end{equation}
 and the derivative as
 \begin{align}
     \nonumber
-    \partial_\mu \Sigma \rightarrow & \, \partial_\mu (U_L \Sigma U_R) \\
+    \partial_\mu \Sigma \rightarrow & \, \partial_\mu (U_R \Sigma U_L^\dagger) \\
     &= 
-    U_L (\partial_\mu \Sigma )U_R^\dagger
-    + (\partial_\mu  U_L) \Sigma U_R^\dagger
-    + U_L \Sigma (\partial_\mu U_R^\dagger)
+    U_R (\partial_\mu \Sigma )U_L^\dagger
+    + (\partial_\mu  U_R) \Sigma U_L^\dagger
+    + U_R \Sigma (\partial_\mu U_L^\dagger)
     \nonumber
     \\
     & = 
-    U_L
+    U_R
     \left[
         \partial_\mu \Sigma
-        + U_L^\dagger (\partial_\mu U_L) \Sigma
-        + \Sigma(x) (\partial_\mu U_R(x)^\dagger) U_R
+        + U_R^\dagger (\partial_\mu U_L) \Sigma
+        + \Sigma(x) (\partial_\mu U_L(x)^\dagger) U_L
     \right]
-    U_R^\dagger.
+    U_L^\dagger.
     \label{Sigma partial derivative}
 \end{align}
 The covariant derivative is defined to transform in the same way as the object it is acting upon.
 This means that the definition of the covariant derivative depends on what it acts on.
-Assume $A$, $B$ and $\Sigma$ transforms as $A \rightarrow U_R A U_R^\dagger$, $B \rightarrow U_L A U_L^\dagger$, and $\Sigma \rightarrow U_L \Sigma U_R^\dagger$.
+Assume $A$, $B$ and $\Sigma$ transforms as $A \rightarrow U_R A U_R^\dagger$, $B \rightarrow U_L A U_L^\dagger$, and $\Sigma \rightarrow U_R \Sigma U_L^\dagger$.
 In each of these cases, we define the covariant derivative as
 \begin{align}
     \label{covariant derivative general}
@@ -346,7 +346,7 @@ These can be combined to give more gauge-invariant terms, such as
 \begin{equation}
     \Tr{\chi^\dagger \Sigma}, \quad \Tr{\Sigma^\dagger \chi}.
 \end{equation}
-However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is a scalar, the only allowed tern isospin
+However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is a scalar, the only allowed term is\footnote{This corresponds to the fact that pions are pseudo scalars, they transform as $\pi \rightarrow - \pi$ under parity, as they are exitations in $SU(2)_A$.}
 \begin{equation}
     \label{leading order chi sigma term}
     \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}
