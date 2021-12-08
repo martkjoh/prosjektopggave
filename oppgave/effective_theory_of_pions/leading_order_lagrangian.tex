@@ -7,7 +7,7 @@ The leading order \chpt Lagrangian is made up of the terms \cref{leading order c
     \frac{1}{4} f^2 \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
     + \frac{1}{4} f^2 \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}.
 \end{equation}
-In the ground state, we set the external scalar current $s = m$, where $m$ is the mass matrix \autoref{Mass matrix}, so
+In the ground state, we set the external scalar current $s = m$, where $m$ is the mass matrix \cref{Mass matrix}, so
 \begin{equation}
     \chi = 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3,
 \end{equation}
@@ -38,7 +38,7 @@ The series expansion of $U$ is
     + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
     + \Oh[5]{(\pi/f)},
 \end{align*}
-which we use to calculate the expansion of the inner part of $\Sigma$, as given in \autoref{sigma},
+which we use to calculate the expansion of the inner part of $\Sigma$, as given in \cref{sigma},
 \begin{align*}
     U\Sigma_0U & = 
     \left(
@@ -91,7 +91,7 @@ This gives us the expression
     + \frac{\pi_a^2\pi_b^2}{24f^4}
     + \Oh[5]{(\pi/f)}.
 \end{align*}
-We combine this result with \autoref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
+We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
 \begin{align*}
     \Sigma 
     % & =   
@@ -167,27 +167,11 @@ The kinetic term in the \chpt Lagrangian is
     - \com{v_\mu}{\Sigma}\com{v_\mu}{\Sigma^\dagger}.
     \label{kinetic term}
 \end{equation}
-Using \autoref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
+Using \cref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
 \begin{align}
     \notag
     \partial_\mu \Sigma 
     = &
-    % \left(
-    %     \frac{-1}{f^2}
-    %     + \frac{\pi_b^2}{6f^4}
-    % \right)
-    % (\cos{\alpha} + i \tau_1 \sin{\alpha}) (\pi_a \partial_\mu \pi_a)\\\notag
-    % +&
-    % \left(
-    %     \frac{\partial_\mu \pi_a}{f} 
-    %     - \frac{\pi_b^2 \partial_\mu\pi_a 
-    %     + 2 \pi_a \pi_b \partial_\mu\pi_b}{6f^3} 
-    % \right)
-    % \left(
-    %     i\tau_a - 2i \delta_{a1}\tau_1\sin^2{\frac{\alpha}{2}} - \delta_{1a} \sin{\alpha}
-    % \right)
-    % \\ \notag
-    % =& 
     \left[
         \left(
             \frac{-1}{f^2}
@@ -232,45 +216,6 @@ and
 \begin{align}
     % \notag
     \com{v_\mu}{\Sigma} 
-    % & = 
-    % \frac{1}{2} \mu_I \delta^0_\mu
-    % \left[
-    %     \left(
-    %         1 
-    %         - \frac{\pi_a^2}{2f^2}
-    %         + \frac{\pi_a^2\pi_b^2}{24f^4}
-    %     \right)
-    %     i \sin{\alpha} \com{\tau_3}{\tau_1}
-    %     + 
-    %     \left(
-    %         \frac{\pi_a}{f} 
-    %         - \frac{\pi_b^2\pi_a}{6f^3} 
-    %     \right)
-    %     \left(
-    %         i\com{\tau_a}{\tau_3} 
-    %         - 2i\delta_{a1}\sin^2{\frac{\alpha}{2}}\com{\tau_3}{\tau_1}
-    %     \right)
-    % \right] \\
-    % \notag
-    % & =
-    % -\mu_I \delta^0_\mu
-    % \left\{
-    %     \left(
-    %         1 
-    %         - \frac{\pi_a^2}{2f^2}
-    %         + \frac{\pi_a^2\pi_b^2}{24f^4}
-    %     \right)
-    %     \tau_2 \sin{\alpha}
-    %     + 
-    %     \left(
-    %         \frac{\pi_a}{f} 
-    %         - \frac{\pi_b^2\pi_a}{6f^3} 
-    %     \right)
-    %     \left[
-    %         (\delta_{a1} \tau_2 - \delta_{a2} \tau_1)
-    %         - 2\delta_{a1} \tau_2 \sin^2{\frac{\alpha}{2}}
-    %     \right]
-    % \right\} \\
     & =
     -\mu_I \delta^0_\mu
     \left\{
@@ -297,7 +242,7 @@ and
     \right\}.
     \label{sigma commutator}
 \end{align}
-Combining \autoref{Sigma derivative} and \autoref{sigma commutator} gives the following terms \footnote{The scripts used to aid the calculation of the Lagrangian is available at \url{https://github.com/martkjoh/prosjektopggave}}
+Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the following terms \footnote{The scripts used to aid the calculation of the Lagrangian is available at \url{https://github.com/martkjoh/prosjektopggave}}
 \begin{align*}
     % Term 1
     & \Tr{\partial_\mu \Sigma \partial^\mu \Sigma^\dagger}
@@ -355,7 +300,7 @@ Combining \autoref{Sigma derivative} and \autoref{sigma commutator} gives the fo
     \end{align*}
 where $k_{ab} =\delta_{a1} \delta_{b1} \cos{2\alpha}  + \delta_{a2}\delta_{b2}\cos^2{\alpha} - \delta_{a3}\delta_{b3} \sin^2{\alpha}$.
 Notice that the mass term is independent of the difference in quark masses, $\Delta m$.
-If we write the Lagrangian as show in \autoref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
+If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
 \begin{align}
 %%%%%%%%%%%%%%%%%%
 %% zeroth order %%

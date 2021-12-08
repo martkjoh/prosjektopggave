@@ -39,8 +39,11 @@ The generating functional in this new theory is
 The free propagator in this theory will be proportional to $g$, as it is given by the inverse of the equation of motion for the free theory.
 All vertices in this theory, on the other hand, will be proportional to $g^{-1}$, as they are given by the higher order terms in the action $g^{-1}\Gamma$.
 This means that a diagram with $V$ vertices and $I$ internal lines is proportional to $g^{I-V}$.
-Regardless of what the Feynman-diagrams in this theory are, the number of loops of a connected diagram is $L = I - V + 1$.
-\footnote{This is a consequence of the Euler characteristic $\chi = V - E + F$.}
+Regardless of what the Feynman-diagrams in this theory are, the number of loops of a connected diagram is\footnote{This is a consequence of the Euler characteristic $\chi = V - E + F$.}
+\begin{equation}
+    \label{Number of loops}
+    L = I - V + 1.
+\end{equation}
 To see this, we first observe that one single loop must have equally many internal lines as vertices, so the formula holds for $L = 1$.
 If we add a new loop to a diagram with $n$ loops by joining two vertices, the formula still holds.
 If we attach a new vertex with one line, the formula still holds, and as the diagram is connected, any more lines connecting the new vertex to the diagram will create additional loops.
