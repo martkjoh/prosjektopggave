@@ -10,7 +10,7 @@ The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
     = \sum_n A_n P_n = \frac{1}{Z} \sum_n A_n e^{- \beta E_n}, \quad 
     Z  = \sum_n e^{-\beta A_n}.
 \end{equation*}
-$Z$ is the partition function. In quantum mechanics, an ensemble configuration is described by a non-pure density operator,
+$Z$ is called the partition function. In quantum mechanics, an ensemble configuration is described by a non-pure density operator,
 \begin{equation*}
     \hat \rho = C \sum_n P_n \ketbra{n}{n},
 \end{equation*}
@@ -24,7 +24,7 @@ where $\ket{n}$ is some basis for the relevant Hilbert space and $C$ is a consta
 The expectation value in the ensemble state of a quantity corresponding to the operator $\hat A$ is given by
 \begin{align}
     \ex{A} = \frac{ \Tr{\hat \rho \hat A} }{\Tr{\hat \rho }}
-    = \frac{1}{Z} \Tr{\hat A e^{-\beta \hat H}}
+    = \frac{1}{Z} \Tr{\hat A e^{-\beta \hat H}}.
 \end{align}
 The partition function $Z$ ensures that the probabilities adds up to 1, and is defined as
 \begin{equation}
@@ -197,4 +197,67 @@ The result is the same partition function as before,
     & =
     C' \int_S \D \varphi
     \exp{- \int_0^\beta \dd \tau \int_V \dd^3x \, \Ell_E(\varphi, \pi)}.
+\end{align}
+
+\subsection*{Fourier series}
+% Imaginary-time formalism is set in a Euclidean space $\Omega = [0, \beta] \times V$,
+% where  $V = L_xL_yL_z$ is a space-like volume. The possible momenta in this space are
+% \begin{equation*}
+%     \tilde V = \left\{ \vec k \in \R^3 \,\Big|\, \vec k = 
+%     \left(
+%         \frac{2 \pi n_x}{L_x}, 
+%         \frac{2 \pi n_y}{L_y},
+%         \frac{2 \pi n_z}{L_z} 
+%         \right)
+%     \right\}
+% \end{equation*}
+
+Due to the finite range of the imaginary-time coordinate $\tau \in [0, \beta]$, the momentum-space fields in imaginary-time formalism has a discrete coordinate. 
+We define the Matsubara-frequencies as $\omega_n = 2 n \pi / \beta$ for bosons and $\omega_n = (2n + 1) \pi / \beta$ for fermions.
+They together form the reciprocal space $\tilde \Omega = \{\omega_n\}\times \tilde V$, where $\tilde V$ is reciprocal to $V$.
+To get a more economical notation, we denote the euclidean real-space coordinates as $X = (\tau, \vec x)$ and the reciprocal space coordinates as $K = (\omega_n, \vec K)$
+The dot product is $X\cdot P = \omega_n \tau + \vec k \cdot \vec x$.
+In the limit $V\rightarrow \infty$, we follow the prescription
+\begin{equation*}
+    \frac{1}{V} \sum_{\vec p \in \tilde V} \rightarrow \int_{\R^3} 
+    \frac{\dd^3 p}{(2 \pi)^3}.
+\end{equation*}
+The sum over all degrees of freedom, and the corresponding integrals for the thermodynamic limit are
+\begin{align*}
+     \frac{\beta V}{NM}\sum_{n=1}^N \sum_{\vec x_m \in V} 
+    & \xrightarrow{N,M\rightarrow \infty} \int_{0}^\beta \dd \tau \int_{\R^3} \dd^3 x
+    = \int_\Omega \dd X, \\
+     \frac{1}{V} \sum_{n=-\infty}^\infty \sum_{\vec k \in \tilde V}
+    & \xrightarrow{V \rightarrow \infty} \sum_{n=-\infty}^\infty \int_{R^3} \frac{\dd^3 p}{(2 \pi)^3}
+    = \int_{\tilde \Omega} \dd K.
+\end{align*}
+The convention used for the Fourier expansion of thermal fields is in accordance with \cite{Kapusta:finiteTemp}. 
+The prefactor is chosen to make the Fourier components of the field dimensionless, which makes it easier to evaluate the trace correctly.
+For bosons, the Fourier expansion is
+\begin{align*}
+    \varphi(X)
+    = &
+    \sqrt{V \beta} \int_{\tilde \Omega} \dd K \,  \tilde \varphi(K) e^{i X\cdot K}
+    =
+    \sqrt{\frac{\beta}{V}} \sum_{n=-\infty}^\infty \sum_{\vec k \in \tilde V}
+    \tilde \varphi_n(\vec p) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}, \\
+    \tilde \varphi(K)
+    = &
+    \sqrt{\frac{1}{V \beta^3}} \int_{\tilde \Omega} \dd X \,  \tilde \varphi(X) e^{ - i X\cdot K}
+\end{align*}
+while for Fermions it is
+\begin{equation}
+    \psi(X) 
+    = \sqrt{V} \int_{\tilde \Omega} \dd K \, \tilde \psi(K) e^{i X\cdot K} 
+    = \frac{1}{\sqrt{V}} \sum_{n = - \infty}^\infty \sum_{\vec k \in \tilde V}
+    \psi(\omega_n, \vec k) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}
+\end{equation}
+A often used identity is 
+\begin{align}
+    \label{thermal delta}
+    \int_{\Omega} \dd X e^{i X\cdot(K - K')} 
+    & = \beta \delta_{nn'} (2 \pi)^3 \delta^3(\vec k - \vec k') := \beta \delta(K - K'), \\\
+    \int_{\tilde \Omega} \dd K \, e^{i K(X - X')} 
+    & = \beta \delta (\tau - \tau') \delta^3(\vec x - \vec x') 
+    := \beta \delta(X - X').
 \end{align}

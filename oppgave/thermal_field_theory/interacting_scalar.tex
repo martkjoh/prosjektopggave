@@ -51,7 +51,28 @@ To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introd
         + \int_\Omega \dd X \, J \varphi
     }.
 \end{align}
-Using the thermal Greens function $D_0(X, Y)$, as defined in \autoref{Conventions and notation}, we may complete the square to write
+
+Thermal propagators are the generalization of the time-ordered two-point functions $\ex{T\{\varphi(x) \varphi(y) \}}$ of the vacuum formalism.
+For some differential operator $D^{-1}$, the thermal propagator is defined as
+\begin{equation}
+    D^{-1} D(X, Y) = \beta \delta(X - Y).
+\end{equation}
+The Fourier transformed propagator is, assuming $D(X, Y) = D(X-Y, 0)$,
+\begin{align}
+    \nonumber
+    \tilde D(K, K') 
+    & = \frac{1}{V \beta^3} \int_{\Omega} \dd X \dd Y \, 
+    D(X, Y) \exp(- i [X\cdot K + Y\cdot K']) \\ \nonumber
+    & = \frac{1}{V \beta^3} \int_{\Omega} \dd X' \dd Y' \, D(X', 0) 
+    \exp(- i [X'\cdot \frac{1}{2} (K - K') + Y\cdot (K + K')]) \\
+    & = \frac{1}{V \beta^2} \tilde D(K) \delta(K + K'),
+\end{align}
+where
+\begin{equation}
+    \tilde D(K) = \int \dd X e^{iK\cdot X} D(X, 0).
+\end{equation}
+We write the thermal propagator of the free field as $D_0(X, Y)$.
+With this, we may complete the square,
 \begin{align}
     Z[J] = Z[0]\exp{\frac{1}{2} \int_{\Omega} \dd X \dd Y J(X) D_0(X, Y) J(Y)}
     = Z[0] \exp(W[J])
@@ -115,7 +136,7 @@ Inserting the Fourier expansions of the field gives
     \sum_{\{a, b\}} 
     \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)})
 \end{align*}
-Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, where $\tilde D_0(K)$ is the thermal propagator for the free field, as defined in \autoref{Conventions and notation}.
+Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, where $\tilde D_0(K)$ is the thermal propagator for the free field.
 In this case, it is
 \begin{equation}
     \tilde D_0(K) = \tilde D_0(\omega_n, \vec k) = \frac{1}{\omega_k^2 + \omega_n^2}.

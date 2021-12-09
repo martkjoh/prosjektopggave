@@ -40,8 +40,23 @@ We define the function
 \end{figure}
 
 We will first work with the sum over bosonic Matsubara frequencies.
-Assume $f(z)$ is an analytic function, except perhaps on a set of isolated poles $\{z_i\}$ located outside the real line. 
-By exploiting the properties of the Bose-distribution $n_B(z)$, as described in \autoref{Conventions and notation}, we can rewrite the sum over Matsubara frequencies as a contour integral
+Assume $f(z)$ is an analytic function, except perhaps on a set of isolated poles $\{z_i\}$ located outside the real line.
+We can exploit this using the properties of the Bose-distribution $n_B(z)$.
+The Bose distribution is defined as 
+\begin{equation}
+    n_B(\omega) = \frac{1}{e^{\beta \omega} - 1}.
+\end{equation}
+This function obeys
+\begin{equation}
+    n_B(- i \omega) = -1 - n_B(i \omega).
+\end{equation}
+We can expand it around the Bose Matsubara frequencies on the imaginary line:
+\begin{equation}
+    i n_B[i (\omega_n + \epsilon)] = \frac{i}{e^{i\beta \epsilon + 2 \pi i n} - 1}
+    = i [i\beta \epsilon + \Oh{\epsilon} ]^{-1} \sim  \frac{1}{\epsilon \beta}.
+\end{equation}
+This means that $in_B(i\omega)$ has a pole on all Matsubara-frequencies, with residue $1/\beta$.
+Using this, we can rewrite the sum over Matsubara frequencies as a contour integral
 \begin{equation*}
     \frac{1}{\beta} \sum_{\omega_n} f(\omega_n) 
     = \oint_\gamma \frac{\dd z}{2 \pi i} f(z) i n_B(i z),
@@ -97,7 +112,12 @@ $z = - i (\mu \pm \omega)$, with residue $1 / 2 \omega$, so the function defined
     [1 + n_B(\omega - \mu) + n_B(\omega + \mu)].
 \end{equation}
 
-Using the anti-derivative of the Bose distribution, we get the final form of \autoref{j func}
+
+Using the antiderivative of the Bose distribution,
+\begin{equation}
+    \dv{\omega} \ln(1 - e^{-\beta \omega}) = \beta n_B(\omega).
+\end{equation}
+we get the final form of \autoref{j func}
 \begin{equation}
     j(\omega, \mu) = \int \dd \omega'\, \omega' i(\omega', \mu)
     =  
@@ -113,8 +133,22 @@ We see there are temperature dependent terms, one due to the particle and one du
 
 We now consider the sum over fermionic frequencies, which we for clarity denote $\tilde \omega_n$ in this chapter.
 The procedure in this case is the same, except that we have to use a function to with poles at the fermionic Matsubara frequencies.
-This is done by the Fermi distribution, $n_F(z)$, as described in \autoref{Conventions and notation}.
-The result is 
+This is done by the Fermi distribution, $n_F(z)$.
+The Fermi distribution is
+\begin{equation}
+    n_F(\omega) = \frac{1}{e^{\beta \omega} + 1}.
+\end{equation}
+It obeys
+\begin{align}
+    &\diff{}{\omega} \ln(1 - e^{-\beta \omega}) = - \beta n_F(\omega), \\
+    & n_F(- i\omega) = 1 - n_F(i\omega).
+\end{align}
+The two distributions are related by
+\begin{equation}
+    2 n_B(i \omega; 2\beta) - n_B(i \omega; \beta)
+    = - n_F(i \omega; \beta ).
+\end{equation}
+With this, the sum over fermionic Matsubara frequencies gives
 \begin{equation}
     \frac{1}{\beta} \sum_{\tilde \omega_n} f(\tilde \omega_n) 
     = 
@@ -141,15 +175,3 @@ Using the antiderivative of the Fermi-distribution, we get
     \right].
 \end{equation}
 
-% If we denote the two different sums
-% \begin{equation}
-%     s_b(\beta) = \frac{1}{\beta} \sum_{\omega_n} f(\omega_n), \quad 
-%     s_f(\beta) = \frac{1}{\beta} \sum_{\tilde\omega_n} f(\tilde \omega_n),
-% \end{equation}
-% then they are related by
-% \begin{equation}
-%     s_f(\beta) 
-%     = \frac{1}{\beta} \sum_n f([2 \pi n + 1]/\beta)
-%     = \frac{1}{\beta} \sum_n \left\{ f(\pi n /\beta) - f(2 \pi n /\beta) \right\}
-%     = 2 s_b(2\beta) - s_b(\beta).
-% \end{equation}

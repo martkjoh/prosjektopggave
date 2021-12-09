@@ -22,20 +22,25 @@ To see this, we use the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{
     x^2 \ln(1 - e^{-\sqrt{x^2 + (\beta m)^2}}) \sim - x^2 e^{-x}, 
 \end{equation}
 which is exponentially suppressed, making the integral convergent.
-In the limit of $T \rightarrow \infty$, we get
-\begin{equation}
-    \Ef_\infty \sim \frac{T^4}{2 \pi^2} \int_\R \dd x \, x^2 \ln(1 - e^{-x})
+In the limit of $T \rightarrow 0$, we get
+\begin{align}
+    \nonumber
+    \Ef_T & \sim 
+    \frac{T^4}{2 \pi^2} \int_\R \dd x \, x^2 \ln(1 - e^{-x})
     = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{1}{n} \diffp[2]{}{n} \int \dd x e^{-nx}
     = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{2}{n^4}
     = - \frac{T^4}{\pi^2} \zeta(4)
-    = - T^4 \frac{\pi^2}{90}.
-\end{equation}
+\end{align}
 Where $\zeta$ is the Riemann-zeta function.
+Using $\zeta(4) = \frac{\pi^4}{90}$, we get
+\begin{equation}
+    \Ef_T \sim - \frac{\pi^2}{90} T^4, \quad T \rightarrow 0.
+\end{equation}
 
 \subsection*{Regularization}
 \label{section: regualting free energy}
 
-Returning to the temperature-independent part, we use dimensional regularization to see its divergent behavior.
+Returning to the temperature-independent part, we use dimensional regularization to control its divergent behavior.
 To that end, we define
 \begin{equation}
     \label{def dimreg integral}
