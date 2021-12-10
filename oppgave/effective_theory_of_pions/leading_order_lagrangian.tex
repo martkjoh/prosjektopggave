@@ -243,7 +243,7 @@ and
     \label{sigma commutator}
 \end{align}
 Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the following terms \footnote{The scripts used to aid the calculation of the Lagrangian is available at \url{https://github.com/martkjoh/prosjektopggave}}
-\begin{align*}
+\begin{align}
     % Term 1
     & \Tr{\partial_\mu \Sigma \partial^\mu \Sigma^\dagger}
     = \frac{2}{f^2} \partial_\mu \pi_a \partial^\mu \pi_a
@@ -254,6 +254,7 @@ Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the followin
         (\pi_a\partial_\mu \pi_b)(\pi_b\partial^\mu \pi_a)
     \right], \\
     % Term 2
+    \nonumber
     -i  &\Tr{\partial^\mu\Sigma\com{v_\mu}{\Sigma^\dagger} - \hc}
     =
     4 \mu_I \frac{\partial_0\pi_2}{f}
@@ -297,10 +298,10 @@ Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the followin
         + \frac{2 \pi_1 \pi_a \pi_a}{3 f^3} \sin{\alpha}
         + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos{\alpha}
     \right), 
-    \end{align*}
+    \end{align}
 where $k_{ab} =\delta_{a1} \delta_{b1} \cos{2\alpha}  + \delta_{a2}\delta_{b2}\cos^2{\alpha} - \delta_{a3}\delta_{b3} \sin^2{\alpha}$.
 Notice that the mass term is independent of the difference in quark masses, $\Delta m$.
-If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $\Oh[n]{(\pi/f)}$, then the result of the series expansion is
+If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $(\pi/f)^n$, then the result of the series expansion is
 \begin{align}
 %%%%%%%%%%%%%%%%%%
 %% zeroth order %%

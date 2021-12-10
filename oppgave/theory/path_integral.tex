@@ -5,11 +5,11 @@ We will derive Goldstone's theorem and present the CCWZ construction, which are 
 \section{QFT via path integrals}
 \label{section:path integral}
 
-The theory in this section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
+This section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 Feynman diagrams are drawn using JaxoDraw~\cite{JaxoDraw}.
 
-In the path integral formalism, one evaluates quantum observable by summing or integrating over all possible configuration in space and time.
-If the system has specified initial and final configurations, this amounts to all possible paths the system might evolve between these, hence the name.
+In the path integral formalism, one evaluates quantum observable by summing or integrating over all possible configurations in space and time.
+If the system has a specified initial and final configurations, this amounts to all possible paths the system might evolve between these, hence the name.
 We assume the reader has some familiarity with this formalism, however if a refresher is needed, \autoref{section:imaginary-time formalism} contains a derivation of the closely related imaginary-time formalism, and compares it with the path integral approach.
 In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. the probability that that vacuum at $t = -\infty$ evolves to the vacuum at time $t = \infty$, is given by
 \begin{equation}
@@ -17,7 +17,8 @@ In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. 
     = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-iHT} }{\Omega}
     = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
 \end{equation}
-where $\ket{\Omega}$ is the vacuum of the theory.
+where $\ket{\Omega}$ is the vacuum state.
+The integration variables $\varphi$ and $\pi$ are the fields of the theory, and their cannoncial momenta.
 By introducing a source term into the Hamiltonian density, $\He \rightarrow \He - J(x)\varphi(x)$, we get the generating functional
 \begin{equation}
     Z[J] = 
@@ -65,19 +66,20 @@ Using this form of the generating functional, \autoref{correlator from generatin
     e^{i W_0[J]} \Big|_{J = 0}
     = \dots \\
     &= 
-    (- i )^{n/2}\sum_{{(a, b)}} \prod_{i=1}^{n/2}
+    (- i )^{\floor{n/2}}\sum_{{(a, b)}} \prod_{i=1}^{\floor{n/2}}
     \fdiff{ W_0[J] }{ J(x_{a(i)}), J(x_{b(i)}) } \Big|_{J = 0}.
 \end{align*}
 In the last line we have introduced the functions $a, \, b$ which define a way to pair up $n$ elements.
-The domain of the functions are the integers between $1$ and $n/2$, the image a subset of the integers between $1$ and $n$ of size $n/2$.
-A valid pairing is a set $\{(a(1), b(1)), \dots (a(n/2), b(n/2))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $n$ are featured.
+$\floor{\cdot}$ is the floor function.
+The domain of the functions are the integers between $1$ and $\floor{n/2}$, the image a subset of the integers between $1$ and $n$ of size $\floor{n/2}$.
+A valid pairing is a set $\{(a(1), b(1)), \dots (a(\floor{n/2}), b(\floor{n/2}))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $n$ are featured.
 A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
 The sum is over the set ${\{(a, b)\}}$ of all possible, unique pairings.
 If $n$ is odd, the expression is equal to $0$.
 This is Wick's theorem, and it can more simply be stated as \emph{a correlation function is the sum of all possible pairings of 2-point functions},
 \begin{equation}
     \ex{{\prod}_{i=1}^{n} \varphi(x_i)  }_0
-    = \sum_{\{(a, b)\}}  \prod_{i=1}^{n/2}  \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0.
+    = \sum_{\{(a, b)\}}  \prod_{i=1}^{\floor{n/2}}  \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0.
 \end{equation}
 The subscript on the expectation value indicates that it is evaluated in the free theory.
 The two-point function in the full, interacting theory can be written
@@ -96,7 +98,8 @@ We can expand the exponential in power series, which means the expectation in \a
     \sum_{n, m} \frac{1}{n! m!} \ex{(iS_I)^n \left(i\int \dd^4 x \, J(x) \varphi(x)\right)^m}_0.
 \end{equation}
 The terms in this series are represented by Feynman-diagrams, which are constructed from the Feynman-rules, and can be read from the action.
-We will not go into further details on how the Feynman-rules are derived, which can be found in any of the main sources for this section~\cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
+We will not go into further details on how the Feynman-rules are derived.
+The Feynman rules for a free scalar field in thermal field theory are derived in \cref{section:interacting scalar}, and the general procedure is found in any of the main sources for this section~\cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 The source terms gives rise to an additional vertex
 \begin{equation}
     \includegraphics[width=0.25\textwidth, valign=c]{figurer/feynman-diagram/cnt_vertex.eps}.
@@ -108,13 +111,13 @@ As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
 \begin{align}
     \label{Feinman diagrams}
     V = 
-    \includegraphics[width=0.1\textwidth, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
+    \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
     \times
-    \includegraphics[width=0.08\textwidth, valign=c]{figurer/feynman-diagram/phi-4_2_loop.eps}
+    \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_2_loop.eps}
     \times
-    \includegraphics[width=0.14\textwidth, valign=c]{figurer/feynman-diagram/phi-4_2_loop2.eps}
+    \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_2_loop2.eps}
     \times
-    \includegraphics[width=0.1\textwidth, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
+    \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
     \times \dots.
 \end{align}
 If sub-diagram $i$ as a stand-alone diagram equals $V_i$, then each copy of that subdiagram contribute a factor $V_i$ to the total diagram.
@@ -134,11 +137,11 @@ This allows us to write the sum of all diagrams as
     = \exp({\sum}_i V_i).
 \end{equation}
 We showed that the generating functional $Z[J]$ were the $Z_0[0]$ times the sum of all diagrams due to external sources.
-Using \autoref{sum of all diagrams}, we see that the sum of all \emph{connected} diagrams $W[J]$ is given by
+From \autoref{sum of all diagrams}, the sum of all \emph{connected} diagrams $W[J]$ is given by
 \begin{equation}
     Z[J] = Z_0[0]\exp(i W[J]).
 \end{equation}
-We can see that this is trivially true for the free theory, the only connected diagram is
+This is trivially true for the free theory, where the only connected diagram is
 \begin{equation}
     \label{generating functional of connected diagrams}
     W_0[J] = 

@@ -79,21 +79,21 @@ Using the chain rule, together with \autoref{effective equation of motion}, we g
     \fdiff{}{J(x)}  \fdiff{\Gamma[\varphi_J]}{\varphi_J(y)}
     = i\delta(x - y).
 \end{align}
-This is exactly the definition of the inverse propagator
+This is exactly the definition of the inverse propagator,
 \begin{equation}
-    \fdiff{\Gamma[\varphi_J]}{\varphi_J(x),\varphi_J(y)} = D^{-1}(x-y).
+    \fdiff{\Gamma[\varphi_J]}{\varphi_J(x),\varphi_J(y)} = D^{-1}(x, y).
 \end{equation}
 The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams, with two external vertices.
 More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
 $\Gamma$ may be viewed as an effective action in the sense it was used in the introduction.
 We define $\eta$ as the fluctuations around the expectation value of the field, $\varphi(x) = \varphi_J(x) + \eta(x)$, and use this to change variables of integration in the path integral.
-In this case, $\varphi_J$ is considered a constant, so 
+The expectation value $\varphi_J$ is constant with respect tho the integral, so 
 \begin{equation}
     \int \D \varphi \, \exp{i S[\varphi]}
     = \int \D \eta \, \exp{iS[\varphi_J + \eta]}
 \end{equation}
-By assumption, $\ex{\eta}_J = 0$, which means this is path integral is described by only 1PI diagrams.
+By assumption, $\ex{\eta}_J = 0$, which means this path integral is described by only 1PI diagrams.
 Comparing this to \cref{integrating out degrees of freedom}, we see that the 1PI effective potential corresponds to integrating out \emph{all} degrees of freedom, and let the expectation value appear as a static background field,
 \begin{equation}
     \exp{i \Gamma[\varphi_J]} = \int \D \eta \, \exp{iS[\varphi_J + \eta]}.
@@ -117,7 +117,7 @@ The generating functional becomes
 \begin{align}
     Z[J] 
     = \int \D (\varphi_0 + \eta) \, 
-    \exp{i S[\varphi_0 + \eta] + i \int \dd^4 x J (\varphi_0 + \eta) }
+    \exp{i S[\varphi_0 + \eta] + i \int \dd^4 x\, [\varphi_0 + \eta(x)] J(x) }
 \end{align}
 
 The functional version of a Taylor expansion, as described in \autoref{section:Functional derivative}, is
@@ -134,7 +134,7 @@ The notation
     \fdiff{S[\varphi_0]}{\varphi(x)}
 \end{equation}
 indicates that the functional $S[\varphi]$ is differentiated with respect to $\varphi(x)$, then evaluated at $\varphi(x) = \varphi_0$.
-We use the notation
+We define
 \begin{align}
     S_0[\eta] &:= 
     \int \dd^4 x \dd^4 y \,\eta(x)\eta(y)\, 
@@ -145,7 +145,7 @@ We use the notation
 \end{align}
 where the dots indicate higher derivatives.
 When we insert this expansion into the generating functional $Z[J]$ we get
-\begin{align*}
+\begin{align}
     &Z[J] = \int \D \eta
     \exp{
         i \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
@@ -153,7 +153,7 @@ When we insert this expansion into the generating functional $Z[J]$ we get
         \left(  \fdv{S[\varphi_0]}{\varphi(x)} + J(x) \right)
         + i S_0[\eta] + i S_i[\eta]
         }
-\end{align*}
+\end{align}
 The first term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
 The second term gives rise to tadpole diagrams, which alter the expectation value of $\eta(x)$.
 For $J=0$, this expectation value should vanish, so this term can be ignored.
@@ -190,19 +190,19 @@ In \autoref{1PI effective action}, we showed that the 1PI effective action had t
 This was done by inspecting a theory with the action proportional to $g^{-1}$, where Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
 We can use the same argument to expand the effective potential in loops.
 This is done by modifying the action $S[\varphi] \rightarrow g^{-1}S[\varphi]$, and then expand in power of $g$.
-The first term in the effective potential is simply modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level, i.e. zero loop terms.
+The first term in the effective potential is simply modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level terms.
 This is as expected, since the tree-level result corresponds to the classical result without any quantum corrections.
 The second term becomes
 \begin{align*}
     \ln
     \left(
-        \int \D \eta e^{i S_0 + i S_i}
+        \int \D \eta \, e^{i S_0 + i S_i}
     \right)
     \longrightarrow
     &
     \ln
     \left(
-        \int \D \eta e^{i g^{-1}S_0 + i g^{-1} S_i}
+        \int \D \eta \, e^{i g^{-1}S_0 + i g^{-1} S_i}
     \right)
     = 
     \ln\left(

@@ -8,7 +8,7 @@ The free energy density of a homogenous system is
 \begin{equation}
     \Ef = - \frac{1}{V \beta} \ln Z.
 \end{equation}
-Here, $Z$ is the partition function, and $V$ the volume of space.
+Here, $Z$ is the partition function, $V$ the volume of space and $\beta = 1/T$ is inverse temperature.
 Using imaginary time formalism for thermal field theory, which is described in \autoref{appendix:thermal field theory}, we find that the partition function is given by the path integral of the \emph{Euclidean} Lagrange density, as shown in equation \cref{free scalar result 2}.
 In the zero temperature limit $\beta \rightarrow \infty$, the partition function is related to vacuum transition amplitude $Z_0 = Z[J=0]$, as described in \autoref{section:path integral}, by a Wick rotation.
 The free energy density at zero temperature is therefore 
@@ -34,11 +34,11 @@ From \cref{L0} we have the leading order contribution,
     \right),
 \end{equation}
 where $\alpha$ parameterizes the ground state, which means that its value must minimize the free energy.
-\begin{align*}
+\begin{align}
     &\diffp{}{\alpha} \Ef_2^{(0)} 
     = f^2\left(\bar m^2 - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
     = 0.
-\end{align*}
+\end{align}
 This equation defines the relationship between the chemical potential $\mu_I$, and the ground state parameter $\alpha$, as illustrated in \autoref{fig:free energy surface}.
 This gives the criterion
 \begin{align}
@@ -56,7 +56,7 @@ The linear part of the classical potential is given by \cref{L1} to leading orde
 \begin{figure}[ht]
     \centering
     \includegraphics{figurer/numerics/free_energy_surface.pdf}
-    \caption{The surface gives free energy as a function of $\mu_I$ and $\alpha$. $\alpha$ is the found by minimizing $\Ef$ for a given $\mu_I$. This leads to a curve across the free energy surface, as show in the plot.}
+    \caption{The surface free energy as a function of $\mu_I$ and $\alpha$. $\alpha$ is the found by minimizing $\Ef$ for a given $\mu_I$. This leads to a curve across the free energy surface, as show in the plot.}
     \label{fig:free energy surface}
 \end{figure}
 
@@ -194,7 +194,7 @@ This results in a finite integral,
 \begin{equation}
     \Ef^{(1)}_{\mathrm{fin}, \pi_\pm } = \frac{1}{2} \int \frac{\dd^3 p}{(2\pi)^3} [E_+ + E_- - f(|\vv p|)],
 \end{equation}
-which we can evaluate numerically, and isolate the divergence to
+which we can evaluate numerically, and a divergent integal
 \begin{equation}
     \Ef^{(1)}_{\mathrm{div}, \pi_\pm }
     = 
@@ -248,7 +248,7 @@ The cost of this technique is that we have introduced an arbitrary mass paramete
 Any final result must thus be independent of the value of $m$ to be acceptable.
 
 We will instead regularize the integral by defining $E_i = \sqrt{|\vv{p}|^2 + \tilde m_i^2}$, and $\tilde m_i^2 = m_i^2 + \frac{1}{4} m_{12}^2$.
-Using the definition of the mass parameters, \cref{m1,m2,m3,m12}, we get
+Using the definition of the masses, \cref{m1,m2,m3,m12}, we get
 \begin{align}
     m_3^2 & = \bar m^2 \cos \alpha + \mu_ I^2 \sin^2 \alpha, \\
     \label{tilde m1}
@@ -298,5 +298,5 @@ The total one-loop contribution is then, using \cref{tilde m1,tilde m2},
         \frac{1}{2}
         \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{\tilde m_2^2} \right)
         \tilde m_2^4
-    \right]
+    \right].
 \end{align}

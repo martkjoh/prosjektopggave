@@ -29,7 +29,7 @@ For $N$ fields, $\varphi_i$, this can be written
     \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x), \quad \epsilon \rightarrow 0.
 \end{equation}
 $t_{ij}$ is called the generator of the transformation.
-A symmetry of the system is then one in which the Lagrangian is unchanged by the transformation, or at most is different by a divergence-term.
+A symmetry transformation the system is then a transformation in which the Lagrangian left is unchanged, or at most differ by a divergence-term.
 That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
 \begin{equation}
     \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K^\mu[\varphi],
@@ -48,7 +48,8 @@ To that end, assume
 In the generating functional, such a transformation corresponds to a change of integration variable.
 Using the infinitesimal version of the transformation, we may write
 \begin{align}
-    Z[J] 
+    \nonumber
+    Z[J]
     = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
     = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
     \\
@@ -77,17 +78,18 @@ This system is invariant under the rotation of the $N$ fields into each other,
 \end{equation}
 The set of all such transformations form the Lie group $O(N)$.
 Lie groups will be discussed in the next section.
-For $N = 2$, $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
+For $N = 2$, and $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\textwidth]{figurer/mexican_hat.pdf}
-    \caption{The Mexican hat potential is the classical potential $\Ve$ for the $N=3$ linear sigma model.}
+    \caption{The Mexican hat potential is the classical potential $\Ve$ for the $N=2 $ linear sigma model.}
     \label{fig:Mexican hat}
 \end{figure}
 
 \subsection*{Lie groups}
 (HA I APPENDIX?)
+
 Lie groups are a natural structure to capture the symmetries of a theory.
 A Lie group is a smooth manifold, i.e. a space that is locally diffeomorphic to $\R^N$.
 This means that we can locally parametrize the space by $N$ real numbers $\eta_\alpha$, using smooth invertible functions.
@@ -99,18 +101,22 @@ A group is a set, $G$, together with a map
 \end{align} 
 called group multiplication. This map obeys the group axioms, which are the existence of an identity element $\one$, associativity and the existence of an inverse element $g^{-1}$ for all $g\in G$.
 These can be written as
-\begin{align*}
-    & g \in G,\,  (g, \one) = g, \\
-    & g_1, g_2, g_3 \in G, \, (g_1, (g_2, g_3)) = ((g_1, g_2), g_3), \\
-    & g \in G,\, \exists g^{-1} \in G,\, \text{s.t.}\,,  (g, g^{-1}) = \one.
-\end{align*}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{l l}
+        $\forall g \in G, $&$ (g, \one) = g, $\\
+        $\forall g_1, g_2, g_3 \in G, $ & $ (g_1, (g_2, g_3)) = ((g_1, g_2), g_3), $\\
+        $\forall g \in G,\, \exists g^{-1} \in G,\, \text{s.t.}, $ & $ (g, g^{-1}) = \one.$
+    \end{tabular}
+\end{table}
+
 In addition, we require that both the multiplication map and the inverse map, $g \mapsto g^{-1}$ are smooth.
 We describe the set of continuous symmetry transformations, 
 \begin{equation}
     G = \setbuilder{g}{g \varphi = \varphi', \, S[\varphi'] = S[\varphi], \D \varphi' = \D \varphi },
 \end{equation}
 as a Lie group, where the group multiplication is composition, i.e. performing transformations in succession.
-This map is closed, as two symmetry transformations are another transformation.
+This map is closed, as two symmetry transformations are another symmetry transformation.
 The identity map is a symmetry transformation, and composition is associative.
 This means that invertible symmetry transformations form a group.
 
@@ -121,7 +127,7 @@ As the Lie group is a smooth manifold, we can write\footnote{The factor $i$ is a
 \begin{equation}
     \gamma(\epsilon) = \one + i \epsilon V + \Oh{\epsilon}
 \end{equation}
-$V$ is a generator, and can be defined as
+$V$ is a generator, is defined as
 \begin{equation}
     iV = \diff{\gamma}{t}\Big|_{t=0}.
 \end{equation}
@@ -202,11 +208,9 @@ Applying this transformation to the Lagrangian will in general change its form,
 \end{equation*}
 If the change in the Lagrangian can be written as a total derivative, i.e.
 \begin{equation*}
-    \delta \Ell = \partial_\mu K^\mu(x),
+    \delta \Ell = \partial_\mu K^\mu(x).
 \end{equation*}
-we say that the Lagrangian has a continuous symmetry.
-This is because a term of this form will result in a boundary term in the action integral, which does not contribute to the variation of the action.
-Nöther's theorem states more precisely that the current
+Nöther's theorem states that the current
 \begin{equation}
     j^\mu = \pdv{\Ell}{(\partial_\mu \varphi_i)} \delta \varphi_i(x) - K^\mu
 \end{equation}
@@ -270,7 +274,7 @@ With the assumption that the ground state is constant, we get
     \diffp{\Veff}{\varphi_k, \varphi_i} \, t_{i j} \ex{\varphi_j}_0 = 0.
 \end{equation}
 This is trival for unbroken symmetries, as $t_{ij}\ex{\varphi_j}_0 = 0$ by definition.
-However, in the case of a broken symmetry, the second derivative of the effective potentail has an eigenvector $t^\alpha_{ij} \ex{\varphi_j}$ with a zero eigenvalue for each broken generator.
+However, in the case of a broken symmetry, the second derivative of the effective potential has an eigenvector $t^\alpha_{ij} \ex{\varphi_j}$ with a zero eigenvalue for each broken generator.
 In \autoref{Effective action inverse propagator}, we found that the second derivative of the effective action is the inverse propagator,
 \begin{equation}
     D^{-1}_{ij}(x,y) 
@@ -283,12 +287,12 @@ Using this, we can write
     = 0.
 \end{equation}
 Zeros of the inverse propagator corresponds to the physical mass of particles.
-In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particles, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called a goldstinos, are fermions.}
+In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particles, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called goldstinos, are fermions.}
 This means there are $n_G = \dim G -\dim H$ zero mass modes.
-In general, counting of massless modes is more complicated, and depends on the dispersion relation of the particles at low momenta.
+In general, counting of massless modes is complicated, and depends on the dispersion relation of the particles at low momenta.
 Systems with Goldstone bosons with quadratic dispersion relation, that is $E = |\vv p|^2$ when $\vv p \rightarrow 0$, often exhibit a lower number of massless modes.
 An example is ferromagnets, where the $\mathrm{SU}(2)$ rotational symmetry is broken down to $\mathrm{U}(1)$ when they align along one axis. 
-This corresponds to two broken generators, yet the system only exhibits one massless mode~\cite{brauner_spont_sym}.
+This corresponds to two broken generators, yet the system exhibits only one massless mode~\cite{brauner_spont_sym}.
 
 \begin{figure}[ht]
     \centering

@@ -18,7 +18,7 @@ The renormalized coupling constants in the $\overline{\mathrm{MS}}$-scheme are r
     - \mu^{-2\epsilon}\frac{1}{2} \frac{\gamma_i }{(4 \pi)^2} 
     \left(\frac{1}{\epsilon} + 1 \right),
     \quad \quad
-    i \in \{1, ... 7\} 
+    i \in \{1, ... 7\},
     \\
     h_i 
     & = 
@@ -167,7 +167,7 @@ The value for the pion decay constant is~\cite{PDG}
 
 The physical mass, $m_\pi$, is defined as the pole of the propagator in the vacuum, and thus the zero of the inverse propagator,
 \begin{equation}
-    D^{-1}(p^2 = m_\pi^2) = 0,
+    D^{-1}(p^2 = m_\pi^2) = 0.
 \end{equation}
 This relates it to the bare mass $\bar m$.
 We found, in \cref{m1}, that $m_\pi^2 = \bar m^2$ to leading order.
@@ -200,6 +200,7 @@ All results in this text are given in units of $m_\pi$.
 The values for the coupling constants used in this text are given in \autoref{table:coupling constants}.
 The constants $\bar l_1$, $\bar l_2$ and $\bar l_4$ are estimated using data from $\pi \pi$-scattering~\cite{pipi_scattering}, while $\bar l_3$ is estimated using three flavor chiral perturbation theory~\cite{Gasser-Leutwyler:chiral}.
 These are the same values as those used in~\cite{Andersen:two-flavor-chpt}.
+In this text, we use the central values of the parameters.
 Together with \cref{equation bare mass,equation bare decay constant}, the NLO results for the central value for the bare mass and decay constant are
 \begin{align}
     \label{NLO m}
@@ -210,16 +211,16 @@ Together with \cref{equation bare mass,equation bare decay constant}, the NLO re
 
 In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_I$, using the lowest-order result for $\Ef$, given in \cref{leading order minization}.
 To calculate any thermodynamic quantities to leading order, at tree-level, we must use this result.
-When using the NLO result for the free energy, we must make sure to calculate this and anthoer relationship to the same order, consistently.
+When using the NLO result for the free energy, we must make sure to calculate this and other relationships to the same order, consistently.
 As we have seen earlier, when replacing the action by $S[\varphi] \rightarrow g^{-1}S[\varphi]$, the $L$-loop contribution is proportional to $g^{L-1}$.
-In Weinberg's power counting scheme, as laid out in \autoref{section:chiral pertubation theory}, we scale $p \rightarrow t p$ and $m \rightarrow t^2 m$.
+In Weinberg's power counting scheme, as laid out in \autoref{section:chiral pertubation theory}, we scale $p \rightarrow t p$ and $m_q \rightarrow t^2 m_q$.
 Then, the $n$th term in the expansion is proportional to $t^{2n}$.
 We can therefore expand the free energy as
 \begin{equation}
     \Ef = t^2 g^{-1} \Ef_2^{(0)} + t^2 \Ef_2^{(1)} + t^4 g^{-1} \Ef_4^{(0)}
     + ...
 \end{equation}
-We consider terms where $k = L + n$ to be of the same order.
+We consider terms where $k = L + n$ has the same value to be of the same order.
 This expansion can be written as
 \begin{equation}
     \Ef = \sum_{k=0}^\infty \sum_{n+L=k} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
@@ -237,7 +238,7 @@ The free energy expansion is
 The same expansion holds for all quantities we calculate from this theory.
 As argued earlier, $\alpha$ must minimize the free energy, and therefore satisfy
 \begin{equation}
-    \diffp{\Ef}{\alpha} = 0
+    \diffp{\Ef}{\alpha} = 0.
 \end{equation}
 to all orders.
 We expand this solution in $s$,
@@ -284,7 +285,7 @@ Combining this, we get
     \tilde\Ef_1'(\alpha_0)
     \right]
     +
-    \Oh[1]{s}
+    \Oh[1]{s}.
     \label{minimizing free energy expansion}
 \end{align}
 Here, the prime indicates partial derivatives with respect to $\alpha$.
@@ -323,7 +324,7 @@ We therefore use the criterion
     \diffp{\Ef_\mathrm{NLO}}{\alpha} \bigg|_{\alpha=\alpha_{\mathrm{NLO}}} = 0
 \end{equation}
 to calculate $\alpha_\text{NLO}$.
-This result is shown in \autoref{fig:alpha}, which compares the leading order and next-to-leading order results for $\alpha$.
+The result is shown in \autoref{fig:alpha}, which compares the leading order and next-to-leading order results for $\alpha$.
 
 \begin{figure}
     \centering
