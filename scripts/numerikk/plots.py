@@ -200,8 +200,8 @@ def plot_free_energy_surface_wo_axis():
     FLO = F_0_2_lo(MU, A)
     X, Y, Z = MU, A, FLO
 
+    # ax.plot(mu, a_lo_list, np.min(FLO), "k--")
     ax.plot(mu, a_lo_list, F_0_2_lo(mu, a_lo_list) + 0.01, "-k", lw=2, alpha=1, zorder=10)
-    ax.plot(mu, a_lo_list, np.min(FLO), "k--")
 
     surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7)
     surf = ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
@@ -209,21 +209,27 @@ def plot_free_energy_surface_wo_axis():
     ax.azim=-35
     ax.elev=25
 
-    ax.set_xlabel(r"$\mu_I/m_\pi$", fontsize=26)
-    ax.set_ylabel(r"$\alpha$", fontsize=26)
-    ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$", fontsize=26)
-
+    # ax.set_xlabel(r"$\mu_I/m_\pi$", fontsize=26)
+    # ax.set_ylabel(r"$\alpha$", fontsize=26)
+    # ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$", fontsize=26)
 
     # Hide grid lines
-    # ax.grid(False)
+    ax.grid(False)
+
+    # Hide axes ticks
+    # ax.set_xticks([])
+    # ax.set_yticks([])
+    # ax.set_zticks([])
+    ax.axis("off")
+
     ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 
-    # Hide axes ticks
-    ax.set_xticklabels([])
-    ax.set_yticklabels([])
-    ax.set_zticklabels([])
+    # # Hide axes ticks
+    # ax.set_xticklabels([])
+    # ax.set_yticklabels([])
+    # ax.set_zticklabels([])
 
     plt.subplots_adjust(top=1, bottom=0, right=0.8, left=0, hspace=0, wspace=1)
     save_opt = dict(
