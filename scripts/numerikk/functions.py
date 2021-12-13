@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.integrate import quad, quadrature
 from numpy import sin, cos, sqrt, pi, log, arccos
 import sympy as sp
 from sympy import lambdify
@@ -55,11 +54,6 @@ dF_fin_symb = 1/2 * (4 * pi) / (2 * pi)**3 * p**2 * (
     sp.sqrt(Ep_sq) + sp.sqrt(Em_sq) - sp.sqrt(E1_sq) - sp.sqrt(E2_sq)
     )
 
-# Much slower method
-# integral = lambda f: (lambda *args: quad(f, 0, 100, args=args, epsabs=1e-6, epsrel=1e-6)[0])
-integral = lambda f: (
-    lambda *args: quadrature(f, 0, 100, args=args, maxiter=200, tol=1e-6)[0]
-    )
 
 def f_from_df_symb(df_symb):
     df = lambdify((p, mu, a), df_symb, "numpy")
@@ -84,9 +78,10 @@ F_0_2_nlo = lambdify((mu, a), F_0_2_symb.subs(m, mbar_nlo).subs(f, f_nlo), "nump
 dF_fin_symb = dF_fin_symb.subs(m, mbar_nlo).subs(f,f_nlo)
 F_fin = f_from_df_symb(dF_fin_symb)
 
-F_0_4 = F_0_4_symb.diff(mu)
-for l, ln in zip(ls, ls_numb):
-    F_0_4 = F_0_4.subs(l, ln)
+F_0_4 = F_0_4_symb
+# for l, ln in zip(ls, ls_numb):
+for i in range(len(ls_numb)):
+    F_0_4 = F_0_4.subs(ls[i], ls_numb[i])
 F_0_4 = F_0_4.subs(m, mbar_nlo)
 F_0_4 = F_0_4.subs(f, f_nlo)
 F_0_4 = lambdify((mu, a), F_0_4, "numpy")

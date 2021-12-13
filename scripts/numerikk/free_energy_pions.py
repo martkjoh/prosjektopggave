@@ -60,6 +60,9 @@ def gen_free_energy():
     F3 = F_fin(mu_list, alpha)
     FNLO = F1 + F2 + F3
 
+    np.save("data/F1.npy", F1)
+    np.save("data/F2.npy", F2)
+    np.save("data/F3.npy", F3)
     np.save("data/F_nlo.npy", FNLO)
 
 
@@ -79,3 +82,4 @@ if __name__ == "__main__":
     gen_F_surf()
     gen_free_energy()
     gen_free_energy_diff_mu()
+

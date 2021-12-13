@@ -2,9 +2,11 @@
 import numpy as np
 from numpy import pi, sqrt
 import sympy as sp
+from scipy.integrate import quad, quadrature
+
 
 # The parameter space of mu and alpha
-n = 101
+n = 201
 mu_list = np.linspace(0., 2.5, n)
 a_list = np.linspace(0, pi, n)
 
@@ -33,8 +35,18 @@ sol = [s for s in sol if (np.abs(s[0]) == s[0]) and (np.abs(s[1]) == s[1])]
 
 mbar_nlo = sol[0][0]
 f_nlo = sol[0][1]
-print(mbar_nlo)
-print(f_nlo)
+
+# Numerical integraiotr for F_fin
+
+# Much slower method, more accurate
+integral = lambda f: (
+    lambda *args: quad(f, 0, 50, args=args, epsabs=1e-5, epsrel=1e-5)[0]
+    )
+
+# integral = lambda f: (
+#     lambda *args: quadrature(f, 0, 10, args=args, maxiter=1000, tol=1e-5)[0]
+#     )
+
 
 
 if __name__ == "__main__":

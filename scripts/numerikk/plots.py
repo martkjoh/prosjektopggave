@@ -145,7 +145,7 @@ def plot_isospin_density():
     plt.savefig("plots/isospin_density.pdf")
 
 
-def plot_energy_density():
+def plot_eos():
     fig, ax = plt.subplots(figsize=fs)
     
     ELO, ENLO = get_energy_density()
@@ -159,10 +159,10 @@ def plot_energy_density():
 
     plt.legend()
     fig.subplots_adjust(**adj)
-    plt.savefig("plots/energy_density.pdf")
+    plt.savefig("plots/eos.pdf")
 
 
-def plot_free_energy_pt():
+def plot_phase():
     N = 30
     a = np.linspace(-0.05, 0.8, N)
     
@@ -208,10 +208,9 @@ def plot_free_energy_surface_wo_axis():
     ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 
-    plt.subplots_adjust(top=1, bottom=0, right=0.8, left=0, hspace=0, wspace=1)
     save_opt = dict(
         bbox_inches='tight',
-        pad_inches = 0, 
+        pad_inches = -0.5,
         transparent=True, 
         dpi=300
     )
@@ -220,25 +219,6 @@ def plot_free_energy_surface_wo_axis():
 
 F = F_0_2_symb - 4/(24) * F_0_2_symb.diff(a, 4) * a**4
 F = lambdify((mu, a), F.subs(m, 1.).subs(f, fpi), "numpy")
-
-def plot_free_energy_pt2():
-    N = 30
-    a = np.linspace(-0.05, 0.8, N)
-    
-    fig, ax = plt.subplots(figsize=(10, 16))
-
-    F0 = F(0, 0)
-    ax.plot(a, F(0.8, a) - F0, "royalblue", label=r"$\mu_I<m_\pi$")
-    ax.plot(a, F(1, a) - F0, "k--", label=r"$\mu_I=m_\pi$")
-    ax.plot(a, F(1.2, a) - F0, "k", label=r"$\mu_I>m_\pi$")
-    ax.scatter((0.0, 0.64), (0.004, -0.03), s=200)
-    ax.set_xlabel(r"$\alpha$")
-    ax.set_ylabel(r"$(\mathcal{F}' - \mathcal{F}_0')/m_\pi$")
-
-    plt.tight_layout()
-    plt.legend()
-    plt.savefig("plots/phase_transition2.pdf")
-
 
 def plot_free_energy_surface2():
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"}, figsize=(10, 6))
@@ -278,17 +258,16 @@ def plot_free_energy_surface2():
 
 # Self explanatory, really
 
-# plot_alpha()
-# plot_masses()
-# plot_free_energy_surface()
-# plot_free_energy()
-# plot_pressure()
-# plot_isospin_density()
-# plot_energy_density()
-# plot_free_energy_pt()
-# plot_free_energy_surface_wo_axis()
-# plot_free_energy_pt2()
-# plot_free_energy_surface2()
+plot_alpha()
+plot_masses()
+plot_free_energy_surface()
+plot_free_energy()
+plot_pressure()
+plot_isospin_density()
+plot_eos()
+plot_phase()
+plot_free_energy_surface_wo_axis()
+plot_free_energy_surface2()
 
 
 # Find largest deviance in NLO-result
@@ -302,10 +281,13 @@ PLO, PNLO = PLO[i::], PNLO[i::]
 
 deltaE = (ELO - ENLO)
 deltaP = (PLO -  PNLO) 
-print(deltaP)
 
-# print(np.argmax(np.abs(deltaE)))
-# print(np.argmax(np.abs(deltaP)))
+i1 = np.argmax(np.abs(deltaE))
+i2 = np.argmax(np.abs(deltaP))
 
-# print(ENLO[0])
-# print(PNLO[0])
+print(deltaE[i1])
+print(deltaP[i2])
+
+print(PLO[-1])
+print(PNLO[-1])
+

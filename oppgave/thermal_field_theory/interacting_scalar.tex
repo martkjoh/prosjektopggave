@@ -95,31 +95,31 @@ This generalizes to higher order expectation values,
 
 Using Wick's theorem, as described in \autoref{section:path integral}, the expectation values we are evaluating can be written
 \begin{align*}
-    \ex{{S_I}^m} & 
+    \ex{{S_I}^m}_0 & 
     = \left(- \frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m
-    \ex{\varphi^4(X_1) \dots \varphi^4(X_m)} \\ 
+    \ex{\varphi^4(X_1) \dots \varphi^4(X_m)}_0 \\ 
     & \quad
     = \left(- \frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m \sum_{\{a, b\}}
-    \ex{\varphi(X_{a(1)}) \varphi(X_{b(1)})} 
+    \ex{\varphi(X_{a(1)}) \varphi(X_{b(1)})}_0
     \dots
-    \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}
+    \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}_0
 \end{align*}
 where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$.
 This means that $X_{m + i} = X_i$.
 The functions $a,\,b$ represents a possible pairing, as described in \autoref{section:path integral}.
 Inserting the Fourier expansions of the field gives
 \begin{align*}
-    & \ex{{S_I}^m} \\ 
+    & \ex{{S_I}^m}_0 \\
     &\quad 
     = \left(-\frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m
     (V \beta)^2 \int_{\tilde \Omega} \dd K_1 ... \dd K_{2m} \sum_{\{a, b\}} \\
     & \quad \quad \quad \quad\quad \quad \quad
-    \ex{\varphi(K_{a(1)}) \varphi(K_{b(1)})} 
+    \ex{\varphi(K_{a(1)}) \varphi(K_{b(1)})}_0
     \dots
-    \ex{\varphi(K_{a(2m)}) \varphi(K_{b(2m)})}     
+    \ex{\varphi(K_{a(2m)}) \varphi(K_{b(2m)})}_0     
     \exp(i {\sum}_{i=1}^{m} X_i \cdot K_i)\\ 
     & \quad  
     = \left(-\frac{\lambda }{4!}\right)^m 
@@ -157,7 +157,7 @@ Lastly, one has to integrate over all internal momenta, and divide by a symmetry
 Calculating $\ex{{S_I}^n}_0$ boils down to the sum of all possible Feynman diagrams with $n$ vertices.
 The first example is 
 \begin{align}
-    \ex{S_I} = 
+    \ex{S_I}_0 =
     \frac{1}{8} \includegraphics[width=0.15\textwidth, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}.
 \end{align}
 
