@@ -28,7 +28,6 @@ fig, ax = plt.subplots(
     subplot_kw={"projection" : "3d"},
     constrained_layout=True
 )
-# ax.set_axis_off()
 
 ax.set_box_aspect(aspect = (1,1,1/3))
 
@@ -43,9 +42,7 @@ plot_opts = dict(
     alpha=1, 
 )
 ax.plot_surface(X, Y, Z, **plot_opts)
-# ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
 
-print(Z)
 plt.show()
 
 

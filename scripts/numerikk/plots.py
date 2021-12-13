@@ -22,14 +22,18 @@ plt.rc('lines', lw=2)
 fs = (6.5, 4)
 adj = dict(top=0.96, bottom=0.15, right=0.99, left=0.13, hspace=0, wspace=0)
 
+LO_label = r"${\mathrm{LO}}$"
+NLO_label = r"${\mathrm{NLO}}$"
+
+
 def plot_alpha():
     fig, ax = plt.subplots(figsize=fs)
     a_lo_list = get_alpha_lo()
     a_nlo_list = get_alpha_nlo()
     i = np.where(mu_list>=0)
 
-    ax.plot(mu_list[i], a_nlo_list[i], "k-.", label=r"$\mathrm{NLO}$")
-    ax.plot(mu_list[i], a_lo_list[i], "r--", label=r"$\mathrm{LO}$")
+    ax.plot(mu_list[i], a_nlo_list[i], "k-.", label=NLO_label)
+    ax.plot(mu_list[i], a_lo_list[i], "r--", label=LO_label)
     plt.xlabel(r"$\mu_I/m_\pi$")
     plt.ylabel(r"$\alpha$")
     ax.set_ylim(ax.set_ylim()[0], 1.5)
@@ -103,10 +107,8 @@ def plot_free_energy():
     fig, ax = plt.subplots(figsize=fs)
     FLO, FNLO = get_free_energy()
 
-    FLO_label = r"$\mathcal{F}^{\mathrm{LO}}$"
-    FNLO_label = r"$\mathcal{F}^{\mathrm{NLO}}$"
-    ax.plot(mu_list, FLO, "k--", label=FLO_label)
-    ax.plot(mu_list, FNLO, "r-.", label=FNLO_label)
+    ax.plot(mu_list, FLO, "k--", label=LO_label)
+    ax.plot(mu_list, FNLO, "r-.", label=NLO_label)
 
     plt.legend()
     plt.savefig("plots/free_energy_a_lo.pdf")
@@ -116,13 +118,8 @@ def plot_pressure():
     fig, ax = plt.subplots(figsize=fs)
     PLO, PNLO = get_pressure()
 
-    # i =  np.where(mu_list>=1)[0][0]
-    i = 0
-
-    PLO_label = r"${\mathrm{LO}}$"
-    PNLO_label = r"${\mathrm{NLO}}$"
-    ax.plot(mu_list[i::], PLO[i::], "k--", label=PLO_label)
-    ax.plot(mu_list[i::], PNLO[i::], "r-.", label=PNLO_label)
+    ax.plot(mu_list, PLO, "k--", label=LO_label)
+    ax.plot(mu_list, PNLO, "r-.", label=NLO_label)
 
     ax.set_xlabel(r"$\mu_I/m_\pi$")
     ax.set_ylabel(r"$P/m_\pi^4$")
@@ -134,13 +131,10 @@ def plot_pressure():
 
 def plot_isospin_density():
     fig, ax = plt.subplots(figsize=fs)
-    nILO_label = r"${\mathrm{LO}}$"
-    nINLO_label = r"${\mathrm{NLO}}$"
 
-    # nILO, nINLO, mu_list_diff = get_isospin_density()
     nILO, nINLO = get_isospin_density2()    
-    ax.plot(mu_list, nILO, "k--", label=nILO_label)
-    ax.plot(mu_list, nINLO, "r-.", label=nINLO_label)
+    ax.plot(mu_list, nILO, "k--", label=LO_label)
+    ax.plot(mu_list, nINLO, "r-.", label=NLO_label)
     
 
     ax.set_xlabel(r"$\mu_I/m_\pi$")
@@ -149,6 +143,7 @@ def plot_isospin_density():
     plt.legend()
     fig.subplots_adjust(**adj)
     plt.savefig("plots/isospin_density.pdf")
+
 
 def plot_energy_density():
     fig, ax = plt.subplots(figsize=fs)
@@ -159,15 +154,13 @@ def plot_energy_density():
     ax.set_xlabel(r"$u/m_\pi^4$")
     ax.set_ylabel(r"$P/m_\pi^4$")
 
-    ELO_label = r"${\mathrm{LO}}$"
-    ENLO_label = r"${\mathrm{NLO}}$"
-
-    ax.plot(PLO, ELO, "k--", label=ELO_label)
-    ax.plot(PNLO, ENLO, "r-.", label=ENLO_label)
+    ax.plot(PLO, ELO, "k--", label=LO_label)
+    ax.plot(PNLO, ENLO, "r-.", label=NLO_label)
 
     plt.legend()
     fig.subplots_adjust(**adj)
     plt.savefig("plots/energy_density.pdf")
+
 
 def plot_free_energy_pt():
     N = 30
@@ -200,36 +193,20 @@ def plot_free_energy_surface_wo_axis():
     FLO = F_0_2_lo(MU, A)
     X, Y, Z = MU, A, FLO
 
-    # ax.plot(mu, a_lo_list, np.min(FLO), "k--")
     ax.plot(mu, a_lo_list, F_0_2_lo(mu, a_lo_list) + 0.01, "-k", lw=2, alpha=1, zorder=10)
-
     surf = ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7)
     surf = ax.plot_wireframe(X, Y, Z, color="black", lw=0.2)
 
     ax.azim=-35
     ax.elev=25
 
-    # ax.set_xlabel(r"$\mu_I/m_\pi$", fontsize=26)
-    # ax.set_ylabel(r"$\alpha$", fontsize=26)
-    # ax.set_zlabel(r"$\mathcal{F}/m_\pi^4$", fontsize=26)
-
     # Hide grid lines
     ax.grid(False)
-
-    # Hide axes ticks
-    # ax.set_xticks([])
-    # ax.set_yticks([])
-    # ax.set_zticks([])
     ax.axis("off")
 
     ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-
-    # # Hide axes ticks
-    # ax.set_xticklabels([])
-    # ax.set_yticklabels([])
-    # ax.set_zticklabels([])
 
     plt.subplots_adjust(top=1, bottom=0, right=0.8, left=0, hspace=0, wspace=1)
     save_opt = dict(
@@ -288,11 +265,7 @@ def plot_free_energy_surface2():
     ax.zaxis.set_tick_params(labelsize=8)
     ax.xaxis.set_tick_params(labelsize=8)
     ax.yaxis.set_tick_params(labelsize=8)
-    # ax.xaxis.set_ticklabels([])
-    # ax.yaxis.set_ticklabels([])
-    # ax.zaxis.set_ticklabels([])
 
-    # plt.tight_layout()
     plt.subplots_adjust(top=1, bottom=0, right=0.9, left=0, hspace=0, wspace=1)
     save_opt = dict(
         bbox_inches='tight',
@@ -301,7 +274,9 @@ def plot_free_energy_surface2():
         dpi=300,
     )
     plt.savefig("plots/free_energy_surface2.pdf", **save_opt)
-    # plt.show()
+
+
+# Self explanatory, really
 
 # plot_alpha()
 # plot_masses()
@@ -311,19 +286,24 @@ def plot_free_energy_surface2():
 # plot_isospin_density()
 # plot_energy_density()
 # plot_free_energy_pt()
-plot_free_energy_surface_wo_axis()
+# plot_free_energy_surface_wo_axis()
 # plot_free_energy_pt2()
 # plot_free_energy_surface2()
 
-# ELO, ENLO = get_energy_density()
-# PLO, PNLO = get_pressure()
-# i =  np.where(mu_list>1)[0][0]
 
-# ELO, ENLO = ELO[i::], ENLO[i::]
-# PLO, PNLO = PLO[i::], PNLO[i::]
+# Find largest deviance in NLO-result
 
-# deltaE = (ELO - ENLO)
-# deltaP = (PLO -  PNLO) 
+ELO, ENLO = get_energy_density()
+PLO, PNLO = get_pressure()
+i =  np.where(mu_list>1)[0][0]
+i = 0
+ELO, ENLO = ELO[i::], ENLO[i::]
+PLO, PNLO = PLO[i::], PNLO[i::]
+
+deltaE = (ELO - ENLO)
+deltaP = (PLO -  PNLO) 
+print(deltaP)
+
 # print(np.argmax(np.abs(deltaE)))
 # print(np.argmax(np.abs(deltaP)))
 

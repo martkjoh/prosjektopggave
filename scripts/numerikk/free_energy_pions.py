@@ -31,7 +31,6 @@ def gen_F_surf():
 #! OPTMIZATION, 2nd ORDER #
 ###########################
 
-
 # new version, using an expression for the derivative
 def gen_alpha_nlo():
     """ find alpha that minimizes F, given a value of mu """

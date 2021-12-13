@@ -10,8 +10,6 @@ a_list = np.linspace(0, pi, n)
 
 MU, A = np.meshgrid(mu_list, a_list)
 
-# Everything is done in units of m (\bar m, the bare pion mass)
-# m = 1
 
 # LEO constants
 MPI = 131   # The only dimensionfull constant, defining units of the system
@@ -29,13 +27,21 @@ eq1 = m**2 *(1 - m**2 * l3 / (f**2 * 2*(4 * pi)**2)) - 1**2
 eq2 = f**2 *(1 + 2 * m**2 * l4 / (f**2 * (4 * pi)**2)) - fpi**2
 
 
+# Find nlo solution for mbar and f
 sol = sp.solve([eq1, eq2], m, f)
 sol = [s for s in sol if (np.abs(s[0]) == s[0]) and (np.abs(s[1]) == s[1])]
 
 mbar_nlo = sol[0][0]
 f_nlo = sol[0][1]
+print(mbar_nlo)
+print(f_nlo)
 
-# print(MPI*mbar_nlo)
 
-# print(fpi*MPI)
-# print(MPI*f_nlo)
+if __name__ == "__main__":
+    # Print parameters
+
+    print(fpi*MPI)
+    print(mbar_nlo)
+    print(f_nlo)
+    print(MPI*mbar_nlo)
+    print(MPI*f_nlo)

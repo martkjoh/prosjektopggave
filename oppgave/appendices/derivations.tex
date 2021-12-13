@@ -18,16 +18,16 @@ The NLO Lagrangian used in this text is given in \cref{NLO Lagrangian}, and is
     + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
     - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
     + \frac{h_1 + h_3 - l_4}{4} \Tr{\chi \chi^\dagger} \\
-    & -
-    \frac{h_1 - h_3 - l_4}{8} 
+    & +
+    \frac{h_1 - h_3 - l_4}{16}
     \left[
         \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
         + \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
         -2 \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
-    \right]
+    \right].
 \end{align}
 We can rewrite it to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}, starting with
-\begin{align}
+\begin{align*}
     & \frac{h_1 - h_3 - l_4}{16}
     \left(
         \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
@@ -40,9 +40,9 @@ We can rewrite it to match the one used in~\cite{Andersen:two-flavor-chpt,mojahe
         + \Tr{\Sigma \chi^\dagger}^2
         - 2 \Tr{(\chi \Sigma^\dagger)^2} -2 \Tr{(\Sigma \chi^\dagger)^2}
     \right)
-\end{align}
+\end{align*}
 Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
-\begin{align}
+\begin{align*}
     &= - \frac{h_1 - h_3 - l_4}{16}
     \left(
         \Tr{\chi \Sigma^\dagger}^2 + 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
@@ -56,7 +56,7 @@ Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
         - 4 \det(\chi \Sigma^\dagger)
         - 4 \det(\Sigma\chi^\dagger)
     \right)
-\end{align}
+\end{align*}
 Furthermore, as $\det(\Sigma)= 1$, 
 % and $\chi = a_i \tau_i$, we have $\Tr{\chi \chi^\dagger} = a_i a_i^*$, $\det(\chi) + \det(\chi^\dagger) = a_i a_i + a_i^* a_i^*$
 \begin{align}
