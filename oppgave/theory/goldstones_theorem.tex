@@ -1,18 +1,21 @@
 \section{Symmetry and Goldstone's theorem}
 \label{section:symmetry}
 
-This section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,smooth_manifolds}.
+This section is based on \cite{weinberg_1995,weinberg_1996_vol2,Peskin:IntroQFT,smooth_manifolds}.
 
-The symmetries of a theory are transformations of the physical state that leave the governing equations unchanged.
-A lot of physics is contained in the symmetries of a theory, such as the presence of conserved quantities and the systems low energy behavior.
+\todo{Intro can be better}
+Symmetry plays a large role in modern physics.
+If we can transform a physical state in such a way that the governing equations of this system are unchanged, we call that transformation a \emph{symmetry transformation}.
+The set of all symmetry transformations of a theory is called the symmetries of that theory.
+The symmetries of a theory encode a lot of physics, such as the presence of conserved quantities and the system's low energy behavior.
 We distinguish between internal and external symmetries.
 An external symmetry is an active coordinate transformation, such as rotations or translations.
 They relate degrees of freedom at different space-time points, while internal symmetry transforms degrees of freedom at each space-time point independently of what happens at other points.
-A further distinction is between local and global symmetry transformations.
-Local transformations have one rule for how to transform degrees of freedom at each point, which is applied everywhere, while local transformations might themselves be functions of space-time.
+A further distinction is between global and local symmetry transformations.
+Global transformations have one rule for transforming degrees of freedom at each point, which is applied everywhere, while local transformations are functions of space-time.
 
-In classical field theory, symmetries are encoded in how the Lagrangian changes due to a transformation of the fields.
-We will consider continuous transformations, which are can in general be written as
+In classical field theory, symmetries are encoded in the behavior of the Lagrangian when the fields are transformed.
+We will consider continuous transformations, which can in general be written as
 \begin{equation}
     \varphi(x) \longrightarrow \varphi'(x) = f_t[\varphi](x), \quad t \in [0, 1].
 \end{equation}
@@ -20,16 +23,18 @@ Here, $f_t[\varphi]$ is a functional in $\varphi$, and a smooth function of $t$,
 This allows us to look at ``infinitesimal'' transformations,
 \begin{equation}
     \label{infinitesimal transformation}
-    \varphi'(x) = f_\epsilon[\varphi] \sim \varphi(x) + \epsilon\diff{f[\varphi]}{t}\bigg |_{t=0}, \quad \epsilon \rightarrow 0.
+    \varphi'(x) = f_\epsilon[\varphi] 
+    = \varphi(x) + \epsilon \diff{ f_t[\varphi] }{t}\bigg |_{t=0} + \Oh{\epsilon}.
 \end{equation}
+When considering infinitesimal transformations, we will not write $\Oh{\epsilon}$, as it is considered implicit.
 We will consider internal, global transformations which act as linearly on $\varphi$.
 For $N$ fields, $\varphi_i$, this can be written
 \begin{equation}
     \label{linear field transformation}
-    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x), \quad \epsilon \rightarrow 0.
+    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x).
 \end{equation}
 $t_{ij}$ is called the generator of the transformation.
-A symmetry transformation the system is then a transformation in which the Lagrangian left is unchanged, or at most differ by a divergence-term.
+A symmetry transformation the system is then a transformation in which the Lagrangian left is unchanged, or at most differ by a 4-divergence term.
 That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
 \begin{equation}
     \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K^\mu[\varphi],
@@ -37,9 +42,9 @@ That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if
 where $K^\mu[\varphi]$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ do not vary the fields at infinity.}
 This is a requirement for a symmetry in quantum field theory too.
 However, as physical quantities in quantum field theory are given not just by the action of a single state but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
-If a classical symmetry fails due to the integration measure, it is called an anomaly.
+If a classical symmetry fails due to the non-invariance of the integration measure, it is called an \emph{anomaly}.
 
-To investigate the symmetry properties of a quantum theory, we explore what constraints a symmetry lies on the effective action.
+To investigate the symmetry properties of a quantum theory, we explore what constraints a symmetry imposes on the effective action.
 To that end, assume 
 \begin{equation}
     \D \varphi'(x) = \D \varphi(x), \quad
@@ -63,8 +68,8 @@ Using \cref{effective equation of motion}, we can write this as
 This constraint will allow us to deduce the properties of a theory close to the ground state, only using information about the symmetries of the theory.
 
 
-The arch typical example of an internal, global and continuous symmetry is the linear sigma model, which we will use as an example throughout this section.
-The linear sigma model is made up of $N$ real scalar fields $\varphi_i$, which are governed by the Lagrangian
+The archetypical example of an internal, global, and continuous symmetry is the linear sigma model, which we will use as an example throughout this section.
+The linear sigma model is made up of $N$ real scalar fields $\varphi_i$, whose Lagrangian is
 \begin{equation}
     \Ell[\varphi] 
     = \frac{1}{2} \partial_\mu \varphi_i(x) \partial^\mu \varphi_i(x) - \Ve(\varphi),
@@ -76,7 +81,7 @@ This system is invariant under the rotation of the $N$ fields into each other,
     \varphi_i \longrightarrow \varphi_i' = O_{ij} \varphi_j,
     \quad O^{-1} = O^{T}.
 \end{equation}
-The set of all such transformations form the Lie group $O(N)$.
+The set of all such transformations forms the Lie group $O(N)$.
 Lie groups will be discussed in the next section.
 For $N = 2$, and $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
 
@@ -88,7 +93,6 @@ For $N = 2$, and $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, a
 \end{figure}
 
 \subsection*{Lie groups}
-(HA I APPENDIX?)
 
 Lie groups are a natural structure to capture the symmetries of a theory.
 A Lie group is a smooth manifold, i.e. a space that is locally diffeomorphic to $\R^N$.
@@ -115,15 +119,16 @@ We describe the set of continuous symmetry transformations,
 \begin{equation}
     G = \setbuilder{g}{g \varphi = \varphi', \, S[\varphi'] = S[\varphi], \D \varphi' = \D \varphi },
 \end{equation}
-as a Lie group, where the group multiplication is composition, i.e. performing transformations in succession.
-This map is closed, as two symmetry transformations are another symmetry transformation.
+as a Lie group.
+In this case, the group multiplication is composition, i.e. performing transformations in succession.
+This map is closed, as the composite of two symmetry transformations is another symmetry transformation.
 The identity map is a symmetry transformation, and composition is associative.
 This means that invertible symmetry transformations form a group.
 
-We will focus on connected Lie groups, in which we all elements $g \in G$ is in the same connected piece as the identity map $\one \varphi = \varphi$.
+We will focus on connected Lie groups, in which all elements $g \in G$ are in the same connected piece as the identity map $\one \varphi = \varphi$.
 This means that for each $g\in G$, one can find a continuous path $\gamma(t)$ in the manifold, such that $\gamma(0) = \one$ and $\gamma(1) = g$.
 Given such a path, we can study transformations close to the identity.
-As the Lie group is a smooth manifold, we can write\footnote{The factor $i$ is a physics convention, and differs from how mathematicians define generators of a lie group.}
+As the Lie group is a smooth manifold, we can write\footnote{The factor $i$ is a physics convention, and differs from how mathematicians define generators of a Lie group.}
 \begin{equation}
     \gamma(\epsilon) = \one + i \epsilon V + \Oh{\epsilon}
 \end{equation}
@@ -131,13 +136,15 @@ $V$ is a generator, is defined as
 \begin{equation}
     iV = \diff{\gamma}{t}\Big|_{t=0}.
 \end{equation}
-We can define a path $\gamma$ by its path through parameter space, $\gamma(t) = g(\eta(t))$, which means that we can write the generator as
+We can define a path $\gamma$ by its path through parameter space, $\gamma(t) = g(\eta(t))$.
+Here, $\eta_\alpha(t)$ is a path through $\R^N$, the coordinates of $G$.
+We can thus write the generator as
 \begin{equation}
     V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_a}{t}\Big|_{t=0} \diffp{g}{\eta_a}\Big|_{\eta=0}
     = \diffp{g}{\eta_a}\Big|_{\eta=0} T_\alpha, \quad 
-    T_\alpha = \diffp{g}{\eta_\alpha}.
+    T_\alpha = \diff{\eta_a}{t}\Big|_{t=0}.
 \end{equation}
-We see that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_a$.
+One can show that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_a$.
 This vector space is called the tangent space of the identity element, $T_\one G$.
 Infinitesimal transformations can therefore be written as
 \begin{equation}
@@ -156,8 +163,8 @@ They obey the Jacobi identity,
     C_{\alpha \beta}^\gamma + C_{\beta\gamma}^\alpha +  C_{\gamma\alpha}^\beta = 0,
 \end{equation}
 which mean that they are totally antisymmetric.
-A subset of the original Lie group, $H \subset G$, which is closed under the group action is called a subgroup.
-$H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$
+A subset of the original Lie group, $H \subset G$, closed under the group action, is called a subgroup.
+$H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
 We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
 
 Of special importance are one parameter subgroups.
