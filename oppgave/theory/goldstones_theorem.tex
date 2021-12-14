@@ -141,21 +141,21 @@ Here, $\eta_\alpha(t)$ is a path through $\R^N$, the coordinates of $G$.
 We can thus write the generator as
 \begin{equation}
     V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_a}{t}\Big|_{t=0} \diffp{g}{\eta_a}\Big|_{\eta=0}
-    = \diffp{g}{\eta_a}\Big|_{\eta=0} T_\alpha, \quad 
-    T_\alpha = \diff{\eta_a}{t}\Big|_{t=0}.
+    = v_\alpha T_\alpha, \quad 
+    T_\alpha = \diff{\eta_a}{t}\Big|_{t=0}, \quad
+    \diffp{g}{\eta_a}\Big|_{\eta=0}.
 \end{equation}
-One can show that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_a$.
+One can show that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_a$~\cite{smooth_manifolds}.
 This vector space is called the tangent space of the identity element, $T_\one G$.
 Infinitesimal transformations can therefore be written as
 \begin{equation}
-    \gamma(\epsilon) = \one + i \epsilon v_\alpha T_\alpha, \quad \epsilon \rightarrow 0.
+    \gamma(\epsilon) = \one + i \epsilon v_\alpha T_\alpha + \Oh{\epsilon}.
 \end{equation}
 The tangent space, together with the additional operation
 \begin{align}
     [T_\alpha, T_\beta] = iC_{\alpha\beta}^\gamma T_\gamma,
 \end{align}
-called the Lie bracket, forms a Lie algebra denoted $\mathfrak{g}$.
-For matrix groups, which are what we deal with in this text, the Lie bracket is the commutator.
+called the Lie bracket, form a Lie algebra denoted $\mathfrak{g}$.
 $C_{\alpha \beta}^\gamma$ are called structure constants.
 They obey the Jacobi identity,
 \begin{equation}
@@ -163,9 +163,22 @@ They obey the Jacobi identity,
     C_{\alpha \beta}^\gamma + C_{\beta\gamma}^\alpha +  C_{\gamma\alpha}^\beta = 0,
 \end{equation}
 which mean that they are totally antisymmetric.
+For matrix groups, which are what we deal with in this text, the Lie bracket is the commutator.
 A subset of the original Lie group, $H \subset G$, closed under the group action, is called a subgroup.
 $H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
 We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
+
+A subgroup $H \in G$ has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
+We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
+The commutators of $x_i$ must be closed, which means that we can write
+\begin{align}
+    [x_i, x_j] &= i C_{i j}^{k} x_k,\\
+    [x_i, t_a] &= i C_{i a}^b t_b, \\
+    [t_a, t_b] &= i C_{ab}^k x_k + i C_{ab}^c t_c,
+\end{align}
+where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the rest.
+The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
+This is called a Cartan decomposition.
 
 Of special importance are one parameter subgroups.
 If a curve $\gamma(t)$ through $G$ obey
@@ -187,58 +200,73 @@ For matrix groups, the exponential equals the familiar series expansion
     \exp{X} = \sum_n \frac{1}{n!} X^n.
 \end{equation}
 
-A subgroup $H \in G$ has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
-We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
-The commutators of $x_i$ must be closed, which means that we can write
-\begin{align}
-    [x_i, x_j] &= i C_{i j}^{k} x_k,\\
-    [x_i, t_a] &= i C_{i a}^b t_b, \\
-    [t_a, t_b] &= i C_{ab}^k x_k + i C_{ab}^c t_c,
-\end{align}
-where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the rest.
-The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
-This is called a Cartan decomposition.
-
 \subsection*{Nöther's theorem}
 
 One of the most profound consequences of symmetry in physics is the appearance of conserved quantities.
-Assume we have a set of fields $\varphi_i$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_i]$ has a ontinuous symmetry, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
+Assume we have a set of fields $\varphi_i$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_i]$ has a continuous symmetry, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
 Consider an infinitesimal transformation,
-\begin{equation*}
+\begin{equation}
     \varphi_i(x) \longrightarrow \varphi_i'(x)
-    \sim \varphi_i(x) + \delta \varphi_i(x),.
-\end{equation*}
+    = \varphi_i(x) + \delta \varphi_i(x),.
+\end{equation}
 Applying this transformation to the Lagrangian will in general change its form,
-\begin{equation*}
+\begin{equation}
     \Ell[\varphi_i] \rightarrow \Ell[\varphi_i']
-    \sim \Ell[\varphi_i] + \delta \Ell.
-\end{equation*}
-If the change in the Lagrangian can be written as a total derivative, i.e.
+    = \Ell[\varphi_i] + \delta \Ell.
+\end{equation}
+We assume this transformation is a symmetry, i.e.
 \begin{equation*}
     \delta \Ell = \partial_\mu K^\mu(x).
 \end{equation*}
-Nöther's theorem states that the current
+By considering the Lagrangian as a function of the field and its derivatives, $\Ell = \Ell(\varphi_i, \partial_\mu \varphi_i)$, we can write the difference term as a taylor expansion around $(\varphi_i, \partial_\mu \varphi_i)$,
+\begin{align}
+    \delta \Ell
+    = \diffp{\Ell}{\varphi_i} \delta \varphi_i
+    + \diffp{\Ell}{\partial_\mu \varphi} \delta (\partial_\mu \varphi_i),
+\end{align}
+where $\delta (\partial_\mu \varphi_i) = \partial_\mu \varphi_i' - \partial_\mu \varphi_i$.
+By the linearlity of the derivative,
 \begin{equation}
-    j^\mu = \pdv{\Ell}{(\partial_\mu \varphi_i)} \delta \varphi_i(x) - K^\mu
+    \delta (\partial_\mu \varphi_i)
+    = \partial_\mu \varphi_i' - \partial_\mu \varphi_i
+    = \partial_\mu (\varphi_i' - \varphi_i)
+    = \partial_\mu \delta \varphi_i.
 \end{equation}
-obeys the conservation law
+With this, and the Euler-Lagrange equations,
 \begin{equation}
-    \partial_\mu j^\mu = 0.
+    \partial_\mu \diffp{\Ell}{(\partial_\mu \varphi)} - \diffp{\Ell}{\varphi_i} = 0,
 \end{equation}
+we can rewrite
+\begin{equation}
+    \delta \Ell = \left( \partial_\mu \diffp{\Ell}{(\partial_\mu \varphi_i)} \right) \delta \varphi_i
+    + \diffp{\Ell}{(\partial_\mu \varphi_i)} (\partial_\mu \delta \varphi_i)
+    = \partial_\mu \left(\diffp{\Ell}{(\partial_\mu \varphi_i)} \delta \varphi_i\right)
+\end{equation}
+If we define the current
+\begin{equation}
+    j^\mu = \pdv{\Ell}{(\partial_\mu \varphi_i)} \delta \varphi_i(x) - K^\mu,
+\end{equation}
+then 
+\begin{equation}
+    \partial_\mu j^\mu = \delta L - \delta L = 0.
+\end{equation}
+This is Nöther's theorem; a continuous symmetry implies the existence of a conserved current.
+
 The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
-\begin{equation*}
+\begin{equation}
     Q = \int_V \dd^3 x \, j^0.
-\end{equation*} 
+\end{equation} 
 Using the divergence theorem again, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
-\begin{equation*}
+\begin{equation}
     \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
-\end{equation*}
+\end{equation}
 Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$.
 
 
 \subsection*{Goldstone's theorem}
 
-The fact that a theory is left invariant under some symmetry transformation does not imply that the ground state is invariant under this transformation.
+As we have discussed, symmetry transformation will leave the governing equation of a theory unchanged.
+This, however, does not imply that a physical state, such as the ground state, is invariant under this transformation.
 The $N = 2$ linear sigma model illustrates this.
 If we assume the ground state $\varphi_{0}$ is translationally invariant, then it is given by minimizing the effective potential, of which the classical potential, $\Ve$, is the leading order approximation.
 This potential is illustrated in \autoref{fig:Mexican hat}.
@@ -246,7 +274,7 @@ The ground state is therefore given by any of the values along the brim of the p
 If we, without loss of generality, choose $\varphi_0 = (0, v)$ as the ground state, then any symmetry transformation will change this state.
 We say that the symmetry has been \emph{spontaneously broken}.
 
-To explore this in a general context, assume a theory of $\varphi_i$ real scalar fields are invariant under the actions of some Lie group, $G$.
+To explore this in a general context, assume a theory of $N$ real scalar fields $\varphi_i$ are invariant under the actions of some Lie group, $G$.
 A symmetry $g \in G$ is broken if the vacuum expectation value of the original fields and the transformed fields differ.
 That is, if
 \begin{equation}
@@ -267,7 +295,7 @@ The remaining set of generators $x_i$, which obey
 \end{equation}
 are called unbroken, and generate a subgroup $H \subset G$ as the set of symmetry transformations of the vacuum is a group.
 
-In \cref{effective equation of motion} we found that the effective action obey
+In \cref{effective equation of motion} we found that the effective action obeys
 \begin{equation}
     \int \dd^4 x \fdiff{\Gamma[\varphi_J]}{\varphi_i} t_{ij} \ex{\varphi_j}_0 = 0.
 \end{equation}
@@ -285,7 +313,7 @@ However, in the case of a broken symmetry, the second derivative of the effectiv
 In \autoref{Effective action inverse propagator}, we found that the second derivative of the effective action is the inverse propagator,
 \begin{equation}
     D^{-1}_{ij}(x,y) 
-    = -i \fdiff{\Gamma[\varphi_0]}{\varphi_i(y), \varphi_j(x)}
+    = \fdiff{\Gamma[\varphi_0]}{\varphi_i(y), \varphi_j(x)}
     = \int \frac{\dd^4 p}{(2 \pi)^4} e^{-ip(x - y)} \, \tilde D^{-1}_{ij}(p).
 \end{equation}
 Using this, we can write
@@ -293,41 +321,40 @@ Using this, we can write
     \tilde D^{-1}_{i j}(p=0) \, t^\alpha_{j k} \ex{\varphi_k}_0 
     = 0.
 \end{equation}
-Zeros of the inverse propagator corresponds to the physical mass of particles.
-In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particles, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called goldstinos, are fermions.}
+Zeros of the inverse propagator correspond to the physical mass of particles.
+In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particle, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called goldstinos, are fermions.}
 This means there are $n_G = \dim G -\dim H$ zero mass modes.
-In general, counting of massless modes is complicated, and depends on the dispersion relation of the particles at low momenta.
-Systems with Goldstone bosons with quadratic dispersion relation, that is $E = |\vv p|^2$ when $\vv p \rightarrow 0$, often exhibit a lower number of massless modes.
+In general, the counting of massless modes is complicated and depends on the dispersion relation of the particles at low momenta.
+Systems with Goldstone bosons with quadratic dispersion relation, that is $E \propto |\vv p|^2$ when $\vv p \rightarrow 0$, often exhibit a lower number of massless modes.
 An example is ferromagnets, where the $\mathrm{SU}(2)$ rotational symmetry is broken down to $\mathrm{U}(1)$ when they align along one axis. 
 This corresponds to two broken generators, yet the system exhibits only one massless mode~\cite{brauner_spont_sym}.
 
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}{0.54\textwidth}
-        \centering\captionsetup{width=.9\linewidth}
-        \includegraphics[]{figurer/mexican_hat_zoom.pdf}
-        \caption{Excitations along the brim does not cost any energy, as the potential is flat, unlike excitations in the radial direction.}
-        \label{fig:Mexican hat zoom}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \centering\captionsetup{width=.9\linewidth}
-        \includegraphics[]{figurer/sigma_ground_state.pdf}
-        \caption{Excitations for the $N=3$ sigma model. Two of the symmetries are broken, while rotations around the groundstate leaves the system unchanged.}
-        \label{fig:ground state manifold}
-    \end{subfigure}
+    \hspace*{2.5cm}
+    \includegraphics[width=.6\linewidth]{figurer/mexican_hat_zoom.pdf}
+    \caption{Excitations along the brim does not cost any energy, as the potential is flat, unlike excitations in the radial direction.}
+    \label{fig:Mexican hat zoom}
 \end{figure}
 
 The linear sigma model gives an intuition for the Goldstone mode.
 In the case of $N = 2$, the symmetry of the Lagrangian are rotations in the plane.
 As the ground state is a point along the ``brim'' of the hat, this rotational symmetry is broken.
-Any excitations in the rotational direction, however, does not cost any energy, which is indicative of a massless mode.
+However, any excitations in the angular direction do not cost any energy, which is indicative of a massless mode.
 This is illustrated in \autoref{fig:Mexican hat zoom}.
-In this example, the original symmetry group is one dimensional, so there are no unbroken symmetries.
-If we instead consider the $N=3$ linear sigma model, which has a three-dimensional symmetry group, rotations of the sphere, we see that the ground state is left invariant under subgroup of the original symmetry transformations.
+In this example, the original symmetry group is one-dimensional, so there are no unbroken symmetries.
+Consider instead the $N=3$ linear sigma model, which has the three-dimensional symmetry group $SO(3)$, rotations of the sphere.
+We see that the ground state is left invariant under a subgroup of the original symmetry transformations.
 The ground state manifold of this system, the set of all states that minimizes the effective potential, is then a sphere.
 When the system chooses one single ground state, this symmetry is broken, but only for two of the generators. 
-The generator for rotations around the ground state leaves the that point unchanged, and is thus an unbroken symmetry.
-Any excitations in the direction of the broken symmetries does not cost energy, as it is in the ground state manifold.
-The unbroken symmetry, on the other hand, does not correspond to an excitation.
+The generator for rotations around the ground state leaves that point unchanged and is thus an unbroken symmetry.
+Any excitations in the direction of the broken symmetries do not cost energy, as it is in the ground state manifold.
+On the other hand, the unbroken symmetry does not correspond to an excitation.
 This is illustrated in \autoref{fig:ground state manifold}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.35\linewidth]{figurer/SU(3).pdf}
+    \caption{Excitations for the $N=3$ sigma model. Two of the symmetries are broken, while rotations around the groundstate leaves the system unchanged.}
+    \label{fig:ground state manifold}
+\end{figure}
