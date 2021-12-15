@@ -1,12 +1,13 @@
 \section{Next to leading order Lagrangian}
 
-Constructing the next-to-leading order, NLO for short, Lagrangian is now a buisniess of combining the building blocks we found in \autoref{section:chiral pertubation theory} to terms that obey all symmetries and that are fourth order in Weinberg's power counting scheme, and remove possible redundant terms.
+Constructing the next-to-leading order, NLO for short, Lagrangian is now a business of combining the building blocks we found in \autoref{section:chiral pertubation theory}. 
+We must include all terms that obey all symmetries and that are fourth-order in Weinberg's power counting scheme and remove possible redundant terms, as discussed in \autoref{subsection:rewriting NLO Lagrangian}.
 We will quote the result from \cite{Scherer2002IntroductionTC},
 \begin{align}
     \notag
     \Ell_4 
     & = 
-    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    \frac{l_1}{4}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
     + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
     \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
     +
@@ -25,13 +26,13 @@ We will quote the result from \cite{Scherer2002IntroductionTC},
     \right]
     \label{NLO Lagrangian}.
 \end{align}
-We have ignored terms containing the field strength tensors for external fields, as they in our case vanish.
+We have ignored terms containing the field strength tensors for external fields, as they vanish in our case.
 The parameters $l_i$ and $h_i$ are called low energy constants, or LEO.
 In \autoref{subsection:rewriting NLO Lagrangian}, we show how to rewrite the Lagrangian to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}.
 To obtain $\Ell_4$ to $\Oh[3]{(\pi/f)}$, we use the result from \autoref{Sigma derivative} and \autoref{sigma commutator}, which gives
 \begin{align*}
     %%%%%%%%%%%%%%%%%%
-    % parital square %
+    % partial square %
     %%%%%%%%%%%%%%%%%%
     \Tr{\partial_\mu \Sigma \partial_\nu \Sigma^\dagger}
     & = 2 \frac{\partial_\mu \pi_a \partial_\nu \pi_a}{f^2} \\
@@ -251,7 +252,7 @@ The different terms of the NLO Lagrangian is
     \Ell_4^{(0)} & =
     %
     %
-    % zeroth order
+    % zeroth-order
     %
     %
     (l_1 + l_2)\mu_I^4 \sin^4{\alpha}

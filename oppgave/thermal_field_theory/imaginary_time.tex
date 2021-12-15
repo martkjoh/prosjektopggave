@@ -43,7 +43,7 @@ This leads to the partition function
 \section{Imaginary-time formalism}
 \label{section:imaginary-time formalism}
 
-The partition function may be calculated in a similar way to the path integral approach, in what is called the imaginary-time formalism. 
+The partition function may be calculated similarly to the path integral approach, in what is called the imaginary-time formalism. 
 This formalism is restricted to time independent problems, and is used to study fields in a volume $V$.
 This volume is taken to infinity in the thermodynamic limit.
 As an example, take a scalar quantum field theory with the Hamiltonian
@@ -106,7 +106,7 @@ As will be shown later, bosons such as the scalar field $\varphi$, follow the pe
 We now want to exploit the fact that $\ket{\pi}$ and $\ket{\varphi}$ are the eigenvectors of the operators that define the Hamiltonian.
 In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(\vec x), \hat \pi(\vec x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(\vec x), \pi_n(\vec x)] \braket{\pi_n}{\varphi_{n+1}}$.
 This relationship does not, however, hold for more general functions of the field operators.
-In that case, one has to be more careful about the ordering of the operators, for example by using \emph{Weyl ordering}~\cite{Peskin:IntroQFT}.
+In that case, one has to be more careful about the ordering of the operators, for example, by using \emph{Weyl ordering}~\cite{Peskin:IntroQFT}.
 By series expanding $e^{-\epsilon \hat H}$ and exploiting this relationship, the partition function can be written as, to second order in $\epsilon$,
 \begin{align*}
     Z = 
@@ -181,7 +181,7 @@ The partition function resulting from this procedure may also be obtained by sta
 \end{equation*}
 and follow a formal procedure.
 First, the action integral is modified by performing a Wick-rotation of the time coordinate $t$.
-This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity, and making the change of variable $it \rightarrow \tau$.
+This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity and making the change of variable $it \rightarrow \tau$.
 The new variable is then restricted to the interval $\tau\in [0, \beta]$, and the domain of the functional integral $\int \D \varphi$ is restricted from \emph{all} (smooth enough) field configurations $\varphi(t, \vec x)$, to only those that obey $\varphi(\beta, \vec x) = e^{i\theta} \varphi(0, \vec x) $, which is denoted $S$.
 This procedure motivates the introduction of  the Euclidean Lagrange density, 
 $\Ell_E(\tau, \vec x) = -\Ell(-i \tau, \vec x)$, as well as the name ``imaginary-time formalism''.
@@ -213,10 +213,10 @@ The result is the same partition function as before,
 %     \right\}
 % \end{equation*}
 
-Due to the finite range of the imaginary-time coordinate $\tau \in [0, \beta]$, the momentum-space fields in imaginary-time formalism has a discrete coordinate. 
+Due to the finite range of the imaginary-time coordinate $\tau \in [0, \beta]$, the momentum-space fields in imaginary-time formalism have a discrete coordinate. 
 We define the Matsubara-frequencies as $\omega_n = 2 n \pi / \beta$ for bosons and $\omega_n = (2n + 1) \pi / \beta$ for fermions.
 They together form the reciprocal space $\tilde \Omega = \{\omega_n\}\times \tilde V$, where $\tilde V$ is reciprocal to $V$.
-To get a more economical notation, we denote the Euclidean real-space coordinates as $X = (\tau, \vec x)$ and the reciprocal space coordinates as $K = (\omega_n, \vec K)$.
+To get a more economical notation, we denote the Euclidean real-space coordinates as $X = (\tau, \vec x)$ and the reciprocal space coordinates as $K = (\omega_n, \vec k)$.
 The dot product is $X\cdot K = \omega_n \tau + \vec k \cdot \vec x$.
 In the limit $V\rightarrow \infty$, we follow the prescription
 \begin{equation*}
@@ -253,7 +253,7 @@ while for Fermions it is
     = \frac{1}{\sqrt{V}} \sum_{n = - \infty}^\infty \sum_{\vec k \in \tilde V}
     \psi(\omega_n, \vec k) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}
 \end{equation}
-A often used identity is 
+Two often used identities are
 \begin{align}
     \label{thermal delta}
     \int_{\Omega} \dd X e^{i X\cdot(K - K')} 

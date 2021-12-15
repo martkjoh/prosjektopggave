@@ -1,10 +1,16 @@
-\section{Equation of motion and redundant terms}
+\chapter{Rewriting terms}
+\label{appendix:rewriting terms}
 
-Changing the field parametrization that appear in the Lagrangian does not affect any of the physics, as it corresponds to a change of variables in the path integral~\cite{Scherer2002IntroductionTC,Chisholm:changeOfVar,Kamefuchi:changeOfVar}.
+In this section, we will show how to rewrite terms in the Lagrangian of Chiral perturbation theory.
+These techniques, and more, are used to reduce the total number of terms, and change between different conventions.
+
+\subsection*{Equation of motion and redundant terms}
+
+Changing the field parametrization that appears in the Lagrangian does not affect any of the physics, as it corresponds to a change of variables in the path integral~\cite{Scherer2002IntroductionTC,Chisholm:changeOfVar,Kamefuchi:changeOfVar}.
 However, a change of variables can result in new terms in the Lagrangian.
-As a result of this, terms that on the face of it appear independent may be redundant.
+As a result of this, terms that appear independent on the face of it may be redundant.
 These terms can be eliminated by using the classical equation of motion.
-In this section we show first the derivation of the equation of motion, then use this result to identify redundant terms which need not be included in the most general Lagrangian.
+In this section, we show first the derivation of the equation of motion, then use this result to identify redundant terms which need not be included in the most general Lagrangian.
 
 We derive the equation of motion for the leading order Lagrangian using the principle of least action.
 Choosing the parametrization $\Sigma = \exp(i \pi_a \tau_a)$, a variation $\pi_a \rightarrow \pi_a + \delta \pi_a$ results in a variation in $\Sigma$, $\delta \Sigma = i \tau_a \delta \pi_a \Sigma $.
@@ -109,7 +115,7 @@ To leading order is given by
     -  [\nabla_\mu\Sigma'][\nabla^\mu (\Sigma'^\dagger  S_2) ]}
     - i \frac{f^2}{4} \Tr{\chi \Sigma'^\dagger S_2 - S_2 \Sigma' \chi^\dagger}
 \end{align*}
-Using the properties of the covariant derivative, we may use the product rule and partial integration to write the difference between the two Lagrangians to fourth order as
+Using the properties of the covariant derivative, we may use the product rule and partial integration to write the difference between the two Lagrangians to fourth-order as
 \begin{align}
     \nonumber
     \Delta \Ell[\Sigma'] 
@@ -126,3 +132,97 @@ Using the properties of the covariant derivative, we may use the product rule an
 \end{align}
 Any term that can be written in the form of \cref{Delta reparametrization} for arbitrary $\alpha_1, \alpha_2 \in \R$ is redundant, as we argued earlier, and may therefore be discarded.
 $\Delta \Ell_2$ is of fourth order, and it can thus be used to remove terms from $\Ell_4$ or higher order.
+
+
+\subsection*{Rewriting NLO Lagrangian}
+\label{subsection:rewriting NLO Lagrangian}
+
+The NLO Lagrangian used in this text is given in \cref{NLO Lagrangian}, and is
+\begin{align}
+    \notag
+    \Ell_4 
+    & = 
+    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    +
+    \frac{l_3 + l_4}{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \\ \notag
+    &
+    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    + \frac{h_1 + h_3 - l_4}{4} \Tr{\chi \chi^\dagger} \\
+    & +
+    \frac{h_1 - h_3 - l_4}{16}
+    \left[
+        \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+        + \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+        -2 \Tr{\left(\chi \Sigma^\dagger\right)^2 + \left( \Sigma \chi^\dagger\right)^2}
+    \right].
+\end{align}
+We can rewrite it to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}, starting with
+\begin{align*}
+    & \frac{h_1 - h_3 - l_4}{16}
+    \left(
+        \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+        - 2 \Tr{(\chi \Sigma^\dagger)^2 + (\Sigma \chi^\dagger)^2}
+    \right) \\
+    & = 
+    \frac{h_1 - h_3 - l_4}{16}
+    \left(
+        \Tr{\chi \Sigma^\dagger}^2 - 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
+        + \Tr{\Sigma \chi^\dagger}^2
+        - 2 \Tr{(\chi \Sigma^\dagger)^2} -2 \Tr{(\Sigma \chi^\dagger)^2}
+    \right)
+\end{align*}
+Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
+\begin{align*}
+    &= - \frac{h_1 - h_3 - l_4}{16}
+    \left(
+        \Tr{\chi \Sigma^\dagger}^2 + 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
+        + \Tr{\Sigma \chi^\dagger}^2
+        - 4 \det(\chi \Sigma^\dagger)
+        - 4 \det(\Sigma\chi^\dagger)
+    \right) \\
+    &= - \frac{h_1 - h_3 - l_4}{16}
+    \left(
+        \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+        - 4 \det(\chi \Sigma^\dagger)
+        - 4 \det(\Sigma\chi^\dagger)
+    \right)
+\end{align*}
+Furthermore, as $\det(\Sigma)= 1$, 
+% and $\chi = a_i \tau_i$, we have $\Tr{\chi \chi^\dagger} = a_i a_i^*$, $\det(\chi) + \det(\chi^\dagger) = a_i a_i + a_i^* a_i^*$
+\begin{align}
+    \notag
+    \Ell_4 
+    & = 
+    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    +
+    \frac{l_3 + l_4 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \\\notag
+    &
+    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    + \frac{h_1 + h_3 -l_4}{4} \Tr{\chi \chi^\dagger} \\
+    & +\frac{h_1 - h_3 - l_4}{4} (\det{\chi} + \det{\chi^\dagger})
+\end{align}
+For real $\chi$, we have $\Tr{\chi \chi^\dagger} = \det(\chi) + \det(\chi^\dagger)$, and we can define $h_1' = h_1 - l_4$ to get
+\begin{align}
+    \notag
+    \Ell_4 
+    & = 
+    \frac{l_1}{4} \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}^2
+    + \frac{l_2}{4} \Tr{\nabla_\mu \Sigma (\nabla_\nu \Sigma)^\dagger} 
+    \Tr{\nabla^\mu \Sigma (\nabla^\nu \Sigma)^\dagger} 
+    +
+    \frac{l_3 + l_4 }{16} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
+    \\
+    &
+    + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
+    - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
+    + \frac{h_1'}{2} \Tr{\chi \chi^\dagger}
+\end{align}
+If one assumes $\delta m = 0$, i.e., what is called the chiral limit, then the term $l_7$ falls away, as $\chi = \chi^\dagger$.

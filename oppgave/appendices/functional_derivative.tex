@@ -1,4 +1,4 @@
-\section{Functional Derivatives}
+\chapter{Functional Derivatives}
 \label{section:Functional derivative}
 Functional derivatives generalize the notion of a gradient and the directional derivative.
 A function $f(p)$, where $p$ is point with coordinates $x_i = x_i(p)$, has a gradient
@@ -9,9 +9,9 @@ The derivative in a particular direction $v = v^i \partial_i$ is
 \begin{equation}
     \dv{\epsilon} f(x_i + \epsilon v_i) = f(x) + \dd f_x (v) = f(x) + \pdv{f}{x^i}v_i.
 \end{equation}
-This is generalized to functionals through the definition of functional derivative, and the variation of a functional.
-Let $F[f]$ be a functional, i.e. a machine that takes in a function, and returns a number.
-The obvious example in our case is the action, which takes in one or more field-configurations, and returns a single real number.
+This is generalized to functionals through the definition of the functional derivative and the variation of a functional.
+Let $F[f]$ be a functional, i.e., a machine that takes in a function and returns a number.
+The obvious example in our case is the action, which takes in one or more field configurations, and returns a single real number.
 We will assume here that the functions have the domain $\Omega$, with coordinates $x$.
 The functional derivative is defined as
 \begin{equation}
@@ -71,4 +71,82 @@ The second derivative is
     (\partial_y^2 + m^2) \delta(x - y).
 \end{equation}
 
+
+\subsection*{Gaussian integrals}
+\label{section:gaussian integrals}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \draw (-2, 0) -- (2, 0) node[right] {$\mathrm{Re}(x)$};
+        \draw (0, -2) -- (0, 2) node[above] {$\mathrm{Im}(x)$};
+        \draw[->, thick] (-1.75, 0.1) -- (1.8, 0.1);
+        \draw[->, thick] (1.8, 0.15) arc (10:45:1.8);
+        \draw[->, thick] ({1.8/sqrt(2)}, {1.8/sqrt(2)}) -- ({-1.8/sqrt(2)}, {-1.8/sqrt(2)});
+        \draw[->, thick] ({-1.8/sqrt(2)}, {-1.8/sqrt(2)}) arc (225:180:1.8);
+    \end{tikzpicture}
+    \caption{Wick rotation}
+    \label{Wick rotation}
+\end{figure}
+
+
+A useful integral is the Gaussian integral,
+\begin{equation}
+    \int_\R \dd z \, \exp(- \frac{1}{2} a z^2) = \sqrt{\frac{2 \pi}{a}},
+\end{equation}
+for $a \in \R$. The imaginary version,
+\begin{equation}
+    \int_R \dd z \, \exp(i \frac{1}{2} a z^2 )
+\end{equation}
+does not converge. However, if we change $a \rightarrow a + i\epsilon$, the integrand is exponentially suppressed.
+\begin{equation}
+    f(x) = \exp(i \frac{1}{2}a x^2) \rightarrow
+    \exp(i\frac{1}{2}a x^2 - \frac{1}{2} \epsilon  x^2).
+\end{equation}
+As the integrand falls exponentially for $x\rightarrow \infty$ and contains no poles in the upper right nor lower left quarter of the complex plane, we may perform a wick rotation by closing the contour as shown in \autoref{Wick rotation}.
+This gives the result
+\begin{equation}
+    \label{complex gauss 1D}
+    \int_\R \dd x \, \exp(i \frac{1}{2}(a + i\epsilon) x^2) 
+    = \int_{\sqrt{i}\R} \dd x \, \exp(i\frac{1}{2} ax^2)
+    = \sqrt{i} \int_\R \dd y\, \exp(-\frac{1}{2} (-a) y^2) = \sqrt{\frac{2 \pi i}{(-a)}}
+\end{equation}
+where we have made the change of variable $y = (1+i)/\sqrt{2} x = \sqrt{i} x$.
+In $n$ dimensions, the Gaussian integral formula generalizes to
+\begin{equation}
+    \int_{\R^n} \dd^n x \, \exp{-\frac{1}{2} x_n A_{nm} x_m } =\sqrt{\frac{(2 \pi)^n}{\det(A)}},
+\end{equation}
+where $A$ is a matrix with $n$ real, positive eigenvalues.
+We may also generalize \autoref{complex gauss 1D},
+\begin{align}
+    \int_{\R^n} \dd^n x \, \exp{i\frac{1}{2} x_n( A_{nm} + i \epsilon \delta_{nm}) x_m } =\sqrt{\frac{(2 \pi i )^n}{\det(-A)}}.
+\end{align}
+The final generalization is to functional integrals,
+\begin{align}
+    \int \D \varphi \, \exp(- \frac{1}{2} \int \dd x \, \varphi(x) A \varphi(x) )
+    = C (\det(A))^{-1/2},
+    \int \D \varphi \, \exp(i\frac{1}{2} \int \dd x \, \varphi(x) A \varphi(x) )
+    = C (\det(-A))^{-1/2}.
+\end{align}
+$C$ is here a divergent constant, but will either fall away as we are only looking at the logarithm of $I_\infty$ and are able to throw away additive constants, or ratios between quantities which are both multiplied by $C$.
+
+The Gaussian integral can be used for the stationary phase approximation.
+In one dimension, it is
+\begin{equation}
+    \int \dd x \, \exp(i \alpha f(x)) 
+    \approx \sqrt{\frac{2 \pi }{f''(x_0)}}\exp( f(x_0)), 
+    \, f'(x) = 0, \, \alpha\rightarrow \infty
+\end{equation}
+The functional generalization of this is
+\begin{equation}
+    \int \D \varphi \exp{i S[\varphi]}
+    \approx 
+    C \det(- \frac{\delta^2 S[\varphi_0]}{\delta \varphi^2})
+    \exp{i \alpha S[\varphi_0]  }, \quad
+    \frac{\delta S[\varphi_0]}{\delta \varphi} = 0…
+\end{equation}
+Here, $S[\varphi]$ is a general functional of $\varphi$, and we have used the Taylor expansion, and $\varphi_0$ fulfills
+\begin{equation}
+    \funcdv{\varphi(x)}{S[\varphi_0]} = 0,
+\end{equation}
 

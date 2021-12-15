@@ -1,4 +1,4 @@
-With the leading order and next-to-leading order Lagrangian from \chpt, we can now compute thermodynamic propreties such as the free energy and the equation of state, and investigate the phase transition to the pion condensate phase.
+With the leading order and next-to-leading order Lagrangian from \chpt, we can now compute thermodynamic properties such as the free energy and the equation of state, and investigate the phase transition to the pion condensate phase.
 We will start with the free energy, computing the leading-order contribution to one loop, and the next-to-leading order contribution at tree-level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
 
 \section{Free energy at lowest order}
@@ -8,8 +8,8 @@ The free energy density of a homogenous system is
 \begin{equation}
     \Ef = - \frac{1}{V \beta} \ln Z.
 \end{equation}
-Here, $Z$ is the partition function, $V$ the volume of space and $\beta = 1/T$ is inverse temperature.
-Using imaginary time formalism for thermal field theory, which is described in \autoref{appendix:thermal field theory}, we find that the partition function is given by the path integral of the \emph{Euclidean} Lagrange density, as shown in equation \cref{free scalar result 2}.
+Here, $Z$ is the partition function, $V$ is the volume of space, and $\beta = 1/T$ is inverse temperature.
+Using imaginary time formalism for thermal field theory, described in \autoref{appendix:thermal field theory}, we find that the partition function is given by the path integral of the \emph{Euclidean} Lagrange density, as shown in equation \cref{free scalar result 2}.
 In the zero temperature limit $\beta \rightarrow \infty$, the partition function is related to vacuum transition amplitude $Z_0 = Z[J=0]$, as described in \autoref{section:path integral}, by a Wick rotation.
 The free energy density at zero temperature is therefore 
 \begin{equation}
@@ -47,10 +47,10 @@ This gives the criterion
     \mathrm{or} \quad
     \cos{\alpha} = \frac{\bar m^2}{\mu_I{}^2}.
 \end{align}
-As we see in the figure, $\alpha = \pi$ is a maximum, and thus unstable.
+As we see in the figure, $\alpha = \pi$ is a maximum and thus unstable.
 This means that for all values $\mu_I^2 \leq \bar m^2$, we will have $\alpha = 0$, and the system will remain in its ground state.
 
-In our discussion of the effective potential we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
+In our discussion of the effective potential, we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
 This means that the linear part of the classical potential should vanish.
 The linear part of the classical potential is given by \cref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - \bar m^2)\sin{\alpha} \, \pi_1 $, which vanishes given the minimizition criterion \cref{leading order minization}.
 \begin{figure}[ht]
@@ -136,7 +136,7 @@ we get
 \begin{equation}
     I = i \int \frac{\dd^3 p}{(2 \pi)^3} E.
 \end{equation}
-We see that the result is what we would expect physically, the total energy is the integral of the energy of each mode.
+We see that the result is what we would expect physically; the total energy is the integral of the energy of each mode.
 This also agrees with the result from \autoref{appendix:thermal field theory} in low temperature limit $\beta \rightarrow \infty$.
 This results in 
 \begin{equation}
@@ -145,8 +145,8 @@ This results in
     \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_-)\right]
     = \Ef^{(1)}_{\pi_0} +\Ef^{(1)}_{\pi_\pm}.
 \end{equation}
-The first integral is identical to what we find for a free field in \autoref{section:free scalar field}, in the zero temperature limit $\beta \rightarrow \infty$.
-These terms are all divergent, and must be regularized. 
+The first integral is identical to what we find for a free field in \autoref{section:free scalar field}, in the zero-temperature limit $\beta \rightarrow \infty$.
+These terms are all divergent and must be regularized. 
 We will use dimensional regularization, in which the integral is generalized to $d$ dimensions, and the $\overline{\mathrm{MS}}$-scheme, as described in \autoref{section: regualting free energy}.
 Using the result for a free field \cref{free field regularized energy}, we get
 \begin{equation}
@@ -289,7 +289,7 @@ The total one-loop contribution is then, using \cref{tilde m1,tilde m2},
 \begin{align}
     \Ef^{(2)}
     & = 
-    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm} 
+    \Ef^{(1)}_{\mathrm{fin}, \pi_\pm}
     - \mu^{-2 \epsilon} \frac{1}{2}\frac{1}{(4\pi)^2}
     \left[
         \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2 } \right)

@@ -4,7 +4,7 @@
 This section is based on \cite{weinberg_1995,weinberg_1996_vol2,Peskin:IntroQFT,smooth_manifolds}.
 
 \todo{Intro can be better}
-Symmetry plays a large role in modern physics.
+Symmetry plays a prominent role in modern physics.
 If we can transform a physical state in such a way that the governing equations of this system are unchanged, we call that transformation a \emph{symmetry transformation}.
 The set of all symmetry transformations of a theory is called the symmetries of that theory.
 The symmetries of a theory encode a lot of physics, such as the presence of conserved quantities and the system's low energy behavior.
@@ -109,7 +109,7 @@ These can be written as
     \centering
     \begin{tabular}{l l}
         $\forall g \in G, $&$ (g, \one) = g, $\\
-        $\forall g_1, g_2, g_3 \in G, $ & $ (g_1, (g_2, g_3)) = ((g_1, g_2), g_3), $\\
+        $\forall g_1, g_2, g_3 \in G, $ & $ (g_1, (g_2, g_3)) = ((g_1, g_2), g_3), $\\
         $\forall g \in G,\, \exists g^{-1} \in G,\, \text{s.t.}, $ & $ (g, g^{-1}) = \one.$
     \end{tabular}
 \end{table}
@@ -120,7 +120,7 @@ We describe the set of continuous symmetry transformations,
     G = \setbuilder{g}{g \varphi = \varphi', \, S[\varphi'] = S[\varphi], \D \varphi' = \D \varphi },
 \end{equation}
 as a Lie group.
-In this case, the group multiplication is composition, i.e. performing transformations in succession.
+In this case, the group multiplication is composition, i.e., performing transformations in succession.
 This map is closed, as the composite of two symmetry transformations is another symmetry transformation.
 The identity map is a symmetry transformation, and composition is associative.
 This means that invertible symmetry transformations form a group.
@@ -163,7 +163,7 @@ They obey the Jacobi identity,
     C_{\alpha \beta}^\gamma + C_{\beta\gamma}^\alpha +  C_{\gamma\alpha}^\beta = 0,
 \end{equation}
 which mean that they are totally antisymmetric.
-For matrix groups, which are what we deal with in this text, the Lie bracket is the commutator.
+For matrix groups, which we deal with in this text, the Lie bracket is the commutator.
 A subset of the original Lie group, $H \subset G$, closed under the group action, is called a subgroup.
 $H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
 We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
@@ -252,11 +252,11 @@ then
 \end{equation}
 This is Nöther's theorem; a continuous symmetry implies the existence of a conserved current.
 
-The flux of current through some space-like surface $V$, i.e. a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
+The current flux through some space-like surface $V$, i.e., a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
 \begin{equation}
     Q = \int_V \dd^3 x \, j^0.
 \end{equation} 
-Using the divergence theorem again, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
+Using the divergence theorem, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
 \begin{equation}
     \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
 \end{equation}
@@ -265,8 +265,8 @@ Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$
 
 \subsection*{Goldstone's theorem}
 
-As we have discussed, symmetry transformation will leave the governing equation of a theory unchanged.
-This, however, does not imply that a physical state, such as the ground state, is invariant under this transformation.
+A symmetry transformation will leave the governing equation of a theory unchanged.
+This, however, does not imply that physical states, such as the ground state, are invariant under this transformation.
 The $N = 2$ linear sigma model illustrates this.
 If we assume the ground state $\varphi_{0}$ is translationally invariant, then it is given by minimizing the effective potential, of which the classical potential, $\Ve$, is the leading order approximation.
 This potential is illustrated in \autoref{fig:Mexican hat}.

@@ -1,12 +1,12 @@
 The standard model is arguably the most successful theory in all of physics.
 It uses the language of quantum field theory to describe the elementary particles of the universe and their interactions via the electromagnetic, weak, and strong forces.
 \autoref{fig:the standard model} shows a table of the particles that make up the standard model.
-Calculations of observable quantities using quantum electrodynamics (QED), the quantum theory of electromagnetic interactions, and the theory of weak interactions give highly precise predictions which agree to an astounding degree with experiments~\cite{Schwartz:QFT}.
+Calculations of observable quantities using quantum electrodynamics (QED), the quantum theory of electromagnetic interactions, and the theory of weak interactions give highly precise predictions which agree to an astounding degree with experiments~\cite{Schwartz:QFT}.
 These calculations use the techniques of Feynman diagrams, which describe any interactions as the sum of all possible ways that interaction could happen.
 When the interaction is weak, as is the case for QED, we get a sum that converges quickly, and calculating a few orders of the sum will yield highly accurate estimates of physical quantities.
 The weakness of QED is quantified in the fine structure constant $\alpha \approx 0.00 7297$~\cite{PDG}.
 A Feynman diagram in QED is proportional to $\alpha^n$, where $n$ is the number of vertices in the diagram.
-\todo{Is this really how Feynman diagrams work? Are they actually divergent series?}
+\todo{Is this really how Feynman diagrams work? Are they actually asynmptotic series?}
 Consequently, the contributions from more complex diagrams with many vertices rapidly become insignificant.
 Feynman diagrams are illustrated in \autoref{fig:qed feynman diagrams}, where the first few diagrams in electron scattering are drawn.
 
@@ -62,7 +62,7 @@ The effective description of only the $\varphi$-degrees of freedom by \emph{inte
     \int \D \varphi \D \psi \, \exp{i S[\varphi, \psi]}.
 \end{equation}
 This gives us hope for describing low-energy QCD as an effective theory of the particles we know from experiments appear.
-In this specialization project, we will derive and explore chiral perturbation theory, or \chpt, an effective theory of the pionic degrees of freedom of low-energy QCD.
+In this specialization project, we will derive and explore chiral perturbation theory (\chpt), a low-energy effective theory of QCD where mesons are the degrees of freedom.
 
 The action of the standard model has the form of an integral over a local Lagrangian,
 \begin{equation}
@@ -86,7 +86,7 @@ It says that if the sets of particles $\alpha_i$, $\beta_i$ are located far enou
     \braket{\beta_1}{\alpha_1}\braket{\beta_2}{\alpha_2}... \braket{\beta_N}{\alpha_N}.
 \end{equation}
 This is a familiar property, as it essentially says that wildly separated experiments do not interfere, and one that we expect all good effective descriptions to have~\cite{weinberg_1995,weinberg_1996_vol2}.
-These principles greatly constrain any effective action and are the basis for constructing the \chpt effective action.
+These principles greatly constrain any effective action and are the basis for constructing the \chpt\, effective action.
 This method was formulated by Weinberg~\cite{WeinbergPhenom} 
 It relies on---as Weinberg himself called it---a ``theorem'':
 \begin{quote}
@@ -124,8 +124,9 @@ One way to compute the equation of state of QCD systems is using the numerical m
 Here, space-time is approximated as finite and discrete, and Monte-Carlo importance sampling is used to perform the path integral.
 This method, however, fails for non-zero baryon chemical potential $\mu_B$, in what is known as the fermion sign problem.
 The baryon chemical potential $\mu_B$ parametrizes the matter-antimatter asymmetry.
-In systems such as neutron stars, or more generally all observed stars, there is much more matter than antimatter, which makes lattice QCD unsuited for these environments.
-Recently, it has been proposed that a condensate of pions can form a new type of compact, gravitationally bound object, i.e. a star.
+There is much more matter than antimatter in neutron stars, or more generally, all observed stars.
+This makes lattice QCD unsuited for simulating these systems.
+Recently, it has been proposed that a condensate of pions can form a new type of compact, gravitationally bound object, i.e., a star.
 States of pion condensates can have zero baryon chemical potential and are thus amenable to lattice QCD simulations.
 This offers a way to model stellar objects from first principles, as well as by analytical methods using \chpt~\cite{new_clas_of_compact_stars,andersen:bose_einstein}.
 
@@ -145,16 +146,16 @@ At low temperatures and chemical potentials, in the so-called normal or vacuum p
 This corresponds to all but the most extreme situations.
 \todo{Be more exact. High temp. and c.p. is not the same.}
 For high temperature or chemical potentials, QCD-matter undergoes \emph{deconfinment}, as the strong force weakens due to the running of the coupling constant.
-In this phase, quarks are no longer tightly bound in hadrons, but together with gluons form a soup called \emph{quark-gluon plasma}.
+In this phase, quarks are no longer tightly bound in hadrons, but together with gluons, form a soup called \emph{quark-gluon plasma}.
 Observations of a non-hadronic state of QCD-matter were done at the Relativistic Heavy Ion Collider (RHIC) in 2005~\cite{2005:RHIC,2005:RHIC2}.
 Quark gluon plasma is conjectured to be present at the center of neutron stars~\cite{from_hadrons_to_quarks}.
-For high baryon densities, which corresponds to high baryon chemical potentials, and low temperatures, a color superconductor is believed to form.
+A color superconductor is believed to form at low temperatures and high baryon densities, which corresponds to high baryon chemical potentials.
 This state of matter is analogous to electrical superconductors, in which electrons form Cooper pairs allowing for unimpeded electrical current.
 The color superconducting phase is due to the forming of Cooper pairs of quarks and results in the Meissner effect in which gluons can acquire mass~\cite{alford:color_superconductivity}.
 
 Understanding the phase diagram of QCD is an important part of research into the standard model and its consequences.
-To validate the techniques used, it is essential to employ all possible, sound approaches.
-This allows for validation of methods, by comparing results in the overlapping regimes, such as when comparing \chpt\ with lattice QCD.
+It is essential to use all possible sound approaches to validate the techniques used.
+This allows for validation of methods by comparing results in the overlapping regimes, such as when comparing \chpt\ with lattice QCD.
 
 \begin{figure}[h]
     \centering
@@ -171,13 +172,13 @@ We will also investigate the phase transition from the vacuum phase into a pion 
 In \autoref{chapter:theory}, we take a survey of some general theory needed for \chpt.
 We introduce the generating functional in the path integral formalism and use this to define the one-particle-irreducible effective action and the effective potential.
 This allows us to prove Goldstone's theorem, an important result that provides the connection between the symmetries of a theory and its low energy dynamics.
-The theorem states that a system that undergoes spontaneous symmetry breaking gives rise to massless particles.
+The theorem states that spontaneous symmetry breaking gives rise to massless particles.
 We then present the CCWZ construction, which provides a procedure to construct an effective Lagrangian of Goldstone bosons.
 We also present some mathematical prerequisites, such as Lie groups and Lie algebras, and discuss the role and mathematical implementation of symmetries in physics in general and quantum field theory in particular.
 
-In \autoref{chapter:effective theory of pions}, we take the general theory of the last chapter, and apply it to QCD to get \chpt.
-We start the chapter by discussing QCD, its constituent parts and their symmetries and the corresponding conserved currents.
-We then use the theory from last chapter to find the terms that make up the Lagrangian of \chpt, as well as how to incorporate explicit breaking of symmetry, external source currents, and a finite isospin chemical potential.
+In \autoref{chapter:effective theory of pions}, we take the general theory of the last chapter and apply it to QCD to get \chpt.
+We start the chapter by discussing QCD, its constituent parts, symmetries, and the corresponding conserved currents.
+We then use the theory from the last chapter to find the terms that make up the Lagrangian of \chpt and how to incorporate explicit symmetry breaking, external source currents, and a finite isospin chemical potential.
 This section also contains a discussion about how to order these terms in a well-defined series expansion and avoid the need to include infinity many terms.
 With this, we construct the leading order and next-to-leading order Lagrangian, which is expanded in powers of the pion fields.
 We discuss how to identify possible redundant terms in the Lagrangian and use our result to find properties of the pion, such as their tree-level mass and propagator.
@@ -192,8 +193,6 @@ We also discuss the phase transition to the pion condensate phase using the Land
 We summarize the results and discuss further work in \autoref{chpater:conclusion and outlook}.
 The appendix is referenced throughout the text.
 In \autoref{appendix:thermal field theory}, we review thermal field theory and the imaginary time formalism.
-This chapter contains calculations needed in the main part of the thesis, where they are referenced, and lays out the path integral approach as well as its connection to thermodynamics in more detail.
+This chapter contains calculations needed in the central part of the thesis, where they are referenced, and lays out the path integral approach and its connection to thermodynamics in more detail.
 We also discuss dimensional regularization, derive the Feynman rules for and interacting scalar, and generalize thermal field theory to fermions.
-\autoref{appendix:conventions and notaition} summarize the convention and notation used in this thesis, as well showing some derivations in detail and summarizing relevant mathematics.
-
-
+The other appendices discuss some mathematical background, and are refferenced when relevant.

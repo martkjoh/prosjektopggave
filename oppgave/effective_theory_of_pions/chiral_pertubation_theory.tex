@@ -3,8 +3,8 @@
 This section is base on \cite{Schwartz:QFT,weinberg_1996_vol2,Scherer2002IntroductionTC}, in addition to the original work~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom,Scherer:PhysRevD.53.315}
 
 In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$, i.e. $N_f = 2$.
-In this case, the symmetry group of rotations in the flavor indices are $G_f = U(1) \times SU(2)_L \times SU(2)_R$.
-The generators of $SU(2)$ are $T_\alpha = \tau_\alpha / 2$, where $\tau_\alpha$ are the Dirac matrices, as described in \autoref{Conventions and notation}.
+In this case, the symmetry group of rotations in the flavor indices are $G_f = U(1) \times \SU(2)_L \times \SU(2)_R$.
+The generators of $\SU(2)$ are $T_\alpha = \tau_\alpha / 2$, where $\tau_\alpha$ are the Pauli matrices, as described in \autoref{section:algebra bases}.
 The mass matrix of the quarks is
 \begin{equation}
     \label{Mass matrix}
@@ -17,17 +17,17 @@ The mass matrix of the quarks is
 \end{equation}
 where $m_u \approx 2.16 \, \text{MeV}$, and $m_d \approx 4.67 \, \text{MeV}$~\cite{PDG}.
 This means that the $G_f$ symmetry is \emph{explicitly} broken.
-In what is called the isospin limit, $m_u = m_d$, the subgroup $U(1) \times SU(2)_V$ remains intact.
-However, as $m_u \neq m_d$, also the isospin subgroup $SU(2)_V$ is broken.
+In what is called the isospin limit, $m_u = m_d$, the subgroup $U(1) \times \SU(2)_V$ remains intact.
+However, as $m_u \neq m_d$, also the isospin subgroup $\SU(2)_V$ is broken.
 The difference between these masses is small, which is why isospin is a good quantum number.
 Even though the underlying symmetry is only approximate, we can still apply the formalism from Goldstone's theorem and the CCWZ construction by including a small mass term for the Goldstone bosons, which in this case are called \emph{Pseudo Goldstone bosons}.
 
-We now focus on the subgroup $G = SU(2)_L \times SU(2)_R$.
+We now focus on the subgroup $G = \SU(2)_L \times \SU(2)_R$.
 The ground state spontaneously breaks this approximate symmetry of the two-flavor QCD-Lagrangian.
 As quarks $q$ are spinors, a non-zero expectation value of the quark field would break Lorentz-invariance.
 Instead, the spontaneous symmetry breaking is characterized by the \emph{scalar quark condensate}, $\ex{\bar q q}$.
-The scalar quantity $\bar q q$ is invariant under isospin transformations $H = SU(2)_V$, but not under $SU(2)_A$.
-The Goldstone manifold, therefore, is $G/H = SU(2)_L\times SU(2)_R/SU(2)_V = SU(2)_A$.
+The scalar quantity $\bar q q$ is invariant under isospin transformations $H = \SU(2)_V$, but not under $\SU(2)_A$.
+The Goldstone manifold, therefore, is $G/H = \SU(2)_L\times \SU(2)_R/\SU(2)_V = \SU(2)_A$.
 To model the low-energy dynamics of QCD, we start with the massless QCD Lagrangian,
 \begin{align*}
     \Ell^0_\mathrm{QCD}[q, \bar q, A_\mu] 
@@ -158,9 +158,9 @@ Following these rules, each term in the effective Lagrangian will have a well-de
 
 \subsection*{Non-linear realization}
 
-To parametrize the low energy behavior of QCD, we must find a representative element of the coset space of $G$, $G/H = SU(2)_A$.
+To parametrize the low energy behavior of QCD, we must find a representative element of the coset space of $G$, $G/H = \SU(2)_A$.
 Let $g\in G$. 
-We write $g = (L, R)$, where $R \in SU(2)_R$, $L \in SU(2)_L$.
+We write $g = (L, R)$, where $R \in \SU(2)_R$, $L \in \SU(2)_L$.
 Elements $h \in H$ are then of the form $h = (V, V)$.
 A general element g can be written as
 \begin{equation}
@@ -209,7 +209,7 @@ This leaves us with the single leading order term
 \end{equation}
 where we have used the cyclic property of the trace.
 
-Constructing the effective action out of Lagrangians that are invariant under $G$, however, is too restrictive to get the most general effective Lagrangian.
+However, constructing the effective Lagrangian out of terms invariant under $G$ is too restrictive to get the most general effective action.
 This only allows for an even number of $d_\mu$'s, and observed processes such as the decay of the neutral pion through $\pi^0 \rightarrow \gamma \gamma$ would not be possible~\cite{Scherer2002IntroductionTC}.
 This is because we have not allowed for terms that change the Lagrangian with a divergence term, as discussed in \autoref{section:symmetry}.
 Terms of this type are called Wess-Zumino-Witten (WZW) terms~\cite{weinberg_1996_vol2}.
@@ -219,7 +219,7 @@ We will not consider these here, as they do not affect the thermodynamic quantit
 \label{Covarinat derivative}
 
 Using $d_\mu$ we are able to construct any terms in the effective Lagrangian corresponding to $j=0$.
-To construct the effective Lagrangian when $j \neq 0$, which is needed to capture the effects of non-zero quark masses and external currents, we treat $G =  U(1)_V \times SU(2)_L\times SU(2)_R$ as a gauge group, and the source currents as the corresponding gauge fields.
+To construct the effective Lagrangian when $j \neq 0$, which is needed to capture the effects of non-zero quark masses and external currents, we treat $G =  U(1)_V \times \SU(2)_L\times \SU(2)_R$ as a gauge group, and the source currents as the corresponding gauge fields.
 The effective Lagrangian is then constructed as the most general Lagrangian that is invariant under \emph{local} transformations in $G$.
 The Ward-identities corresponding to the local symmetries of the Lagrangian are equivalent with the statement that $Z[j]$ is invariant under a gauge transformation of the external fields, in the absence of anomalies~\cite{Leutwyler:on_the_fundations}.
 
@@ -240,7 +240,7 @@ This gives us the transformation rule
 \begin{equation}
     v_{(s)}^\mu \rightarrow v_{(s)}^\mu - \partial^\mu \theta(x).
 \end{equation}
-Then, applying the $SU(2)_R$ transformation, we get
+Then, applying the $\SU(2)_R$ transformation, we get
 \begin{equation}
     \bar q_R \slashed{D} q_R + (i \bar q_R \gamma^\mu \tau_a  q_R) \, r^a_\mu
     \rightarrow
@@ -290,7 +290,7 @@ In each of these cases, we define the covariant derivative as
     \nabla_\mu \Sigma &= \partial_\mu \Sigma - i r_\mu \Sigma + i \Sigma l_\mu.
 \end{align}
 It follows from \cref{Sigma partial derivative} that $\nabla_\mu \Sigma$ transforms as $\Sigma$, and the proof for the other two is similar.
-For quantities that do not transform under $SU(2)_L\times SU(2)_R$, the covariant derivative is the ordinary partial derivative.
+For quantities that do not transform under $\SU(2)_L\times \SU(2)_R$, the covariant derivative is the ordinary partial derivative.
 If $A$, $B$ and $C = AB$ are all quantities with a well-defined covariant derivative, then
 \begin{equation}
     \nabla_\mu (AB) = (\nabla_\mu A) B + A (\nabla_\mu B).
@@ -308,7 +308,8 @@ Then,
     & = (\nabla_\mu A)B + A (\nabla_\mu B).
 \end{align*}
 The more general theorem follows by applying the definition of the various covariant derivatives~\cite{Scherer:PhysRevD.53.315}.
-Decomposing a 2-by-2 matrix $M$, as described in \autoref{Conventions and notation}, shows that the trace of the commutator of $\tau_b$ and $M$ is zero:
+We can extend this to do integration by parts.
+Decomposing a 2-by-2 matrix $M$, as described in \autoref{section:algebra bases}, shows that the trace of the commutator of $\tau_b$ and $M$ is zero:
 \begin{equation*}
     \Tr{\com{\tau_a}{M}]} = M_b\Tr{ \com{\tau_a}{\tau_b}} = 0.
 \end{equation*}
@@ -316,8 +317,7 @@ Together with the fact that $\Tr{\partial_\mu A} = \partial_\mu \Tr{A}$, this gi
 \begin{equation*}
     \Tr{A \nabla_\mu B} = \partial_\mu \Tr{AB} - \Tr{(\nabla_\mu A) B}.
 \end{equation*}
-This allows for the use of the divergence theorem when doing partial integration.
-Assume $A$, $K^\mu$, and $A K^\mu$ have a well-defined covariant derivative, and that $\Tr{A K^\mu}$ is invariant under transformations by the gauge group.
+Assume $A$, $K^\mu$, and $A K^\mu$ have well-defined covariant derivatives, and that $\Tr{A K^\mu}$ is invariant under transformations by the gauge group.
 Let $\Tr{K^\mu}$ be a space-time vector, and $\Tr{A}$ scalar. 
 Let $\Omega$ be the domain of integration, with coordinates $x$ and $\partial \Omega$ its boundary, with coordinates $y$. Then, 
 \begin{align*}
@@ -329,7 +329,11 @@ Let $\Omega$ be the domain of integration, with coordinates $x$ and $\partial \O
 where $n_\mu$ is the normal vector of $\partial \Omega$~\cite{Carroll:spacetime}.
 By the assumption of no variation on the boundary, the last term is constant when varying the action, and may therefore be discarded.
 
-This leads to a modification of the Maurer-Cartan form as well, to $i \Sigma^\dagger \nabla_\mu \Sigma$.
+In the presence of external source-currents, the Maurer-Cartan form becomes
+\begin{equation}
+    d_\mu = i \Sigma^\dagger \nabla_\mu \Sigma.
+\end{equation}
+Any invariant terms we constructed for $j=0$ remain invariant, however the gauge fields provide new building blocks.
 The leading order kinetic term now becomes
 \begin{equation}
     \label{leading order term sigma}
@@ -351,7 +355,7 @@ These can be combined to give more gauge-invariant terms, such as
 \begin{equation}
     \Tr{\chi^\dagger \Sigma}, \quad \Tr{\Sigma^\dagger \chi}.
 \end{equation}
-However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is a scalar, the only allowed term is\footnote{This corresponds to the fact that pions are pseudo scalars, they transform as $\pi \rightarrow - \pi$ under parity, as they are exitations in $SU(2)_A$.}
+However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is a scalar, the only allowed term is\footnote{This corresponds to the fact that pions are pseudo scalars, they transform as $\pi \rightarrow - \pi$ under parity, as they are exitations in $\SU(2)_A$.}
 \begin{equation}
     \label{leading order chi sigma term}
     \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}
@@ -379,11 +383,11 @@ As in the case of Yang-Mills theory, we may form a field strength tensor to crea
 \end{align}
 In our case, these vanish, and we can therefore safely ignore terms made including them.
 
-For $j = 0$, the vacuum is by assumption $\Sigma = \one$, and we can use the paramterization
+For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and we can use the paramterization
 \begin{equation}
     \Sigma(x) = \exp{i \frac{\pi_a\tau_a}{f}},
 \end{equation}
-where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons, and are real functions of space-time.
+where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons, a set of real functions of space-time.
 This ensures that $\pi = 0$ corresponds to the vacuum.
 If we perform an infinitesimal isospin-transformation, and assume $\pi_a/f$ small, then
 \begin{equation}
@@ -400,7 +404,7 @@ or
     \pi_a \rightarrow (\delta_{ac} + i \eta_b \epsilon_{abc}) \pi_c.
 \end{equation}
 The generators of $\pi_a$ under isospin-transforamtions are thus the adjoint representation of $\mathfrak{su}(2)$, and they form an isospin triplet.
-For $\eta_1 = \eta_2 = 0$, i.e. transformations generated by $\tau_3$, $\pi_3$ is invariant, which means that it has quantum number $I_3 = 0$.
+For $\eta_1 = \eta_2 = 0$, i.e. transformations generated by $\tau_3$, $\pi_3$ is invariant, which means that it has quantum number $I_3 = 0$.\footnote{Authors differe if they define $\sqrt 2 \pi_\pm = \pi_1 \pm i \pi_2$, or with opposite signs.We choose the former, so that $\pi_+ \ket{0}$ is the state with the quantum numbers of the positive pion.}
 $\pi_1$ and $\pi_2$ do not have a definite value of the third component of isospin, but rather for the first and second component.
 They are related to the observed, charged pions $\pi_+$ and $\pi_-$ by~\cite{Scherer2002IntroductionTC}
 \begin{equation}

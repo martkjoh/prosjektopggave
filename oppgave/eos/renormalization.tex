@@ -1,12 +1,12 @@
 \section{Next-to-leading order and renormalization}
-We have now regularized the divergences, so they can be handled in a well-defined way.
+We have now regularized the divergences, which allows them to be handled in a well-defined way.
 However, they are still there.
 To get rid of them, we need to use renormalization.
 The power counting scheme used when constructing the Effective Lagrangians ensures that all terms in $\Ell_{2n}$ is of order $p^{2n}$ in the pion momenta.\footnote{Remember that the bare pion mass $\bar m = B_0(m_u + m_d)$ is considered to be of order $p^2$.}
-The tree level free energy from $\Ell_{2n}$ is thus of order $p^{2n}$.
+The tree-level free energy from $\Ell_{2n}$ is thus of order $p^{2n}$.
 The $m$-loop correction to the tree level result is then suppressed by $p^{2m}$~\cite{WeinbergPhenom,Gasser-Leutwyler:chiral}.
 Our one-loop calculation using $\Ell_2$ therefore contains divergences of order $p^{4}$. 
-Since $\Ell_4$ is, by construction, the most general possible Lagrangian at order $p^4$, it contains coupling constants which can be renormalized to absorb all these divergences.
+Since $\Ell_4$ is, by construction, the most general possible Lagrangian at order $p^4$, it contains coupling constants that can be renormalized to absorb all these divergences.
 
 The renormalized coupling constants in $\Ell_4$ have been calculated for $\mu_I = 0$~\cite{Gasser-Leutwyler:chiral}.
 They are independent of $\mu_I$, and we can therefore use them in this calculation.
@@ -144,7 +144,7 @@ We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, 
 
 \subsection*{Parameters and consistent expansion}
 
-The coupling constants are free parameters, of the effective theory of \chpt.
+The coupling constants are free parameters of the effective theory of \chpt.
 As we are not able to do calculations with QCD at low energies, these must be measured instead of calculated from first principles.
 The values for the pion mass and pion decay constants used in this text are
 \begin{equation}
@@ -158,7 +158,7 @@ The most up-to-date value of the pion masses from the Pardicle Data Book are~\ci
     m_0 = 139.57039\pm0.00018\, \text{MeV}, \quad
     m_\pm = 134.9768\pm0.0005\, \text{MeV}.
 \end{eqnarray}
-These are the masses of the neutral and the charged pions, and includes contribution due to electromagneitc and weak interactions, which are not included in this study.
+These are the masses of the neutral and the charged pions and includes contribution due to electromagnetic and weak interactions, which are not included in this study.
 The value for the pion decay constant is~\cite{PDG}
 \begin{equation}
     f_\pi = \frac{1}{\sqrt{2}} (130.2 \pm 1.2 \, \text{MeV})
@@ -211,7 +211,7 @@ Together with \cref{equation bare mass,equation bare decay constant}, the NLO re
 
 In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_I$, using the lowest-order result for $\Ef$, given in \cref{leading order minization}.
 To calculate any thermodynamic quantities to leading order, at tree-level, we must use this result.
-When using the NLO result for the free energy, we must make sure to calculate this and other relationships to the same order, consistently.
+When using the NLO result for the free energy, we must make sure to calculate this and other relationships to the same order consistently.
 As we have seen earlier, when replacing the action by $S[\varphi] \rightarrow g^{-1}S[\varphi]$, the $L$-loop contribution is proportional to $g^{L-1}$.
 In Weinberg's power counting scheme, as laid out in \autoref{section:chiral pertubation theory}, we scale $p \rightarrow t p$ and $m_q \rightarrow t^2 m_q$.
 Then, the $n$th term in the expansion is proportional to $t^{2n}$.
@@ -235,7 +235,6 @@ The free energy expansion is
 \begin{equation}
     \Ef = s^{-1}\sum_{k = 0}^\infty \tilde \Ef_k \, s^{k}.
 \end{equation}
-The same expansion holds for all quantities we calculate from this theory.
 As argued earlier, $\alpha$ must minimize the free energy, and therefore satisfy
 \begin{equation}
     \diffp{\Ef}{\alpha} = 0.
@@ -333,12 +332,13 @@ The result is shown in \autoref{fig:alpha}, which compares the leading order and
     \label{fig:alpha}
 \end{figure}
 
-
-In general, if we have a function $f$ of $\alpha$, we expand it in $s$
+We can use the expansion in $s$ to consistently evaluate any observable to any power in perturbation theory.
+Assume that $f$ is some obserable, and a function of $\alpha$.
+We expand in $s$
 \begin{equation}
     f(\alpha) = f_0(\alpha) + s f_1(\alpha) + s^2 f_2(\alpha) + \dots
 \end{equation}
-Taylor expanding this around the leading order result for alpha, we get
+Taylor expanding this around the leading order result for $\alpha$, we get
 \begin{align*}
     f(\alpha) 
     & 

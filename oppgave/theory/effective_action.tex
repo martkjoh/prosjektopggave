@@ -2,7 +2,7 @@
 
 \label{section: effective action}
 The generating functional for connected diagrams, $W[J]$, is dependent on the external source current $J$.
-Analogously to what is done in thermodynamics and in Lagrangian and Hamiltonian mechanics, we can define a new quantity, with a different independent variable, using the Legendre transformation.
+Analogously to what is done in thermodynamics and Lagrangian and Hamiltonian mechanics, we can define a new quantity with a different independent variable, using the Legendre transformation.
 The new independent variable is 
 \begin{equation}
     \varphi_J(x) := \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J.
@@ -29,7 +29,7 @@ If we compare this to the classical equations of motion of a field $\varphi$ wit
 \end{equation}
 we see that $\Gamma$ is an action that gives the equation of motion for the expectation value of the field, given a source current $J(x)$.
 
-To interpret $\Gamma$ further we observe what happens if we treat $\Gamma[\varphi]$ as a classical action with a coupling $g$.
+To interpret $\Gamma$ further, we observe what happens if we treat $\Gamma[\varphi]$ as a classical action with a coupling $g$.
 The generating functional in this new theory is
 \begin{equation}
     \label{partition function with g}
@@ -37,19 +37,19 @@ The generating functional in this new theory is
     \exp{ i g^{-1} \left( \Gamma[\varphi] + \int \dd^4x \varphi(x) J(x) \right) }
 \end{equation}
 The free propagator in this theory will be proportional to $g$, as it is given by the inverse of the equation of motion for the free theory.
-All vertices in this theory, on the other hand, will be proportional to $g^{-1}$, as they are given by the higher order terms in the action $g^{-1}\Gamma$.
+All vertices in this theory, on the other hand, will be proportional to $g^{-1}$, as they are given by the higher-order terms in the action $g^{-1}\Gamma$.
 This means that a diagram with $V$ vertices and $I$ internal lines is proportional to $g^{I-V}$.
 Regardless of what the Feynman-diagrams in this theory are, the number of loops of a connected diagram is\footnote{This is a consequence of the Euler characteristic $\chi = V - E + F$.}
 \begin{equation}
     \label{Number of loops}
     L = I - V + 1.
 \end{equation}
-To see this, we first observe that one single loop must have equally many internal lines as vertices, so the formula holds for $L = 1$.
-If we add a new loop to a diagram with $n$ loops by joining two vertices, the formula still holds.
+To see this, we first observe that diagrams with one single loop must have equally many internal lines as vertices, so the formula holds for $L = 1$.
+The formula still holds if we add a new loop to a diagram with $n$ loops by joining two vertices.
 If we attach a new vertex with one line, the formula still holds, and as the diagram is connected, any more lines connecting the new vertex to the diagram will create additional loops.
-This ensures that the formula holds, by induction.
+This ensures that the formula holds by induction.
 As a consequence of this, any diagram is proportional to $g^{L-1}$.
-This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level, i.e. by only considering diagrams without loops.
+This means that in the limit $g \rightarrow 0$, the theory is fully described at the tree-level, i.e., by only considering diagrams without loops.
 In this limit, we may use the stationary phase approximation, as described in \autoref{section:gaussian integrals}, which gives
 \begin{equation}
     Z[J, g\rightarrow 0] \approx 
@@ -86,7 +86,7 @@ This is exactly the definition of the inverse propagator,
 The inverse propagator is the sum of all one-particle-irreducible (1PI) diagrams, with two external vertices.
 More generally, $\Gamma$ is the generating functional for 1PI diagrams, which is why it is called the 1PI effective action.
 
-$\Gamma$ may be viewed as an effective action in the sense it was used in the introduction.
+$\Gamma$ may be viewed as an effective action as defined in the introduction.
 We define $\eta$ as the fluctuations around the expectation value of the field, $\varphi(x) = \varphi_J(x) + \eta(x)$, and use this to change variables of integration in the path integral.
 The expectation value $\varphi_J$ is constant with respect tho the integral, so 
 \begin{equation}
@@ -190,7 +190,7 @@ In \autoref{1PI effective action}, we showed that the 1PI effective action had t
 This was done by inspecting a theory with the action proportional to $g^{-1}$, where Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
 We can use the same argument to expand the effective potential in loops.
 This is done by modifying the action $S[\varphi] \rightarrow g^{-1}S[\varphi]$, and then expand in power of $g$.
-The first term in the effective potential is simply modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level terms.
+The first term in the effective potential is modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level terms.
 This is as expected, since the tree-level result corresponds to the classical result without any quantum corrections.
 The second term becomes
 \begin{align*}

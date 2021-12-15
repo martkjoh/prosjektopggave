@@ -53,19 +53,19 @@ The field $\varphi(x)$ can therefore be written as
 \end{equation}
 and $\xi_i(x)$ can be associated with the Goldstone bosons.
 
-In the linear sigma model, the original $O(N)$ symmetry is broken down to $O(N-1)$, which transforms the remaining $N-1$ fields with vanishing expectation values into each other.
-However, $O(N)$ consists of two disconnected subsets, those matrices with determinant 1 and those with determinant -1.
-There is no continuous path that takes an element of $O(N)$ with determinant of $-1$ to an element with determinant 1.\footnote{A simple proof of this is the fact that the determinant is a continuous function, while any path $\det M(t)$ such that $\det M(1) = -1,\, \det M(0) = 1$ must make a discontinuous jump.}
+In the linear sigma model, the original $\Olie(N)$ symmetry is broken down to $\Olie(N-1)$, which transforms the remaining $N-1$ fields with vanishing expectation values into each other.
+However, $\Olie(N)$ consists of two disconnected subsets, those matrices with determinant 1 and those with determinant -1.
+There is no continuous path that takes an element of $\Olie(N)$ with determinant of $-1$ to an element with determinant 1.\footnote{A simple proof of this is the fact that the determinant is a continuous function, while any path $\det M(t)$ such that $\det M(1) = -1,\, \det M(0) = 1$ must make a discontinuous jump.}
 The set of symmetries that are connected to the identity is
 \begin{eqnarray}
-    G = SO(N) = \setbuilder{M \in O(N)}{ \det M = 1}.
+    G = SO(N) = \setbuilder{M \in \Olie(N)}{ \det M = 1}.
 \end{eqnarray}
-If we choose $\varphi_0 = (0, 0, ..., v)$, then it is apparent that the ground state is invariant under the rotations of the $N-1$ first fields, so the unbroken symmetry is  $H = SO(N-1)$.
-The Goldstone manifold is $G/H = SO(N) / SO(N-1)$.
+If we choose $\varphi_0 = (0, 0, ..., v)$, then it is apparent that the ground state is invariant under the rotations of the $N-1$ first fields, so the unbroken symmetry is  $H = \SO(N-1)$.
+The Goldstone manifold is $G/H = \SO(N) / \SO(N-1)$.
 
 Consider the case of $N = 3$, which is illustrated in \autoref{fig:ground state manifold}.
-$G$ is the rotations of the sphere, while $H$ is rotations around $\varphi_0$, $SO(2)$.
-The Goldstone manifold consists of the rotations of $\varphi_0$ to other points of the sphere, i.e. $G/H = SO(3)/SO(2) = S^2$, the 2-sphere.
+$G$ is the rotations of the sphere, while $H$ is rotations around $\varphi_0$, $\SO(2)$.
+The Goldstone manifold consists of the rotations of $\varphi_0$ to other points of the sphere, i.e. $G/H = \SO(3)/\SO(2) = S^2$, the 2-sphere.
 This is not a Lie group, as translating $\varphi$ in a closed path around the sphere may result in a rotation around the z-axis.
 This is illustrated in \autoref{fig:Curvature of SO(3)}
 
@@ -113,7 +113,7 @@ $g\Sigma(\xi)$ does not, in general.
     \caption{The top figure illustrates the transformation of $\varphi_0$ to $\varphi$ and then $\varphi$, and the alternative transformation $\varphi_0 \rightarrow \varphi'$. The bottom figure illustrates how this can rotate a neighborhood of $\varphi_0$ differently.}
     \label{fig:Curvature of SO(3)}
 \end{figure}
-\autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = SO(3)$.
+\autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = \SO(3)$.
 $\Sigma(\xi)$ transforms $\varphi_0$ to $\varphi$, then $g$ transforms $\varphi$ to $\varphi' = \Sigma(\xi') \varphi_0$.
 Assuming $\varphi$ and $\varphi'$ are close enough to $\varphi_0$, we can write $\Sigma(\xi)$ and $\Sigma(\xi')$ on the standard form.
 However, if we follow a small neighborhood around $\varphi_0$ as it is acted on by $\Sigma(\xi)$, then $g$, it will be rotated by the time it arrives at $\varphi'$ when compared to the same neighborhood if it was acted on by $\Sigma(\xi')$.

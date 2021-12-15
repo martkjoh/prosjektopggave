@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[oneside]{book}
 
 \input{import.tex}
 \input{newcommands.tex}
@@ -33,15 +33,15 @@
 %%%%% Pions
 
 %%%%% Termisk
+% Forbedringer:
+% Gå gjennom path-integralet for fermioner ordentlig
 
 %%%% Konklusjon
-% Fiks konklusjon
 
 %%%% Kilder
-% Fin kildehenvisning
+% Fin kildehenvisning, kun initsialer, etc.
 
 %%%%% Thermal field theory
-
 
 %%%%% Generelt
 % Lingningsnummer --- når? - nesten alltid
@@ -54,7 +54,7 @@
 % tree level, ikke the tree level
 % Antiquark, ikke anti quark
 
-%%%% To change
+%%%% Master: To change
 % bestem deg for cref eller autoref
 % redefiner \Oh
 % vær konsekvent på \diff
@@ -64,11 +64,14 @@
 \maketitle 
 
 \tableofcontents
+\listoftodos
 
 \chapter*{Abstract}
 \input{introduction/abstract.tex}
+\chapter*{Conventions and notation}
+\input{introduction/conventions.tex}
 
-% \mainmatter
+
 \chapter{Introduction}
 \input{introduction/introduction.tex}
 
@@ -88,7 +91,6 @@
 \input{effective_theory_of_pions/QCD.tex}
 \input{effective_theory_of_pions/chiral_pertubation_theory.tex}
 \input{effective_theory_of_pions/leading_order_lagrangian.tex}
-\input{effective_theory_of_pions/redundant_terms.tex}
 \input{effective_theory_of_pions/nlo_lagrangian.tex}
 \input{effective_theory_of_pions/propagator.tex}
 
@@ -120,13 +122,11 @@
 \input{thermal_field_theory/interacting_scalar.tex}
 \input{thermal_field_theory/fermions.tex}
 
-\chapter{Appendices}
-\label{appendix:conventions and notaition}
+% \chapter{Appendices}
 
-\input{appendices/conventions.tex}
+\input{appendices/algebra_bases.tex}
 \input{appendices/functional_derivative.tex}
-\input{appendices/integrals.tex}
-\input{appendices/derivations.tex}
+\input{appendices/rewriting_terms.tex}
 
 \bibliographystyle{unsrt}
 \bibliography{referanser}

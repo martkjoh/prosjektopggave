@@ -1,4 +1,4 @@
-\subsection*{Low temperature limit}
+\subsection*{Low-temperature limit}
 
 Using the result from \autoref{section:thermal sum} on the result for the free energy density of the free scalar field, \autoref{free scalar result 2}, we get
 \begin{equation}
@@ -9,13 +9,13 @@ Using the result from \autoref{section:thermal sum} on the result for the free e
         \omega_k + \frac{2}{\beta }\ln(1 - e^{-\beta\omega_k})
     \right].
 \end{equation}
-The free energy thus has two parts, the first part is dependent on temperature, the other is a temperature independent vacuum contribution.
+The free energy thus has two parts; the first part is dependent on temperature, the other is a temperature-independent vacuum contribution.
 Noticing that the integral is spherically symmetric, we may write the two contributions as
 \begin{equation}
     \Ef_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
     \Ef_T = \frac{T^4}{2 \pi^2}\int_\R \dd x \, x^2  \ln(1 - e^{-\sqrt{x^2 + (m/T)^2}}), 
 \end{equation}
-The temperature-independent part, $\Ef_0$, is clearly divergent, and we must therefore impose a regulator, and then add counter-terms.
+The temperature-independent part, $\Ef_0$, is divergent, and we must impose a regulator and then add counter-terms.
 $\Ef_T$, however, is convergent. 
 To see this, we use the series expansion $\ln(1 + \epsilon) \sim \epsilon + \Oh{\epsilon}$ to find the leading part of the integrand for large $k$'s, 
 \begin{equation}
@@ -93,9 +93,9 @@ Combining this gives
     \left(\frac{m^2}{\mu^2}\right)^{\flatfrac{(d-n)}{2}} 
     .
 \end{equation}
-In the last step, we have introduced a parameter $\mu$ with mass dimension 1, that is $[\mu] = [m]$.
+In the last step, we have introduced a parameter $\mu$ with mass dimension 1, that is, $[\mu] = [m]$.
 This is done to be able to series expand around $d - n$ in a dimensionless variable. 
-This parameter is arbitrary, and all physical quantities should thererfore be independent of it.
+This parameter is arbitrary, and all physical quantities should therefore be independent of it.
 We will shortly justify this parameter further.
 
 
@@ -133,7 +133,7 @@ The divergent behavior of the temperature-independent term is therefore
 With this regulator, one can then add counter-terms to cancel the $\epsilon^{-1}$-divergence.
 The exact form of the counter-term is convention.
 One may also cancel the finite contribution due to the regulator.
-The minimal subtraction, or $\mathrm{MS}$, scheme, is to only subtract the divergent term, as the name suggest.
+The minimal subtraction ($\mathrm{MS}$) scheme involves only subtracting the divergent term, as the name suggests.
 We will use the modified minimal subtraction, or $\overline{ \mathrm{MS}}$, scheme.
 In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term, by defining a new mass scale $\tilde \mu$ by
 \begin{equation}
@@ -143,13 +143,14 @@ In this scheme, one also removes the $-\gamma$ and $\ln(4 \pi)$ term, by definin
 which leads to the expression
 \begin{equation}
     \label{free field regularized energy}
-    \Ef_0 \sim
+    \Ef_0 =
     - \mu^{-2\epsilon} \frac{1}{4}\frac{m^4}{(4 \pi)^2}
     \left(
         \frac{1}{\epsilon} 
         + \frac{3}{2}
         + \ln \frac{\tilde\mu^2}{m^2}
-    \right), \quad \epsilon \rightarrow 0.
+    \right)
+    + \Oh{\epsilon}.
 \end{equation}
 
 \subsection*{Renormalization}
@@ -184,7 +185,7 @@ However, the coupling constant for the interaction term
 \end{equation}
 has mass dimensions $[\lambda_3] = d -4(d-2)/2 = 4 - 2d$.
 Our goal now is to exchange the bare coupling constants $\lambda_n$ with renormalized ones, $\lambda_n^r$, and remove the divergent terms proportional to $(d - 4)^{-m}$.
-We can always define the renormalized coupling constants as dimensionless, i.e. $[\lambda_n^r] = 0$, by measuring them in units of a mass scale.
+We can always define the renormalized coupling constants as dimensionless, i.e., $[\lambda_n^r] = 0$, by measuring them in units of a mass scale.
 We therefore write 
 \begin{align*}
     \lambda_n = \mu^{4 - D_n}
@@ -229,5 +230,5 @@ The free energy thus becomes
     +
     \frac{T^4}{2\pi^2} \int \dd x \, x^2 \ln(1 - \exp{-\sqrt{x^2 + \beta^2 m^2}}).
 \end{equation}
-Notice that the choices we have made up until now, for example by defining $\lambda_4 = m^4 \lambda_4'$, and using the same renormalization scale $\mu$ has no impact on this result, as any other definition would just force us to define $\lambda_4^r$ and $a_4$ differently.
+Notice that the choices we have made up until now, for example, defining $\lambda_4 = m^4 \lambda_4'$, and using the same renormalization scale $\mu$ has no impact on this result, as any other definition would force us to define $\lambda_4^r$ and $a_4$ differently.
 

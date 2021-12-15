@@ -1,0 +1,33 @@
+Throughout this text, \emph{natural units} are used.
+These units are defined so that
+\begin{equation}
+    \hbar = c = k_B = 1,
+\end{equation}
+where $\hbar$ is the Planck reduced constant, $k_B$ is the Boltzmann constant, and $c$ is the speed of light.
+These constants will therefore be dropped from all expressions.
+They can be reintroduced using dimensional analysis.
+In natural units, \emph{mass dimension} is the only engineering dimension.
+Dimensionfull results are given in units of electronvolt (eV), or pion-masses, 
+\begin{equation}
+    m_\pi = 131 \, \text{MeV}.
+\end{equation}
+
+The Minkowski metric convention used is the ``mostly minus'',
+\begin{equation}
+    g_{\mu \nu} = \mathrm{diag}(1, -1, -1, -1).
+\end{equation}
+The Fourier transform used in this text is defined by
+\begin{align*}
+    \F{f(x)}(p) = \tilde f(p) = \int \dd x\, e^{i p x}f(x), \quad 
+    \FInv{\tilde f(p)}(x) = f(x) = \int \frac{\dd p}{2 \pi}\, e^{- i p x} \tilde f(p).
+\end{align*}
+We employ the \emph{Einstiein summation convention}, in which pairwise matching indices are summed.
+That is,
+\begin{equation}
+    a_i b_i = \sum_i a_i b_i = a_1 b_1 + \dots.
+\end{equation}
+For Minkowski-space indices, $\mu$, $\nu$, $\rho$ and $\sigma$, the metric raises and lower indices, and summation should always be over one raised and one lowered index,
+\begin{equation}
+    a_\mu b^\mu = g_{\mu\nu} a^\mu b^\nu 
+    = a^0 b^0 - a^1 b^1 - \dots.
+\end{equation}

@@ -1,6 +1,7 @@
 \section{Phase transition}
 
-In our leading-order analysis, we saw that $\alpha$ was zero for $\mu_I \leq \bar m$, before it starts to increase for $\mu_I>\bar m$, and that $\bar m = m_\pi$.
+Our leading-order analysis showed us that $\alpha$ is zero for $\mu_I \leq \bar m$, and then increases continuously for $\mu_I>\bar m$.
+Furthermore, $\bar m = m_\pi$ to leading-order.
 The behavior of $\alpha$ is illustrated in \autoref{fig:alpha}.
 This is the hallmark of a phase transition, where $\alpha$ is the order parameter.
 The behavior of systems near points of phase transition is described by Landau theory~\cite{Peskin:IntroQFT}.
@@ -13,7 +14,7 @@ Using \cref{leading order contribution free energy}, we can expand the leading-o
     & = \Ef(\alpha=0) + a(\mu_I)\alpha^2 + \frac{1}{2} b(\mu_I)\alpha^4 + \Oh[5]{\alpha}.
 \end{align}
 Notice that near $\mu_I = \bar m$, $b > 0$.
-As earlier, the equation that governs $\alpha$ is
+As earlier, the equation that governs $\alpha$ is
 \begin{equation}
     \label{landau ginsburg lo}
     \diffp{\Ef}{\alpha} = 2 [a(\mu_I) + b(\mu_I) \alpha^2] \alpha = 0.
@@ -39,16 +40,16 @@ The free energy around the phase transition is illustrated in \autoref{fig:phase
     \label{fig:phase transition}
 \end{figure}
 
-The order parameter $\alpha$ changes continuously as the system undergoes phase-transition.
+The order parameter $\alpha$ changes continuously as the system undergo a phase transition.
 This means we have a \emph{second order} phase transition.
-The power law behavior, $\alpha \propto (\mu_I - \mu_I^c)^\beta$, is typical of systems near a phase transition.
-The exponent $\beta$, which in this case equal $1/2$, is called a \emph{critical exponent}.
+The power-law behavior, $\alpha \propto (\mu_I - \mu_I^c)^\beta$, is typical of systems near a phase transition.
+The exponent $\beta$, which in this case equals $1/2$, is called a \emph{critical exponent}.
 If we have a system where $b < 0$ near $\mu_I = \bar m$, then we must expand $\Ef$ further to show if the phase transition is continuous or not.
-\autoref{fig:free energy surface 2} shows the free energy surface, but modified so that $b_0 < 0$, together with the corresponding value of $\alpha$, which now changes discontinuously at the point of phase transition.
+\autoref{fig:free energy surface 2} shows the free energy surface but modified so that $b_0 < 0$, together with the corresponding value of $\alpha$, which now changes discontinuously at the point of phase transition.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figurer/numerics/free_energy_surface2.pdf}
-    \caption{The surfaceis free energy density, only modified so that $b_0<0$. The black line traces out the minimum for each value of $\mu_I$, which jumps discontinuously at the point of phase transition.}
+    \caption{The surface is free energy density, only modified so that $b_0<0$. The black line traces out the minimum for each value of $\mu_I$, which jumps discontinuously at the point of phase transition.}
     \label{fig:free energy surface 2}
 \end{figure}
 
@@ -72,7 +73,8 @@ However, for $\alpha \neq 0$, the ground state is shifted to
 This is not, in general, invariant under transformations in $H$, and generators $\tau_2$ and $\tau_3$ are broken.
 The new ground state corresponds to a condensate of the $\pi_1$-particle, as it is defined in the vacuum state.
 In \autoref{fig:masses}, we saw that the mass of the $m_-$ particle vanishes, so we identify this particle with the corresponding Goldstone mode.
-There is only one Goldstone mode, however this is not a Lorentz invariant system, in which case we cannot guarantee one massless mode per broken generator.
+There is only one Goldstone mode. 
+However, this is not a Lorentz invariant system, in which case we cannot guarantee one massless mode per broken generator.
 
 To find the value of $\mu_I$ to next-to-leading order, we must expand the NLO free energy in powers of $\alpha$
 When we expand the static, second order Lagrangian to $\alpha^2$, we get
@@ -187,7 +189,7 @@ Using this in the logarithm gives,
     = \ln \left[1 + \Oh[2]{(\bar m/f)} \right]
     = \Oh[2]{(\bar m/f)}.
 \end{equation}
-The term proportional to the logarithm thus vanish to next-to-leading order.
+The term proportional to the logarithm thus vanishes to next-to-leading order.
 Combining these expressions give total NLO free energy, up to second order in $\alpha$, is
 \begin{equation}
     \Ef_{\mathrm{NLO}}
