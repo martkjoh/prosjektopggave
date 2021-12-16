@@ -327,7 +327,7 @@ Let $\Omega$ be the domain of integration, with coordinates $x$ and $\partial \O
     + \int_{\partial\Omega} \dd y\, n_\mu \Tr{A K^\mu},
 \end{align*}
 where $n_\mu$ is the normal vector of $\partial \Omega$~\cite{Carroll:spacetime}.
-By the assumption of no variation on the boundary, the last term is constant when varying the action, and may therefore be discarded.
+By the assumption of no variation on the boundary, the last term is constant when varying the action and may therefore be discarded.
 
 In the presence of external source-currents, the Maurer-Cartan form becomes
 \begin{equation}
@@ -385,6 +385,7 @@ In our case, these vanish, and we can therefore safely ignore terms made includi
 
 For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and we can use the paramterization
 \begin{equation}
+    \label{vacuum parametrization}
     \Sigma(x) = \exp{i \frac{\pi_a\tau_a}{f}},
 \end{equation}
 where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons, a set of real functions of space-time.
@@ -422,16 +423,5 @@ They are related to the observed, charged pions $\pi_+$ and $\pi_-$ by~\cite{Sch
 \end{equation}
 where $\pi_\pm$ has a third isospin-component of $I_3 = \pm1$.
 For non-zero isospin chemical potential, however, we expect that the ground state may be rotated away from the vacuum.
-Following~\cite{Andersen:two-flavor-chpt}, we parametrize the Goldstone manifold as
-\begin{align}
-\label{sigma}
-    \Sigma(x) = A_\alpha [U(x) \Sigma_0 U(x)] A_\alpha,
-\end{align}
-where
-\begin{align}
-    \Sigma_0 = \one,\, 
-    A_\alpha = \exp{\frac{i \alpha}{2} \tau_1},\, 
-    U(x) = \exp{i \frac{\tau_a\pi_a(x)}{2f}}.
-\end{align}
-Here, $\alpha$ is a real number between $0$ and $2 \pi$, that parametrizes the ground state of the system.
-This is all we need to start constructing the \chpt effective Lagrangian.
+To find what the new groundstate is, we have to minimize the Hamiltonian.
+
