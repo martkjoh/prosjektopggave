@@ -1,41 +1,51 @@
 \usepackage[left=2.5cm, right=2.5cm, top=2cm, bottom=2cm]{geometry}
 
+% math mode additions
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{physics}
 \usepackage{slashed}
-\usepackage{hyperref}
-\usepackage[title]{appendix}
-\usepackage[intlimits]{mathtools}
-\usepackage[export]{adjustbox}
+\usepackage{mathtools}
+% nice 3-vectors
 \usepackage{esvect}
+% nice differentation
+% Get straight d's when differantiating
+\usepackage[ISO]{diffcoeff}
+
+
+% appendix
+\usepackage[title]{appendix}
+% \usepackage[intlimits]{mathtools}
+
+\usepackage[export]{adjustbox}
+
+% in-document references
+\usepackage{hyperref}
 \usepackage[capitalize]{cleveref}
 
-
+% create plots
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 
-\usepackage{tikz}
-\usepackage[compat=1.1.0]{tikz-feynman}
+% Nice table of contents
+\usepackage{tocloft}
 
-\usepackage{caption}
-\usepackage{subcaption}
+% Get floats right
+\usepackage[section]{placeins}
 
-\usepackage[ISO]{diffcoeff} % Get straight d's when differantiating
-
-\usepackage{tocloft}    % Nice table of contents
-
-\usepackage[section]{placeins} % Get floats right
-
+% adjust fig captions
 \usepackage{caption}
 \usepackage{subcaption}
 \captionsetup{width=.9\textwidth}
 
-\usepackage{mathtools}
 \usepackage{titlepic}
-\usepackage[textsize=footnotesize]{todonotes}
-% \usepackage[disable]{todonotes}
+% \usepackage[textsize=footnotesize]{todonotes}
+\usepackage[disable]{todonotes}
+
+\usepackage[style=numeric-comp,sorting=none,sortcites=true,doi=true,url=false,giveninits=true,hyperref]{biblatex}
 
 \setlength{\marginparwidth}{2.2cm}
 
@@ -46,3 +56,4 @@
 \setlength{\parskip}{0.8em}
 
 \def\equationautorefname~#1\null{Eq.~(#1)\null}
+
