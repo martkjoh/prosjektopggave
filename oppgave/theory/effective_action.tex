@@ -2,8 +2,8 @@
 
 \label{section: effective action}
 The generating functional for connected diagrams, $W[J]$, is dependent on the external source current $J$.
-Analogously to what is done in thermodynamics and Lagrangian and Hamiltonian mechanics, we can define a new quantity with a different independent variable, using the Legendre transformation.
-The new independent variable is 
+We can define a new quantity with a different independent variable, using the Legendre transformation analogously to what is done in thermodynamics and Lagrangian mechanics.
+The new independent variable is
 \begin{equation}
     \varphi_J(x) := \frac{\delta W[J]}{\delta J(x)} = \ex{\varphi(x)}_J.
 \end{equation}
@@ -45,7 +45,7 @@ Regardless of what the Feynman-diagrams in this theory are, the number of loops 
     L = I - V + 1.
 \end{equation}
 To see this, we first observe that diagrams with one single loop must have equally many internal lines as vertices, so the formula holds for $L = 1$.
-The formula still holds if we add a new loop to a diagram with $n$ loops by joining two vertices.
+If we add a new loop to a diagram with $n$ loops, the formula still holds by joining two vertices.
 If we attach a new vertex with one line, the formula still holds, and as the diagram is connected, any more lines connecting the new vertex to the diagram will create additional loops.
 This ensures that the formula holds by induction.
 As a consequence of this, any diagram is proportional to $g^{L-1}$.
@@ -53,8 +53,8 @@ This means that in the limit $g \rightarrow 0$, the theory is fully described at
 In this limit, we may use the stationary phase approximation, as described in \autoref{section:gaussian integrals}, which gives
 \begin{equation}
     Z[J, g\rightarrow 0] \approx 
-    C \det(- \frac{\delta^2 \Gamma[\varphi_J]}{\delta \varphi^2})
-    \exp{i g^{-1} \left(\Gamma[\varphi_J] + \int \dd^4x J \varphi_J \right)  }.
+    C \det(- \fdiff{ \Gamma[\varphi_J]}{\varphi(x), \varphi(y)})
+    \exp{i g^{-1} \left(\Gamma[\varphi_J] + \int \dd^4x \, J(x) \varphi_J(x) \right)  }.
 \end{equation}
 This means that
 \begin{equation}
@@ -64,9 +64,9 @@ This means that
 \end{equation}
 which is exactly the Legendre transformation we started out with, modulo the factor $g$.
 $\Gamma$ is therefore the action which describes the full theory at the tree level.
-For a free theory, the classical action $S$ equals the effective action, as there are no loop diagrams.
+For a free theory, the classical action $S$ equals the effective action.
 
-The propagator $D(x, y)$, which is the connected 2 point function $\ex{\varphi(x)\varphi(y)}_J$, is given by the $-i$ times the second functional derivative of $W[J]$.
+As we found in the last section, the propagator $D(x, y) = \ex{\varphi(x)\varphi(y)}_J$, is given by $-i$ times the second functional derivative of $W[J]$.
 Using the chain rule, together with \autoref{effective equation of motion}, we get
 \begin{align}
     \label{Effective action inverse propagator}
@@ -91,7 +91,7 @@ We define $\eta$ as the fluctuations around the expectation value of the field, 
 The expectation value $\varphi_J$ is constant with respect tho the integral, so 
 \begin{equation}
     \int \D \varphi \, \exp{i S[\varphi]}
-    = \int \D \eta \, \exp{iS[\varphi_J + \eta]}
+    = \int \D \eta \, \exp{iS[\varphi_J + \eta]}.
 \end{equation}
 By assumption, $\ex{\eta}_J = 0$, which means this path integral is described by only 1PI diagrams.
 Comparing this to \cref{integrating out degrees of freedom}, we see that the 1PI effective potential corresponds to integrating out \emph{all} degrees of freedom, and let the expectation value appear as a static background field,
@@ -117,7 +117,7 @@ The generating functional becomes
 \begin{align}
     Z[J] 
     = \int \D (\varphi_0 + \eta) \, 
-    \exp{i S[\varphi_0 + \eta] + i \int \dd^4 x\, [\varphi_0 + \eta(x)] J(x) }
+    \exp{i S[\varphi_0 + \eta] + i \int \dd^4 x\, [\varphi_0 + \eta(x)] J(x) }.
 \end{align}
 
 The functional version of a Taylor expansion, as described in \autoref{section:Functional derivative}, is
@@ -138,8 +138,8 @@ We define
 \begin{align}
     S_0[\eta] &:= 
     \int \dd^4 x \dd^4 y \,\eta(x)\eta(y)\, 
-    \fdiff{S[\varphi_0]}{\eta(x), \eta(y)}, \\
-    S_i[\eta] &:=
+    \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}, \\
+    S_I[\eta] &:=
     \int \dd^4 x \dd^4 y \dd^4 z \,\eta(x)\eta(y)\eta(z)\, 
     \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y), \varphi(z)} + \dots,
 \end{align}
@@ -151,7 +151,7 @@ When we insert this expansion into the generating functional $Z[J]$ we get
         i \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
         +i \int \dd^4x \, \eta(x) \, 
         \left(  \fdv{S[\varphi_0]}{\varphi(x)} + J(x) \right)
-        + i S_0[\eta] + i S_i[\eta]
+        + i S_0[\eta] + i S_I[\eta]
         }
 \end{align}
 The first term is constant with respect to $\eta$, and may therefore be taken outside the path integral.
@@ -169,7 +169,7 @@ This leaves us with
     \int \dd^4 x \left(  \Ell[\varphi_0] + J \varphi_0  \right)
     -i \ln
     \left(
-        \int \D \eta\exp{i S_0[\eta] + i S_i[\eta]}
+        \int \D \eta\exp{i S_0[\eta] + i S_I[\eta]}
     \right)
 \end{equation}
 We can now use the definition of the 1PI effective action to obtain a formula for the effective potential,
@@ -182,12 +182,13 @@ We can now use the definition of the 1PI effective action to obtain a formula fo
     = \Ve(\varphi_0) 
     -i \ln
     \left(
-        \int \D \eta\exp{i S_0[\eta] + i S_i[\eta]}
+        \int \D \eta\exp{i S_0[\eta] + i S_I[\eta]}
     \right).
 \end{equation}
 
-In \autoref{1PI effective action}, we showed that the 1PI effective action had the property that it describes the whole quantum theory of the original action at the tree-level.
-This was done by inspecting a theory with the action proportional to $g^{-1}$, where Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
+In \autoref{1PI effective action}, we showed that the 1PI effective action describes the whole quantum theory of the original action at the tree-level.
+This was done by inspecting a theory with an action proportional to $g^{-1}$.
+In this theory, Feynman diagrams with $L$ loops are proportional to $g^{L-1}$.
 We can use the same argument to expand the effective potential in loops.
 This is done by modifying the action $S[\varphi] \rightarrow g^{-1}S[\varphi]$, and then expand in power of $g$.
 The first term in the effective potential is modified by $\Ve \rightarrow g^{-1}\Ve$, which means that it is made up of tree-level terms.
@@ -196,13 +197,13 @@ The second term becomes
 \begin{align*}
     \ln
     \left(
-        \int \D \eta \, e^{i S_0 + i S_i}
+        \int \D \eta \, e^{i S_0 + i S_I}
     \right)
     \longrightarrow
     &
     \ln
     \left(
-        \int \D \eta \, e^{i g^{-1}S_0 + i g^{-1} S_i}
+        \int \D \eta \, e^{i g^{-1}S_0 + i g^{-1} S_I}
     \right)
     = 
     \ln\left(
@@ -212,7 +213,7 @@ The second term becomes
     \ln
     \left(
         \frac{
-            \int \D \eta\, e^{i g^{-1} S_i} \, e^{i g^{-1}S_0}
+            \int \D \eta\, e^{i g^{-1} S_I} \, e^{i g^{-1}S_0}
         }{
             \int \D \eta\,e^{i g^{-1}S_0}
         }
@@ -243,26 +244,26 @@ The first term is quadratic in $\eta$, and can therefore be evaluated as a gener
     + \const
 \end{align*}
 We then use the identity $\ln \det M = \Tr \ln M$.
-After we remove the constant term, this term proportional to $g^0$, i.e. it is made up of one-loop terms.
+After we remove the constant, this term proportional to $g^0$, i.e. it is made up of one-loop terms.
 
-The last term can be evaluated by first expanding the exponential containing the $S_i$ term, then using $\ln(1 + x) = \sum_n \frac{1}{n}x^n$.
-Notice that
+The last term can be evaluated by first expanding the exponential containing the $S_I$ term, then using $\ln(1 + x) = \sum_n \frac{1}{n}x^n$.
+Using
 \begin{equation}
-    \ex{A} =  \frac{
+    \ex{A}_0 =  \frac{
         \int \D \varphi \, 
         A \, e^{ig^{-1}S_0}
     }{
         \int \D \varphi \, 
         e^{ig^{-1}S_0}
-    }
+    },
 \end{equation}
-with this, we can write
+we can write
 \begin{align}
     & \ln
     \left[
         \frac{
             \int \D \eta \, 
-            e^{ig^{-1}S_i}e^{ig^{-1}S_0}
+            e^{ig^{-1}S_I}e^{ig^{-1}S_0}
         }{
             \int \D \varphi \, 
             e^{ig^{-1}S_0}
@@ -272,21 +273,21 @@ with this, we can write
     \ln 
     \left(
         \sum_n \frac{1}{n!}
-        \ex{(ig^{-1}S_i)^n}
+        \ex{(ig^{-1}S_I)^n}_0
     \right) 
 \end{align}
-Expectation values of functionals of the field can be written as
+If we expand the expectation value a funcional of $\varphi$ as a powerseries, each term can be rewritten as functional derivatives of $Z[J]$,
 \begin{equation}
-    \ex{f[\varphi]} = f\left[-i\fdiff{}{J}\right] Z[J] \big|_{J=0},
+    \ex{f[\varphi]}_0 = f\left[-i\fdiff{}{J}\right] Z_0[J] \big|_{J=0}.
 \end{equation}
-where the functional of a functional derivative is evaluated by its series expansion.
-From Wick's theorem, each term in this series is given by a product of second functional derivatives $W_0$, i.e. propagators.
+This is a generalization of the result that correlation functions are functional derivatives of the generating functional.
+From Wick's theorem, each term in this series is given by a product of second functional derivatives $W_0$, i.e., propagators.
 As argued earlier, the propagator of the interacting theory is proportional to $g$.
-We know that $S_i$ is made up of terms that is third power or higher in the fields.
+We know that $S_I$ is made up of terms of the third power or higher in the fields.
 Furthermore, as the expectation value of an \emph{odd} number of fields are proportional to tadpole-diagrams, those can be ignored.
-This means that $\ex{S_i^n} \propto g^{k}$, where $k$ is more or equal to $3n$, if $n$ is even, $3n+1$, if $n$ is odd.
-This shows that $Z_i = \Oh{g}$, and thus that $Z_1$ contains \emph{all} one loop contributions to $\ln Z$.
-The effective potential to 1 loop order is thus
+This means that $\ex{S_I^n} \propto g^{k}$, where $k$ is more or equal to $3n$, if $n$ is even, $3n+1$, if $n$ is odd.
+This shows that the last logarithm is at least $\Oh{g}$, and thus that the firs contains \emph{all} one loop contributions to $\ln Z$.
+The effective potential to 1 loop order is therefore
 \begin{equation}
     \label{effective potential}
     \Veff(\varphi_0) = \Ve(\varphi_0) - \frac{i}{VT}  \frac{1}{2} \Tr{\ln\left( - \fdiff{S[\varphi_0]}{\varphi(x), \varphi(y)}  \right)}.

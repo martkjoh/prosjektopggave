@@ -9,7 +9,7 @@ The set of all symmetry transformations of a theory is called the symmetries of 
 The symmetries of a theory encode a lot of physics, such as the presence of conserved quantities and the system's low energy behavior.
 We distinguish between internal and external symmetries.
 An external symmetry is an active coordinate transformation, such as rotations or translations.
-They relate degrees of freedom at different space-time points, while internal symmetry transforms degrees of freedom at each space-time point independently of what happens at other points.
+They relate degrees of freedom at different space-time points, while internal symmetry transforms degrees of freedom at each space-time point independently.
 A further distinction is between global and local symmetry transformations.
 Global transformations have one rule for transforming degrees of freedom at each point, which is applied everywhere, while local transformations are functions of space-time.
 
@@ -26,7 +26,7 @@ This allows us to look at ``infinitesimal'' transformations,
     = \varphi(x) + \epsilon \diff{ f_t[\varphi] }{t}\bigg |_{t=0} + \Oh{\epsilon}.
 \end{equation}
 When considering infinitesimal transformations, we will not write $\Oh{\epsilon}$, as it is considered implicit.
-We will consider internal, global transformations which act as linearly on $\varphi$.
+We will consider internal, global transformations which act linearly on $\varphi$.
 For $N$ fields, $\varphi_i$, this can be written
 \begin{equation}
     \label{linear field transformation}
@@ -38,10 +38,10 @@ That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if
 \begin{equation}
     \Ell[\varphi'] = \Ell[\varphi] + \partial_\mu K^\mu[\varphi],
 \end{equation}
-where $K^\mu[\varphi]$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ do not vary the fields at infinity.}
+where $K^\mu[\varphi]$ is a functional of $\varphi$.\footnote{Terms of the form $\partial_\mu K^\mu$ does not affect the physics, as variational principle $\delta S = 0$ do not vary the fields at infinity. Together with the divergence theorem, this means that such terms do not influence the equations of motion.}
 This is a requirement for a symmetry in quantum field theory too.
-However, as physical quantities in quantum field theory are given not just by the action of a single state but the path integral, the integration measure $\D \varphi_i$ has to be invariant as well.
-If a classical symmetry fails due to the non-invariance of the integration measure, it iis called an \emph{anomaly}.
+However, as physical quantities in quantum field theory are given not just by the action of a single state but the path integral, the integration measure $\D \varphi$ has to be invariant as well.
+If a classical symmetry fails due to the non-invariance of the integration measure, it is called an \emph{anomaly}.
 
 To investigate the symmetry properties of a quantum theory, we explore what constraints a symmetry imposes on the effective action.
 To that end, assume 
@@ -57,7 +57,7 @@ Using the infinitesimal version of the transformation, we may write
     = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
     = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
     \\
-    = Z[J] -  \epsilon \int \dd^4 x J_i(x) \int \D \varphi \, e^{i S[\varphi]} [t_{ij} \varphi_j(x)],
+    = Z[J] + i \epsilon \int \dd^4 x \, J_i(x) \int \D \varphi \, [t_{ij} \varphi_j(x)]  e^{i S[\varphi]},
 \end{align}
 Using \cref{effective equation of motion}, we can write this as
 \begin{equation}
@@ -77,12 +77,12 @@ The linear sigma model is made up of $N$ real scalar fields $\varphi_i$, whose L
 \end{equation}
 This system is invariant under the rotation of the $N$ fields into each other,
 \begin{equation}
-    \varphi_i \longrightarrow \varphi_i' = O_{ij} \varphi_j,
-    \quad O^{-1} = O^{T}.
+    \varphi_i \longrightarrow \varphi_i' = M_{ij} \varphi_j,
+    \quad M^{-1} = M^{T}.
 \end{equation}
-The set of all such transformations forms the Lie group $O(N)$.
+The set of all such transformations forms the Lie group $\text{O}(N)$.
 Lie groups will be discussed in the next section.
-For $N = 2$, and $\mu^2, \lambda > 0$ we get the famous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
+For $N = 2$, and $\mu^2, \lambda > 0$ we get the ubiquitous Mexican hat potential, as illustrated in \autoref{fig:Mexican hat}.
 
 \begin{figure}[ht]
     \centering
@@ -119,6 +119,7 @@ We describe the set of continuous symmetry transformations,
     G = \setbuilder{g}{g \varphi = \varphi', \, S[\varphi'] = S[\varphi], \D \varphi' = \D \varphi },
 \end{equation}
 as a Lie group.
+The group $G$ might act on $\varphi$ linearly, so $(g\varphi)_i = g_{ij}\varphi_j$, or in a more complicated matter.
 In this case, the group multiplication is composition, i.e., performing transformations in succession.
 This map is closed, as the composite of two symmetry transformations is another symmetry transformation.
 The identity map is a symmetry transformation, and composition is associative.
@@ -129,22 +130,22 @@ This means that for each $g\in G$, one can find a continuous path $\gamma(t)$ in
 Given such a path, we can study transformations close to the identity.
 As the Lie group is a smooth manifold, we can write\footnote{The factor $i$ is a physics convention, and differs from how mathematicians define generators of a Lie group.}
 \begin{equation}
-    \gamma(\epsilon) = \one + i \epsilon V + \Oh{\epsilon}
+    \gamma(\epsilon) = \one + i \epsilon V + \Oh{\epsilon}.
 \end{equation}
 $V$ is a generator, is defined as
 \begin{equation}
     iV = \diff{\gamma}{t}\Big|_{t=0}.
 \end{equation}
 We can define a path $\gamma$ by its path through parameter space, $\gamma(t) = g(\eta(t))$.
-Here, $\eta_\alpha(t)$ is a path through $\R^N$, the coordinates of $G$.
+Here, $\eta_\alpha(t)$ is a path through $\R^N$, the coordinates of $G$, such that $\eta_\alpha(0) = 0$ and $g(0) = \one$.
 We can thus write the generator as
 \begin{equation}
-    V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_a}{t}\Big|_{t=0} \diffp{g}{\eta_a}\Big|_{\eta=0}
+    V = \diff{\gamma}{t}\Big|_{t=0} = \diff{\eta_\alpha}{t}\Big|_{t=0} \diffp{g}{\eta_\alpha}\Big|_{\eta=0}
     = v_\alpha T_\alpha, \quad 
-    T_\alpha = \diff{\eta_a}{t}\Big|_{t=0}, \quad
-    \diffp{g}{\eta_a}\Big|_{\eta=0}.
+    T_\alpha = \diff{\eta_\alpha}{t}\Big|_{t=0}, \quad
+    \diffp{g}{\eta_\alpha}\Big|_{\eta=0}.
 \end{equation}
-One can show that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_a$~\cite{smooth_manifolds}.
+One can show that the generators form a vector space, with the basis $T_\alpha$, induced by the coordinates $\eta_\alpha$~\cite{smooth_manifolds}.
 This vector space is called the tangent space of the identity element, $T_\one G$.
 Infinitesimal transformations can therefore be written as
 \begin{equation}
@@ -179,7 +180,7 @@ where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the r
 The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
 This is called a Cartan decomposition.
 
-Of special importance are one parameter subgroups.
+One parameter subgroups are one special case of Lie subgroups.
 If a curve $\gamma(t)$ through $G$ obey
 \begin{equation}
     \gamma(t)\gamma(s) = \gamma(t + s), \quad \gamma(0) = \one,
@@ -189,12 +190,12 @@ This path is associated with a generator,
 \begin{equation}
     \diff{\gamma}{t} \Big|_{t=0} = i \eta_\alpha T_\alpha.
 \end{equation}
-This allows us to define the exponential map,
+This association is one-to-one, and allows us to define the exponential map,
 \begin{equation}
     \exp{i \eta_\alpha T_\alpha} := \gamma(1).
 \end{equation}
 For connected and compact Lie groups, all elements of the Lie group $g \in G$ can be written as an exponential of elements in the corresponding Lie algebra $\eta_\alpha T_\alpha \in \mathfrak g$.
-For matrix groups, the exponential equals the familiar series expansion
+For matrix groups, the exponential equals the familiar series expansion~\cite{smooth_manifolds}
 \begin{equation}
     \exp{X} = \sum_n \frac{1}{n!} X^n.
 \end{equation}
@@ -202,7 +203,7 @@ For matrix groups, the exponential equals the familiar series expansion
 \subsection*{Nöther's theorem}
 
 One of the most profound consequences of symmetry in physics is the appearance of conserved quantities.
-Assume we have a set of fields $\varphi_i$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_i]$ has a continuous symmetry, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:spacetime}.
+Assume we have a set of fields $\varphi_i$. Nöther's theorem tells us that if the Lagrangian $\Ell[\varphi_i]$ has a continuous symmetry, then there is a corresponding conserved current~\cite{Peskin:IntroQFT,Carroll:space-time}.
 Consider an infinitesimal transformation,
 \begin{equation}
     \varphi_i(x) \longrightarrow \varphi_i'(x)
@@ -210,18 +211,18 @@ Consider an infinitesimal transformation,
 \end{equation}
 Applying this transformation to the Lagrangian will in general change its form,
 \begin{equation}
-    \Ell[\varphi_i] \rightarrow \Ell[\varphi_i']
-    = \Ell[\varphi_i] + \delta \Ell.
+    \Ell[\varphi] \rightarrow \Ell[\varphi']
+    = \Ell[\varphi] + \delta \Ell.
 \end{equation}
 We assume this transformation is a symmetry, i.e.
 \begin{equation*}
-    \delta \Ell = \partial_\mu K^\mu(x).
+    \delta \Ell = \partial_\mu K^\mu.
 \end{equation*}
 By considering the Lagrangian as a function of the field and its derivatives, $\Ell = \Ell(\varphi_i, \partial_\mu \varphi_i)$, we can write the difference term as a taylor expansion around $(\varphi_i, \partial_\mu \varphi_i)$,
 \begin{align}
     \delta \Ell
     = \diffp{\Ell}{\varphi_i} \delta \varphi_i
-    + \diffp{\Ell}{\partial_\mu \varphi} \delta (\partial_\mu \varphi_i),
+    + \diffp{\Ell}{\partial_\mu \varphi} \delta ((\partial_\mu \varphi_i)),
 \end{align}
 where $\delta (\partial_\mu \varphi_i) = \partial_\mu \varphi_i' - \partial_\mu \varphi_i$.
 By the linearlity of the derivative,
@@ -231,7 +232,7 @@ By the linearlity of the derivative,
     = \partial_\mu (\varphi_i' - \varphi_i)
     = \partial_\mu \delta \varphi_i.
 \end{equation}
-With this, and the Euler-Lagrange equations,
+With this, and the Euler-Lagrange equations
 \begin{equation}
     \partial_\mu \diffp{\Ell}{(\partial_\mu \varphi)} - \diffp{\Ell}{\varphi_i} = 0,
 \end{equation}
@@ -247,20 +248,21 @@ If we define the current
 \end{equation}
 then 
 \begin{equation}
-    \partial_\mu j^\mu = \delta L - \delta L = 0.
+    \partial_\mu j^\mu = \delta \Ell - \delta \Ell = 0.
 \end{equation}
 This is Nöther's theorem; a continuous symmetry implies the existence of a conserved current.
 
-The current flux through some space-like surface $V$, i.e., a surface with a time-like normal vector, defines a conserved charge. This surface is most commonly a surface of constant time in some reference frame. The conserved charge is then
+The current flux through some spacelike surface $V$ defines a conserved charge. The surface of constant time in some reference frame has the normal vector $n_\mu = (1, 0, 0, 0)$, so the conserved charge
 \begin{equation}
-    Q = \int_V \dd^3 x \, j^0.
-\end{equation} 
-Using the divergence theorem, and assuming the current falls of quickly enough towards infinity, we can show that the total charge is conserved,
-\begin{equation}
-    \pdv{t} Q = - \int_V \dd^3 x \, \nabla \cdot \vec j = - \int_{\partial V} \dd^2 x\, n_\mu j^\mu = 0.
+    Q = \int_V \dd^4 x \, n_\mu J^\nu = \int_V \dd^3 x \, j^0.
 \end{equation}
-Here, $n^\mu$ is the time-like normal vector of the surface of $V$, $\partial V$.
-
+We can then use the divergence theorem.
+Assume $\partial V$ is the boundary of $V$, which has the space-like normal vector $k_i$, and that the current falls of quickly towards infinity.
+Then
+\begin{equation}
+    \pdv{t} Q = - \int_V \dd^3 x \, \partial_i j^i = - \int_{\partial V} \dd^2 x\, k_i j^i = 0,
+\end{equation}
+proving that the charge is conserved.
 
 \subsection*{Goldstone's theorem}
 

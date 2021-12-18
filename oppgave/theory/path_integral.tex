@@ -1,5 +1,5 @@
-In this section, we will survey some general properties of quantum field theory that are necessary for chiral perturbation theory.
-First, we will introduce the path integral and the 1-particle irreducible effective action, as well as the effective action.
+In this section, we survey some general properties of quantum field theory that are necessary for chiral perturbation theory.
+First, we introduce the path integral and the 1-particle irreducible effective action and the effective action.
 We will derive Goldstone's theorem and present the CCWZ construction, which are the basis for \chpt.
 
 \section{QFT via path integrals}
@@ -8,10 +8,11 @@ We will derive Goldstone's theorem and present the CCWZ construction, which are 
 This section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 Feynman diagrams are drawn using JaxoDraw~\cite{JaxoDraw}.
 
-In the path integral formalism, one evaluates quantum observable by summing or integrating all possible configurations in space and time.
-If the system has specified initial and final configurations, this amounts to all possible paths the system might evolve between these, hence the name.
+In the path integral formalism, one evaluates quantum observable by integrating over the contributions of possible configurations.
+If the system has specified initial and final states, this amounts to all possible paths the system might evolve between these, hence the name.
 We assume the reader has some familiarity with this formalism. 
 However, if a refresher is needed, \autoref{section:imaginary-time formalism} contains a derivation of the closely related imaginary-time formalism and compares it with the path integral approach.
+
 In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. the probability that that vacuum at $t = -\infty$ evolves to the vacuum at time $t = \infty$, is given by
 \begin{equation}
     Z = \lim_{T\rightarrow \infty} \braket{\Omega, T/2}{-T/2, \Omega}
@@ -19,7 +20,7 @@ In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. 
     = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
 \end{equation}
 where $\ket{\Omega}$ is the vacuum state.
-The integration variables $\varphi$ and $\pi$ are the fields of the theory, and their cannoncial momenta.
+The  $\varphi$ are the fields of the theory, and $\pi$ their cannoncial momenta. We will work as if $\phi$ are a bosonic field, however, this can be readily generalized to fermions.
 By introducing a source term into the Hamiltonian density, $\He \rightarrow \He - J(x)\varphi(x)$, we get the generating functional
 \begin{equation}
     Z[J] = 
@@ -37,7 +38,7 @@ These are given by functional derivatives of $Z[J]$,
     \label{correlator from generating functional}
     \ex{\varphi(x_1)\varphi(x_2)...}
     = 
-    \frac{\int \D \varphi(x)\,  (\varphi(x_1)\varphi(x_2)...) e^{i S[\varphi]}}
+    \frac{\int \D \varphi(x)\, [\varphi(x_1)\varphi(x_2)...] e^{i S[\varphi]}}
         {\int \D \varphi(x)\, e^{i S[\varphi]}}
     =
     \frac{1}{Z[0]} \prod_i\left( -i  \fdv{J(x_i)}\right) Z[J]\Big|_{J = 0},
@@ -59,7 +60,7 @@ Using this form of the generating functional, \autoref{correlator from generatin
     & \frac{1}{Z[0]}  (-i)^n\fdiff{}{J(x_1)} ... \fdiff{}{J(x_n)} Z_0[J]  \Big|_{J = 0}
     = (-i)^n \fdiff{}{J(x_1)} ... \fdiff{}{J(x_n)} e^{i W_0[J]} \Big|_{J = 0}\\
     & = (-i)^{n} \fdiff{}{J(x_1)} ... \fdiff{}{J(x_{n-1})} \left(i \fdiff{W_0[J]}{ J(x_{n}) } \right) e^{i W_0[J]} \Big|_{J = 0}\\
-    & = (-i)^{n}\fdiff{}{J(x_2)} ... \fdiff{}{J(x_{n-1})}
+    & = (-i)^{n}\fdiff{}{J(x_1)} ... \fdiff{}{J(x_{n-2})}
     \left(
         i\fdiff{ W_0[J] }{ J(x_{n-1}), J(x_{n}) }
         + i^2 \fdiff{W_0[J]}{J(x_{n-1})} \fdiff{W_0[J]}{J(x_{n})}
@@ -72,8 +73,8 @@ Using this form of the generating functional, \autoref{correlator from generatin
 \end{align*}
 In the last line we have introduced the functions $a, \, b$ which define a way to pair up $n$ elements.
 $\floor{\cdot}$ is the floor function.
-The domain of the functions are the integers between $1$ and $\floor{n/2}$, the image a subset of the integers between $1$ and $n$ of size $\floor{n/2}$.
-A valid pairing is a set $\{(a(1), b(1)), \dots (a(\floor{n/2}), b(\floor{n/2}))\}$, where all elements $a(i)$ and $b(j)$ are different, such all integers up to and including $n$ are featured.
+The domain of these functions are the integers between $1$ and $\floor{n/2}$, the image a subset of the integers between $1$ and $n$ of size $\floor{n/2}$.
+A valid pairing is a set $\{(a(1), b(1)), \dots (a(\floor{n/2}), b(\floor{n/2}))\}$, where all elements $a(i)$ and $b(j)$ are different, such that all integers up to and including $n$ are featured.
 A pair is not directed, so $(a(i), b(i))$ is the same pair as $(b(i), a(i))$.
 The sum is over the set ${\{(a, b)\}}$ of all possible, unique pairings.
 If $n$ is odd, the expression is equal to $0$.
@@ -88,30 +89,30 @@ The two-point function in the full, interacting theory can be written
     -i \fdiff{W[J]}{J(x),J(y)} = D(x - y).
 \end{equation}
 
-If we have an interacting theory, that is a theory with an action $S = S_0 + S_I$, where $S_0$ is a free theory, the generating functional can be written
+If we have an interacting theory, that is, a theory with an action $S = S_0 + S_I$, where $S_0$ is a free theory, the generating functional can be written
 \begin{equation}
     \label{partition function of interacting theory.}
     Z[J] 
     = Z_0[0] \ex{\exp(iS_I + i\int \dd^4 x \, J(x) \varphi(x))}_0.
 \end{equation}
-We can expand the exponential in power series, which means the expectation in \autoref{partition function of interacting theory.} becomes
+We can expand the exponential in power series, which means the expectation value in \autoref{partition function of interacting theory.} becomes
 \begin{equation}
     \sum_{n, m} \frac{1}{n! m!} \ex{(iS_I)^n \left(i\int \dd^4 x \, J(x) \varphi(x)\right)^m}_0.
 \end{equation}
-The terms in this series are represented by Feynman diagrams, which are constructed using the Feynman rules, and can be read from the action.
-We will not go into further details on how the Feynman rules are derived.
+The terms in this series are represented by Feynman diagrams, constructed using the Feynman rules, and can be read from the action.
+We will not further detail how the Feynman rules are derived.
 The Feynman rules for a free scalar field in thermal field theory are derived in \cref{section:interacting scalar}, and the general procedure is found in any of the main sources for this section~\cite{Schwartz:QFT,weinberg_1995,weinberg_1996_vol2,Peskin:IntroQFT}.
 The source terms gives rise to an additional vertex
 \begin{equation}
     \includegraphics[width=0.25\textwidth, valign=c]{figurer/feynman-diagram/cnt_vertex.eps}.
 \end{equation}
-The generating functional $Z[J]$ equals $Z_0[0]$ times \emph{the sum of all diagrams with external sources $J(x)$}.
+The generating functional $Z[J]$ thus equals $Z_0[0]$ times \emph{the sum of all diagrams with external sources $J(x)$}.
 
 Consider a general diagram without external legs, built up of $N$ different connected subdiagrams, where subdiagram $i$ appears $n_i$ times.
 As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
 \begin{align}
     \label{Feinman diagrams}
-    V = 
+    \Em = 
     \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
     \times
     \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_2_loop.eps}
@@ -121,30 +122,30 @@ As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
     \includegraphics[height=1.2cm, valign=c]{figurer/feynman-diagram/phi-4_loop_notext.eps}
     \times \dots.
 \end{align}
-If sub-diagram $i$ as a stand-alone diagram equals $V_i$, each copy of that subdiagram contributes a factor $V_i$ to the total diagram.
+If sub-diagram $i$ as a stand-alone diagram equals $\Em_i$, each copy of that subdiagram contributes a factor $\Em_i$ to the total diagram.
 However, due to the symmetry of permuting identical subdiagrams, one must divide by the extra symmetry factor $s = n_i !$, the total number of permutations of all the copies of diagram $i$.
 The full diagram therefore equals
 \begin{align}
     \label{Feynman diagrams}
-    V
-    = \prod_{i= 1}^N \frac{1}{n_i!} V_i^{n_i}.
+    \Em
+    = \prod_{i= 1}^N \frac{1}{n_i!} \Em_i^{n_i}.
 \end{align}
-$V$ is uniquely defined by a finite sequence of integers, $(n_1, n_2, \dots n_N, 0, 0, \dots)$, so the sum of all diagrams is the sum over the set $S$ of all finite sequences of integers.
+$\Em$ is uniquely defined by a finite sequence of integers, $(n_1, n_2, \dots n_N, 0, 0, \dots)$, so the sum of all diagrams is the sum over the set $S$ of all finite sequences of integers.
 This allows us to write the sum of all diagrams as
 \begin{equation}
     \label{sum of all diagrams}
-    \sum_{(n_1, ...)\in S} \prod_{i} \frac{1}{n_i!} V_i^{n_i}
-    = \prod_{i = 1}^{\infty} \sum_{n_i=1}^{\infty} \frac{1}{n_i!} V_i^{n_i}
-    = \exp({\sum}_i V_i).
+    \sum_{(n_1, ...)\in S} \prod_{i} \frac{1}{n_i!} \Em_i^{n_i}
+    = \prod_{i = 1}^{\infty} \sum_{n_i=1}^{\infty} \frac{1}{n_i!} \Em_i^{n_i}
+    = \exp({\sum}_i \Em_i).
 \end{equation}
 We showed that the generating functional $Z[J]$ were the $Z_0[0]$ times the sum of all diagrams due to external sources.
-From \autoref{sum of all diagrams}, the sum of all \emph{connected} diagrams $W[J]$ is given by
+From \autoref{sum of all diagrams}, if we define
 \begin{equation}
-    Z[J] = Z_0[0]\exp(i W[J]).
+    Z[J] = Z_0[0]\exp(i W[J]),
 \end{equation}
-This is trivially true for the free theory, where the only connected diagram is
+then $W[J]$ is the sum of all connected diagrams. This is trivially true for the free theory, where the only connected diagram is
 \begin{equation}
     \label{generating functional of connected diagrams}
     W_0[J] = 
-    \includegraphics[valign=c, width=0.3\textwidth]{figurer/feynman-diagram/current-current.eps}.
+    \includegraphics[valign=c, width=0.35\textwidth]{figurer/feynman-diagram/current-current-crop.pdf}.
 \end{equation}
