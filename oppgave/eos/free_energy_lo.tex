@@ -1,4 +1,4 @@
-With the leading order and next-to-leading order Lagrangian from \chpt, we can now compute thermodynamic properties such as the free energy and the equation of state, and investigate the phase transition to the pion condensate phase.
+With the leading order and next-to-leading order \chpt\, Lagrangian, we can now compute thermodynamic properties such as the free energy and the equation of state, and investigate the phase transition to the pion condensate phase.
 We will start with the free energy, computing the leading-order contribution to one loop, and the next-to-leading order contribution at tree-level, following the procedure used in~\cite{mojahed, Andersen:two-flavor-chpt}.\footnote{Leading order and next-to-leading order, in this context, refers to Weinberg's power counting scheme.}
 
 \section{Free energy at lowest order}
@@ -6,17 +6,18 @@ We will start with the free energy, computing the leading-order contribution to 
 
 The free energy density of a homogenous system is
 \begin{equation}
-    \Ef = - \frac{1}{V \beta} \ln Z.
+    \Ef = - \frac{1}{V \beta} \ln \mathcal{Z}.
 \end{equation}
-Here, $Z$ is the partition function, $V$ is the volume of space, and $\beta = 1/T$ is inverse temperature.
+Here, $\mathcal{Z}$ is the partition function, $V$ is the volume of space, and $\beta = 1/T$ is inverse temperature.
 Using imaginary time formalism for thermal field theory, described in \autoref{appendix:thermal field theory}, we find that the partition function is given by the path integral of the \emph{Euclidean} Lagrange density, as shown in equation \cref{free scalar result 2}.
-In the zero temperature limit $\beta \rightarrow \infty$, the partition function is related to vacuum transition amplitude $Z_0 = Z[J=0]$, as described in \autoref{section:path integral}, by a Wick rotation.
+In the zero temperature limit  $\beta \rightarrow \infty$, the partition function is related to the generating functional $Z = Z[j]$, as described in \autoref{section:path integral}, by a Wick rotation.
 The free energy density at zero temperature is therefore 
 \begin{equation}
-    \Ef = \frac{i}{VT} \ln Z_0,
+    \Ef = \frac{i}{VT} \ln Z,
 \end{equation}
 where $VT$ is the volume of space-time.
-This equals the effective potential in the ground state, which we found an explicit formula for in \autoref{section: effective action}, \cref{effective potential}.
+This equals the effective potential in the ground state.
+In \autoref{section: effective action}, we found an explicit formula for this to one-loop order, \cref{effective potential}.
 We write $\Ef = \Ef^{(0)} + \Ef^{(1)} + \dots$, where $\Ef^{(n)}$ refers to the $n$-loop contributions to the free energy density.
 
 \subsection*{Tree-level contribution}
@@ -30,16 +31,17 @@ From \cref{L0} we have the leading order contribution,
     -f^2   
     \left(
         \bar m^2 \cos{\alpha}
-        + \frac{1}{2} \mu^2 \sin^2{\alpha}
+        + \frac{1}{2} \mu_I^2 \sin^2{\alpha}
     \right),
 \end{equation}
-where $\alpha$ parameterizes the ground state, which means that its value must minimize the free energy.
+where $\alpha$ parameterizes the ground state.
+This parameter must minimize the free energy, which means that
 \begin{align}
     &\diffp{}{\alpha} \Ef_2^{(0)} 
     = f^2\left(\bar m^2 - \mu_I^2\cos{\alpha}\right)\sin{\alpha}
     = 0.
 \end{align}
-This equation defines the relationship between the chemical potential $\mu_I$, and the ground state parameter $\alpha$, as illustrated in \autoref{fig:free energy surface}.
+This equation defines the relationship between the chemical potential $\mu_I$ and $\alpha$, as illustrated in \autoref{fig:free energy surface}.
 This gives the criterion
 \begin{align}
     \label{leading order minization}
@@ -48,15 +50,15 @@ This gives the criterion
     \cos{\alpha} = \frac{\bar m^2}{\mu_I{}^2}.
 \end{align}
 As we see in the figure, $\alpha = \pi$ is a maximum and thus unstable.
-This means that for all values $\mu_I^2 \leq \bar m^2$, we will have $\alpha = 0$, and the system will remain in its ground state.
+This means that for all values $\mu_I^2 \leq \bar m^2$, we will have $\alpha = 0$, and the system will remain in the vacuum.
 
 In our discussion of the effective potential, we also found that the ground state should minimize the classical potential, as shown by \cref{minimize classical potential}.
-This means that the linear part of the classical potential should vanish.
-The linear part of the classical potential is given by \cref{L1} to leading order, and reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - \bar m^2)\sin{\alpha} \, \pi_1 $, which vanishes given the minimizition criterion \cref{leading order minization}.
+As a consequence, the linear part of the classical potential should vanish.
+The linear part of the classical potential is given by \cref{L1} to leading order. It reads $\Ve^{(1)} = f(\mu_I{}^2\cos{\alpha} - \bar m^2)\sin{\alpha} \, \pi_1 $, and vanishes given the minimizition criterion \cref{leading order minization}.
 \begin{figure}[ht]
     \centering
     \includegraphics{figurer/numerics/free_energy_surface.pdf}
-    \caption{The surface free energy as a function of $\mu_I$ and $\alpha$. $\alpha$ is the found by minimizing $\Ef$ for a given $\mu_I$. This leads to a curve across the free energy surface, as show in the plot.}
+    \caption{The free energy surface as a function of $\mu_I$ and $\alpha$. $\alpha$ is the found by minimizing $\Ef$ for a given $\mu_I$. This leads to a curve across the free energy surface, as show in the plot.}
     \label{fig:free energy surface}
 \end{figure}
 
@@ -136,17 +138,17 @@ we get
 \begin{equation}
     I = i \int \frac{\dd^3 p}{(2 \pi)^3} E.
 \end{equation}
-We see that the result is what we would expect physically; the total energy is the integral of the energy of each mode.
-This also agrees with the result from \autoref{appendix:thermal field theory} in low temperature limit $\beta \rightarrow \infty$.
-This results in 
+We see that the result is what we would expect physically; the total energy is integral to each mode's energy.
+This also agrees with the result from \autoref{appendix:thermal field theory} in the zero-temperature limit $\beta \rightarrow \infty$.
+The one-loop contribution can therefore be written
 \begin{equation}
     \Ef^{(1)} = 
     \frac{1}{2} 
     \left[\int \frac{\dd^3 p}{(2\pi)^3} E_0 + \int  \frac{\dd^3 p}{(2\pi)^3} (E_+ + E_-)\right]
     = \Ef^{(1)}_{\pi_0} +\Ef^{(1)}_{\pi_\pm}.
 \end{equation}
-The first integral is identical to what we find for a free field in \autoref{section:free scalar field}, in the zero-temperature limit $\beta \rightarrow \infty$.
-These terms are all divergent and must be regularized. 
+The first integral is identical to what we find for a free field in \autoref{section:free scalar field}, in the zero-temperature limit.
+These terms are all divergent and must be regularized.
 We will use dimensional regularization, in which the integral is generalized to $d$ dimensions, and the $\overline{\mathrm{MS}}$-scheme, as described in \autoref{section: regualting free energy}.
 Using the result for a free field \cref{free field regularized energy}, we get
 \begin{equation}
@@ -154,9 +156,10 @@ Using the result for a free field \cref{free field regularized energy}, we get
     \Ef^{(1)}_{\pi_0} 
     = 
     - \mu^{-2 \epsilon}  \frac{1}{4} \frac{m_3^4}{(4\pi)^2} 
-    \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2} \right),
+    \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2} \right)
+    + \mathcal{O}(\epsilon),
 \end{equation}
-where $\mu$ is the renormalization scale, a parameter with mass-dimension 1 which is introduced to ensure the action integral remains dimensionless during dimensional regularization.
+where $\mu$ is the renormalization scale, a parameter with mass-dimension 1, introduced to ensure the action integral remains dimensionless during dimensional regularization.
 $\tilde \mu$ is a related to $\mu$ as described in \cref{definition mu tilde MS bar}.
 
 The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is more complicated, as the dispersion relation is given by
@@ -182,7 +185,7 @@ The contribution to the free energy from the $\pi_+$ and $\pi_-$ particles is mo
     }.
 \end{equation}
 This is not an integral we can easily do in dimensional regularization.
-Instead, we will seek a function $f(|\vv p|)$ with the same UV-behavior, that is behavior for large $\vv p$, as $E_+ + E_-$.
+Instead, we will seek a function $f(|\vv p|)$ with the same UV-behavior, that is, behavior for large $\vv p$, as $E_+ + E_-$.
 If we then add $0 = f(|\vv p|) - f(|\vv p|)$ to the integrand, we can isolate the divergent behavior
 \begin{equation}
     \Ef_{\pi_\pm}^{(1)}
@@ -219,7 +222,7 @@ We can explore the UV-behavior of $E_+ + E_-$ by expanding it in powers of $1 / 
     {\abs{\vv{p}}}^{-3}
     + \Oh[-5]{ \abs{\vv{p}}}.
 \end{align}
-We have defined the new constants $a_i$ for brevity of notation.
+We have defined new constants $a_i$ for brevity of notation.
 As
 \begin{equation}
     \int_{\R^3} \frac{\dd^3 p}{(2 \pi)^3} |\vv p|^{n}
@@ -232,7 +235,7 @@ The most obvious choice for $f$ is
     = a_1  \abs{\vv{p}} + a_2 \, {\abs{\vv{p}}}^{-1} + a_3 \, {\abs{\vv{p}}}^{-3}.
 \end{equation}
 However, this introduces a new problem.
-$f$ has the same UV-behavior as $E_+ + E_-$, but the last term diverges in the IR, that is for low $|\vv p|$.
+$f$ has the same UV-behavior as $E_+ + E_-$, but the last term diverges in the IR, that is, for low $|\vv p|$.
 This can be amended by introducing a mass term.
 Let
 \begin{equation}
@@ -242,7 +245,7 @@ Let
     \longrightarrow 
     \left(\frac{1}{\sqrt{|\vv p|^2 + m^2}}\right)^3.
 \end{equation}
-For $|\vv p|^2 \rightarrow \infty$, this term is asymptotic to $|\vv p|^{-3}$, so it retains its UV behavior.
+For $|\vv p|^2 \rightarrow \infty$, this is asymptotic to $|\vv p|^{-3}$, so it retains its UV behavior.
 However, for $|\vv p| \rightarrow 0$, it now approaches $m^{-3}$, so the IR-divergence is gone.
 The cost of this technique is that we have introduced an arbitrary mass parameter.
 Any final result must thus be independent of the value of $m$ to be acceptable.
@@ -262,7 +265,7 @@ Using the definition of the masses, \cref{m1,m2,m3,m12}, we get
     & = m_2^2 + \mu^2 \cos\alpha^2
     = \bar m^2 \cos \alpha.
 \end{align}
-Finally, we define $f(|\vv p|) = E_1 + E_2$ which differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$, and is well-behaved in the IR.
+Finally, we define $f(|\vv p|) = E_1 + E_2$, which differ from $E_+ + E_-$ by $\Oh[-5]{|\vv p|}$ and is well-behaved in the IR.
 This leads to a divergent integral the same form as in the case of a free scalar.
 Thus, in the $\mathrm{\overline{MS}}$-scheme, 
 \begin{equation}
@@ -298,5 +301,6 @@ The total one-loop contribution is then, using \cref{tilde m1,tilde m2},
         \frac{1}{2}
         \left( \frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{\tilde m_2^2} \right)
         \tilde m_2^4
-    \right].
+    \right]
+    + \mathcal{O}(\epsilon).
 \end{align}

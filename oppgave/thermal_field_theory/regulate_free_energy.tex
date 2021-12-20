@@ -9,7 +9,7 @@ Using the result from \autoref{section:thermal sum} on the result for the free e
         \omega_k + \frac{2}{\beta }\ln(1 - e^{-\beta\omega_k})
     \right].
 \end{equation}
-The free energy thus has two parts; the first part is dependent on temperature, the other is a temperature-independent vacuum contribution.
+The free energy density thus has two contributions from parts; the first part is dependent on temperature, the other is a temperature-independent vacuum contribution.
 Noticing that the integral is spherically symmetric, we may write the two contributions as
 \begin{equation}
     \Ef_0 = \frac{1}{2} \frac{1}{2 \pi^2}\int_{\R} \dd k \, k^2 \sqrt{k^2 + m^2}, \quad
@@ -29,9 +29,9 @@ In the limit of $T \rightarrow 0$, we get
     \frac{T^4}{2 \pi^2} \int_\R \dd x \, x^2 \ln(1 - e^{-x})
     = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{1}{n} \diffp[2]{}{n} \int \dd x e^{-nx}
     = - \frac{T^4}{2 \pi^2} \sum_{n=1} \frac{2}{n^4}
-    = - \frac{T^4}{\pi^2} \zeta(4)
+    = - \frac{T^4}{\pi^2} \zeta(4),
 \end{align}
-Where $\zeta$ is the Riemann-zeta function.
+where $\zeta$ is the Riemann-zeta function.
 Using $\zeta(4) = \frac{\pi^4}{90}$, we get
 \begin{equation}
     \Ef_T \sim - \frac{\pi^2}{90} T^4, \quad T \rightarrow 0.
@@ -54,8 +54,8 @@ We will use the formula for integration of spherically symmetric function in $d$
     = \frac{2 \pi^{d/2}}{\Gamma(d/2)} \int_\R \dd r \, r^{d-1}f(r),
 \end{equation}
 where $r = \sqrt{x_i x_i}$ is the radial distance, and $\Gamma$ is the Gamma function.
-The factor in the front of the integral comes from the solid angle.
-By extending this formula from integer-valued $d$ to real numbers, the function we defined becomes
+The factor in the front of the integral is the solid angle.
+By extending this formula from integer-valued $d$ to real numbers, we get
 \begin{equation}
     \Phi_n
     = \frac{2 \pi^{d/2} }{\Gamma(d/2)} \int_\R \dd k \, 
@@ -66,7 +66,7 @@ By extending this formula from integer-valued $d$ to real numbers, the function 
 where we have made the change of variables $m z = k$.
 We make one more change of variable to the integral,
 \begin{equation}
-    I = 2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}
+    I = 2 \int_\R \dd z \, \frac{z^{d - 1}}{(1 + z)^\alpha}.
 \end{equation}
 Let
 \begin{equation}
@@ -166,9 +166,10 @@ In $d$ dimensions, the action integral is
 \begin{equation}
     S[\varphi] = \sum_n \int \dd^d x \, \lambda_n \mathcal{O}_n[\varphi].
 \end{equation}
+%
 The action has mass dimension $0$.
 This means that all terms $\lambda_n \mathcal O_n$ must have mass dimension $d$, as $[\dd^d x] = -d$.
-We are free to choose the coupling constant corresponding $\mathcal O_0 = \partial_\mu \varphi \partial^\mu \varphi$ to be of mass dimension 0, and therefore set $\lambda_0 = 1/2$ to get canonicall normalization.
+We are free to choose the coupling constant corresponding to $\mathcal O_0 = \partial_\mu \varphi \partial^\mu \varphi$ to be of mass dimension 0, and therefore set $\lambda_0 = 1/2$ to get canonical normalization.
 This allows us to deduce the dimensionality of $\varphi$.
 As $[\partial_\mu] = 1$, we have that $[\varphi] = (d-2)/2$.
 Assume $\mathcal O_n$ consists of $k_n$ factors of $\varphi$, and $l_n$ factors of $\partial_\mu \varphi$.
@@ -177,7 +178,8 @@ We must then have
     [\lambda_n] + [\mathcal{O}_n] - d &= [\lambda_n] + (k_n + l_n)(d - 2) / 2 + l_n - d = 0, \\
     \implies D_n := [\lambda_n] &= d - k_n \frac{d - 2}{2} - l_n \frac{d}{2}.
 \end{align}
-From this formula, we recover that $[\lambda_0] = 0$, and if $\lambda_1 \varphi^2$, then $[\lambda_1] = 2$, which we recognize as the mass term squared.
+%
+From this formula, we recover that $[\lambda_0] = 0$, and if $\mathcal O_1 = \varphi^2$, then $[\lambda_1] = 2$, which we recognize as the mass term squared.
 The mass dimensions of these coupling constants are independent of $d$.
 However, the coupling constant for the interaction term
 \begin{equation}
@@ -206,11 +208,11 @@ It is
     \label{scalar field static term}
     \lambda_4 \mathcal{O}_4 = \lambda_4 = m^4 \lambda_4'.
 \end{equation}
-Using the expansion in terms of renormalized coupling, we have, using $d = 4 - 2\epsilon$
+Using the expansion in terms of the renormalized coupling, we have, 
 \begin{equation}
-    \lambda_4' = \mu^{- 2 \epsilon}\left[ \lambda_4^r + \frac{1}{2 \epsilon} a_1(\lambda_r^4) + ... \right].
+    \lambda_4' = \mu^{- 2 \epsilon}\left[ \lambda_4^r + \frac{1}{2 \epsilon} a_1(\lambda_r^4) + ... \right],
 \end{equation}
-
+where $d = 4 - 2\epsilon$.
 After adding \cref{scalar field static term} to the Lagrangian of the free scalar, the temperature independent free energy density becomes
 \begin{equation}
     \Ef_0 \sim - \mu^{-2 \epsilon}  \frac{1}{4} \frac{m^4}{(4 \pi)^2}  
@@ -221,7 +223,7 @@ After adding \cref{scalar field static term} to the Lagrangian of the free scala
     \quad \epsilon \rightarrow 0.
 \end{equation}
 Thus, if we choose $a_1 = -8 (4\pi)^2 + \mathcal{O}((\lambda_4^r))$, and define $\lambda_4'^r = 4(4\pi)^2\lambda_4^r$, we are able to cancel the divergence, and may take the limit $\epsilon \rightarrow 0$ safely.
-The free energy thus becomes
+The free energy is now
 \begin{equation}
     \Ef = -\frac{1}{4} \frac{m^4}{(4 \pi)^2} 
     \left(

@@ -1,10 +1,10 @@
 \section{Fermions}
 
-The phase factor $e^{i\theta}$ that was introduced in \autoref{section:imaginary-time formalism} can be determined by studying the properties of the thermal Greens function.
+The anti-periodic nature of fermion-fields, as mentioned in \autoref{section:imaginary-time formalism}, can be determined by studying the properties of the thermal Greens function.
 The thermal Greens function may be written 
 \begin{equation*}
     D(X_1, X_2) = D(\vec x, \vec y, \tau_1, \tau_2) 
-    = \ex{e^{-\beta \hat H} \T{ \hat \varphi(X_1) \hat \varphi(X_2) } }.
+    = \bra{\Omega} e^{-\beta \hat H} \T{ \hat \varphi(X_1) \hat \varphi(X_2) } \ket{\Omega}.
 \end{equation*}
 $\T{...}$ is time-ordering operator, defined as
 \begin{equation*}
@@ -20,8 +20,8 @@ In the same way that $i \hat H$ generates the time translation of a quantum fiel
 \end{equation}
 Using $\one = e^{\tau \hat H} e^{-\tau \hat H}$ and the cyclic property of the trace, we show that, assuming $\beta>\tau>0$,
 \begin{align*}
-    G(\vec x, \vec y, \tau, 0)
-    & = \ex{e^{-\beta \hat H} \T{\varphi(\tau, \vec x) \varphi(0, \vec y)}} \\
+    D(\vec x, \vec y, \tau, 0)
+    & = \bra{\Omega}e^{-\beta \hat H} \T{\varphi(\tau, \vec x) \varphi(0, \vec y)}\ket{\Omega} \\
     & = \frac{1}{Z} \Tr{
         e^{-\beta \hat H} \varphi(\tau, \vec x) \varphi(0, \vec y)
     } \\
@@ -35,9 +35,9 @@ Using $\one = e^{\tau \hat H} e^{-\tau \hat H}$ and the cyclic property of the t
     & = \frac{1}{Z} \Tr{
         e^{-\beta \hat H} \varphi(\vec y, \beta) \varphi(\tau, \vec x)
     } \\
-    & = \nu \ex{
-        e^{-\beta \hat H} \T{ \varphi(\tau, \vec x) \varphi( \beta, \vec y) }
-    }.
+    & = \nu \bra{\Omega}        
+    e^{-\beta \hat H} \T{ \varphi(\tau, \vec x) \varphi( \beta, \vec y) }
+    \ket{\Omega}.
 \end{align*}
 This implies that $\varphi(0, x) = \nu \varphi(\beta, \varphi)$, which shows that bosons are periodic in time, as stated earlier, while fermions are anti-periodic.
 
@@ -98,7 +98,7 @@ By using the Grassman-version of the Gaussian integral formula, the partition fu
         \tilde \psi
     } \\
     & = C \prod_{a b}\int \D \tilde \psi_a\D \tilde {\bar \psi}_b 
-    e^{- \langle \tilde {\bar \psi}, D_0^{-1} \psi\rangle} 
+    e^{- \langle \tilde {\bar \psi}, D_0^{-1} \tilde \psi\rangle} 
     = \det(D_0^{-1}).
 \end{align*}
 In the second line, we have inserted the Fourier expansion of the field, as defined in \autoref{section:imaginary-time formalism}, and changed variable of integration, as we did for the scalar field.
@@ -109,7 +109,7 @@ The linear operator in this case is
     \beta [i \tilde \gamma_a p_a + m ].
 \end{equation}
 This equality must be understood as an equality between linear operators, which are represented in different bases.
-We introduced the notation $p_{n;a} = (\omega_n + i \mu, p_i)$ and use the Euclidean gamma matrices, as defined in \autoref{section:algebra bases}.
+We introduced the notation $p_a = (\omega_n + i \mu, p_i)$ and use the Euclidean gamma matrices, as defined in \autoref{section:algebra bases}.
 We use the fact that 
 \begin{equation*}
     \det(i\tilde\gamma_a p_a + m)
@@ -124,11 +124,12 @@ Let $\tilde D = -i\tilde\gamma_a p_a + m$, which means we can write
 \end{equation}
 where we have used the anti-commutation rule for the Euclidean gamma-matrices, $\acom{\gamma_a}{\gamma_b} = 2 \delta_{ab}$.
 It is important to keep in mind that the determinant here refers to linear operators on the space of spinor functions.
+Thus
 \begin{align}
     \nonumber
     \ln(Z) & = \ln\left\{\det[\one(p_a p_a + m^2)]^{1/2}\right\}
     = \frac{1}{2} \Tr{\ln[\one(p_a p_a + m^2)]} \\
-    & = \frac{1}{2} \int_{\tilde \Omega} \dd K \ln[\one \beta^2 (p_a p_a + m^2)]_{aa}
+    & = \frac{1}{2} \int_{\tilde \Omega} \dd K \ln[\one \beta^2 (p_a p_a + m^2)]_{ii}
 \end{align}
 As the matrix within the logarithm is diagonal, the matrix-part of the trace is trivial, and the free energy may be written
 \begin{equation}

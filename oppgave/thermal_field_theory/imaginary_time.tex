@@ -13,12 +13,12 @@ The expectation value of some quantity $A$, with value $A_n$ in state $n$ is
 \end{equation*}
 $Z$ is called the partition function. In quantum mechanics, an ensemble configuration is described by a non-pure density operator,
 \begin{equation*}
-    \hat \rho = C \sum_n P_n \ketbra{n}{n},
+    \hat \rho = \sum_n P_n \ketbra{n}{n},
 \end{equation*}
-where $\ket{n}$ is some basis for the relevant Hilbert space and $C$ is a constant. Assuming $\ket{n}$ are energy eigenvectors, i.e. $\hat H \ket{n} = E_n \ket{n}$, the density operator for the canonical ensemble is
+where $\ket{n}$ is some basis for the relevant Hilbert space. Assuming $\ket{n}$ are energy eigenvectors, i.e., $\hat H \ket{n} = E_n \ket{n}$, the density operator for the canonical ensemble, where $P_n = Ce^{-\beta E_n}$, is
 \begin{equation*}
     \hat \rho 
-    = C \sum_n e^{-\beta E_n} \ketbra{n}{n} 
+    = \sum_n C e^{-\beta E_n} \ketbra{n}{n} 
     = C e^{-\beta \hat H} \sum_n \ketbra{n}{n} 
     = C e^{-\beta \hat H}.
 \end{equation*}
@@ -34,7 +34,7 @@ The partition function $Z$ ensures that the probabilities adds up to 1, and is d
 
 The grand canonical ensemble takes into account the conserved charges of the system, which are a result of Nöther's theorem, as discussed in \autoref{section:symmetry}.
 In the grand canonical ensemble, a system with $n$ conserved charges $Q_i$ has probability proportional to $e^{-\beta (H - \mu_i Q_i)}$.
-$\mu_i$ are the chemical potentials corresponding to conserved charge $Q_i$.
+Here, $\mu_i$ are the chemical potentials corresponding to conserved charge $Q_i$.
 This leads to the partition function
 \begin{equation}
     Z = \Tr{e^{-\beta(\hat H - \mu_i \hat Q_i)}}.
@@ -101,8 +101,7 @@ By inserting the completeness relations \autoref{functional completness} $N$ tim
     \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}} \braket{\varphi_{1}}{\varphi_{N+1}},
 \end{align*}
 where $\epsilon = \beta / N$. The last term ensures that $\varphi_1 = \varphi_{N+1}$.
-Strictly speaking, we only need to require $\varphi_1 = e^{i\theta}\varphi_{N+1}$, as the partition function is only defined up to a constant.
-As will be shown later, bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$, i.e. $e^{i\theta} = 1$, while fermions follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$, i.e. $e^{i\theta} = -1$.
+As will be shown later, bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$, while fermions follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$.
 We now want to exploit the fact that $\ket{\pi}$ and $\ket{\varphi}$ are the eigenvectors of the operators that define the Hamiltonian.
 In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(\vec x), \hat \pi(\vec x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(\vec x), \pi_n(\vec x)] \braket{\pi_n}{\varphi_{n+1}}$.
 This relationship does not, however, hold for more general functions of the field operators.
@@ -181,8 +180,9 @@ The partition function resulting from this procedure may also be obtained by sta
 \end{equation*}
 and follow a formal procedure.
 First, the action integral is modified by performing a Wick-rotation of the time coordinate $t$.
-This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity and making the change of variable $it \rightarrow \tau$.
+This involves changing the domain of $t$ from the real line to the imaginary line by closing the contour at infinity and changing variable $it \rightarrow \tau$.
 The new variable is then restricted to the interval $\tau\in [0, \beta]$, and the domain of the functional integral $\int \D \varphi$ is restricted from \emph{all} (smooth enough) field configurations $\varphi(t, \vec x)$, to only those that obey $\varphi(\beta, \vec x) = e^{i\theta} \varphi(0, \vec x) $, which is denoted $S$.
+Here, $\theta \in \{0, \pi\}$, depending on if the particle is a boson of fermion.
 This procedure motivates the introduction of  the Euclidean Lagrange density, 
 $\Ell_E(\tau, \vec x) = -\Ell(-i \tau, \vec x)$, as well as the name ``imaginary-time formalism''.
 The result is the same partition function as before,

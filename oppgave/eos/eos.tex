@@ -1,5 +1,6 @@
 \section{Equation of state}
-The methods and analysis of this section is based on~\cite{Peskin:IntroQFT,Andersen:two-flavor-chpt,andersen2012introduction}.
+The methods and analysis of this section are based on~\cite{Peskin:IntroQFT,Andersen:two-flavor-chpt,andersen2012introduction}.
+All results in this section are given in units of $m_\pi$.
 
 The free energy\footnote{As we are in the grand canonical ensemble, this is the grand canonical, or Landau, free energy, also called the grand potential, and not Helmholtz' free energy.}
 is defined as
@@ -10,16 +11,15 @@ is defined as
     F = - S \dd T - P \dd V - Q_I \dd \mu_I.
 \end{equation}
 In our case, all results are for $T = 0$.
-All results in this section are given in units of $m_\pi$.
 As we have seen earlier, our system is homogenous.
 This means that the free energy density is independent of volume, and thus $F = V \Ef$.
-From  \cref{thermodynamic free energy} we see that the pressure is given by
+From  \cref{thermodynamic free energy}, the pressure is given by
 \begin{equation}
     P = - \left(\diffp{F}{V}\right)_{T, \mu_I} = - \Ef.
 \end{equation}
 We are interested in the pressure relative to the state in which $\mu_I$ = 0. We therefore normalize $P(\mu_I=0) = 0$, which gives  
 \begin{equation}
-    P(\mu_I) = -[\Ef(\mu_I) - \Ef(\mu_I = 0)]
+    P(\mu_I) = -[\Ef(\mu_I) - \Ef(\mu_I = 0)].
 \end{equation}
 This is illustrated in \autoref{fig:pressure}.
 \begin{figure}[h]
@@ -80,7 +80,7 @@ The maximum correction to the energy density is $0.0717 \, m_\pi^4$, while the l
 We notice that the difference steadily increases with the value of $\mu_i$.
 This is expected, as the perturbation theory assumes small disturbances.
 
-As both the pressure and isospin density are zero for $\mu_I < m_\pi$, the vacuum phase equation of state is trivial.
+As both the pressure and isospin density are zero for $\mu_I < m_\pi$, the equation of state in the vacuum phase is trivial.
 It is only for $\mu_I \geq m_\pi$ that we get interesting behavior.
 We see that this is a recurring theme.
 The vacuum and the next quantum state are separated by a finite energy gap, given by the mass of the lightest particle.

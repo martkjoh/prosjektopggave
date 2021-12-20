@@ -2,17 +2,17 @@
 \label{appendix:rewriting terms}
 
 This section shows how to rewrite terms in the Lagrangian of Chiral perturbation theory.
-These techniques, and more, are used to reduce the total number of terms and to change between different conventions.
+These techniques and more are used to reduce the total number of terms and to change between different conventions.
 
 \subsection*{Redundant terms and the equations of motion}
 
 Changing the field parametrization that appears in the Lagrangian does not affect any of the physics, as it corresponds to a change of variables in the path integral~\cite{Scherer2002IntroductionTC,Chisholm:changeOfVar,Kamefuchi:changeOfVar}.
 However, a change of variables can result in new terms in the Lagrangian.
-As a result of this, terms that appear independent on the face of it may be redundant.
-These terms can be eliminated by using the classical equation of motion.
-In this section, we show first the derivation of the equation of motion, then use this result to identify redundant terms which need not be included in the most general Lagrangian.
+As a result of this, terms that appear independent on their face may be redundant.
+These terms can be eliminated by using the classical equations of motion.
+In this section, we show first the derivation of the equations of motion, then use this result to identify redundant terms which need not be included in the most general Lagrangian.
 
-We derive the equation of motion for the leading order Lagrangian using the principle of least action.
+We derive the equations of motion for the leading order Lagrangian using the principle of least action.
 Choosing the parametrization $\Sigma = \exp(i \pi_a \tau_a)$, a variation $\pi_a \rightarrow \pi_a + \delta \pi_a$ results in a variation in $\Sigma$, $\delta \Sigma = i \tau_a \delta \pi_a \Sigma $.
 The variation of the leading order action,
 \begin{equation}
@@ -27,7 +27,7 @@ when varying $\pi_a$ is
         + \chi \delta \Sigma^\dagger + \delta \Sigma \chi^\dagger
     }.
 \end{align*}
-Using the properties of the covariant derivative to do partial integration, as show in \autoref{Covarinat derivative}, as well as $\delta(\Sigma \Sigma^\dagger) = (\delta\Sigma)\Sigma^\dagger + \Sigma (\delta \Sigma)^\dagger = 0$, the variation of the action can be written
+Using the properties of the covariant derivative to do partial integration, as shown in \autoref{Covarinat derivative}, as well as $\delta(\Sigma \Sigma^\dagger) = (\delta\Sigma)\Sigma^\dagger + \Sigma (\delta \Sigma)^\dagger = 0$, the variation of the action can be written
 \begin{align*}
     \delta S 
     & = \frac{f^2}{4} \int_\Omega \dd x\, 
@@ -47,7 +47,7 @@ Using the properties of the covariant derivative to do partial integration, as s
             - \chi \Sigma^\dagger
             + \Sigma \chi^\dagger
         \right]
-        } \\kk
+        } \\
     & = 
     i \frac{f^2}{4} \int_\Omega \dd x\, 
     \Tr{\tau_a 
@@ -60,7 +60,7 @@ Using the properties of the covariant derivative to do partial integration, as s
     } 
     \delta \pi_a = 0.
 \end{align*}  
-As the variation is arbitrary, the equation of motion to leading order is
+As the variation is arbitrary, the equations of motion to leading order is
 \begin{equation}
     \Tr{
         \tau_a 
@@ -85,7 +85,7 @@ We define
 
 The next step in eliminating redundant terms is to change the parametrization of $\Sigma$ by $\Sigma(x) \rightarrow \Sigma'(x)$.
 Here, $ \Sigma(x) = e^{iS(x)} \Sigma'(x), \, S(x) \in \liea{su}{2}$. This change leads to a new Lagrange density, $\Ell[\Sigma] = \Ell[\Sigma'] + \Delta \Ell[\Sigma']$.
-We are free to choose $S(x)$, as long $\Sigma'$ still obeys the required transformation properties.
+We are free to choose $S(x)$, as long $\Sigma'$ still obey the required transformation properties.
 Any terms in the Lagrangian $\Delta \Ell$ due to a reparametrization can be neglected, as argued earlier.
 When demanding that $\Sigma'$ obey the same symmetries as $\Sigma$,
 the most general transformation to second order in Weinberg's power counting scheme  is~\cite{Scherer2002IntroductionTC}
@@ -103,7 +103,7 @@ the most general transformation to second order in Weinberg's power counting sch
     \right].
 \end{equation}
 $\alpha_1$ and $\alpha_2$ are arbitrary real numbers. As \cref{S reparametrization} is to second order, $\Delta \Ell$ is fourth order in Weinberg's power counting scheme.
-To leading order is given by
+Inserting this gives
 \begin{align*}
     \Ell_2\left[e^{i S_2}\Sigma '\right]
     & =
@@ -173,7 +173,7 @@ We can rewrite it to match the one used in~\cite{Andersen:two-flavor-chpt,mojahe
         \Tr{\chi \Sigma^\dagger}^2 - 2\Tr{\chi \Sigma^\dagger}\Tr{\Sigma \chi^\dagger}
         + \Tr{\Sigma \chi^\dagger}^2
         - 2 \Tr{(\chi \Sigma^\dagger)^2} -2 \Tr{(\Sigma \chi^\dagger)^2}
-    \right)
+    \right).
 \end{align*}
 Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
 \begin{align*}
@@ -189,7 +189,7 @@ Using $\Tr{A^2} = \Tr{A}^2 - \det(A)\Tr{\one}$, we get
         \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}^2
         - 4 \det(\chi \Sigma^\dagger)
         - 4 \det(\Sigma\chi^\dagger)
-    \right)
+    \right).
 \end{align*}
 Furthermore, as $\det(\Sigma)= 1$, 
 % and $\chi = a_i \tau_i$, we have $\Tr{\chi \chi^\dagger} = a_i a_i^*$, $\det(\chi) + \det(\chi^\dagger) = a_i a_i + a_i^* a_i^*$
@@ -207,7 +207,7 @@ Furthermore, as $\det(\Sigma)= 1$,
     + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
     - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
     + \frac{h_1 + h_3 -l_4}{4} \Tr{\chi \chi^\dagger} \\
-    & +\frac{h_1 - h_3 - l_4}{4} (\det{\chi} + \det{\chi^\dagger})
+    & +\frac{h_1 - h_3 - l_4}{4} (\det{\chi} + \det{\chi^\dagger}).
 \end{align}
 For real $\chi$, we have $\Tr{\chi \chi^\dagger} = \det(\chi) + \det(\chi^\dagger)$, and we can define $h_1' = h_1 - l_4$ to get
 \begin{align}
@@ -223,6 +223,6 @@ For real $\chi$, we have $\Tr{\chi \chi^\dagger} = \det(\chi) + \det(\chi^\dagge
     &
     + \frac{l_4}{8}\Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger} \Tr{\chi \Sigma^\dagger + \Sigma \chi^\dagger}
     - \frac{l_7}{16} \Tr{\chi \Sigma^\dagger - \Sigma \chi^\dagger}^2
-    + \frac{h_1'}{2} \Tr{\chi \chi^\dagger}
+    + \frac{h_1'}{2} \Tr{\chi \chi^\dagger}.
 \end{align}
 If one assumes $\Delta m = 0$, i.e., what is called the chiral limit, then the term $l_7$ falls away, as $\chi = \chi^\dagger$.

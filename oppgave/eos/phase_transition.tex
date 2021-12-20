@@ -2,7 +2,7 @@
 
 Our leading-order analysis showed us that $\alpha$ is zero for $\mu_I \leq \bar m$, and then increases continuously for $\mu_I>\bar m$.
 Furthermore, $\bar m = m_\pi$ to leading-order.
-The behavior of $\alpha$ is illustrated in \autoref{fig:alpha}.
+Thi behavior is illustrated in \autoref{fig:alpha}.
 This is the hallmark of a phase transition, where $\alpha$ is the order parameter.
 The behavior of systems near points of phase transition is described by Landau theory~\cite{Peskin:IntroQFT}.
 Using \cref{leading order contribution free energy}, we can expand the leading-order free energy in $\alpha$,
@@ -40,7 +40,7 @@ The free energy around the phase transition is illustrated in \autoref{fig:phase
     \label{fig:phase transition}
 \end{figure}
 
-The order parameter $\alpha$ changes continuously as the system undergo a phase transition.
+The order parameter $\alpha$ changes continuously as the system transitions phase.
 This means we have a \emph{second order} phase transition.
 The power-law behavior, $\alpha \propto (\mu_I - \mu_I^c)^\beta$, is typical of systems near a phase transition.
 The exponent $\beta$, which in this case equals $1/2$, is called a \emph{critical exponent}.
@@ -80,8 +80,7 @@ In \autoref{section:leading order lagrangian}, we defined
     \alpha = \frac{1}{f} \sqrt{\pi_a^0 \pi_a^0},
 \end{equation}
 where $\pi_a^0$ was the ground state expectationvalue of the pion fields, as defined in the vacuum phase, when $\mu_I \neq 0$.
-Furthermore, we showed that $\pi_2^0 = \pi_1two-flavour  = 0$, so $\alpha = \pi_1two-flavour  / f$.
-The new ground state thus corresponds to a condensate of the $\pi_1$-particle.
+The new ground state thus corresponds to a condensate of pions.
 The isospin symmetry $\SU(3)_V$ is not a perfect symmetry of the QCD Lagrangian, but is explicitly broken by the mass term
 \begin{equation}
     \bar q m q = \frac{1}{2} \bar q [(m_u + m_d) \one + (m_u - m_d)\tau_3] q.
@@ -95,12 +94,13 @@ If we write out a generic element from this subgroup,
         0 & e^{-i \theta}
     \end{pmatrix},
 \end{equation}
-we se that this corresponds to rotating the phase of the up and down quark seperatly, but not rotating them into eachother.
-Thus, the pion condensate spontaneously breaks a perfect symmetry of the two-flavor QCD Lagrangian, and we expect the corresponding Goldstone mode to remain massless outside the chiral limit.
+we se that this corresponds to rotating the phase of the up and down quark, but not rotating them into eachother.
+Thus, the pion condensate spontaneously breaks an exact symmetry of the two-flavor QCD Lagrangian, and we expect the corresponding Goldstone mode to remain massless outside the chiral limit.
 
 To find the value of $\mu_I$ to next-to-leading order, we must expand the NLO free energy in powers of $\alpha$
 When we expand the static, second order Lagrangian to $\alpha^2$, we get
 \begin{align}
+    \nonumber
     \Ef_4^{(0)}
     &= - (l_3 + l_4)\bar m^4 + [(l_3 + l_4)\bar m^4 -l_4 \bar m^2\mu_I^2]\alpha^2
     \\
@@ -116,7 +116,7 @@ When we expand the static, second order Lagrangian to $\alpha^2$, we get
             1 + \frac{1}{\epsilon} + \ln\frac{\tilde \mu^2}{M^2}
         \right)
         \left(\frac{3}{4}\bar m^2 - \mu_I^2\right)\bar m^2
-    \right]\alpha^2,
+    \right]\alpha^2 + \mathcal{O}(\epsilon),
 \end{align}
 where $\const$ is independent of $\alpha$, and thus not of interest.
 From the one-loop correction, we have the contributions
@@ -129,7 +129,7 @@ The first integral is the same free energy contribution from the $\pi_0$-particl
     \Ef_{\pi_0}^{(1)}
     = i \frac{1}{2}\int \frac{\dd^4 p}{(2\pi)^2} \ln(-p^2 + m_3^2)
     = - \mu^{-2\epsilon}\frac{1}{4} \frac{m_3^4}{(4 \pi)^2}
-    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2}\right).
+    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_3^2}\right) + \mathcal{O}(\epsilon).
 \end{equation}
 The mass $m_3$ is dependent on $\alpha$, and has the expansion
 \begin{align*}
@@ -173,7 +173,7 @@ After a shift of variables, the integral has the same form as the logarithmic in
     \ln(-p^2 + m_4^2)
     = 
     - \mu^{-2\epsilon}\frac{1}{2} \frac{m_4^4}{(4 \pi)^2}
-    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_4^2}\right).
+    \left(\frac{1}{\epsilon} + \frac{3}{2} + \ln \frac{\tilde \mu^2}{m_4^2}\right)+ \mathcal{O}(\epsilon).
 \end{equation}
 Combining these two contributions to the one-loop correction of the free energy gives
 \begin{align*}
@@ -184,10 +184,10 @@ Combining these two contributions to the one-loop correction of the free energy 
     \frac{\mu^{-2 \epsilon } }{(4 \pi)^2} 
     \left(1 + \frac{1}{\epsilon} + \ln \frac{\tilde \mu^2}{m^2}\right)
     \left(\frac{3}{4}m^2 - \mu_I^2\right)
-    \bar m^2 \alpha^2.
+    \bar m^2 \alpha^2+ \mathcal{O}(\epsilon).
 \end{align*}
 We see that again, the $\epsilon^{-1}$ will cancel when we combine the NLO-terms.
-The NLO correction to the free energy becomes
+Setting $\epsilon = 0$, the NLO correction to the free energy becomes
 \begin{align}
     \tilde \Ef_1
     & = 
@@ -235,7 +235,7 @@ Combining these expressions give total NLO free energy, up to second order in $\
     + \Oh[4]{\alpha}.
 \end{equation}
 We now insert the physical constants $f_\pi$ and $m_\pi$, by using the next-to-leading order expressions \cref{equation bare mass} and \cref{equation bare decay constant}.
-First, notice that
+Notice that
 \begin{equation}
     f_\pi^2 m_\pi^2
     = f^2 \bar m^2

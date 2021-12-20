@@ -23,7 +23,9 @@ fs = (6.5, 4)
 adj = dict(top=0.96, bottom=0.15, right=0.99, left=0.13, hspace=0, wspace=0)
 
 LO_label = r"${\mathrm{LO}}$"
+LO_style = "k--"
 NLO_label = r"${\mathrm{NLO}}$"
+NLO_style = "r-."
 
 
 def plot_alpha():
@@ -32,8 +34,8 @@ def plot_alpha():
     a_nlo_list = get_alpha_nlo()
     i = np.where(mu_list>=0)
 
-    ax.plot(mu_list[i], a_nlo_list[i], "k-.", label=NLO_label)
-    ax.plot(mu_list[i], a_lo_list[i], "r--", label=LO_label)
+    ax.plot(mu_list[i], a_lo_list[i], LO_style, label=LO_label)
+    ax.plot(mu_list[i], a_nlo_list[i], NLO_style, label=NLO_label)
     plt.xlabel(r"$\mu_I/m_\pi$")
     plt.ylabel(r"$\alpha$")
     ax.set_ylim(ax.set_ylim()[0], 1.5)
@@ -107,8 +109,8 @@ def plot_free_energy():
     fig, ax = plt.subplots(figsize=fs)
     FLO, FNLO = get_free_energy()
 
-    ax.plot(mu_list, FLO, "k--", label=LO_label)
-    ax.plot(mu_list, FNLO, "r-.", label=NLO_label)
+    ax.plot(mu_list, FLO, LO_style, label=LO_label)
+    ax.plot(mu_list, FNLO, NLO_style, label=NLO_label)
 
     plt.legend()
     plt.savefig("plots/free_energy_a_lo.pdf")
@@ -118,8 +120,8 @@ def plot_pressure():
     fig, ax = plt.subplots(figsize=fs)
     PLO, PNLO = get_pressure()
 
-    ax.plot(mu_list, PLO, "k--", label=LO_label)
-    ax.plot(mu_list, PNLO, "r-.", label=NLO_label)
+    ax.plot(mu_list, PLO, LO_style, label=LO_label)
+    ax.plot(mu_list, PNLO, NLO_style, label=NLO_label)
 
     ax.set_xlabel(r"$\mu_I/m_\pi$")
     ax.set_ylabel(r"$P/m_\pi^4$")
@@ -133,8 +135,8 @@ def plot_isospin_density():
     fig, ax = plt.subplots(figsize=fs)
 
     nILO, nINLO = get_isospin_density2()    
-    ax.plot(mu_list, nILO, "k--", label=LO_label)
-    ax.plot(mu_list, nINLO, "r-.", label=NLO_label)
+    ax.plot(mu_list, nILO, LO_style, label=LO_label)
+    ax.plot(mu_list, nINLO, NLO_style, label=NLO_label)
     
 
     ax.set_xlabel(r"$\mu_I/m_\pi$")
@@ -154,8 +156,8 @@ def plot_eos():
     ax.set_xlabel(r"$u/m_\pi^4$")
     ax.set_ylabel(r"$P/m_\pi^4$")
 
-    ax.plot(PLO, ELO, "k--", label=LO_label)
-    ax.plot(PNLO, ENLO, "r-.", label=NLO_label)
+    ax.plot(PLO, ELO, LO_style, label=LO_label)
+    ax.plot(PNLO, ENLO, NLO_style, label=NLO_label)
 
     plt.legend()
     fig.subplots_adjust(**adj)

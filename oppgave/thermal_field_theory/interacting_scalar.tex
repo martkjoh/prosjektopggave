@@ -27,11 +27,8 @@ We may write the free energy as
     \left[
         \int_S \D \varphi \, e^{-S_0} \sum_n \frac{1}{n!} {(-S_I)}^n
     \right]
-    = \ln[Z_0] 
-    + \ln
-    \left[
-        Z_I
-    \right],
+    = \ln Z_0 
+    + \ln Z_I ,
 \end{equation*}
 where $Z_0$ is the partition function of the free theory.
 The correction to the partition function is thus given by
@@ -84,12 +81,12 @@ We can now write
     = \frac{1}{Z[0]}
     \frac{\delta}{\delta J(X)} \frac{\delta}{\delta J(Y)} 
     Z[J] \Big|_{J=0} 
-    = D_0(X, Y),
+    = D_0(X, Y).
 \end{equation}
 This generalizes to higher order expectation values,
 \begin{equation}
     \ex{\varphi(X_i) \dots \varphi(X_n)}_0
-    = \left(\prod_{i=1}^n \frac{\delta}{\delta J(X_i)}\right) 
+    = \frac{1}{Z[0hju]} \left(\prod_{i=1}^n \frac{\delta}{\delta J(X_i)}\right) 
     Z[J] \Big|_{J=0},
 \end{equation}
 
@@ -106,8 +103,8 @@ Using Wick's theorem, as described in \autoref{section:path integral}, the expec
     \dots
     \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}_0
 \end{align*}
-where $X_i$ for $i>m$ is defined as $X_j$, where $j = i \mod m$.
-This means that $X_{m + i} = X_i$.
+where $X_i$ for $i>m$ is defined to equal $X_j$, where $j = i \mod m$.
+More simpliy,  $X_{m + i} = X_i$.
 The functions $a,\,b$ represents a possible pairing, as described in \autoref{section:path integral}.
 Inserting the Fourier expansions of the field gives
 \begin{align*}
@@ -135,7 +132,7 @@ Inserting the Fourier expansions of the field gives
     \left( \dd K_i \frac{1}{\beta} \tilde D(K_i)  \right) 
     \prod_{i=1}^m \delta\left(X_i \cdot {\sum}_{j=0}^3 K_{i + jm}\right)
     \sum_{\{a, b\}} 
-    \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)})
+    \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)}).
 \end{align*}
 Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, where $\tilde D_0(K)$ is the thermal propagator for the free field.
 In this case, it is
@@ -163,5 +160,5 @@ The first example is
 
 In \autoref{section:path integral}, we saw that the sum of all vacuum diagrams is the exponential of the sum of all \emph{connected} diagrams, so the free energy of the interacting theory is given by
 \begin{equation}
-    - \beta F = \ln(Z_0) + \Sigma(\mathrm{all\,\, connected\,\, diagrams}).
+    - \beta F = \ln Z_0 + \Sigma(\mathrm{all\,\, connected\,\, diagrams}).
 \end{equation}

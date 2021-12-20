@@ -1,16 +1,18 @@
 \chapter{Functional derivatives}
 \label{section:Functional derivative}
-Functional derivatives generalize the notion of a gradient and the directional derivative.
-A function $f(p)$, where $p$ is point with coordinates $x_i = x_i(p)$, has a gradient
+
+Functional derivatives generalize the notion of gradients and directional derivatives.
+A function $f(x)$ has a gradient
 \begin{equation}
-    \dd f_p = \pdv{f(p)}{x_i} \dd x_i.
+    \dd f_{x_0} = \pdv{f}{x_i} \Big|_{x_0} \dd x_i.
 \end{equation}
 The derivative in a particular direction $v = v^i \partial_i$ is 
 \begin{equation}
-    \dv{\epsilon} f(x_i + \epsilon v_i) = f(x) + \dd f_x (v) = f(x) + \pdv{f}{x^i}v_i.
+    \dv{\epsilon} f(x_i + \epsilon v_i) \Big|_{\epsilon = 0} 
+    = f(x) + \dd f_x (v) = f(x) + \pdv{f}{x^i}v_i.
 \end{equation}
 This is generalized to functionals through the definition of the functional derivative and the variation of a functional.
-Let $F[f]$ be a functional, i.e., a machine that takes in a function and returns a number.
+Let $F[f]$ be a functional, i.e., a machine that takes in a function and returns a number or a function.
 The obvious example in our case is the action, which takes in one or more field configurations, and returns a single real number.
 We will assume here that the functions have the domain $\Omega$, with coordinates $x$.
 The functional derivative is defined as
@@ -20,14 +22,15 @@ The functional derivative is defined as
     \dv{\epsilon} F[f + \epsilon \eta] \Big|_{\epsilon = 0}
     = \int_\Omega \dd x \, \frac{\delta F[f]}{\delta f(x)} \eta(x).
 \end{equation}
-$\eta(x)$ is here an arbitrary function, but we will make the important assumption that it as well as all its derivatives are zero at the boundary of its domain $\Omega$.
+$\eta(x)$ is here an arbitrary function, but we will make the assumption that it as well as all its derivatives are zero at the boundary of its domain $\Omega$, i.e., $\eta(\partial \Omega) = 0$.
 This allows us to discard surface terms stemming from partial integration, which we will use frequently.
 We may use the definition to derive one of the fundamental relations of functional derivation.
 Take the functional $F[f] = f(x)$. 
 Then,
 \begin{equation}
     \label{Functional derivative delta identity}
-    \delta F[f] = \dv{\epsilon} [f(x) + \epsilon \eta(x)] = \eta(x) = \int \dd y \, \delta(x - y) \eta(y)
+    \delta F[f] = \dv{\epsilon} [f(x) + \epsilon \eta(x)] \Big|_{\epsilon = 0}
+    = \eta(x) = \int \dd y \, \delta(x - y) \eta(y)
 \end{equation}
 This leads to the identity
 \begin{equation}
@@ -40,17 +43,27 @@ Higher functional derivatives are defined similarly, by applying functional vari
     = \int \left(\prod_{i=1}^n \dd x_i\right)
     \frac{\delta^n F[f]}{ \delta f(x_n)\dots\delta f(x_n)} \left(\prod_{i=1}^n \eta_i(x_i)\right).
 \end{equation}
-A functional may be expanded in a generalization of the Fourier series, which has the form
+If we can write the functional $F[f]$ in terms of a new variable, $g(y)$, then the chain rule for functional derivatives is
+\begin{equation}
+    \fdiff{F[f]}{f(x)} = \int \dd y \, \fdiff{F[f]}{g(y)} \fdiff{g(y)}{f(x)}.
+\end{equation}
+
+A functional may be expanded in a generalization of the Taylor series, 
 \begin{equation}
     F[f_0 + f] = F[f_0] + \int_\Omega \dd x \, f(x) \frac{\delta F[f_0]}{\delta f(x)}\bigg|_{f = f_0}
     + \frac{1}{2!}\int_\Omega \dd x \dd y \, f(x) f(y) \frac{\delta^2 F [f_0]}{\delta f(x) \delta f(y)}
     + \dots
 \end{equation}
+Her, the notation
+\begin{equation}
+    \fdiff{F[f_0]}{f(x)}
+\end{equation}
+indicate that the functional $F[f]$ is first differentiated with respect to $f$, the evaluated at $f = f_0$.
 As an example, the Klein-Gorodn action
 \begin{equation}
-    S[\varphi] = - \frac{1}{2}\int_\Omega \dd x \, \varphi (\partial^2 + m^2) \varphi(x)
+    S[\varphi] = - \frac{1}{2}\int_\Omega \dd x \, \varphi(x) (\partial^2 + m^2) \varphi(x).
 \end{equation}
-can be evaluated quickly by using \autoref{Functional derivative delta identity} and partial integration
+Using \autoref{Functional derivative delta identity} and partial integration,
 \begin{align}
     \nonumber
     \funcdv{\varphi(x)} S[\varphi] 
@@ -92,11 +105,11 @@ The second derivative is
 
 A useful integral is the Gaussian integral,
 \begin{equation}
-    \int_\R \dd z \, \exp(- \frac{1}{2} a z^2) = \sqrt{\frac{2 \pi}{a}},
+    \int_\R \dd x \, \exp(- \frac{1}{2} a x^2) = \sqrt{\frac{2 \pi}{a}},
 \end{equation}
 for $a \in \R$. The imaginary version,
 \begin{equation}
-    \int_R \dd z \, \exp(i \frac{1}{2} a z^2 )
+    \int_R \dd x \, \exp(i \frac{1}{2} a x^2 )
 \end{equation}
 does not converge. However, if we change $a \rightarrow a + i\epsilon$, the integrand is exponentially suppressed.
 \begin{equation}
@@ -133,20 +146,20 @@ $C$ is here a divergent constant, but will either fall away as we are only looki
 The Gaussian integral can be used for the stationary phase approximation.
 In one dimension, it is
 \begin{equation}
-    \int \dd x \, \exp(i \alpha f(x)) 
-    \approx \sqrt{\frac{2 \pi }{f''(x_0)}}\exp( f(x_0)), 
-    \, f'(x) = 0, \, \alpha\rightarrow \infty
+    \int \dd x \, \exp{i \alpha f(x)} 
+    \approx \sqrt{\frac{2 \pi }{f''(x_0)}}\exp{ f(x_0)}, 
+    \, \alpha\rightarrow \infty,
 \end{equation}
+where the point $x_0$ is defined by $ f'(x_0) = 0$. 
 The functional generalization of this is
 \begin{equation}
     \int \D \varphi \exp{i S[\varphi]}
     \approx 
     C \det(- \frac{\delta^2 S[\varphi_0]}{\delta \varphi^2})
-    \exp{i \alpha S[\varphi_0]  }, \quad
-    \frac{\delta S[\varphi_0]}{\delta \varphi} = 0…
+    \exp{i \alpha S[\varphi_0]  },
 \end{equation}
-Here, $S[\varphi]$ is a general functional of $\varphi$, and we have used the Taylor expansion, and $\varphi_0$ fulfills
+Here, $S[\varphi]$ is a general functional of $\varphi$, we have used the Taylor expansion, and $\varphi_0$ obeys
 \begin{equation}
-    \funcdv{\varphi(x)}{S[\varphi_0]} = 0,
+    \funcdv{\varphi(x)}{S[\varphi_0]} = 0.
 \end{equation}
 

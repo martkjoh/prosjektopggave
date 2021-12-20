@@ -1587,6 +1587,51 @@ which we use to calculate the expansion of the inner part of $\Sigma$, as given 
     + \Oh[5]{(\pi/f)}.
 \end{align*}
 
+\section{prop}
+Using this, we can solve for the propagator
+\begin{align}
+    \notag
+    D & = (- iD^{-1})^{-1} 
+    = \frac{i}{\det(D^{-1})}
+    \begin{pmatrix}
+        D^{-1}_{22} D^{-1}_{33}   & D^{-1}_{12}D^{-1}_{33}  & 0 \\
+        -D^{-1}_{12}D^{-1}_{33}   & D^{-1}_{11}D^{-1}_{33}  & 0 \\
+        0               & 0             & D^{-1}_{11}D^{-1}_{22} + (D^{-1}_{12})^2
+    \end{pmatrix} \\
+    \label{free pion propagator}
+    & 
+    = i
+    \begin{pmatrix}
+        \frac{
+            p^2 - m_2^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } 
+        & \frac{
+            - ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        \frac{
+            ip_0m_{12}
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        }
+        & \frac{
+            p^2 - m_1^2
+        }
+        {
+            (p_0^2 - E_+^2)(p_0^2 - E_-^2)
+        } & 0 \\
+        0 & 0 & 
+        \frac{1}{p_0^2 - E_0^2}
+    \end{pmatrix}.
+\end{align}
+
+
 
 \end{document}
 
