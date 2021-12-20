@@ -1,18 +1,21 @@
 \section{CCWZ construction}
 \label{seciton:ccwz construction}
 
-As Goldstone bosons are massless, they play a crucial role in the low-energy dynamics.
-To best describe this limit, we seek a parametrization of the fields in which they are the degrees of freedom.
+As Goldstone bosons are massless, they play a crucial role in low-energy dynamics.
+To best describe this limit, we seek a parametrization of the theory in which they are the degrees of freedom.
 This can be done using the CCWZ construction, named after Callan, Coleman, Wess, and Zumino.
-As well as the original papers~\cite{Structure_of_phen_1,Structure_of_phen_2}, this section is based on~\cite{weinberg_1996_vol2,The_composite_NG_Higgs,effective_FT_with_NG_modes,morrison:ccwz_presentation}.
+This section is based on~\cite{weinberg_1996_vol2,The_composite_NG_Higgs,effective_FT_with_NG_modes,morrison:ccwz_presentation}, as well as the original papers~\cite{Structure_of_phen_1,Structure_of_phen_2}.
 
 
 We saw that the Goldstone bosons correspond to excitations within the vacuum manifold.
 The vacuum manifold corresponds to points in field space $\varphi$ that can be reached from the vacuum $\varphi_0$ with a transformation $g \in G$.
+Assume this group acts linearly on the fields.
 This means that we can write such excitations as
 \begin{equation}
-    \varphi = \tilde\Sigma \varphi_0, \quad \tilde \Sigma = \tilde \Sigma(\eta) = \exp{i \eta_\alpha T_\alpha}
+    \varphi_i = (\tilde\Sigma \varphi_0)_{i} = \tilde \Sigma_{ij} (\varphi_0)_j, 
+    \quad \tilde \Sigma = \tilde \Sigma(\eta) = \exp{i \eta_\alpha T_\alpha}
 \end{equation}
+We will drop the indices for the sake of compact notation.
 $\tilde \Sigma$ is thus a function from the parameter space, $\eta_\alpha \in \R^n$, to $G$,
 \begin{align}
     \tilde \Sigma: \R^n \longmapsto G.
@@ -20,7 +23,7 @@ $\tilde \Sigma$ is thus a function from the parameter space, $\eta_\alpha \in \R
 We then get space-time-dependent field configurations by making the parameters dependent on space-time.
 We will for now assume $\eta_\alpha$ is constant.
 This parametrization is highly redundant.
-There are $n = \dim G$ parameters $\eta_\alpha$, but Goldstone's theorem says that there is one massless mode per broken generator.
+% There are $n = \dim G$ parameters $\eta_\alpha$, but Goldstone's theorem massless mode per broken generator.
 Two elements $\tilde\Sigma$ and $\tilde\Sigma'$, related by
 \begin{equation}
     \tilde \Sigma' = \tilde\Sigma e^{i \theta_a t_a}
@@ -35,12 +38,13 @@ This means that the cosets $gH$ form a partition of $G$ and that each element $g
 To remove the redundancy in the parametrization, we need to choose one representative element from each coset.
 
 By the inverse function theorem, any mapping between manifolds $f: \Em \mapsto \mathcal{N}$ that has a non-degenerate differential, that is an invertible Jacobian, at a point $p \in \Em$, is invertible in a neighborhood of $p$.
-The map
+If we write
 \begin{equation}
-    \tilde \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a}
+    \tilde \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a},
 \end{equation}
-is invertible at $p = (\xi_i = 0, \theta_a = 0)$, which is mapped to the identity, as the Jacobian is the identity matrix.
-This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \Sigma$~\cite{smooth_manifolds}.
+then the map is invertible at $p = (\xi_i = 0, \theta_a = 0)$, as the Jacobian is the identity matrix.
+This point is mapped to the identity element of $G$.
+This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \tilde \Sigma$~\cite{smooth_manifolds}.
 Furthermore, two elements $\tilde \Sigma'$ and $\tilde \Sigma$ related by $\tilde \Sigma' = \tilde \Sigma h$, $h \in H$ have the same $\xi$-arguments.
 We see that $\xi_i$ parametrize $G/H$, in the neighborhood of the identity.
 We therefore demand that $\tilde \Sigma$ always appear in the standard form
@@ -110,7 +114,7 @@ $g\Sigma(\xi)$ does not, in general.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figurer/curvature.pdf}
-    \caption{The top figure illustrates the transformation of $\varphi_0$ to $\varphi$ and then $\varphi$, and the alternative transformation $\varphi_0 \rightarrow \varphi'$. The bottom figure illustrates how this can rotate a neighborhood of $\varphi_0$ differently.}
+    \caption{The top figure illustrates the transformation of $\varphi_0$ to $\varphi$ and then $\varphi'$, and the alternative, direct transformation $\varphi_0 \rightarrow \varphi'$. The bottom figure illustrates how this can rotate a neighborhood of $\varphi_0$ differently.}
     \label{fig:Curvature of SO(3)}
 \end{figure}
 \autoref{fig:Curvature of SO(3)} illustrates this in the case of $G = \SO(3)$.

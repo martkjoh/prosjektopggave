@@ -21,11 +21,11 @@ This Lagrangian is invariant under rations of the quarks in the color indices, i
 \begin{equation}
     q_c \rightarrow q'_c = U_{cc'} q_{c'},
     \quad 
-    \bar q_c' = \bar U_{cc'}^\dagger q_c
+    \bar q_c' = \bar q_{c'} U_{c'c}^\dagger 
 \end{equation}
 where $U_{cc'}$ is an $N_c \times N_c$ unitary matrix.
-The set of all $N_c\times N_c$ unitary matrices form the Lie group $\U(N_c) = \U(1)\times \SU(N_c)_c$.
-$\SU(N_c)_c$ is the group of all complex $N_c\times N_c$ matrices with determinant 1, and is the gauge group of the strong force.
+The set of all $N\times N$ unitary matrices form the Lie group $\U(N) = \U(1)\times \SU(N)$.
+The subgroup of color transformations with determinant 1, $\SU(N_c)_c$, is the gauge group of the strong force.
 A theory with an $\SU(N)$ gauge group is called a Yang-Mills theory.
 
 \subsection*{Yang-Mills theory}
@@ -35,29 +35,36 @@ Given an element $U \in \SU(N_c)$, we can write
     U = \exp{i \chi_\alpha \lambda_\alpha}, \quad
     \chi_\alpha \lambda_\alpha \in \liea{su}{N_c},
 \end{equation}
-where $\liea{su}{N_c}$ is the Lie algebra of $\SU(N_c)$.
+where $\liea{su}{N_c}$ is the Lie algebra of $\SU(N_c)$, with generators $\lambda_\alpha$.
 We derive the Yang-Mills Lagrangian by including all normalizable and gauge invariant terms.
 A term is gauge invariant if it remains unchanged after a \emph{local} $\SU(N_c)$ transformation, i.e.
 \begin{equation}
     q \rightarrow \exp{i \chi_\alpha(x) \lambda_\alpha} q, \quad
-    \bar q \rightarrow \exp{-i \chi_\alpha(x) \lambda_\alpha} \bar q.
+    \bar q \rightarrow \bar q  \exp{-i \chi_\alpha(x) \lambda_\alpha}.
 \end{equation}
 The mass term $m_f \bar q_f q_f$ is gauge invariant, while the kinetic derivative term needs to be modified.
-For this term to be gauge-invariant, we have to introduce a covariant derivative, which transforms as
+This is done by exchanging the partial derivative with a \emph{covariant derivative}.
+A covariant derivative $D_\mu$ is defined to transform the same way as the object it acts on.
+It must therefore obey
 \begin{equation}
+    \label{covariant derivative transformation requiremen}
     D_\mu q \rightarrow (D_\mu q)' = U (D_\mu q) = D_\mu' (U q).
 \end{equation}
-If we posit $D_\mu = \one \partial_\mu - i g A_\mu^\alpha \lambda_\alpha $ where $A_\mu^\alpha$ is a set of vector fields, and $g$ a constant, then
+We assume that the covariant derivative has the form 
+\begin{equation}
+    D_\mu = \one \partial_\mu - i g A_\mu,
+\end{equation} 
+where $A_\mu^\alpha = A_\mu^\alpha \lambda_\alpha$, $A_\mu^\alpha$ is a set of vector fields, and $g$ a constant.
+Inserting this into \cref{covariant derivative transformation requiremen} yields
 \begin{equation}
     (\one \partial_\mu - i g A_\mu') U
-    = U (\one \partial_\mu - i g A_\mu^\alpha \lambda_\alpha)
+    = U (\one \partial_\mu - i g A_\mu).
 \end{equation}
-where $A_\mu = A_\mu^\alpha \lambda_\alpha$.
 This means that if we demand that $A_\mu$ transforms as
 \begin{equation}
     A_\mu \rightarrow U \left(A_\mu + \frac{i}{g} \partial_\mu\right) U^\dagger,
 \end{equation}
-then $D_\mu q$ transforms in the same way as the quarks $q$, and the kinetic terms becomes gauge invariant.
+then $D_\mu q$ transforms in the same way as the quarks $q$, and the kinetic term becomes gauge invariant.
 The second derivative,
 \begin{equation}
     D_\mu D_\nu = \partial_\mu \partial_\nu - ig(\partial_\mu A_\nu + A_\mu\partial_\nu + A_\nu\partial_\mu) - g^2A_\mu A_\nu,
@@ -68,7 +75,7 @@ We define
 \begin{equation}
     \label{gluon field strength tensor}
     G_{\mu\nu} 
-    := \frac{i}{g}[D_\mu, D_\nu] = (\partial_\mu A_\nu - \partial_\mu A_\nu) - ig[A_\mu, A_\nu]
+    := \frac{i}{g}[D_\mu, D_\nu]
     = (\partial_\mu A_\nu^\alpha - \partial_\nu A_\mu^\alpha + g C_{\beta \gamma }^\alpha A_{\mu}^\beta A_{\nu}^\gamma ) \lambda_\alpha,
 \end{equation}
 which is the gluon field strength tensor.
@@ -98,7 +105,7 @@ No symmetry forbids $\theta \neq 0$, and its absence is dubbed the strong $CP$-p
 
 \subsection*{Chiral symmetry}
 
-In addition to the color and flavor indices $s$ and $f$, the quarks also have spinor indices, $i$, on which the $\gamma$-matrices act.
+In addition to the color and flavor indices $c$ and $f$, the quarks also have spinor indices, $i$, on which the $\gamma$-matrices act.
 We can define the projection operators,
 \begin{equation}
     P_\pm = \frac{1}{2}(\one \pm \gamma^5),
@@ -131,7 +138,7 @@ In the case that $m_f = 0$, called the \emph{chiral limit}, the QCD Lagrangian i
 \begin{equation}
     q_R \rightarrow e^{i\theta_R} U_R q_R, \quad q_L \rightarrow e^{i\theta_L} U_L q_L,
 \end{equation}
-where $U_L$ and $U_R$ are complex $N_f \times N_f$ matrices with determinant 1 that act on the flavor indices, and $\theta_L$ and $\theta_R$ real numbers.
+where $U_L$ and $U_R$ are complex, unitary $N_f \times N_f$ matrices with determinant 1 that act on the flavor indices, and $\theta_L$ and $\theta_R$ real numbers.
 The full set of such transformations forms the Lie group $\U(N_f)_L \times \U(N_f)_R = \U(1)_L \times U(1)_R \times \SU(N_f)_L \times \SU(N_f)_R$.
 We can write
 \begin{equation}
@@ -139,7 +146,7 @@ We can write
     \quad
     U_L = P_+ + \exp{i \eta_\alpha^L T_\alpha^L}P_-,
 \end{equation}
-where $T_\alpha^L$ and $T_\alpha^R$ are the generator for $\SU(N_f)_L$ and $\SU(N_f)_R$.
+where $T_\alpha^L P_-$ and $T_\alpha^R P_+$ are the generator for $\SU(N_f)_L$ and $\SU(N_f)_R$.
 The conserved currents corresponding to these symmetries are
 \begin{align}
     L^{\mu}_\alpha & = 
@@ -152,7 +159,8 @@ The conserved currents corresponding to these symmetries are
 \end{align}
 We have defined the currents with a positive sign to conform to standard convention.
 When we introduce a non-zero mass, the symmetry of the Lagrangian is explicitly broken.
-However, we see that when right and left-handed quarks are transformed in the same way, i.e. $\eta_R = \eta_L$, so the Lagrangian remain invariant.
+For now, we assume the mass matrix has the form $m = m_q \one$.
+In this case, transforming left- and right-handed quarks, in the same way, i.e., $\eta_R = \eta_L$, leaves the Lagrangian unchanged.
 The diagonal subgroup of $\SU(N_f)_L\times \SU(N_f)_R$, denoted $\SU(N_f)_V$, remains unbroken.
 Elements of this group have the form
 \begin{equation}
@@ -183,4 +191,4 @@ Up until now, we have only made classical considerations.
 In the full quantum theory, the baryon number remains conserved.
 The axial current $J^\mu_A$ however, is subject to an anomaly.
 As the integration measure $\D\bar q \D q$ is not invariant under transformations in $\U(1)_A$, as we saw earlier is required, the quantum correction to $\partial_\mu J^\mu_A$ is non-zero.
-The remaining symmetry, $\U(1)_V \times \SU(N_f)_L \times \SU(N_f)_R$, and how it are broken is the foundation for chiral perturbation theory, which is the subject of the next section.
+The remaining symmetry, $\U(1)_V \times \SU(N_f)_L \times \SU(N_f)_R$, and how it is broken is the foundation for chiral perturbation theory, which is the subject of the next section.

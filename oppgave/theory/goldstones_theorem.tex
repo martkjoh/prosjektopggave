@@ -30,9 +30,9 @@ We will consider internal, global transformations which act linearly on $\varphi
 For $N$ fields, $\varphi_i$, this can be written
 \begin{equation}
     \label{linear field transformation}
-    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i t_{ij} \varphi_j(x).
+    \varphi_i'(x) = \varphi_i(x) + \epsilon \, i V_{ij} \varphi_j(x).
 \end{equation}
-$t_{ij}$ is called the generator of the transformation.
+$V_{ij}$ is called the generator of the transformation.
 A symmetry transformation the system is then a transformation in which the Lagrangian left is unchanged, or at most differ by a 4-divergence term.
 That is, a transformation $\varphi \rightarrow \varphi'$ is a symmetry if 
 \begin{equation}
@@ -57,12 +57,12 @@ Using the infinitesimal version of the transformation, we may write
     = \int \D \varphi \, \exp{i S[\varphi] + i \int \dd^4 x J_i(x) \varphi_i(x)} 
     = \int \D \varphi' \, \exp{i S[\varphi'] + i \int \dd^4 x J_i(x) \varphi'_i(x)}
     \\
-    = Z[J] + i \epsilon \int \dd^4 x \, J_i(x) \int \D \varphi \, [t_{ij} \varphi_j(x)]  e^{i S[\varphi]},
+    = Z[J] + i \epsilon \int \dd^4 x \, J_i(x) \int \D \varphi \, [V_{ij} \varphi_j(x)]  e^{i S[\varphi]},
 \end{align}
 Using \cref{effective equation of motion}, we can write this as
 \begin{equation}
     \label{effective action symmetry requirement}
-    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \, t_{ij}\ex{\varphi_j(x)}_J = 0.
+    \int \dd^4 x \, \fdiff{\Gamma[\varphi_J]}{\varphi_i(x)} \, V_{ij}\ex{\varphi_j(x)}_J = 0.
 \end{equation}
 This constraint will allow us to deduce the properties of a theory close to the ground state, only using information about the symmetries of the theory.
 
@@ -165,19 +165,16 @@ They obey the Jacobi identity,
 which mean that they are totally antisymmetric.
 For matrix groups, which we deal with in this text, the Lie bracket is the commutator.
 A subset of the original Lie group, $H \subset G$, closed under the group action, is called a subgroup.
-$H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
-We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
-
-A subgroup $H \in G$ has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $x_i$, which is a subset of the original generators $T_\alpha$.
-We denote the remaining set of generators $t_a$, such that $x_i$ and $t_a$ together span $\mathfrak{g}$.
-The commutators of $x_i$ must be closed, which means that we can write
+$H$ then has its own Lie algebra $\mathfrak{h}$, with a set of $m = \dim H$ generators, $t_a$, which is a subset of the original generators $T_\alpha$.
+We denote the remaining set of generators $x_i$, such that $t_a$ and $x_i$ together span $\mathfrak{g}$.
+The commutators of $t_a$ must be closed, which means that we can write
 \begin{align}
-    [x_i, x_j] &= i C_{i j}^{k} x_k,\\
-    [x_i, t_a] &= i C_{i a}^b t_b, \\
-    [t_a, t_b] &= i C_{ab}^k x_k + i C_{ab}^c t_c,
+    [t_a, t_b] &= i C_{ab}^{c} t_c,\\
+    [t_a, x_i] &= i C_{ai}^k x_k, \\
+    [x_i, x_j] &= i C_{ij}^k x_k + i C_{ij}^c t_c,
 \end{align}
-where $ijk$ runs over the generators of $\mathfrak h$, and $abc$ runs over the rest.
-The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ia}^k = -C_{ik}^a = 0$.
+where $abc$ runs over the generators of $\mathfrak h$, and $ijk$ runs over the rest.
+The second formula can be derived using the Jacobi identity \cref{jacobi identity}, which implies that $C_{ab}^k = 0 = -C_{ak}^b$.
 This is called a Cartan decomposition.
 
 One parameter subgroups are one special case of Lie subgroups.
@@ -222,7 +219,7 @@ By considering the Lagrangian as a function of the field and its derivatives, $\
 \begin{align}
     \delta \Ell
     = \diffp{\Ell}{\varphi_i} \delta \varphi_i
-    + \diffp{\Ell}{\partial_\mu \varphi} \delta ((\partial_\mu \varphi_i)),
+    + \diffp{\Ell}{(\partial_\mu \varphi_i)} \delta (\partial_\mu \varphi_i),
 \end{align}
 where $\delta (\partial_\mu \varphi_i) = \partial_\mu \varphi_i' - \partial_\mu \varphi_i$.
 By the linearlity of the derivative,
@@ -252,7 +249,7 @@ then
 \end{equation}
 This is Nöther's theorem; a continuous symmetry implies the existence of a conserved current.
 
-The current flux through some spacelike surface $V$ defines a conserved charge. The surface of constant time in some reference frame has the normal vector $n_\mu = (1, 0, 0, 0)$, so the conserved charge
+The current flux through some spacelike surface $V$ defines a conserved charge. The surface of constant time in some reference frame has the normal vector $n_\mu = (1, 0, 0, 0)$, so the charge is
 \begin{equation}
     Q = \int_V \dd^4 x \, n_\mu J^\nu = \int_V \dd^3 x \, j^0.
 \end{equation}
@@ -272,7 +269,7 @@ The $N = 2$ linear sigma model illustrates this.
 If we assume the ground state $\varphi_{0}$ is translationally invariant, then it is given by minimizing the effective potential, of which the classical potential, $\Ve$, is the leading order approximation.
 This potential is illustrated in \autoref{fig:Mexican hat}.
 The ground state is therefore given by any of the values along the brim of the potential.
-If we, without loss of generality, choose $\varphi_0 = (0, v)$ as the ground state, then any symmetry transformation will change this state.
+If we, without loss of generality, choose $\varphi_0 = (0, v)$ as the ground state, then any rotation will change this state.
 We say that the symmetry has been \emph{spontaneously broken}.
 
 To explore this in a general context, assume a theory of $N$ real scalar fields $\varphi_i$ are invariant under the actions of some Lie group, $G$.
@@ -285,32 +282,33 @@ We can now exploit what we learned about Lie groups to write
 \begin{equation}
     \ex{\varphi'}_0 = \ex{\varphi}_0 + i \epsilon \eta_\alpha T_\alpha \ex{\varphi}_0.
 \end{equation}
-Let $t_a$ be the set of generators corresponding to broken symmetries, i.e.
+Let $x_i$ be the set of generators corresponding to broken symmetries, i.e.
 \begin{equation}
-    t_\alpha \ex{\varphi}_0 \neq 0.
+    x_i \ex{\varphi}_0 \neq 0.
 \end{equation}
 These are called the \emph{broken generators}.
-The remaining set of generators $x_i$, which obey
+The remaining set of generators $t_a$, which obey
 \begin{equation}
-    x_i \ex{\varphi}_0 = 0,
+    t_a \ex{\varphi}_0 = 0,
 \end{equation}
 are called unbroken, and generate a subgroup $H \subset G$ as the set of symmetry transformations of the vacuum is a group.
 
-In \cref{effective equation of motion} we found that the effective action obeys
+In \cref{effective action symmetry requirement} we found that, if $V$ is the generator of some symmetry, then the effective action obeys
 \begin{equation}
-    \int \dd^4 x \fdiff{\Gamma[\varphi_J]}{\varphi_i} t_{ij} \ex{\varphi_j}_0 = 0.
+    \int \dd^4 x \fdiff{\Gamma[\varphi_J]}{\varphi_i} V_{ij} \ex{\varphi_j}_0 = 0,
 \end{equation}
 We now differentiate this expression with respect to $\varphi_k(y)$ and evaluate it in the vacuum, which gives
 \begin{equation}
     \int \dd^4 x \, \fdiff{\Gamma[\varphi_0]}{\varphi_k(y), \varphi_i(x)}
-    t_{ij} \ex{\varphi_j}_0 = 0.
+    V_{ij} \ex{\varphi_j}_0 = 0.
 \end{equation}
 With the assumption that the ground state is constant, we get 
 \begin{equation}
-    \diffp{\Veff}{\varphi_k, \varphi_i} \, t_{i j} \ex{\varphi_j}_0 = 0.
+    \diffp{\Veff}{\varphi_k, \varphi_i} \, V_{i j} \ex{\varphi_j}_0 = 0.
 \end{equation}
-This is trival for unbroken symmetries, as $t_{ij}\ex{\varphi_j}_0 = 0$ by definition.
-However, in the case of a broken symmetry, the second derivative of the effective potential has an eigenvector $t^\alpha_{ij} \ex{\varphi_j}$ with a zero eigenvalue for each broken generator.
+This is trival for unbroken symmetries, as $t^a_{ij}\ex{\varphi_j}_0 = 0$ by definition.
+However, in the case of a broken symmetry, the second derivative of the effective potential has an eigenvector $x^\ell_{ij} \ex{\varphi_j}_0$ with a zero eigenvalue for each broken generator.
+Here, $\ell$ label the set of generators, while $(ij)$ are the indices corresponding to field-components $\varphi_i$.
 In \autoref{Effective action inverse propagator}, we found that the second derivative of the effective action is the inverse propagator,
 \begin{equation}
     D^{-1}_{ij}(x,y) 
@@ -319,11 +317,11 @@ In \autoref{Effective action inverse propagator}, we found that the second deriv
 \end{equation}
 Using this, we can write
 \begin{equation}
-    \tilde D^{-1}_{i j}(p=0) \, t^\alpha_{j k} \ex{\varphi_k}_0 
+    \tilde D^{-1}_{i j}(p=0) \, x^\ell_{jk} \ex{\varphi_k}_0 
     = 0.
 \end{equation}
 Zeros of the inverse propagator correspond to the physical mass of particles.
-In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particle, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $t$. If the generators are Grassmann numbers, the resulting particle, called goldstinos, are fermions.}
+In Lorentz-invariant systems, each zero-mass vector corresponds to a masses particle, called a Goldstone boson.\footnote{ The particles are bosons due to the bosonic nature of the transformations, $g$. If the generators are Grassmann numbers, the resulting particles, called goldstinos, are fermions.}
 This means there are $n_G = \dim G -\dim H$ zero mass modes.
 In general, the counting of massless modes is complicated and depends on the dispersion relation of the particles at low momenta.
 Systems with Goldstone bosons with quadratic dispersion relation, that is $E \propto |\vv p|^2$ when $\vv p \rightarrow 0$, often exhibit a lower number of massless modes.
@@ -344,7 +342,7 @@ As the ground state is a point along the ``brim'' of the hat, this rotational sy
 However, any excitations in the angular direction do not cost any energy, which is indicative of a massless mode.
 This is illustrated in \autoref{fig:Mexican hat zoom}.
 In this example, the original symmetry group is one-dimensional, so there are no unbroken symmetries.
-Consider instead the $N=3$ linear sigma model, which has the three-dimensional symmetry group $SO(3)$, rotations of the sphere.
+Consider instead the $N=3$ linear sigma model, which has the three-dimensional symmetry group $\SO(3)$, rotations of the sphere.
 We see that the ground state is left invariant under a subgroup of the original symmetry transformations.
 The ground state manifold of this system, the set of all states that minimizes the effective potential, is then a sphere.
 When the system chooses one single ground state, this symmetry is broken, but only for two of the generators. 

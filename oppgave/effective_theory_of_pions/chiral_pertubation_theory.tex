@@ -17,13 +17,14 @@ The mass matrix of the quarks is
 \end{equation}
 where $m_u \approx 2.16 \, \text{MeV}$, and $m_d \approx 4.67 \, \text{MeV}$~\cite{PDG}.
 This means that the $G_f$ symmetry is \emph{explicitly} broken.
-In what is called the isospin limit, $m_u = m_d$, the subgroup $U(1) \times \SU(2)_V$ remains intact.
-However, as $m_u \neq m_d$, also the isospin subgroup $\SU(2)_V$ is broken.
-The difference between these masses is small, which is why isospin is a good quantum number.
+% In last section, we saw that for $m_u = m_d$, the subgroup $U(1) \times \SU(2)_V$ remains intact.
+% This is called the isospin-limit.
+% However, as $m_u \neq m_d$, also the isospin subgroup $\SU(2)_V$ is broken.
+% The difference between these masses is small, which is why isospin is a good quantum number.
 Even though the underlying symmetry is only approximate, we can still apply the formalism from Goldstone's theorem and the CCWZ construction by including a small mass term for the Goldstone bosons, which in this case are called \emph{Pseudo Goldstone bosons}.
 
 We now focus on the subgroup $G = \SU(2)_L \times \SU(2)_R$.
-The ground state spontaneously breaks this approximate symmetry of the two-flavor QCD-Lagrangian.
+The ground state spontaneously breaks this approximate symmetry of the two-flavor QCD Lagrangian.
 As quarks $q$ are spinors, a non-zero expectation value of the quark field would break Lorentz-invariance.
 Instead, the spontaneous symmetry breaking is characterized by the \emph{scalar quark condensate}, $\ex{\bar q q}$.
 The scalar quantity $\bar q q$ is invariant under isospin transformations $H = \SU(2)_V$, but not under $\SU(2)_A$.
@@ -108,20 +109,20 @@ where $\pi$ are the Goldstone bosons.
 \label{subsection:power counting}
 
 We now have a relationship between the underlying Lagrangian and the effective Lagrangian, of the form \autoref{integrating out degrees of freedom}.
-However, as discussed earlier, we cannot solve QCD at low energies and have no way to integrate out the high energy degrees of freedom.
+However, as discussed earlier, we cannot solve QCD at low energies and thus have no way to integrate out the high energy degrees of freedom.
 Instead, we have to make use of Weinberg's ``theorem''.
-Using the CCWZ-construction, we can obtain the most general Lagrangian obeying the symmetries of QCD. 
+Using the CCWZ construction, we can obtain the most general Lagrangian obeying the symmetries of QCD. 
 In this case, we have not laid any constraints on the theory but the most basic assumptions.
 This, however, will result in a theory with an infinite number of free parameters, making it rather unwieldy.
-To amend this, we need a scheme to order the terms such that we can compute observable perturbatively.
+To amend this, we need a scheme to order the terms to compute observable perturbatively.
 We are working in the low-energy regime, so it is natural to expand in pion momenta.
-As we saw in the CCWZ-construction, the terms in the Lagrangian will be made up of combinations of the terms $e_\mu$ and $d_\mu$ of the Maurer-Cartan form, $i\Sigma \partial_\mu \Sigma = e_\mu + d_\mu$.
+As we saw in \autoref{seciton:ccwz construction}, the terms in the Lagrangian will be made up of combinations of the terms $e_\mu$ and $d_\mu$ of the Maurer-Cartan form, $i\Sigma \partial_\mu \Sigma = e_\mu + d_\mu$.
 Therefore, all terms in the effective Lagrangian will be proportional to a certain number of derivatives, which Lorentz invariance demands to be even.
 
 Consider the matrix element $\mathcal M$ for a given Feynman diagram with external pion lines with momenta $q_n$, where both the energies and momenta are less or equal to some energy scale $Q$.
 If we scale $Q\rightarrow tQ$, and consequently also the external momenta $q_n \rightarrow tq_n$, momentum conservation at each vertex ensures that each internal momentum $p$ of the diagram scales as $p \rightarrow tp$.
-Assume this diagram is made up of $V_i$ copies of the vertex $i$, which contain $d_i$ derivatives of the pions.
-Each of these vertices scale as $t^{d_i}$.
+Assume this diagram is made up of $V_i$ copies of the vertex $i$, which contain $d_i$ derivatives.
+Each of these vertices then scale as $t^{d_i}$.
 The propagators contribute a factor $p^{-2}$ and will therefore scale as $t^{-2}$, and the integration measure $\dd^4 p$ scales as $t^4$.
 This means that a matrix element with $L$ loops and $I$ internal lines scales as
 \begin{equation}
@@ -140,9 +141,10 @@ Using the formula \cref{Number of loops} for number of loops in a Feynman diagra
 For low energy scales $Q$, the larges contribution will come from the matrix elements of the smallest chiral dimension $D$.
 A general process will consist of a sum of matrix elements of different chiral dimensions.
 We can expand this element in powers of the pion momenta by using $t$ as the expansion parameter.
-The leading order term will be those where $L = 0$ and $d_i = 2$ so that $D = 2$, i.e. the tree-level contribution from terms in the Lagrangian with only one derivative.
+The leading order term will be those where $L = 0$ and $d_i = 2$ so that $D = 2$.
+This means that all tree-level contributions to lowest chiral dimension are from terms in the Lagrangian with exactly two derivatives.
 Next is $D = 4$, which contains both tree-level contributions from terms with $d_i = 4$ and a one-loop contribution from $d_i = 2$.
-We therefore expand the effective Lagrangian as 
+We therefore expand the effective Lagrangian as
 \begin{equation}
     \Ell_\text{eff} = \Ell_2 + \Ell_4 + ...,
 \end{equation}
@@ -151,41 +153,44 @@ This is equivalent to scaling the space-time cooridnates as $x^\mu \rightarrow t
 
 We must also allow for the fact that pions have non-zero mass and that there is a finite isospin chemical potential.
 This is all implemented by external currents, which we also have to assume are small.
-The external pions are on-shell, the pion mass $m_\pi$ must be less than the energy scale $Q$.
+Any external pions are on-shell, so the pion mass $m_\pi$ must be less than the energy scale $Q$.
 As we will see, this corresponds to scaling the quark masses as $m_q \rightarrow t^2 m_q$.
 Similarly, $\mu_I$ must also be less than $Q$, which means that we scale it as $\mu_I\rightarrow t \mu_I$.
-Following these rules, each term in the effective Lagrangian will have a well-defined chiral dimension, ensuring a consistent series expansion~\cite{weinberg_1996_vol2,WeinbergPhenom,Scherer2002IntroductionTC}.
+Following these rules, each term in the effective Lagrangian will have a well-defined chiral dimension $D$, ensuring a consistent series expansion.
+The term $\Ell_{D}$ then contain all allowed terms that scale as $t^D$~\cite{weinberg_1996_vol2,WeinbergPhenom,Scherer2002IntroductionTC}.
 
 \subsection*{Non-linear realization}
 
 To parametrize the low energy behavior of QCD, we must find a representative element of the coset space of $G$, $G/H = \SU(2)_A$.
 Let $g\in G$. 
-We write $g = (L, R)$, where $R \in \SU(2)_R$, $L \in \SU(2)_L$.
-Elements $h \in H$ are then of the form $h = (V, V)$.
+We write $g = (U_L, U_R)$, where $U_R \in \SU(2)_R$, $U_L \in \SU(2)_L$.
+Elements $h \in H$ are then of the form $h = (U, U)$.
 A general element g can be written as
 \begin{equation}
-    g = (L, R) = (1, R L^\dagger) (L, L).
+    g = (U_L, U_R) = (1, U_R U_L^\dagger) (U_L, U_L).
 \end{equation}
-Since $(L, L) \in H$, this means that we can write the coset $g H$ as $(1, R L^\dagger)H$, which gives a way to choose a representative element for each coset.
+Since $(U_L, U_L) \in H$, this means that we can write the coset $g H$ as $(1, U_R U_L^\dagger)H$, which gives a way to choose a representative element for each coset.
 We identify
 \begin{equation}
-    \Sigma = R L^\dagger. 
+    \Sigma = U_R U_L^\dagger. 
 \end{equation}
-This is our standard form and therefore makes it possible to obtain the transformation properties, which is given by the function $h(g, \xi)$.
+This is our standard form for elements in $gH$.
+As we saw in \autoref{seciton:ccwz construction}, it therefore implicitly define transformation properties of the Goldstone bosons, which is given by the function $h(g, \xi)$.
 For $\tilde g \in G$, we have 
 \begin{equation}
     \tilde g (1, \Sigma)
-    = (\tilde L, \tilde R) (1, R L^\dagger)
-    = (1, \tilde R (R L^\dagger) \tilde L^\dagger) (\tilde L, \tilde L)
-    = (1, \tilde R \Sigma \tilde L) \tilde h.
+    = (\tilde U_L, \tilde U_R) (1, U_R U_L^\dagger)
+    = (1, \tilde U_R (U_R U_L^\dagger) \tilde U_L^\dagger) (\tilde U_L, \tilde U_L)
+    = (1, \tilde U_R \Sigma \tilde U_L) \tilde h.
 \end{equation}
 This gives the transformation rule
 \begin{equation}
-    \Sigma \rightarrow \Sigma' = R \Sigma L^\dagger.
+    \Sigma \rightarrow \Sigma' = U_R \Sigma U_L^\dagger.
 \end{equation}
-Under transformations by $h = (V, V^\dagger) \in H$, we have
+Under transformations by $h = (U, U^\dagger) \in H$, we have
 \begin{equation}
-    \Sigma \rightarrow \Sigma' = V \Sigma V^\dagger.
+    \label{sigma transform under H}
+    \Sigma \rightarrow \Sigma' = U \Sigma U^\dagger.
 \end{equation}
 As $\partial_\mu  (1, \Sigma) = (0, \partial_\mu \Sigma)$, the constituents of the Mauer-Cartan form are
 \begin{equation}
@@ -199,7 +204,7 @@ Using $\partial_\mu [\Sigma(x)^\dagger\Sigma(x)] = 0 $, we can write
     =\Sigma(x)^\dagger [\partial_\mu \Sigma(x)] [\partial^\mu \Sigma(x)^\dagger] \Sigma(x).
 \end{equation}
 In \autoref{seciton:ccwz construction}, we found the lowest order terms, \cref{first order terms CCWZ}.
-However, as $d_\mu \in \lieg{su}{2}$, which we represent by the traceless Pauli matrices, we have
+However, as $d_\mu \in \liea{su}{2}$, which we represent by the traceless Pauli matrices, we have
 \begin{equation}
     \Tr{d_\mu} = 0.
 \end{equation}
