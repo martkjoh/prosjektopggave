@@ -8,17 +8,23 @@ The leading order \chpt Lagrangian is made up of the terms \cref{leading order c
     \frac{1}{4} f^2 \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
     + \frac{1}{4} f^2 \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}.
 \end{equation}
-In the ground state, we set the external scalar current $s = m$, where $m$ is the mass matrix \cref{Mass matrix}, so
+The external source currents are
 \begin{equation}
-    \chi = 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3,
+    s = m, \quad v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3,
 \end{equation}
-where we have defined
+where $m$ is the quark-mass matrix \cref{Mass matrix}, and 
+\begin{align}
+    \chi& = 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3, \\
+    \nabla_\mu \Sigma &= \partial_\mu \Sigma - i [v_\mu, \Sigma].
+\end{align}
+We have defined
 \begin{equation}
     \bar m^2 = B_0(m_u + m_d), \quad \Delta m^2 = B_0 (m_u - m_d).
 \end{equation}
-To incorporate a finite isospin density, we have to change the parametrization of $\SU(2)_A$.
+
+To incorporate a finite isospin density, we must parametrize the Goldstone manifold differently.
 We follow the analysis in~\cite{Andersen:two-flavor-chpt}.
-We ssume the groundstate is independent of space, $\pi_a(x) = \pi_a"0$, and write it as
+We assume the ground state is independent of space, $\pi_a(x) = \pi_a^0$, and write it as
 \begin{equation}
     \Sigma_\alpha 
     :=
@@ -33,7 +39,7 @@ where
 \end{equation}
 The covariant derivative is then
 \begin{equation}
-    \nabla_\mu \Sigma_\alpha = - v^a_\mu [\tau_a, \Sigma_\alpha].
+    \nabla_\mu \Sigma_\alpha = - iv^a_\mu [\tau_a, \Sigma_\alpha].
 \end{equation}
 The two terms in the first order Lagrangian then becomes
 \begin{align}
@@ -63,14 +69,14 @@ We see that, to first order, all results are independent of $\Delta m$.
 To find the new groundstate, we minimize the Hamiltonian density.
 With the assumption that the fields are constant, the first order Hamiltonian density is
 \begin{equation}
-    \He_0 = - \Ell_2 = 
+    \He_2 = - \Ell_2 = 
     - f^2 
     \left[
         \bar m^2 \cos^2 \alpha 
         + \frac{1}{2} \mu_I^2 (n_1^2 + n_2^2 ) \sin^2 \alpha
     \right]
 \end{equation}
-For $\mu_I = 0$, this is minimized by $\alpha = 0$.
+For $\mu_I = 0$, this is independent of $n_a$, and minimized by $\alpha = 0$.
 Now, as $n_i n_i = 1$, we have that $n_1^2 + n_2^2 = 1 - n_3^2$.
 This means that, for $\mu_I \neq 0$, the energy is minimized by $n_3 = 0$.
 We can write $n_1 = \cos \phi$, $n_2 = \sin \phi$, for some real number $\phi$, which gives the groundstate
@@ -88,7 +94,7 @@ With this, the new groundstate is
 Any exited state is a transformation of the groundstate by $\lieg{SU}{2}_A$.
 For $\mu_I = 0$, this corresponds to 
 \begin{equation}
-    \Sigma(x) = R_0(x) \Sigma_0 L_0^\dagger(x) = U(x) \Sigma_0 U(x).
+    \Sigma(x) = U_R(x) \Sigma_0 U_L^\dagger(x) = U(x) \Sigma_0 U(x).
 \end{equation}
 where
 \begin{equation}
@@ -99,7 +105,7 @@ For $\mu_I \neq 0$, the groundstate may be shifted, and so $U(x)$ must be too.
 The groundstate transforms as
 \begin{equation}
     \Sigma_0 \rightarrow \Sigma_\alpha 
-    = \hat L \Sigma_0 \hat R^\dagger = A_\alpha \Sigma_0 A_\alpha.
+    = \hat U_L \Sigma_0 \hat U_R^\dagger = A_\alpha \Sigma_0 A_\alpha.
 \end{equation}
 where
 \begin{equation}
@@ -107,8 +113,8 @@ where
 \end{equation}
 This induces the following transformations for the fluctuations,
 \begin{align}
-    L_0 & \rightarrow L_\alpha = \hat L L \hat L^\dagger = A_\alpha L A_\alpha^\dagger, \\
-    R_0 & \rightarrow L_\alpha = \hat R R \hat R^\dagger = A_\alpha^\dagger L A_\alpha.
+    U_L & \rightarrow \hat U_L U_L \hat U_L^\dagger = A_\alpha U_L A_\alpha^\dagger, \\
+    U_R & \rightarrow \hat U_R U_R \hat U_R^\dagger = A_\alpha^\dagger U_R A_\alpha.
 \end{align}
 The new parametrization is thus
 \begin{align}
@@ -129,42 +135,6 @@ To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using 
     \right] 
     = \one \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}}.
 \end{equation}
-The series expansion of $U$ is
-\begin{align*}
-    U = \exp(\frac{i \pi_a \tau_a}{2f}) = 
-    1
-    + \frac{i \pi_a \tau_a}{2f} 
-    + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
-    + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
-    + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
-    + \Oh[5]{(\pi/f)},
-\end{align*}
-which we use to calculate the expansion of the inner part of $\Sigma$, as given in \cref{sigma},
-\begin{align*}
-    U\Sigma_0U & = 
-    \left(
-        1
-        + \frac{i \pi_a \tau_a}{2f} 
-        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
-        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
-        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
-    \right)\\
-    & \times
-    \left(
-        1
-        + \frac{i \pi_a \tau_a}{2f} 
-        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
-        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
-        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
-    \right)
-    + \Oh[5]{(\pi/f)}\\
-    &=
-    1 + \frac{i \pi_a \tau_a}{f}
-    + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^2
-    + \frac{4}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^3
-    + \frac{2}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^4
-    + \Oh[5]{(\pi/f)}.
-\end{align*}
 The symmetry of $\pi_a\pi_b$ means that
 \begin{align*}
 % Identitites
@@ -181,7 +151,7 @@ The symmetry of $\pi_a\pi_b$ means that
     \pi_a \pi_a \pi_b \pi_b.
 \end{align*}
 This gives us the expression
-\begin{align*}
+\begin{align}
 % Final expression
     & U\Sigma_0U 
     =
@@ -191,9 +161,10 @@ This gives us the expression
     - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
     + \frac{\pi_a^2\pi_b^2}{24f^4}
     + \Oh[5]{(\pi/f)}.
-\end{align*}
+\end{align}
 We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
-\begin{align*}
+\begin{align}
+    \nonumber
     \Sigma 
     & =
     \left(
@@ -203,7 +174,7 @@ We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\O
         - i \frac{\pi_a^2\pi_b \tau_b}{6f^3}
         + \frac{\pi_a^2\pi_b^2}{24f^4}    
     \right)
-    \cos^2{\frac{\alpha}{2}} \\
+    \cos^2{\frac{\alpha}{2}} \\ \nonumber
     & -
     \left(
         1
@@ -222,7 +193,7 @@ We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\O
         + 2\tau_1 \frac{\pi_a^2\pi_b^2}{24f^4}
     \right)
     \sin{\frac{\alpha}{2}}\cos{\frac{\alpha}{2}}.
-\end{align*}
+\end{align}
 Using trigonometric identities and the commutator,
 \begin{align*}
     \cos^2{\frac{\alpha}{2}} - \sin^2{\frac{\alpha}{2}} = \cos{\alpha}, \quad 
@@ -250,7 +221,7 @@ the final expression of $\Sigma$ to $\Oh[5]{(\pi/f)}$ is
     \label{expansion of sigma}
 \end{align}
 
-The kinetic term in the \chpt Lagrangian is
+The kinetic term in the \chpt\, Lagrangian is
 \begin{equation}
     \nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger 
     = \partial_\mu \Sigma \partial^\mu \Sigma^\dagger 
@@ -395,7 +366,7 @@ Notice that the mass term is independent of the difference in quark masses, $\De
 If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $(\pi/f)^n$, then the result of the series expansion is
 \begin{align}
 %%%%%%%%%%%%%%%%%%
-%% zeroth order %%
+%% zeroth-order %%
 %%%%%%%%%%%%%%%%%%
 \Ell_2^{(0)}
 &  =
@@ -420,7 +391,7 @@ If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2
     + f \mu_I \partial_0\pi_2 \sin{\alpha},
 \\
 %%%%%%%%%%%%%%%%%%
-%% second order %%
+%% second-order %%
 %%%%%%%%%%%%%%%%%%
 \Ell_2^{(2)}
 & =
@@ -431,7 +402,7 @@ If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2
 \label{L2}
 \\
 %%%%%%%%%%%%%%%%%%
-%% third order %%
+%% third-order %%
 %%%%%%%%%%%%%%%%%%
 \notag
 \Ell_2^{(3)}
@@ -449,7 +420,7 @@ If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2
     \sin{\alpha},
 \\
 %%%%%%%%%%%%%%%%%%
-%% fourth order %%
+%% fourth-order %%
 %%%%%%%%%%%%%%%%%%
 \notag
 \Ell_2^{(4)}

@@ -251,12 +251,12 @@ Then, applying the $\SU(2)_R$ transformation, we get
     \rightarrow
     i \bar q_R \slashed{D} q_R + 
     (i \bar q_R \gamma^\mu q_R ) \, U_R^\dagger \partial_\mu U_R  
-    + [\bar q_R \gamma^\mu (U_R^\dagger \tau_a U_r)  q_R ] \, r^a_\mu
+    + [\bar q_R \gamma^\mu (U_R^\dagger \tau_a U_R)  q_R ] \, r^a_\mu
 \end{equation}
 This, and the similar expression for $U_L$, gives the gauge transformation rules
 \begin{align}
-    r_\mu^a \tau_a & \rightarrow U_R (r_\mu^a\tau_a + i\one \partial_\mu) U_R^\dagger, \\
-    l_\mu^a \tau_a & \rightarrow U_L (l_\mu^a\tau_a + i\one \partial_\mu) U_L^\dagger, \\
+    r_\mu & \rightarrow U_R (r_\mu + i\one \partial_\mu) U_R^\dagger, \\
+    l_\mu & \rightarrow U_L (l_\mu + i\one \partial_\mu) U_L^\dagger, \\
     s + i p & \rightarrow U_R (s + i p) U_L^\dagger, \\
     s - i p & \rightarrow U_L (s - i p) U_R^\dagger.
 \end{align}
@@ -278,32 +278,35 @@ and the derivative as
     U_R
     \left[
         \partial_\mu \Sigma
-        + U_R^\dagger (\partial_\mu U_L) \Sigma
+        + U_R^\dagger (\partial_\mu U_R) \Sigma
         + \Sigma (\partial_\mu U_L^\dagger) U_L
     \right]
     U_L^\dagger.
     \label{Sigma partial derivative}
 \end{align}
-The covariant derivative is defined to transform in the same way as the object it is acting upon.
-This means that the definition of the covariant derivative depends on what it acts on.
+
+As in the case of the gauge group of the strong force, we must introduce a covariant derivative, which is defined to transform as the object it acts on does.
+By this definition, the covariant derivative depends on what it acts on.
 Assume $A$, $B$ and $\Sigma$ transforms as $A \rightarrow U_R A U_R^\dagger$, $B \rightarrow U_L A U_L^\dagger$, and $\Sigma \rightarrow U_R \Sigma U_L^\dagger$.
 In each of these cases, we define the covariant derivative as
 \begin{align}
     \label{covariant derivative general}
     \nabla_\mu A &= \partial_\mu A - i [r_\mu, A], \\
-    \nabla_\mu B &= \partial_\mu B - i [B, l_\mu], \\
+    \nabla_\mu B &= \partial_\mu B - i [l_\mu, B], \\
     \nabla_\mu \Sigma &= \partial_\mu \Sigma - i r_\mu \Sigma + i \Sigma l_\mu.
 \end{align}
 It follows from \cref{Sigma partial derivative} that $\nabla_\mu \Sigma$ transforms as $\Sigma$, and the proof for the other two is similar.
-For quantities that do not transform under $\SU(2)_L\times \SU(2)_R$, the covariant derivative is the ordinary partial derivative.
+For quantities that do are invariant under $\SU(2)_L\times \SU(2)_R$, the covariant derivative is the ordinary partial derivative.
+In our case, $a_\mu = 0$, and the covariant derivative is therefore
+\begin{equation}
+    \nabla_\mu \Sigma = \partial_\mu \Sigma - i [v_\mu, \Sigma].
+\end{equation}
+
 If $A$, $B$ and $C = AB$ are all quantities with a well-defined covariant derivative, then
 \begin{equation}
     \nabla_\mu (AB) = (\nabla_\mu A) B + A (\nabla_\mu B).
 \end{equation}
-We prove the special case of $a_\mu = 0$, which is what we use in this text, in which case
-\begin{equation}
-    \nabla_\mu \Sigma = \partial_\mu \Sigma - i [v_\mu, \Sigma].
-\end{equation}
+We show this in the case where $a_\mu = 0$.
 Assume $A, B$ transforms as $\Sigma$. 
 Then,
 \begin{align*}
@@ -386,7 +389,7 @@ As in the case of Yang-Mills theory, we may form a field strength tensor to crea
     f_{\mu\nu}^R &= \partial_\mu r_\nu - \partial_\nu r_\mu - i [r_\mu, r_\nu], \\
     f_{\mu\nu}^L &= \partial_\mu l_\nu - \partial_\nu l_\mu - i [l_\mu, l_\nu].
 \end{align}
-In our case, these vanish, and we can therefore safely ignore terms made including them.
+In our case, these vanish, and we can therefore safely ignore terms including them.
 
 For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and we can use the paramterization
 \begin{equation}
@@ -395,7 +398,7 @@ For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and 
 \end{equation}
 where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons, a set of real functions of space-time.
 This ensures that $\pi = 0$ corresponds to the vacuum.
-If we perform an infinitesimal isospin-transformation, and assume $\pi_a/f$ small, then
+If we perform an infinitesimal isospin-transformation, and assume $\pi/f$ small, then
 \begin{equation}
     \Sigma \rightarrow U_V \Sigma U_V^\dagger
     =

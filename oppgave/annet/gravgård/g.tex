@@ -1548,4 +1548,45 @@ With these energies we can write the determinant of the inverse propagator as
     \end{pmatrix}.
 \end{align}
 
+
+\section{leading order lagrangian}
+The series expansion of $U$ is
+\begin{align*}
+    U = \exp(\frac{i \pi_a \tau_a}{2f}) = 
+    1
+    + \frac{i \pi_a \tau_a}{2f} 
+    + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+    + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+    + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    + \Oh[5]{(\pi/f)},
+\end{align*}
+which we use to calculate the expansion of the inner part of $\Sigma$, as given in \cref{sigma},
+\begin{align*}
+    U\Sigma_0U & = 
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)\\
+    & \times
+    \left(
+        1
+        + \frac{i \pi_a \tau_a}{2f} 
+        + \frac{1}{2}\left(\frac{i \pi_a \tau_a}{2f}\right)^2 
+        + \frac{1}{6}\left(\frac{i \pi_a \tau_a}{2f}\right)^3 
+        + \frac{1}{24}\left(\frac{i \pi_a \tau_a}{2f}\right)^4 
+    \right)
+    + \Oh[5]{(\pi/f)}\\
+    &=
+    1 + \frac{i \pi_a \tau_a}{f}
+    + 2 \left( \frac{i \pi_a \tau_a}{2f} \right)^2
+    + \frac{4}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^3
+    + \frac{2}{3} \left( \frac{i \pi_a \tau_a}{2f} \right)^4
+    + \Oh[5]{(\pi/f)}.
+\end{align*}
+
+
 \end{document}
+

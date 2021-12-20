@@ -1,7 +1,7 @@
 \section{Next to leading order Lagrangian}
 
-Constructing the next-to-leading order, NLO for short, Lagrangian is now a business of combining the building blocks we found in \autoref{section:chiral pertubation theory}. 
-We must include all terms that obey all symmetries and that are fourth-order in Weinberg's power counting scheme and remove possible redundant terms, as discussed in \autoref{subsection:rewriting NLO Lagrangian}.
+Constructing the next-to-leading order (NLO) Lagrangian is now a business of combining the building blocks we found in \autoref{section:chiral pertubation theory}. 
+We must include all terms that obey all symmetries and that are fourth-order in Weinberg's power counting scheme and remove possible redundant terms, as discussed in \autoref{appendix:rewriting terms}.
 We will quote the result from \cite{Scherer2002IntroductionTC},
 \begin{align}
     \notag
@@ -28,7 +28,7 @@ We will quote the result from \cite{Scherer2002IntroductionTC},
 \end{align}
 We have ignored terms containing the field strength tensors for external fields, as they vanish in our case.
 The parameters $l_i$ and $h_i$ are called low energy constants, or LEO.
-In \autoref{subsection:rewriting NLO Lagrangian}, we show how to rewrite the Lagrangian to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}.
+In \autoref{appendix:rewriting terms}, we show how to rewrite the Lagrangian to match the one used in~\cite{Andersen:two-flavor-chpt,mojahed}.
 To obtain $\Ell_4$ to $\Oh[3]{(\pi/f)}$, we use the result from \autoref{Sigma derivative} and \autoref{sigma commutator}, which gives
 \begin{align*}
     %%%%%%%%%%%%%%%%%%
@@ -60,11 +60,7 @@ To obtain $\Ell_4$ to $\Oh[3]{(\pi/f)}$, we use the result from \autoref{Sigma d
     \right],
 \end{align*}
 up to $\Oh[3]{(\pi/f)}$.
-We write $\chi$ as
-\begin{align*}
-    \chi = 2 B_0 M = \bar m^2 \one + \Delta m^2 \tau_3,
-\end{align*}
-where $\bar m  = B_0(m_u + m_d), \, \Delta m = B_0 (m_u - m_d)$, which gives 
+Inserting $\chi= 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3$ gives 
 \begin{align*}
     \chi \Sigma^\dagger + \Sigma \chi^\dagger
     & = 2(\bar m^2 + \Delta m^2 \tau_3)
@@ -259,7 +255,7 @@ The different terms of the NLO Lagrangian is
     + (l_3 + l_4)\bar m^2 \cos^2{\alpha}
     + l_4 \bar m \mu_I{}^2 \cos{\alpha} \sin^2{\alpha}
     + (h_1 - l_4)\bar m^4
-    + h_3 \Delta m^4
+    + h_3 \Delta m^4,
     \label{NLO-L0}
     \\
     %
@@ -295,7 +291,7 @@ The different terms of the NLO Lagrangian is
         % term 19 pi
         \pi_1 \sin{\alpha}
         \left(3\sin^2{\alpha} - 2\right)
-    \right]
+    \right],
     \\
     %
     %
@@ -364,7 +360,7 @@ The different terms of the NLO Lagrangian is
     % &
     % term 21 pi^2
     + \frac{l_7}{f^2}
-    \Delta m^2 \pi_3^2
+    \Delta m^2 \pi_3^2.
     \label{NLO-L2}
 \end{align}
 
