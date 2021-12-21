@@ -41,7 +41,7 @@ Higher functional derivatives are defined similarly, by applying functional vari
 \begin{equation}
     \delta^n F[f] = \dv{\epsilon} \delta^{n-1}F[f + \epsilon \eta_n] \big|_{\epsilon=0}
     = \int \left(\prod_{i=1}^n \dd x_i\right)
-    \frac{\delta^n F[f]}{ \delta f(x_n)\dots\delta f(x_n)} \left(\prod_{i=1}^n \eta_i(x_i)\right).
+    \frac{\delta^n F[f]}{ \delta f(x_n)\dots\delta f(x_1)} \left(\prod_{i=1}^n \eta_i(x_i)\right).
 \end{equation}
 If we can write the functional $F[f]$ in terms of a new variable, $g(y)$, then the chain rule for functional derivatives is
 \begin{equation}
@@ -50,7 +50,7 @@ If we can write the functional $F[f]$ in terms of a new variable, $g(y)$, then t
 
 A functional may be expanded in a generalization of the Taylor series, 
 \begin{equation}
-    F[f_0 + f] = F[f_0] + \int_\Omega \dd x \, f(x) \frac{\delta F[f_0]}{\delta f(x)}\bigg|_{f = f_0}
+    F[f_0 + f] = F[f_0] + \int_\Omega \dd x \, f(x) \frac{\delta F[f_0]}{\delta f(x)}
     + \frac{1}{2!}\int_\Omega \dd x \dd y \, f(x) f(y) \frac{\delta^2 F [f_0]}{\delta f(x) \delta f(y)}
     + \dots
 \end{equation}

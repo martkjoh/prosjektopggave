@@ -9,6 +9,7 @@ We write the Lagrangian in the form
     \frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi - m^2 \varphi^2 , \quad
     \Ell^{(I)} = - \frac{\lambda}{4!} \varphi^4
 \end{equation*}
+%
 $\Ell^{(I)}$ is called the interaction term, and makes it impossible to exactly solve for the partition function.
 Instead, we turn to perturbation theory.
 The canonical partition function in this theory is
@@ -19,6 +20,7 @@ The canonical partition function in this theory is
     }
     = \int_S \D \varphi \, e^{-S_0} e^{-S_I}.
 \end{equation}
+%
 Here, $S_0$ and $S_I$ denote the Euclidean action due to the free and interacting Lagrangian, respectively.
 The domain of integration $S$ is again periodic field configurations $\varphi(\beta, \vec x) = \varphi(0, \vec x)$.
 We may write the free energy as
@@ -30,17 +32,20 @@ We may write the free energy as
     = \ln Z_0 
     + \ln Z_I ,
 \end{equation*}
+%
 where $Z_0$ is the partition function of the free theory.
 The correction to the partition function is thus given by
 \begin{equation}
     Z_I = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \ex{{S_I}^n}_0,
 \end{equation}
+%
 where
 \begin{equation}
     \ex{A}_0 = \frac{
         \int_S \D \varphi \, A \, e^{-S_0} }
     {\int_S \D \varphi \, e^{-S_0}}.
 \end{equation}
+%
 
 To evaluate expectation values of the form $\ex{\varphi(X_1) ... }_0$, we introduce the partition function with a source term
 \begin{align}
@@ -55,6 +60,7 @@ For some differential operator $D^{-1}$, the thermal propagator is defined as
 \begin{equation}
     D^{-1} D(X, Y) = \beta \delta(X - Y).
 \end{equation}
+%
 The Fourier transformed propagator is, assuming $D(X, Y) = D(X-Y, 0)$,
 \begin{align}
     \nonumber
@@ -69,11 +75,12 @@ where
 \begin{equation}
     \tilde D(K) = \int \dd X e^{iK\cdot X} D(X, 0).
 \end{equation}
+%
 We write the thermal propagator of the free field as $D_0(X, Y)$.
 With this, we may complete the square,
 \begin{align}
     Z[J] = Z[0]\exp{\frac{1}{2} \int_{\Omega} \dd X \dd Y J(X) D_0(X, Y) J(Y)}
-    = Z[0] \exp(W[J])
+    = Z[0] \exp(W[J]).
 \end{align}
 We can now write
 \begin{equation}
@@ -83,12 +90,14 @@ We can now write
     Z[J] \Big|_{J=0} 
     = D_0(X, Y).
 \end{equation}
+%
 This generalizes to higher order expectation values,
 \begin{equation}
     \ex{\varphi(X_i) \dots \varphi(X_n)}_0
-    = \frac{1}{Z[0hju]} \left(\prod_{i=1}^n \frac{\delta}{\delta J(X_i)}\right) 
+    = \frac{1}{Z[0]} \left(\prod_{i=1}^n \frac{\delta}{\delta J(X_i)}\right) 
     Z[J] \Big|_{J=0},
 \end{equation}
+%
 
 Using Wick's theorem, as described in \autoref{section:path integral}, the expectation values we are evaluating can be written
 \begin{align*}
@@ -101,8 +110,9 @@ Using Wick's theorem, as described in \autoref{section:path integral}, the expec
     \int_{\Omega} \dd X_1 \dots \dd X_m \sum_{\{a, b\}}
     \ex{\varphi(X_{a(1)}) \varphi(X_{b(1)})}_0
     \dots
-    \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}_0
+    \ex{\varphi(X_{a(2m)}) \varphi(X_{b(2m)})}_0,
 \end{align*}
+%
 where $X_i$ for $i>m$ is defined to equal $X_j$, where $j = i \mod m$.
 More simpliy,  $X_{m + i} = X_i$.
 The functions $a,\,b$ represents a possible pairing, as described in \autoref{section:path integral}.
@@ -112,7 +122,7 @@ Inserting the Fourier expansions of the field gives
     &\quad 
     = \left(-\frac{\lambda }{4!}\right)^m 
     \int_{\Omega} \dd X_1 \dots \dd X_m
-    (V \beta)^2 \int_{\tilde \Omega} \dd K_1 ... \dd K_{2m} \sum_{\{a, b\}} \\
+    (V \beta)^2 \int_{\tilde \Omega} \dd K_1 \dots \dd K_{2m} \sum_{\{a, b\}} \\
     & \quad \quad \quad \quad\quad \quad \quad
     \ex{\varphi(K_{a(1)}) \varphi(K_{b(1)})}_0
     \dots
@@ -134,11 +144,13 @@ Inserting the Fourier expansions of the field gives
     \sum_{\{a, b\}} 
     \prod_{n=1}^{2m}\delta(K_{a(k)} + K_{b(k)}).
 \end{align*}
+%
 Here we have used that $V \beta^2 \tilde D_0(K, P) = \tilde D_0(K) \delta(P + K)$, where $\tilde D_0(K)$ is the thermal propagator for the free field.
 In this case, it is
 \begin{equation}
     \tilde D_0(K) = \tilde D_0(\omega_n, \vec k) = \frac{1}{\omega_k^2 + \omega_n^2}.
 \end{equation}
+%
 This expectation value can be represented graphically using Feynman diagrams.
 The thermal $\lambda \varphi^2$-theory gets the prescription
 
@@ -162,3 +174,4 @@ In \autoref{section:path integral}, we saw that the sum of all vacuum diagrams i
 \begin{equation}
     - \beta F = \ln Z_0 + \Sigma(\mathrm{all\,\, connected\,\, diagrams}).
 \end{equation}
+%
