@@ -4,3 +4,4 @@ kilder/*
 *.insyncdl
 .vscode/
 __pycache__/
+annet/
