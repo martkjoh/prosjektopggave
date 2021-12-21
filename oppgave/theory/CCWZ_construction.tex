@@ -15,19 +15,21 @@ This means that we can write such excitations as
     \varphi_i = (\tilde\Sigma \varphi_0)_{i} = \tilde \Sigma_{ij} (\varphi_0)_j, 
     \quad \tilde \Sigma = \tilde \Sigma(\eta) = \exp{i \eta_\alpha T_\alpha}
 \end{equation}
+%
 We will drop the indices for the sake of compact notation.
 $\tilde \Sigma$ is thus a function from the parameter space, $\eta_\alpha \in \R^n$, to $G$,
 \begin{align}
     \tilde \Sigma: \R^n \longmapsto G.
 \end{align}
+%
 We then get space-time-dependent field configurations by making the parameters dependent on space-time.
 We will for now assume $\eta_\alpha$ is constant.
 This parametrization is highly redundant.
-% There are $n = \dim G$ parameters $\eta_\alpha$, but Goldstone's theorem massless mode per broken generator.
 Two elements $\tilde\Sigma$ and $\tilde\Sigma'$, related by
 \begin{equation}
     \tilde \Sigma' = \tilde\Sigma e^{i \theta_a t_a}
 \end{equation}
+%
 results in the same $\varphi$.
 This is because  $e^{i \theta_a t_a} = h \in H$, and $h \varphi_0 = \varphi_0$, by assumption.
 The set of all equivalent $\tilde \Sigma$'s is exactly the left coset, $gH = \setbuilder{gh}{ h \in H}$.
@@ -42,6 +44,7 @@ If we write
 \begin{equation}
     \tilde \Sigma(\xi, \theta) = \exp{i \xi_i x_i} \exp{i \theta_a t_a},
 \end{equation}
+%
 then the map is invertible at $p = (\xi_i = 0, \theta_a = 0)$, as the Jacobian is the identity matrix.
 This point is mapped to the identity element of $G$.
 This means that, in a neighborhood $U \subset G$ of the identity, each element $g$ has a unique representation $g = \tilde \Sigma$~\cite{smooth_manifolds}.
@@ -51,10 +54,12 @@ We therefore demand that $\tilde \Sigma$ always appear in the standard form
 \begin{equation}
     \Sigma(\xi) = \tilde \Sigma(\xi, 0) = \exp{i \xi_i x_i}.
 \end{equation}
+%
 The field $\varphi(x)$ can therefore be written as
 \begin{equation}
     \varphi(x) = \Sigma(x) \varphi_0 = \exp{i \xi_i(x) x_i} \varphi_0,
 \end{equation}
+%
 and $\xi_i(x)$ can be associated with the Goldstone bosons.
 
 In the linear sigma model, the original $\Olie(N)$ symmetry is broken down to $\Olie(N-1)$, which transforms the remaining $N-1$ fields with vanishing expectation values into each other.
@@ -83,12 +88,14 @@ We can therefore write
 \begin{equation}
     \Ell[\varphi] = \Ell_{\mathrm{kin}}[\varphi] + V(\varphi_0),
 \end{equation}
+%
 where all terms in $\Ell_{\mathrm{kin}}$ are proportional to at least one derivative term, $\partial_\mu \varphi(x)$.
 Inserting the parametrization into this derivative term, we get
 \begin{equation}
     \partial_\mu \varphi(x) = \partial_\mu [\Sigma(x) \varphi_0]
     = \Sigma(x) [\Sigma(x)^{-1} \partial_{\mu} \Sigma(x)] \varphi_0.
 \end{equation}
+%
 The Lagrangian will therefore depend on $\xi_i$ via terms of the form $\Sigma(x)^{-1}\partial_\mu \Sigma(x)$, which is called the Mauer-Cartan form.
 This is a $\mathfrak g$-valued function, which means that it can be written as
 \begin{align}
@@ -97,6 +104,7 @@ This is a $\mathfrak g$-valued function, which means that it can be written as
     d_{\mu} & = i x_i d_{ij}(\xi) \partial_\mu \xi_j, \\
     e_{\mu} & = i t_a e_{ai}(\xi)\partial_\mu \xi_i,
 \end{align}
+%
 where $d_{ij}$ and $e_{ai}$ are as-of-yet unknown real valued functions of $\xi$~\cite{weinberg_1996_vol2,Watanabe:effective_lagrangian}.
 
 \subsection*{Transformation properties of Goldstone bosons}
@@ -105,10 +113,12 @@ In general,
 \begin{equation}
     \varphi' = g \varphi = (g \Sigma(\xi)) \varphi_0 = \Sigma(\xi') \varphi_0 \quad g \in G.
 \end{equation}
+%
 While $\Sigma(\xi')$ has the standard form by assumption,
 \begin{equation}
     \Sigma(\xi') = \exp{i \xi'_i x_i},
 \end{equation}
+%
 $g\Sigma(\xi)$ does not, in general.
 
 \begin{figure}[h]
@@ -128,6 +138,7 @@ The transformation rule of $\xi$ under $G$ is therefore implicitly defined by
 \begin{equation}
     \Sigma(\xi') = g \Sigma(\xi) [h(g, \xi)]^{-1}.
 \end{equation}
+%
 This is, in general, not a linear representation, which is why this construction also is called a \emph{non-linear realization}.
 Using the transformation rule, we can obtain the transformation rule of the Maurer-Cartan form.
 We use the shorthand $\Sigma = \Sigma(\xi),\, \Sigma' = \Sigma(\xi')$, and $h = h(g, \xi)$.
@@ -147,6 +158,7 @@ In terms of $d_\mu$ and $e_\mu$,
     d_\mu & \rightarrow h d_\mu h^{-1} \\
     e_\mu & \rightarrow h (e_\mu + i\partial_\mu )h^{-1}.
 \end{align}
+%
 These are our building blocks for constructing a general, $G$-invariant effective Lagrangian.
 The trace of a product of $d_\mu$'s are invariant under $G$,
 \begin{equation}
@@ -155,6 +167,7 @@ The trace of a product of $d_\mu$'s are invariant under $G$,
     \Tr{h d_\mu h^{-1} h d_\nu h^{-1} h \dots d_\rho h^{-1}}
     = \Tr{d_\mu d_\nu \dots d_\rho},
 \end{equation}
+%
 where we have used the cyclic property of trace.
 However, the terms must also obey the other symmetries of the Lagrangian, such as C or P-parity and Lorentz invariance.
 The last criterion excludes any terms with free space-time indices.
@@ -166,6 +179,7 @@ The lowest order terms are therefore
     \quad 
     \Tr{d_\mu d^\mu}.
 \end{equation}
+%
 We see that $e_\mu$ transforms like a gauge field, with the gauge group $H$.
 If we include massive degrees of freedom and not only the Goldtone modes, $e_\mu$ is used to create a covariant derivative of the massive modes.
 We are only interested in the Goldstone modes and will therefore be satisfied with $d_\mu$.

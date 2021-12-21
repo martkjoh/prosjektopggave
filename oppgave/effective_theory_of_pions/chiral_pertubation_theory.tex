@@ -1,9 +1,9 @@
 \section{Chiral perturbation theory}
 \label{section:chiral pertubation theory}
-This section is base on \cite{Schwartz:QFT,weinberg_1996_vol2,Scherer2002IntroductionTC}, in addition to the original work~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom,Scherer:PhysRevD.53.315}
+This section is based on \cite{Schwartz:QFT,weinberg_1996_vol2,Scherer2002IntroductionTC}, in addition to the original work~\cite{Gasser-Leutwyler:chiral,WeinbergPhenom,Scherer:PhysRevD.53.315}
 
-In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$, i.e. $N_f = 2$.
-In this case, the symmetry group of rotations in the flavor indices are $G_f = U(1) \times \SU(2)_L \times \SU(2)_R$.
+In this paper, we will consider the interaction of the two lightest quarks, the up and down quarks $u$ and $d$, i.e., $N_f = 2$.
+In this case, the symmetry group of rotations in the flavor indices is $G_f = U(1) \times \SU(2)_L \times \SU(2)_R$.
 The generators of $\SU(2)$ are $T_\alpha = \tau_\alpha / 2$, where $\tau_\alpha$ are the Pauli matrices, as described in \autoref{section:algebra bases}.
 The mass matrix of the quarks is
 \begin{equation}
@@ -15,12 +15,9 @@ The mass matrix of the quarks is
     \end{pmatrix}
     = \frac{1}{2} (m_u + m_d) \one + \frac{1}{2}(m_u - m_d) \tau_3,
 \end{equation}
+%
 where $m_u \approx 2.16 \, \text{MeV}$, and $m_d \approx 4.67 \, \text{MeV}$~\cite{PDG}.
-This means that the $G_f$ symmetry is \emph{explicitly} broken.
-% In last section, we saw that for $m_u = m_d$, the subgroup $U(1) \times \SU(2)_V$ remains intact.
-% This is called the isospin-limit.
-% However, as $m_u \neq m_d$, also the isospin subgroup $\SU(2)_V$ is broken.
-% The difference between these masses is small, which is why isospin is a good quantum number.
+The $G_f$ symmetry is \emph{explicitly} broken.
 Even though the underlying symmetry is only approximate, we can still apply the formalism from Goldstone's theorem and the CCWZ construction by including a small mass term for the Goldstone bosons, which in this case are called \emph{Pseudo Goldstone bosons}.
 
 We now focus on the subgroup $G = \SU(2)_L \times \SU(2)_R$.
@@ -42,12 +39,14 @@ As found in \autoref{section:QCD}, the conserved currents are
     A_a^\mu = \frac{1}{2} \bar q \gamma^\mu \gamma^5 \tau_a q, \quad
     J^\mu = \bar q \gamma^\mu q.
 \end{equation}
+%
 In addition, external currents can couple to the scalar and pseudo-scalar quark bilinears
 \begin{equation}
     \bar q q, \quad \bar q \gamma^5 q, 
     \quad \bar q \tau_a q, \quad \bar q \gamma^5 \tau_a q.
 \end{equation}
-The Lagrangian of the external is
+%
+The Lagrangian containing external terms is
 \begin{align}
     \Ell_\text{ext} 
     & = 
@@ -59,13 +58,15 @@ The Lagrangian of the external is
     - \bar q \left(s + i \gamma^5 p \right) q
     + \bar q \left(\frac{1}{3} v^\mu_{(s)} + v^\mu + a^\mu \gamma^5\right) \gamma_\mu q.
 \end{align}
-Here, $v, v_{(s)}, a, s$ and $p$ are the external source currents, where we denote
+%
+Here, $v^\mu_a, v_{(s)}^\mu, a^\mu_a, s_a, s_0$ and $p_a$ are the external source currents, and we denote
 \begin{equation}
     s = s_0 \one + s_a \tau_a, \quad
     p = p_0 \one + p_a \tau_a, \quad
     v^\mu = \frac{1}{2} v_a^\mu \tau_a, \quad
     a^\mu = \frac{1}{2} a_a^\mu \tau_a.
 \end{equation}
+%
 Setting $v = v_{(s)} = a = s = p = 0$, we recover the chiral limit.
 To include the effect of the quark masses, we set $s = m$.
 We denote all the external currents as $j = (v, v_{(s)}, a, s, p )$.
@@ -75,11 +76,13 @@ As with the conserved currents, we define
     \quad
     a_\mu = \frac{1}{2}(r_\mu - l_\mu).
 \end{equation}
+%
 With this, as well as 
 \begin{equation}
     \bar q (s - i \gamma^5 p) q
     = \bar q_R (s - i p) q_L + \bar q_L (s + i p) q_R,
 \end{equation}
+%
 we can write the Lagrangian as
 \begin{equation}
     \Ell_\text{ext} 
@@ -87,6 +90,7 @@ we can write the Lagrangian as
     + \frac{1}{3} (J_R^\mu + J_V^\mu)(v_{(s)})_\mu
     + R_\mu^a r^\mu_a + L_\mu^a l^\mu_a
 \end{equation}
+%
 The generating functional is then
 \begin{equation}
     Z[j] 
@@ -96,13 +100,15 @@ The generating functional is then
         i \int \dd^4 x 
         \left( 
             \Ell^0_\text{QCD}[q, \bar q, A_\mu] + \Ell_\text{ext}[q, \bar q, j]
-        \right)
+        \right).
     }
 \end{equation}
+%
 We will now use the CCWZ construction and effective field theory to construct the effective Lagrangian, which obeys
 \begin{equation}
     Z[j] = \int \D \pi \, \exp{i \int \dd^4 x \, \Ell_\text{eff}[\pi]},
 \end{equation}
+%
 where $\pi$ are the Goldstone bosons.
 
 \subsection*{Weinberg's power counting scheme}
@@ -117,9 +123,9 @@ This, however, will result in a theory with an infinite number of free parameter
 To amend this, we need a scheme to order the terms to compute observable perturbatively.
 We are working in the low-energy regime, so it is natural to expand in pion momenta.
 As we saw in \autoref{seciton:ccwz construction}, the terms in the Lagrangian will be made up of combinations of the terms $e_\mu$ and $d_\mu$ of the Maurer-Cartan form, $i\Sigma \partial_\mu \Sigma = e_\mu + d_\mu$.
-Therefore, all terms in the effective Lagrangian will be proportional to a certain number of derivatives, which Lorentz invariance demands to be even.
+Therefore, all terms in the effective Lagrangian will be proportional to a certain number of derivatives of the pion fields, $\partial_\mu \pi$, which Lorentz invariance demands to be even.
 
-Consider the matrix element $\mathcal M$ for a given Feynman diagram with external pion lines with momenta $q_n$, where both the energies and momenta are less or equal to some energy scale $Q$.
+Consider the matrix element $\mathcal M$ for a given Feynman diagram with external pion lines with momenta $q_n$, where both the energies and momenta are less than or equal to some energy scale $Q$.
 If we scale $Q\rightarrow tQ$, and consequently also the external momenta $q_n \rightarrow tq_n$, momentum conservation at each vertex ensures that each internal momentum $p$ of the diagram scales as $p \rightarrow tp$.
 Assume this diagram is made up of $V_i$ copies of the vertex $i$, which contain $d_i$ derivatives.
 Each of these vertices then scale as $t^{d_i}$.
@@ -128,26 +134,30 @@ This means that a matrix element with $L$ loops and $I$ internal lines scales as
 \begin{equation}
     \mathcal M(q) \rightarrow \mathcal M(t q) = t^D \mathcal M(q),
 \end{equation}
+%
 where 
 \begin{equation}
     D = \sum_i V_i d_i - 2 I + 4 L.
 \end{equation}
+%
 
 $D$ is called the \emph{chiral dimension} of $\mathcal M$.
 Using the formula \cref{Number of loops} for number of loops in a Feynman diagram, we get
 \begin{equation}
     D = \sum_i V_i(d_i - 2) + 2 L + 2.
 \end{equation}
+%
 For low energy scales $Q$, the larges contribution will come from the matrix elements of the smallest chiral dimension $D$.
 A general process will consist of a sum of matrix elements of different chiral dimensions.
 We can expand this element in powers of the pion momenta by using $t$ as the expansion parameter.
 The leading order term will be those where $L = 0$ and $d_i = 2$ so that $D = 2$.
-This means that all tree-level contributions to lowest chiral dimension are from terms in the Lagrangian with exactly two derivatives.
+This means that all tree-level contributions of the lowest chiral dimension are from terms in the Lagrangian with exactly two derivatives.
 Next is $D = 4$, which contains both tree-level contributions from terms with $d_i = 4$ and a one-loop contribution from $d_i = 2$.
 We therefore expand the effective Lagrangian as
 \begin{equation}
     \Ell_\text{eff} = \Ell_2 + \Ell_4 + ...,
 \end{equation}
+%
 where $\Ell_{2n}$ contains $2n$ derivatives.
 This is equivalent to scaling the space-time cooridnates as $x^\mu \rightarrow tx^\mu$, and expanding the Lagrangian in powers of $t$.
 
@@ -165,15 +175,17 @@ To parametrize the low energy behavior of QCD, we must find a representative ele
 Let $g\in G$. 
 We write $g = (U_L, U_R)$, where $U_R \in \SU(2)_R$, $U_L \in \SU(2)_L$.
 Elements $h \in H$ are then of the form $h = (U, U)$.
-A general element g can be written as
+A general element $g$ can be written as
 \begin{equation}
     g = (U_L, U_R) = (1, U_R U_L^\dagger) (U_L, U_L).
 \end{equation}
+%
 Since $(U_L, U_L) \in H$, this means that we can write the coset $g H$ as $(1, U_R U_L^\dagger)H$, which gives a way to choose a representative element for each coset.
 We identify
 \begin{equation}
     \Sigma = U_R U_L^\dagger. 
 \end{equation}
+%
 This is our standard form for elements in $gH$.
 As we saw in \autoref{seciton:ccwz construction}, it therefore implicitly define transformation properties of the Goldstone bosons, which is given by the function $h(g, \xi)$.
 For $\tilde g \in G$, we have 
@@ -183,35 +195,42 @@ For $\tilde g \in G$, we have
     = (1, \tilde U_R (U_R U_L^\dagger) \tilde U_L^\dagger) (\tilde U_L, \tilde U_L)
     = (1, \tilde U_R \Sigma \tilde U_L) \tilde h.
 \end{equation}
+%
 This gives the transformation rule
 \begin{equation}
     \Sigma \rightarrow \Sigma' = U_R \Sigma U_L^\dagger.
 \end{equation}
+%
 Under transformations by $h = (U, U^\dagger) \in H$, we have
 \begin{equation}
     \label{sigma transform under H}
     \Sigma \rightarrow \Sigma' = U \Sigma U^\dagger.
 \end{equation}
-As $\partial_\mu  (1, \Sigma) = (0, \partial_\mu \Sigma)$, the constituents of the Mauer-Cartan form are
+%
+Du to how $G$ factors into two Lie groups, the constituents of the Mauer-Cartan form are
 \begin{equation}
     d_\mu = i \Sigma(x)^\dagger \partial_\mu \Sigma(x),\quad
     e_\mu = 0.
 \end{equation}
+%
 Using $\partial_\mu [\Sigma(x)^\dagger\Sigma(x)] = 0 $, we can write
 \begin{equation}
     d_\mu d^\mu = 
     - \Sigma(x)^\dagger [\partial_\mu \Sigma(x)] \Sigma(x)^\dagger [\partial^\mu \Sigma(x)]
     =\Sigma(x)^\dagger [\partial_\mu \Sigma(x)] [\partial^\mu \Sigma(x)^\dagger] \Sigma(x).
 \end{equation}
+%
 In \autoref{seciton:ccwz construction}, we found the lowest order terms, \cref{first order terms CCWZ}.
-However, as $d_\mu \in \liea{su}{2}$, which we represent by the traceless Pauli matrices, we have
+As $d_\mu \in \liea{su}{2}$, which we represent by the traceless Pauli matrices, we have
 \begin{equation}
     \Tr{d_\mu} = 0.
 \end{equation}
+%
 This leaves us with the single leading order term
 \begin{equation}
     \Tr{d_\mu d^\mu} = \Tr{\partial_\mu \Sigma (\partial^\mu \Sigma)^\dagger},
 \end{equation}
+%
 where we have used the cyclic property of the trace.
 
 However, constructing the effective Lagrangian out of terms invariant under $G$ is too restrictive to get the most general effective action.
@@ -233,6 +252,7 @@ Following~\cite{Scherer2002IntroductionTC}, we write the gauge transformation as
     q_L \rightarrow e^{i\theta(x)/3} U_L(x) q_L, \quad
     q_R \rightarrow e^{i\theta(x)/3} U_R(x) q_R.
 \end{equation}
+%
 First, we consider the $U(1)_V$ transformation.
 The massless QCD Lagrangian then transforms as
 \begin{equation}
@@ -241,10 +261,12 @@ The massless QCD Lagrangian then transforms as
     i \bar q e^{-i\theta(x)/3} \slashed{D} e^{i\theta(x)/3} q
     = i \bar q \slashed{D} q - \frac{1}{3} \bar q \gamma^\mu q \partial_\mu \theta(x).
 \end{equation}
+%
 This gives us the transformation rule
 \begin{equation}
     v_{(s)}^\mu \rightarrow v_{(s)}^\mu - \partial^\mu \theta(x).
 \end{equation}
+%
 Then, applying the $\SU(2)_R$ transformation, we get
 \begin{equation}
     \bar q_R \slashed{D} q_R + (i \bar q_R \gamma^\mu \tau_a  q_R) \, r^a_\mu
@@ -253,6 +275,7 @@ Then, applying the $\SU(2)_R$ transformation, we get
     (i \bar q_R \gamma^\mu q_R ) \, U_R^\dagger \partial_\mu U_R  
     + [\bar q_R \gamma^\mu (U_R^\dagger \tau_a U_R)  q_R ] \, r^a_\mu
 \end{equation}
+%
 This, and the similar expression for $U_L$, gives the gauge transformation rules
 \begin{align}
     r_\mu & \rightarrow U_R (r_\mu + i\one \partial_\mu) U_R^\dagger, \\
@@ -260,10 +283,12 @@ This, and the similar expression for $U_L$, gives the gauge transformation rules
     s + i p & \rightarrow U_R (s + i p) U_L^\dagger, \\
     s - i p & \rightarrow U_L (s - i p) U_R^\dagger.
 \end{align}
+%
 The Goldstone fields now transform as
 \begin{equation}
     \Sigma(x) \rightarrow U_R(x) \Sigma(x) U_L(x)^\dagger,
 \end{equation}
+%
 and the derivative as
 \begin{align}
     \nonumber
@@ -284,9 +309,10 @@ and the derivative as
     U_L^\dagger.
     \label{Sigma partial derivative}
 \end{align}
+%
 
 As in the case of the gauge group of the strong force, we must introduce a covariant derivative, which is defined to transform as the object it acts on does.
-By this definition, the covariant derivative depends on what it acts on.
+By this definition, the form of the covariant derivative is decided by what it acts on.
 Assume $A$, $B$ and $\Sigma$ transforms as $A \rightarrow U_R A U_R^\dagger$, $B \rightarrow U_L A U_L^\dagger$, and $\Sigma \rightarrow U_R \Sigma U_L^\dagger$.
 In each of these cases, we define the covariant derivative as
 \begin{align}
@@ -295,17 +321,20 @@ In each of these cases, we define the covariant derivative as
     \nabla_\mu B &= \partial_\mu B - i [l_\mu, B], \\
     \nabla_\mu \Sigma &= \partial_\mu \Sigma - i r_\mu \Sigma + i \Sigma l_\mu.
 \end{align}
+%
 It follows from \cref{Sigma partial derivative} that $\nabla_\mu \Sigma$ transforms as $\Sigma$, and the proof for the other two is similar.
-For quantities that do are invariant under $\SU(2)_L\times \SU(2)_R$, the covariant derivative is the ordinary partial derivative.
-In our case, $a_\mu = 0$, and the covariant derivative is therefore
+For invariant quantities under $\SU(2)_L\times \SU(2)_R$, the covariant derivative is the ordinary partial derivative.
+In our case, $a_\mu = 0$, and the covariant derivative is
 \begin{equation}
     \nabla_\mu \Sigma = \partial_\mu \Sigma - i [v_\mu, \Sigma].
 \end{equation}
+%
 
 If $A$, $B$ and $C = AB$ are all quantities with a well-defined covariant derivative, then
 \begin{equation}
     \nabla_\mu (AB) = (\nabla_\mu A) B + A (\nabla_\mu B).
 \end{equation}
+%
 We show this in the case where $a_\mu = 0$.
 Assume $A, B$ transforms as $\Sigma$. 
 Then,
@@ -341,21 +370,24 @@ In the presence of external source-currents, the Maurer-Cartan form becomes
 \begin{equation}
     d_\mu = i \Sigma^\dagger \nabla_\mu \Sigma.
 \end{equation}
+%
 Any invariant terms we constructed for $j=0$ remain invariant, however the gauge fields provide new building blocks.
 The leading order kinetic term now becomes
 \begin{equation}
     \label{leading order term sigma}
     \Tr{d_\mu d^\mu} = \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
 \end{equation}
-
+%
 We define the scalar current
 \begin{equation}
     \chi = 2 B_0 (s + ip),
 \end{equation}
+%
 where $B_0$ is defined by the up quark condensate in the chiral limit by
 \begin{equation}
     \ex{\bar u u}_{j = 0} = - f^2 B_0.
 \end{equation}
+%
 Here, $f$ is the bare pion decay constant.
 The pseudoscalar current is thus $\chi^\dagger = 2 B_0 (s - ip)$.
 As we are going to set $\chi = 2 B_0 m$, both $\chi$ and $\chi^\dagger$ are of chiral dimension $2$.
@@ -363,32 +395,38 @@ These can be combined to give more gauge-invariant terms, such as
 \begin{equation}
     \Tr{\chi^\dagger \Sigma}, \quad \Tr{\Sigma^\dagger \chi}.
 \end{equation}
-However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is a scalar, the only allowed term is\footnote{This corresponds to the fact that pions are pseudo scalars, they transform as $\pi \rightarrow - \pi$ under parity, as they are exitations in $\SU(2)_A$.}
+%
+However, under parity transformation, $\chi \rightarrow \chi^\dagger$ and $\Sigma \rightarrow \Sigma^\dagger$~\cite{Scherer2002IntroductionTC}, so to ensure the Lagrangian is scalar, the only allowed term is\footnote{This corresponds to the fact that pions are pseudo scalars, they transform as $\pi \rightarrow - \pi$ under parity, as they are exitations in $\SU(2)_A$.}
 \begin{equation}
     \label{leading order chi sigma term}
     \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}
 \end{equation}
+%
 
 In the grand canonical ensemble, as described in \cref{section:statistical mechanics}, we modify the Lagrangian as
 \begin{equation}
     \Ell \rightarrow \Ell + \mu Q,
 \end{equation}
+%
 where $Q$ is a conserved charge, and $\mu$ is the corresponding chemical component.
-We are interested systems with non-zero isospin, 
+We are interested in systems with non-zero isospin, 
 \begin{equation}
     Q_I = \int \dd^3 x \, V^0_3 = \int \dd^3 x \, \frac{1}{2}  \bar q \gamma^0 \tau_3 q,
 \end{equation}
-and the corresponding isospin chemical potential $\mu_I$.
+%
+and a corresponding non-zero isospin chemical potential $\mu_I$.
 We do this by considering the system with a external current
 \begin{equation}
     v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3.
 \end{equation}
+%
 The covariant derivative therefore is of chiral dimension 1.
-As in the case of Yang-Mills theory, we may form a field strength tensor to create invariant terms, in this case they are
+As in the case of Yang-Mills theory, we may form a field strength tensor to create invariant terms,
 \begin{align}
     f_{\mu\nu}^R &= \partial_\mu r_\nu - \partial_\nu r_\mu - i [r_\mu, r_\nu], \\
     f_{\mu\nu}^L &= \partial_\mu l_\nu - \partial_\nu l_\mu - i [l_\mu, l_\nu].
 \end{align}
+%
 In our case, these vanish, and we can therefore safely ignore terms including them.
 
 For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and we can use the paramterization
@@ -396,6 +434,7 @@ For $j = 0$, the ground state is by assumption $\Sigma = \one$, the vacuum, and 
     \label{vacuum parametrization}
     \Sigma(x) = \exp{i \frac{\pi_a\tau_a}{f}},
 \end{equation}
+%
 where $f$ is the bare pion decay constant, $\pi_a$ are the three Goldstone bosons, a set of real functions of space-time.
 This ensures that $\pi = 0$ corresponds to the vacuum.
 If we perform an infinitesimal isospin-transformation, and assume $\pi/f$ small, then
@@ -408,11 +447,13 @@ If we perform an infinitesimal isospin-transformation, and assume $\pi/f$ small,
     =
     1 + i\frac{1}{f}\pi_a (\delta_{ac} + i \eta_b \epsilon_{abc}) \tau_c,
 \end{equation}
+%
 or
 \begin{equation}
     \pi_a \rightarrow (\delta_{ac} + i \eta_b \epsilon_{abc}) \pi_c.
 \end{equation}
-The generators of $\pi_a$ under isospin-transforamtions are thus the adjoint representation of $\mathfrak{su}(2)$, and they form an isospin triplet.
+%
+The generators of $\pi_a$ under isospin-transformations are thus the adjoint representation of $\mathfrak{su}(2)$, and they form an isospin triplet.
 For $\eta_1 = \eta_2 = 0$, i.e. transformations generated by $\tau_3$, $\pi_3$ is invariant, which means that it has quantum number $I_3 = 0$.\footnote{Authors differe if they define $\sqrt 2 \pi_\pm = \pi_1 \pm i \pi_2$, or with opposite signs.We choose the former, so that $\pi_+ \ket{0}$ is the state with the quantum numbers of the positive pion.}
 $\pi_1$ and $\pi_2$ do not have a definite value of the third component of isospin, but rather for the first and second component.
 They are related to the observed, charged pions $\pi_+$ and $\pi_-$ by~\cite{Scherer2002IntroductionTC}
@@ -429,7 +470,8 @@ They are related to the observed, charged pions $\pi_+$ and $\pi_-$ by~\cite{Sch
         \sqrt 2 \pi_+ & - \pi_0
     \end{pmatrix},
 \end{equation}
+%
 where $\pi_\pm$ has a third isospin-component of $I_3 = \pm1$.
 For non-zero isospin chemical potential, however, we expect that the ground state may be rotated away from the vacuum.
-To find what the new groundstate is, we have to minimize the Hamiltonian.
+To find what the new ground state is, we have to minimize the Hamiltonian.
 

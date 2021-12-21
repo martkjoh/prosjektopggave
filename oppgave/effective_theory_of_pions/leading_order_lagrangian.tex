@@ -1,28 +1,32 @@
 \section{Leading order Lagrangian}
 \label{section:leading order lagrangian}
 
-The leading order \chpt Lagrangian is made up of the terms \cref{leading order chi sigma term} and \cref{leading order term sigma}, and reads
+The leading order \chpt\, Lagrangian is made up of the terms \cref{leading order term sigma} and \cref{leading order chi sigma term}, and reads
 \begin{equation}
     \label{chpt lagrangian}
     \Ell_2 = 
     \frac{1}{4} f^2 \Tr{\nabla_\mu \Sigma (\nabla^\mu \Sigma)^\dagger}
     + \frac{1}{4} f^2 \Tr{\chi^\dagger \Sigma + \Sigma^\dagger \chi}.
 \end{equation}
+%
 The external source currents are
 \begin{equation}
     s = m, \quad v_\mu = \frac{1}{2} \mu_I \delta_\mu^0 \tau_3,
 \end{equation}
+%
 where $m$ is the quark-mass matrix \cref{Mass matrix}, and 
 \begin{align}
     \chi& = 2 B_0 m = \bar m^2 \one + \Delta m^2 \tau_3, \\
     \nabla_\mu \Sigma &= \partial_\mu \Sigma - i [v_\mu, \Sigma].
 \end{align}
+%
 We have defined
 \begin{equation}
     \bar m^2 = B_0(m_u + m_d), \quad \Delta m^2 = B_0 (m_u - m_d).
 \end{equation}
+%
 
-To incorporate a finite isospin density, we must parametrize the Goldstone manifold differently.
+To incorporate a finite isospin density, we must parametrize the Goldstone manifold differently than in the vacuum.
 We follow the analysis in~\cite{Andersen:two-flavor-chpt}.
 We assume the ground state is independent of space, $\pi_a(x) = \pi_a^0$, and write it as
 \begin{equation}
@@ -32,15 +36,18 @@ We assume the ground state is independent of space, $\pi_a(x) = \pi_a^0$, and wr
     = 
     \cos \alpha + i n_a \tau_a \sin \alpha,
 \end{equation}
+%
 where
 \begin{equation}
     \alpha = \frac{1}{f} \sqrt{\pi^0_a \pi^0_a}, \quad
     n_a = \frac{\pi^0_a}{\sqrt{\pi^0_a \pi^0_a}}.
 \end{equation}
+%
 The covariant derivative is then
 \begin{equation}
     \nabla_\mu \Sigma_\alpha = - iv^a_\mu [\tau_a, \Sigma_\alpha].
 \end{equation}
+%
 The two terms in the first order Lagrangian then becomes
 \begin{align}
     \nonumber
@@ -51,6 +58,7 @@ The two terms in the first order Lagrangian then becomes
     n_a n_b \mu_I^2 \sin^2 \alpha \epsilon_{3ac} \, \epsilon_{3bd} \Tr{\tau_c \tau_d}\\
     & = 2 \mu_I^2 (n_1^2 + n_2^2) \sin^2 \alpha.
 \end{align}
+%
 and
 \begin{align}
     \nonumber
@@ -65,8 +73,9 @@ and
     + i \Delta m^2 \Tr{[\tau_3, \tau_a]} n_a \sin \alpha \\
     & = 4 \bar m^2 \cos \alpha.
 \end{align}
+%
 We see that, to first order, all results are independent of $\Delta m$.
-To find the new groundstate, we minimize the Hamiltonian density.
+To find the new ground state, we minimize the Hamiltonian density.
 With the assumption that the fields are constant, the first order Hamiltonian density is
 \begin{equation}
     \He_2 = - \Ell_2 = 
@@ -76,51 +85,60 @@ With the assumption that the fields are constant, the first order Hamiltonian de
         + \frac{1}{2} \mu_I^2 (n_1^2 + n_2^2 ) \sin^2 \alpha
     \right]
 \end{equation}
+%
 For $\mu_I = 0$, this is independent of $n_a$, and minimized by $\alpha = 0$.
 Now, as $n_i n_i = 1$, we have that $n_1^2 + n_2^2 = 1 - n_3^2$.
 This means that, for $\mu_I \neq 0$, the energy is minimized by $n_3 = 0$.
-We can write $n_1 = \cos \phi$, $n_2 = \sin \phi$, for some real number $\phi$, which gives the groundstate
+We can write $n_1 = \cos \phi$, $n_2 = \sin \phi$, for some real number $\phi$, which gives the ground state
 \begin{equation}
     \Sigma_\alpha 
-    = \exp{i \alpha ( \tau_1 \cos \phi + \tau_2 \sin \phi) }.
+    = \one \cos \alpha  + i ( \tau_1 \cos \phi + \tau_2 \sin \phi) \sin \alpha .
 \end{equation}
+%
 We can choose, without loss of generality, $\phi = 0$~\cite{stephanov:qcd_finite}.
 This corresponds to a change of basis of $\liea{su}{2}$, $\tau_1 \rightarrow \tilde \tau_1 = \tau_1 \cos \phi + \tau_2 \sin \phi$ and $\tau_2 \rightarrow \tilde \tau_2 = - \tau_1 \sin \phi + \tau_2 \cos \phi$.
-With this, the new groundstate is
+With this, the new ground state is
 \begin{equation}
     \label{general groundstate}
     \Sigma_\alpha = \exp{i \alpha \tau_1}
 \end{equation}
-Any exited state is a transformation of the groundstate by $\lieg{SU}{2}_A$.
+%
+Any exited state is a transformation of the ground state by $\lieg{SU}{2}_A$.
 For $\mu_I = 0$, this corresponds to 
 \begin{equation}
     \Sigma(x) = U_R(x) \Sigma_0 U_L^\dagger(x) = U(x) \Sigma_0 U(x).
 \end{equation}
+%
 where
 \begin{equation}
     U(x) = \exp{i \frac{\tau_a\pi_a(x)}{2f}}.
 \end{equation}
+%
 We see that this recovers the parametrization \cref{vacuum parametrization}.
-For $\mu_I \neq 0$, the groundstate may be shifted, and so $U(x)$ must be too.
+For $\mu_I \neq 0$, the ground state may be shifted, and so $U(x)$ must be too.
 The groundstate transforms as
 \begin{equation}
     \Sigma_0 \rightarrow \Sigma_\alpha 
     = \hat U_L \Sigma_0 \hat U_R^\dagger = A_\alpha \Sigma_0 A_\alpha.
 \end{equation}
+%
 where
 \begin{equation}
     A_\alpha : = \exp{i \frac{1}{2} \alpha \tau_1}.
 \end{equation}
+%
 This induces the following transformations for the fluctuations,
 \begin{align}
     U_L & \rightarrow \hat U_L U_L \hat U_L^\dagger = A_\alpha U_L A_\alpha^\dagger, \\
     U_R & \rightarrow \hat U_R U_R \hat U_R^\dagger = A_\alpha^\dagger U_R A_\alpha.
 \end{align}
+%
 The new parametrization is thus
 \begin{align}
     \label{sigma}
         \Sigma(x) = A_\alpha [U(x) \Sigma_0 U(x)] A_\alpha.
 \end{align}
+%
 With this, we can expand the first order Lagrangian, \cref{chpt lagrangian}, in powers of $\pi/f$
 We will use this expansion to calculate the free energy density.
 To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using the fact that $\tau_a^2 = \one$ to write
@@ -135,6 +153,7 @@ To get the series expansion of $\Sigma$ in powers of $\pi/f$, we start by using 
     \right] 
     = \one \cos{\frac{\alpha}{2}} + i \tau_1 \sin{\frac{\alpha}{2}}.
 \end{equation}
+%
 The symmetry of $\pi_a\pi_b$ means that
 \begin{align*}
 % Identitites
@@ -162,6 +181,7 @@ This gives us the expression
     + \frac{\pi_a^2\pi_b^2}{24f^4}
     + \Oh[5]{(\pi/f)}.
 \end{align}
+%
 We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\Oh[5]{(\pi/f)}$
 \begin{align}
     \nonumber
@@ -194,6 +214,7 @@ We combine this result with \cref{A} to get an expression for $\Sigma$ up to $\O
     \right)
     \sin{\frac{\alpha}{2}}\cos{\frac{\alpha}{2}}.
 \end{align}
+%
 Using trigonometric identities and the commutator,
 \begin{align*}
     \cos^2{\frac{\alpha}{2}} - \sin^2{\frac{\alpha}{2}} = \cos{\alpha}, \quad 
@@ -220,6 +241,7 @@ the final expression of $\Sigma$ to $\Oh[5]{(\pi/f)}$ is
     \right).
     \label{expansion of sigma}
 \end{align}
+%
 
 The kinetic term in the \chpt\, Lagrangian is
 \begin{equation}
@@ -229,6 +251,7 @@ The kinetic term in the \chpt\, Lagrangian is
     - \com{v_\mu}{\Sigma}\com{v_\mu}{\Sigma^\dagger}.
     \label{kinetic term}
 \end{equation}
+%
 Using \cref{expansion of sigma} we find the expansion of the constitutive parts of the kinetic term to be
 \begin{align}
     \notag
@@ -274,6 +297,7 @@ Using \cref{expansion of sigma} we find the expansion of the constitutive parts 
     \right)
     i \tau_a,
 \end{align}
+%
 and
 \begin{align}
     % \notag
@@ -304,6 +328,7 @@ and
     \right\}.
     \label{sigma commutator}
 \end{align}
+%
 Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the following terms
 \begin{align}
     % Term 1
@@ -361,6 +386,7 @@ Combining \cref{Sigma derivative} and \cref{sigma commutator} gives the followin
         + \frac{(\pi_a \pi_a)^2}{6 f^4}\cos{\alpha}
     \right), 
     \end{align}
+    %
 where $k_{ab} =\delta_{a1} \delta_{b1} \cos{2\alpha}  + \delta_{a2}\delta_{b2}\cos^2{\alpha} - \delta_{a3}\delta_{b3} \sin^2{\alpha}$.
 Notice that the mass term is independent of the difference in quark masses, $\Delta m$.
 If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2^{(0)} + \Ell_2^{(1)} + \Ell_2^{(2)} +...$, where $\Ell_2^{(n)}$ contains all terms of order $(\pi/f)^n$, then the result of the series expansion is
@@ -444,3 +470,4 @@ If we write the Lagrangian as show in \cref{chpt lagrangian} as $\Ell_2 = \Ell_2
 \right].
 \label{L4}
 \end{align}
+%

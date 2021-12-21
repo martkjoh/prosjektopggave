@@ -1,5 +1,5 @@
 In this section, we survey some general properties of quantum field theory that are necessary for chiral perturbation theory.
-First, we introduce the path integral and the 1-particle irreducible effective action and the effective action.
+First, we introduce the path integral and the 1-particle irreducible effective action and the effective potential.
 We will derive Goldstone's theorem and present the CCWZ construction, which are the basis for \chpt.
 
 \section{QFT via path integrals}
@@ -8,19 +8,20 @@ We will derive Goldstone's theorem and present the CCWZ construction, which are 
 This section is based on \cite{Peskin:IntroQFT,weinberg_1995,weinberg_1996_vol2,Schwartz:QFT}.
 Feynman diagrams are drawn using JaxoDraw~\cite{JaxoDraw}.
 
-In the path integral formalism, one evaluates quantum observable by integrating over the contributions of possible configurations.
+In the path integral formalism, one evaluates quantum observable by integrating over the contributions of all possible configurations.
 If the system has specified initial and final states, this amounts to all possible paths the system might evolve between these, hence the name.
 We assume the reader has some familiarity with this formalism. 
 However, if a refresher is needed, \autoref{section:imaginary-time formalism} contains a derivation of the closely related imaginary-time formalism and compares it with the path integral approach.
 
-In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e. the probability that that vacuum at $t = -\infty$ evolves to the vacuum at time $t = \infty$, is given by
+In the path integral formalism, the vacuum-to-vacuum transition amplitude, i.e., the probability that that vacuum at $t = -\infty$ evolves to the vacuum at time $t = \infty$, is given by
 \begin{equation}
     Z = \lim_{T\rightarrow \infty} \braket{\Omega, T/2}{-T/2, \Omega}
     = \lim_{T\rightarrow \infty} \inner{\Omega}{ e^{-iHT} }{\Omega}
     = \int \D \pi \D \varphi \, \exp{ i \int \dd^4 x \, \left(\pi \dot \varphi - \He[\pi, \varphi]\right) },
 \end{equation}
 where $\ket{\Omega}$ is the vacuum state.
-The  $\varphi$ are the fields of the theory, and $\pi$ their cannoncial momenta. We will work as if $\phi$ are a bosonic field, however, this can be readily generalized to fermions.
+The  $\varphi$ are the fields of the theory, and $\pi$ their canonical momenta. We will work as if $\varphi$ are a bosonic field. 
+However, this can be readily generalized to fermions.
 By introducing a source term into the Hamiltonian density, $\He \rightarrow \He - J(x)\varphi(x)$, we get the generating functional
 \begin{equation}
     Z[J] = 
@@ -71,7 +72,7 @@ Using this form of the generating functional, \autoref{correlator from generatin
     (- i )^{\floor{n/2}}\sum_{{(a, b)}} \prod_{i=1}^{\floor{n/2}}
     \fdiff{ W_0[J] }{ J(x_{a(i)}), J(x_{b(i)}) } \Big|_{J = 0}.
 \end{align*}
-In the last line we have introduced the functions $a, \, b$ which define a way to pair up $n$ elements.
+In the last line we have introduced the functions $a, \, b$, which define a way to pair up $n$ elements.
 $\floor{\cdot}$ is the floor function.
 The domain of these functions are the integers between $1$ and $\floor{n/2}$, the image a subset of the integers between $1$ and $n$ of size $\floor{n/2}$.
 A valid pairing is a set $\{(a(1), b(1)), \dots (a(\floor{n/2}), b(\floor{n/2}))\}$, where all elements $a(i)$ and $b(j)$ are different, such that all integers up to and including $n$ are featured.
@@ -84,10 +85,6 @@ This is Wick's theorem, and it can more simply be stated as \emph{a correlation 
     = \sum_{\{(a, b)\}}  \prod_{i=1}^{\floor{n/2}}  \ex{\varphi(x_{a(i)}) \varphi(x_{b(i)})}_0.
 \end{equation}
 The subscript on the expectation value indicates that it is evaluated in the free theory.
-The two-point function in the full, interacting theory can be written
-\begin{equation}
-    -i \fdiff{W[J]}{J(x),J(y)} = D(x - y).
-\end{equation}
 
 If we have an interacting theory, that is, a theory with an action $S = S_0 + S_I$, where $S_0$ is a free theory, the generating functional can be written
 \begin{equation}
@@ -109,7 +106,7 @@ The source terms gives rise to an additional vertex
 The generating functional $Z[J]$ thus equals $Z_0[0]$ times \emph{the sum of all diagrams with external sources $J(x)$}.
 
 Consider a general diagram without external legs, built up of $N$ different connected subdiagrams, where subdiagram $i$ appears $n_i$ times.
-As an illustration, a generic vacuum diagram in $\phi^4$-theory has the form
+As an illustration, a generic vacuum diagram in $\varphi^4$-theory has the form
 \begin{align}
     \label{Feinman diagrams}
     \Em = 
@@ -148,4 +145,8 @@ then $W[J]$ is the sum of all connected diagrams. This is trivially true for the
     \label{generating functional of connected diagrams}
     W_0[J] = 
     \includegraphics[valign=c, width=0.35\textwidth]{figurer/feynman-diagram/current-current-crop.pdf}.
+\end{equation}
+The two-point function in the full, interacting theory can thus be written
+\begin{equation}
+    -i \fdiff{W[J]}{J(x),J(y)} = D(x - y).
 \end{equation}

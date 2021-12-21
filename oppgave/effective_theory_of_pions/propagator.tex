@@ -10,6 +10,7 @@ We may write the quadratic part of the Lagrangian \autoref{L2} as \footnote{Summ
     + \frac{1}{2} m_{12} (\pi_1 \partial_0 \pi_2 - \pi_2 \partial_0 \pi_1)
     - \frac{1}{2} \sum_a m_a^2 \pi_a^2,
 \end{align}
+%
 where
 \begin{align}
     \label{m1}
@@ -21,6 +22,7 @@ where
     \label{m12}
     m_{12} &= 2 \mu_I \cos{\alpha}.
 \end{align}
+%
 The inverse propagator is given by the functional derivative, 
 \begin{equation}
     D_{ab}^{-1}(x - y)
@@ -32,6 +34,7 @@ The inverse propagator is given by the functional derivative,
         +  m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) \partial_{x,0}    
     \right]\delta(x - y).
 \end{equation}
+%
 The momentum space inverse propagator is
 \begin{equation}
     D_{ab}^{-1}(p)
@@ -39,6 +42,7 @@ The momentum space inverse propagator is
     \delta_{ab}(p^2 - m_a^2)
     +  i p_0 m_{12}(\delta_{a1} \delta_{b2} - \delta_{a2}\delta_{b1}) .
 \end{equation}
+%
 The spectrum of the particles is given by solving $\det(D^{-1}) = 0$ for $p^0$. With $p = (p_0, \vv p)$ as the four momentum, this gives
 \begin{align*}
     \det(D^{-1}) & = D^{-1}_{33} \left(D^{-1}_{11} D^{-1}_{22} + (D^{-1}_{12})^2\right)
@@ -71,6 +75,7 @@ This equation has the solutions
         - 4 m_1^2 m_2^2
     }.
 \end{align}
+%
 These are the energies of three particles $\pi_0$, $\pi_+$ and $\pi_-$.
 $\pi_0$ is $\pi_3$, while $\pi_\pm$ are linear combinations of $\pi_1$ and $\pi_2$.
 \footnote{An unfortunate notational convention is that $E_+$ is the energy of $\pi_-$-particle, and $E_+$ for the $\pi_+$-particle. This is because the positivley charged pion, $\pi_+$, has isospin $I_3 = +1$, so that the mass will decrease as $\mu_I$ increseas, and hence the negative sign.}
@@ -82,7 +87,7 @@ For $\alpha = 0$, we get
     =
     \bar m^2 + \mu_I^2, \quad
     m_1^2 m_2^2 = (\bar m^2 - \mu_I^2)^2, \quad
-    m_3 = \bar m^2, \\
+    m_3^2 = \bar m^2, \\
     &\implies E_\pm^2 = |\vv p|^2 + \bar m^2 + \mu_I^2 \pm 2 \mu_I \sqrt{|\vv p|^2 + \bar m^2}.
 \end{align*}
 This corresponds to a Zeeman-like splitting of the energies,
@@ -92,6 +97,7 @@ This corresponds to a Zeeman-like splitting of the energies,
     \label{zeeman energy 2}
     E_\pm &= \pm \mu_I + \sqrt{|\vv p |^2 + \bar m^2}.
 \end{align}
+%
 The (tree-level) masses of these particles are found by setting $\vv p = 0$ and are
 \begin{align}
     m_0^2 &= m_3^2, \\
@@ -108,6 +114,7 @@ The (tree-level) masses of these particles are found by setting $\vv p = 0$ and 
         - 4 m_1^2 m_2^2
     }.
 \end{align}
+%
 Using the result for $\alpha$, \autoref{fig:masses} shows the masses as functions of $\mu_I$.
 We observe that the mass of the $\pi_-$-particle goes to zero at $\mu_I = m_\pi$.
 This is indicative of spontaneous symmetry breaking, which we will investigate in the next chapter.
@@ -123,10 +130,12 @@ With the energies of the pions, we can write the determinant of the inverse prop
 \begin{equation}
     \det(D^{-1}) = (p_0^2 - E_0^2) (p_0^2 - E_+^2) (p_0^2 - E_-^2).
 \end{equation}
+%
 The propagator and the inverse propagator in momentum space obey\footnote{One has to be carefull regarding the factor $i$ in the physicist's definition of propagators. It has the consequence that $D^{-1}$ is not strictly the operator inverse of the propagator $D$.}
 \begin{equation}
     \sum_c D_{ac}(p)D_{cb}^{-1}(p) = i \delta_{ab}
 \end{equation}
+%
 Using this, we can solve for the propagator
 \begin{align}
     D & = (- iD^{-1})^{-1} 
@@ -161,4 +170,5 @@ Using this, we can solve for the propagator
         \frac{1}{p_0^2 - E_0^2}
     \end{pmatrix}.
 \end{align}
-With these results, we can start calclating thermodynamic quantities.
+%
+With these results, we can start calculating thermodynamic quantities.

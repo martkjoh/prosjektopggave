@@ -3,9 +3,9 @@
 \input{import.tex}
 \input{newcommands.tex}
 
-\title{\Huge{Chiral Perturbation Theory}}
+\title{\huge{The thermodynamics of pion condensation at $T=0$}}
 \author{
-    \LARGE{Martin Kjøllesdal Johnsrud }\\
+    \large{Martin Kjøllesdal Johnsrud }\\
     \normalsize{Supervisor: Jens Oluf Andersen}
     }
 \titlepic{\includegraphics[width=\textwidth]{figurer/numerics/free_energy_surface_wo_axis_cropped.pdf}}
@@ -21,7 +21,6 @@
 % Hvor kommer EOM inn i bildet? Det ser ut som det bare er et navn...
 % hvorfor er q gamam⁰ q baryontall
 
-%%%%% TODO: FIN TITTEL!!!
 
 %%%%% INTRO
 
@@ -59,14 +58,17 @@
 \begin{document}
 \maketitle 
 
-\tableofcontents %? Hvor skal denne?
-\listoftodos
-
+\makeatletter\@openrightfalse
 \chapter*{Abstract}
 \input{introduction/abstract.tex}
 
 \chapter*{Conventions and notation}
 \input{introduction/conventions.tex}
+\newpage
+
+\@openrighttrue\makeatother
+\tableofcontents %? Hvor skal denne?
+\listoftodos
 
 
 \chapter{Introduction}

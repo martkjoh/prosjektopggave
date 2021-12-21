@@ -1,4 +1,5 @@
 \section{Next-to-leading order and renormalization}
+
 We have now regularized the divergences, which allows them to be handled in a well-defined way.
 However, they are still there.
 To get rid of them, we need to use renormalization.
@@ -28,6 +29,7 @@ The renormalized coupling constants in the $\overline{\mathrm{MS}}$-scheme are r
     \quad \quad
     i \in \{1, ... 3\}.
 \end{align}
+%
 Here, $\gamma_i$ and $\delta_i$ are numerical constants which are used to match the divergences.
 The relevant terms are\footnote{Some authors~\cite{Andersen:two-flavor-chpt,GERBER1989387} instead use $h_1' = h_1 - l_4$, with a corresponding $\delta_1' = \delta_1 - \gamma_1 = 0$.}
 \begin{gather}
@@ -44,6 +46,7 @@ From this we obtain the renormalization group equations for the running coupling
     \mu \diff{l_i^r}{\mu } = - \mu^{-2\epsilon} \frac{\gamma_i }{(4 \pi)^2} + \mathcal{O}(\epsilon), \quad
     \mu \diff{h_i^r}{\mu } = -  \mu^{-2\epsilon}\frac{\delta_i}{(4 \pi)^2}+ \mathcal{O}(\epsilon).
 \end{equation}
+%
 These have the general solutions
 \begin{equation}
     l_i^r 
@@ -54,6 +57,7 @@ These have the general solutions
     = \frac{1}{2} \mu^{-2\epsilon} \frac{\gamma_i}{(4 \pi)^2} 
     \left( \bar h_i - \ln{\frac{\tilde \mu^2}{M^2}} \right)+ \mathcal{O}(\epsilon),
 \end{equation}
+%
 where $\bar l_i$ and $\bar h_i$ are the values of the coupling constants (times a constant) measured at the energy $M$.
 This only applies if the numerical constants $\gamma_i$/$\delta_i$ are non-zero.
 If they are zero, then the coupling is not running, and the measured value can be applied at all energies.
@@ -70,6 +74,7 @@ The bare couplings are thus given by
     \right)
     + \mathcal{O}(\epsilon).
 \end{align}
+%
 The next-to-leading contribution to the free energy at tree-level is $\Ef_4^{0} = - \Ell_4^{(0)}$, which is given by \cref{NLO-L0}.
 When substituting \cref{bare couplings as functions of measured values} into the bare couplings, we get
 \begin{align*}
@@ -139,6 +144,7 @@ Adding all the contribution to the free energy density, and taking the limit $\e
         % + \bar h_3 \Delta m^2
     \bigg].
 \end{align}
+%
 We have dropped the terms proportional to $\bar l_4 - \bar h_1$ and $\bar h_3$, as they only add an unobservable constant value to the free energy.
 
 
@@ -151,6 +157,7 @@ The values for the pion mass and pion decay constants used in this text are
     m_\pi = 131 \, \mathrm{MeV}, \quad 
     f_\pi = \frac{1}{\sqrt 2} 128 \, \mathrm{MeV} = 90.5 \, \mathrm{MeV}.
 \end{equation}
+%
 These are the central vales used in \cite{Andersen:two-flavor-chpt,mojahed}.
 They were chosen to compare the result to results from lattice QCD calculations.
 The most up-to-date value of the pion masses from the Pardicle Data Book are~\cite{PDG}
@@ -164,11 +171,13 @@ The value for the pion decay constant is~\cite{PDG}
     f_\pi = \frac{1}{\sqrt{2}} (130.2 \pm 1.2 \, \text{MeV})
     = 92.1 \pm 0.8 \, \text{MeV}.
 \end{equation}
+%
 
 The physical mass, $m_\pi$, is defined as the pole of the propagator in the vacuum, and thus the zero of the inverse propagator,
 \begin{equation}
     D^{-1}(p^2 = m_\pi^2) = 0.
 \end{equation}
+%
 This relates it to the bare mass $\bar m$.
 We found, in \cref{m1}, that $m_\pi^2 = \bar m^2$ to leading order.
 Similarly, $f_\pi = f$ to leading order.
@@ -180,6 +189,7 @@ This is given by~\cite{Gasser-Leutwyler:chiral}
     \label{equation bare decay constant}
     f_\pi^2 & = f^2 + \frac{2\bar l_4}{(4\pi)^2} \frac{\bar m^2}{f^2}.
 \end{align}
+%
 
 \begin{table}[h]
     \centering
@@ -207,6 +217,7 @@ Together with \cref{equation bare mass,equation bare decay constant}, the NLO re
     \label{NLO f}
     f  &= 0.64835\, m_\pi = 85.9 \, \mathrm{MeV}.
 \end{align}
+%
 
 In \autoref{section: free energy at lowest order}, we found a relationship between $\alpha$ and $\mu_I$, using the lowest-order result for $\Ef$, given in \cref{leading order minization}.
 To calculate any thermodynamic quantities to leading order, at tree-level, we must use this result.
@@ -219,30 +230,36 @@ We can therefore expand the free energy as
     \Ef = t^2 g^{-1} \Ef_2^{(0)} + t^2 \Ef_2^{(1)} + t^4 g^{-1} \Ef_4^{(0)}
     + ...
 \end{equation}
+%
 We consider terms where $k = L + n$ has the same value to be of same order.
 This expansion can be written as
 \begin{equation}
     \Ef = \sum_{k=0}^\infty \sum_{n+L=k} t^{2n} g^{L-1} \Ef_{2n}^{(L)}.
 \end{equation}
+%
 If we now define
 \begin{equation}
     \tilde \Ef_k = \sum_{n+L=k} t^{2n} g^{L-1} \Ef_{2n}^{(L)},
 \end{equation}
+%
 then scale $t \rightarrow \sqrt{s} \, t$ and $g \rightarrow s g$, where $s$ is some real number, then $t^{2n}g^{L-1}$ scales as $s^{n+L-1} = s^{m-1}$.
 All expansions are now done in this new parameter $s$.
 The free energy expansion is
 \begin{equation}
     \Ef = s^{-1}\sum_{k = 0}^\infty \tilde \Ef_k \, s^{k}.
 \end{equation}
+%
 As argued earlier, $\alpha$ must minimize the free energy, and therefore satisfy
 \begin{equation}
-    \diffp{\Ef}{\alpha} = 0.
+    \diffp{\Ef}{\alpha} = 0,
 \end{equation}
+%
 to all orders.
 We expand this solution in $s$,
 \begin{equation}
     \alpha = \alpha_0 + \alpha_1 s + \dots.
 \end{equation}
+%
 Combining this, we get
 \begin{align}
     \nonumber
@@ -286,6 +303,7 @@ Combining this, we get
     \Oh[1]{s}.
     \label{minimizing free energy expansion}
 \end{align}
+%
 Here, the prime indicates partial derivatives with respect to $\alpha$.
 The equality in \cref{minimizing free energy expansion} has to hold term for term.
 After setting $s = g = t = 1$, we get
@@ -301,12 +319,14 @@ The first correction is on this result is
     \quad 
     \tilde \Ef_1 = \Ef_{4}^{(0)} + \Ef_{2}^{(1)}.
 \end{equation}
+%
 
 The next to leading order results for the free energy and $\alpha$ are
 \begin{equation}
     \Ef_\mathrm{NLO} = \tilde \Ef_0 + \tilde \Ef_1, \quad
     \alpha_\mathrm{NLO} = \alpha_0 + \alpha_1.
 \end{equation}
+%
 % If we use this to result to obtain an NLO-version of the equation for $\alpha$, we get
 We have that
 \begin{equation}
@@ -314,6 +334,7 @@ We have that
     = \tilde \Ef_0'(\alpha_0) + \alpha_1 \tilde \Ef_0''(\alpha_0) + \dots
     + \tilde \Ef_1'(\alpha_0) + \dots,
 \end{equation}
+%
 where the excluded terms are beyond next-to-leading order.
 Using \cref{NLO correction alpha}, we see that this vanishes to next-to-leading order.
 We therefore use the criterion
@@ -321,6 +342,7 @@ We therefore use the criterion
     \label{alpha nlo method 2}
     \diffp{\Ef_\mathrm{NLO}}{\alpha} \bigg|_{\alpha=\alpha_{\mathrm{NLO}}} = 0
 \end{equation}
+%
 to calculate $\alpha_\text{NLO}$.
 The result is shown in \autoref{fig:alpha}, which compares the leading order and next-to-leading order results for $\alpha$.
 
@@ -333,10 +355,11 @@ The result is shown in \autoref{fig:alpha}, which compares the leading order and
 
 We can use the expansion in $s$ to consistently evaluate any observable to any power in perturbation theory.
 Assume that $f$ is some obserable, and a function of $\alpha$.
-We expand in $s$
+We then expand in $s$,
 \begin{equation}
     f(\alpha) = f_0(\alpha) + s f_1(\alpha) + s^2 f_2(\alpha) + \dots
 \end{equation}
+%
 When Taylor expanding around the leading order result for $\alpha$, we get
 \begin{align*}
     f(\alpha) 
@@ -357,6 +380,6 @@ However, as
 \begin{equation}
     f_1(\alpha_0 + s\alpha_1) = f_1(\alpha_0) + \Oh[1]{s},
 \end{equation}
-we get also a consistent expansion if we evaluate the leading order result and its correction at next-to-leading order in $\alpha$.
-This is what we will do to obtain the results in the next section.
-
+%
+we also get a consistent expansion if we evaluate the leading-order result and its correction at next-to-leading order in $\alpha$.
+We will do this to obtain the results in the next section.

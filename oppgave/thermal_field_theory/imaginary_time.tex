@@ -101,7 +101,8 @@ By inserting the completeness relations \autoref{functional completness} $N$ tim
     \inner{\pi_n}{e^{- \epsilon \hat H}}{\varphi_{n+1}} \braket{\varphi_{1}}{\varphi_{N+1}},
 \end{align*}
 where $\epsilon = \beta / N$. The last term ensures that $\varphi_1 = \varphi_{N+1}$.
-As will be shown later, bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$, while fermions follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$.
+Bosons such as the scalar field $\varphi$, follow the periodic boundary condition $\varphi(0, \vec x) = \varphi(\beta, \vec x)$.
+Fermions, as we will show later, follow the anti-periodic boundary condition $\psi(0, \vec x) = -\psi(\beta, \vec x)$.
 We now want to exploit the fact that $\ket{\pi}$ and $\ket{\varphi}$ are the eigenvectors of the operators that define the Hamiltonian.
 In our case, as the Hamiltonian density $\He$ can be written as a sum of functions of $\varphi$ and $\pi$ separately, $\He[\varphi(\vec x), \pi(\vec x)] = \mathcal{F}_1[\varphi(\vec x)] + \mathcal{F}_2[\pi(\vec x)]$ we may evaluate it as $\inner{\pi_n}{\He[\hat \varphi(\vec x), \hat \pi(\vec x)]}{\varphi_{n+1}} = \He[\varphi_{n+1}(\vec x), \pi_n(\vec x)] \braket{\pi_n}{\varphi_{n+1}}$.
 This relationship does not, however, hold for more general functions of the field operators.
@@ -200,18 +201,8 @@ The result is the same partition function as before,
     \exp{- \int_0^\beta \dd \tau \int_V \dd^3x \, \Ell_E(\varphi, \pi)}.
 \end{align}
 
+
 \subsection*{Fourier series}
-% Imaginary-time formalism is set in a Euclidean space $\Omega = [0, \beta] \times V$,
-% where  $V = L_xL_yL_z$ is a space-like volume. The possible momenta in this space are
-% \begin{equation*}
-%     \tilde V = \left\{ \vec k \in \R^3 \,\Big|\, \vec k = 
-%     \left(
-%         \frac{2 \pi n_x}{L_x}, 
-%         \frac{2 \pi n_y}{L_y},
-%         \frac{2 \pi n_z}{L_z} 
-%         \right)
-%     \right\}
-% \end{equation*}
 
 Due to the finite range of the imaginary-time coordinate $\tau \in [0, \beta]$, the momentum-space fields in imaginary-time formalism have a discrete coordinate. 
 We define the Matsubara-frequencies as $\omega_n = 2 n \pi / \beta$ for bosons and $\omega_n = (2n + 1) \pi / \beta$ for fermions.
@@ -244,14 +235,14 @@ For bosons, the Fourier expansion is
     \tilde \varphi_n(\vec p) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}, \\
     \tilde \varphi(K)
     = &
-    \sqrt{\frac{1}{V \beta^3}} \int_{\tilde \Omega} \dd X \,  \tilde \varphi(X) e^{ - i X\cdot K}
+    \sqrt{\frac{1}{V \beta^3}} \int_{\tilde \Omega} \dd X \,  \tilde \varphi(X) e^{ - i X\cdot K},
 \end{align*}
 while for Fermions it is
 \begin{equation}
     \psi(X) 
     = \sqrt{V} \int_{\tilde \Omega} \dd K \, \tilde \psi(K) e^{i X\cdot K} 
     = \frac{1}{\sqrt{V}} \sum_{n = - \infty}^\infty \sum_{\vec k \in \tilde V}
-    \psi(\omega_n, \vec k) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}
+    \psi(\omega_n, \vec k) \exp{i(\omega_n \tau + \vec x \cdot \vec k)}.
 \end{equation}
 Two often used identities are
 \begin{align}
